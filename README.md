@@ -4,6 +4,12 @@ AIツールが利用可能な、MFKU公式Webサイトのミラーです。
 
 https://mirrgieriana.github.io/MFKU-Official-Web-Site-Mirror/site/MFKU%20Official%20Web%20Site%20150a1ac240dd813898b9d5f05acdd26c.html
 
+## AIへの指示
+
+以下のURLを指示すると、リンクをたどる能力を持ったAIはMFKU公式Webサイトのミラーの情報にアクセスすることができます。
+
+https://mirrgieriana.github.io/MFKU-Official-Web-Site-Mirror/
+
 ## バージョン
 
 MFKU Official Web Site Mirrorは、常に最新のMFKU公式Webサイトの内容を追従しているわけではありません。
