@@ -1,0 +1,714 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>MirageFairy2019 v26　豆の木ミニアップデート</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="3bce4f6c-3cd6-4542-bc2e-39670c2a2c0f" class="page serif"><header><img class="page-cover-image" src="v26%201.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="mirage_flower_280x280%2025.png"/></div><h1 class="page-title">MirageFairy2019 v26　豆の木ミニアップデート</h1><p class="page-description"></p></header><div class="page-body"><figure id="2bbd3a54-8b3c-4e33-addc-7baacf8d69d2" class="image"><a href="v26.png"><img style="width:1889px" src="v26.png"/></a></figure><nav id="93606f91-4947-41aa-85bb-f673bc8cd0ca" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#00bf533c-7e3a-4e15-bec2-f94891125440">システム「豆の木」追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#d0d22422-73da-4677-a8bc-c81858313857">「豆の木パイプ」追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#4da13ccb-931b-4e1d-ac15-01e24f128a3b">「豆の木の根」追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#59fda907-54d7-4f4b-941f-efe27d8cc9e9">「豆の木インポーター」追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#cc38daff-c74a-4cee-bb13-a30d7b7b1241">設置</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#9570fcf2-1efd-4629-b5a9-90a506c4bb17">動作</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#dae83a06-4db5-4af9-ad67-08d9814d938d">輸送アクション</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#aef4a351-92c0-4bf8-9008-413afbd64f7e">「豆の木エクスポーター」追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#caafd061-c6ad-4ff2-96c1-0357457dd601">樹液取り職人スプルーツァの家の挙動変更</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#97aacf26-ca54-4cfd-b9e8-c27ff9732dea">妖精武器「ファイアロッド」追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#94f34b8f-cb98-4ed1-b841-37bed2cb8001">妖精のエルグ改変</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d48d42c9-ac55-4a1d-83bd-a8df2e5347f2">射出エルグ→運動エルグ</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#44e7cb5e-7b65-4ff4-80c1-083d7047d04a">運動・浮揚エルグ値調整</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#eeb4d486-87a0-4747-af77-945dd2d39bc4">「エルグ耐性値」追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2ed22847-fe51-42a8-b49f-1562ea0effb6">エルグの表示を変更</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#e0a7632f-8cc0-4c9e-abc5-6d9b989cf317">システム「エルグ耐性」追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#6574e47b-6888-4adf-a970-6ce700f7f125">エルグ耐性値の計算</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#f2e0d78f-26c9-4341-9362-faf6ead42638">軽減率の計算</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#21858642-1862-4c51-b93c-3fd3355955bd">適用対象の攻撃手段</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#c38845a7-0238-492b-8fe1-c802b187d19d">その他のアップデート</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#cf97bf0d-e2fc-4ab6-a8c7-83d659c6a828">見た目のアップデート</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#7d562f48-a4b5-46a6-8516-423cc3c05674">クリエイティブのアップデート</a></div></nav><p id="05a1d0f6-c4ab-4c98-bb7c-1c55f775ed9a" class="">MirageFairy2019 v26における前のサーバーアップデートからの更新点です。</p><hr id="3da6190b-bbe5-450c-860a-9a2ab7bba7ce"/><p id="d6d0f7fa-b8f6-4c20-8ecb-a0763a87664d" class="">
+</p><h1 id="00bf533c-7e3a-4e15-bec2-f94891125440" class="">システム「豆の木」追加</h1><p id="61755ced-41de-459f-ba35-1adc48e36645" class="">新システム「豆の木」を追加しました。</p><p id="84812b76-4a2c-4312-984d-15f543d9cdc5" class="">
+</p><p id="6355b24f-a396-4b6a-9773-057e3ee86a6c" class="">豆の木はツタ状の外見を持った輸送管です。</p><p id="87b95534-86a2-4696-a2a2-43bc95dcd1ad" class="">豆の木は人工的に作製して設置するもので、成長や種まきの要素はありません。</p><figure id="a5850b80-52c5-4296-a99f-02501a36d21e" class="image"><a href="Untitled%20801.png"><img style="width:889px" src="Untitled%20801.png"/></a></figure><p id="798d2557-cb19-4493-954b-9b01faabe51c" class="">
+</p><p id="75afe422-7fea-4b9e-b632-fec87b1e376a" class="">豆の木はハシゴの機能を兼ねており、更にハシゴやツタと異なり壁は不要です。</p><figure id="e1dda1af-d299-475e-a305-a674636da6c9" class="image"><a href="Untitled%20802.png"><img style="width:384px" src="Untitled%20802.png"/></a></figure><p id="1a2ef2ad-d1bb-4822-902c-1cdbda2040d5" class="">
+</p><p id="32073c61-2472-439e-ad4d-5bbfdd904fbe" class="">豆の木は全体としてただ1か所の「根元」と、複数設置可能な「花」を持ちます。</p><p id="bd2072be-3a0a-417b-bf90-26c0f531f679" class="">「根元」に接続された「箱」を、先端の「花」に紐づけるのが豆の木の機能です。</p><figure id="d32f6e69-d18d-406d-83d3-4e00f0adc633" class="image"><a href="Untitled%20803.png"><img style="width:192px" src="Untitled%20803.png"/></a></figure><p id="b3e106c8-74ed-48f3-b27c-1d9c0d289a15" class="">
+</p><figure class="block-color-red_background callout" style="white-space:pre-wrap;display:flex" id="26d58825-6adf-4592-b356-aececed6aa8f"><div style="font-size:1.5em"><span class="icon">❗</span></div><div style="width:100%">「豆の木」システムは開発されて間もないため、未知のバグの危険があります。<p id="7bf8e098-0f6d-4b63-aa29-df2081a169f8" class="">安全を確認するまでは貴重なアイテムの扱いには利用しないことを推奨します。</p></div></figure><h1 id="d0d22422-73da-4677-a8bc-c81858313857" class="">「豆の木パイプ」追加</h1><p id="7de9b63f-d700-428b-aaaf-c78ac196154f" class="">Tier 5から作製可能なブロック「豆の木パイプ」を追加しました。</p><figure id="fdb2240e-b468-4e1f-8db5-ddcd2513aded" class="image"><a href="Untitled%20804.png"><img style="width:237px" src="Untitled%20804.png"/></a></figure><figure class="block-color-red_background callout" style="white-space:pre-wrap;display:flex" id="6980aebf-22fd-4e01-b373-fccbaf54472d"><div style="font-size:1.5em"><span class="icon">❗</span></div><div style="width:100%">このレシピは暫定的なもので、「豆」追加時に変更になる可能性があります。<p id="292ede01-7009-4295-b4b9-9dd112b895c5" class="">その他の豆の木系ブロックでも同様です。</p></div></figure><p id="265c5e48-56bb-4d86-855e-a2bf8e22ea3d" class="">
+</p><p id="2384db13-556c-46b3-9f50-e04b9c786f07" class="">豆の木パイプは設置時の「根元の方向」を記憶します。</p><p id="60c0fc57-ab30-493b-a9d1-43a1537256eb" class="">別の豆の木パイプに向けて豆の木パイプを設置することで豆の木の伸長ができます。</p><p id="bced7e78-d655-4331-870c-f3e049dad76f" class="">一つの豆の木パイプに複数の豆の木パイプを設置することで枝分かれができます。</p><p id="feace7d5-f017-48b4-959e-c9e30da5f5c5" class="">豆の木の「根元の方向」は、Applied Energistics 2のレンチの回転に対応しています。</p><div id="ad9057db-7e20-4d97-bdbf-904d5e768061" class="column-list"><div id="c287e520-38b7-4e96-8182-4fe887eeb092" style="width:50%" class="column"><figure id="ae4003d7-6563-4a2a-942c-51e536c85d4f" class="image"><a href="Untitled%20805.png"><img style="width:831px" src="Untitled%20805.png"/></a></figure></div><div id="a9867a75-7201-496f-9452-f60b11f4ae30" style="width:50%" class="column"><figure id="cbe34b44-402c-4eb0-a56e-3d843db703da" class="image"><a href="Untitled%20806.png"><img style="width:977px" src="Untitled%20806.png"/></a></figure></div></div><p id="a8e7e525-629e-46cf-89c1-ac474d2973ab" class="">
+</p><p id="197a9269-6f5c-4d7b-ab99-efcca15a255f" class="">豆の木パイプ自体には内部インベントリや特殊な効果はありません。</p><h1 id="4da13ccb-931b-4e1d-ac15-01e24f128a3b" class="">「豆の木の根」追加</h1><p id="ddd312e9-a7a3-4bc5-b5c3-9a8483efcb3e" class="">Tier 5から作製可能なブロック「豆の木パイプ」を追加しました。</p><figure id="700a1208-b36b-4114-879c-1f6658c0efeb" class="image"><a href="Untitled%20807.png"><img style="width:238px" src="Untitled%20807.png"/></a></figure><p id="e62e44ed-a7aa-4764-befc-38d6b8ca0e00" class="">
+</p><p id="0b222d02-0e68-4a16-a593-18e3d98edd5c" class="">豆の木の根は根っこの見た目を持つ豆の木パイプの亜種です。</p><p id="5a101be5-02a8-4039-b70a-b7115434fe2b" class="">
+</p><p id="e7dc362c-4cb1-45bf-abcb-e93c81a232ac" class="">豆の木の根はチェスト等のコンテナに向けて設置します。</p><p id="36b1ac2a-d0cf-4cbb-8203-a954b92babb4" class="">豆の木の根の反対側には豆の木パイプを接続できます。</p><div id="67d4af39-359c-4c7a-a582-b9f3e82a2642" class="column-list"><div id="9d2f1f35-e1a5-45f6-bdbf-a2689698bb09" style="width:50%" class="column"><figure id="984d6cdd-3824-4296-9f60-091677b4bb47" class="image"><a href="Untitled%20808.png"><img style="width:336px" src="Untitled%20808.png"/></a></figure></div><div id="6f0c55c2-6db4-4162-98d1-9506312ecd13" style="width:50%" class="column"><figure id="3afeba2c-b552-45d3-a93f-5d531aa9c5a5" class="image"><a href="Untitled%20809.png"><img style="width:240px" src="Untitled%20809.png"/></a></figure></div></div><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="45a30591-76a7-4e61-8e54-3771dde9f31b"><div style="font-size:1.5em"><span class="icon">ℹ️</span></div><div style="width:100%">豆の木パイプと豆の木の根の違いは見た目のみで、機能に違いはありません。</div></figure><h1 id="59fda907-54d7-4f4b-941f-efe27d8cc9e9" class="">「豆の木インポーター」追加</h1><p id="88fca65f-e380-49f0-b242-c19e60581498" class="">Tier 5から作製可能なブロック「豆の木インポーター」を追加しました。</p><figure id="0157679a-4f8f-4bc9-baee-6f8ce651ae02" class="image"><a href="Untitled%20810.png"><img style="width:237px" src="Untitled%20810.png"/></a></figure><p id="e380f827-bfdf-4022-a931-f55eb0ebea12" class="">
+</p><p id="8354a11a-4610-4de1-b2f6-71184ecc1e2b" class="">豆の木インポーターは面している箱から根元の箱に向けてアイテムを輸送する花です。</p><h2 id="cc38daff-c74a-4cee-bb13-a30d7b7b1241" class="">設置</h2><p id="a4974012-9866-443a-9d04-5a69814693f0" class="">豆の木インポーターの設置の仕方は豆の木パイプと同様です。</p><p id="6ff91984-9295-469d-97f2-0fd814e32b84" class="">そのため、取り扱う箱ではなく豆の木を伸長するようにして設置します。</p><p id="f11599c7-d707-438f-b450-b67764d88fc9" class="">
+</p><p id="cecde003-73b6-49ac-a37f-ae7283330fc3" class="">豆の木側を右クリックして設置する場合、井形の中央部を右クリックしてください。</p><p id="3f6d5ee1-22b9-4dbc-9103-299f4b78804b" class="">箱側を右クリックして設置する場合、井形の角の部分を右クリックしてください。</p><div id="b571f390-1648-47b1-8d83-847f012be7ef" class="column-list"><div id="70e9f28a-a562-4184-9a57-136edabacee2" style="width:50%" class="column"><figure id="5d3543d1-7bf3-478a-840f-ffb20567d723" class="image"><a href="Untitled%20811.png"><img style="width:288px" src="Untitled%20811.png"/></a></figure></div><div id="e10c0263-0018-4a4c-9adb-7229b57af8e6" style="width:50%" class="column"><figure id="11b2bb97-1d66-4f71-9d85-de0ad90c5cf7" class="image"><a href="Untitled%20812.png"><img style="width:240px" src="Untitled%20812.png"/></a></figure></div></div><p id="d4c7ac3b-c4b3-4b9d-a3a9-a9ee81141f80" class="">
+</p><p id="d6f41a82-af27-44d9-80c1-03643651bfdb" class="">豆の木インポーターが取り扱う箱は必ず豆の木側と真逆の方向になります。</p><p id="60c2a398-f4bb-4c73-9b20-f87d8835c34d" class="">（ブロックの持てる状態数の都合上、）折り曲げて設置することはできません。</p><h2 id="9570fcf2-1efd-4629-b5a9-90a506c4bb17" class="">動作</h2><p id="e1049fb9-6579-43b5-b1d8-567e20fe0a6a" class="">豆の木インポーターは平均して1分に1回、輸送アクションを行います。</p><p id="bb5ead38-f85b-48de-a768-ca695aa581a7" class="">また、豆の木インポーターを右クリックすると即時輸送アクションを行います。</p><p id="c94f1d47-7488-4039-a0dc-2233350391e7" class="">
+</p><p id="4f51df97-a616-47b8-afdf-6b9551f27d35" class="">輸送のタイミングは不定期で長めですが、代わりに一度に大量のアイテムを輸送します。</p><p id="90136787-869b-40ee-8a4c-373646650b0b" class="">かまどのように加工がゆっくりで入出力スロットに余裕がある加工機械に向きます。</p><figure id="d0c7a094-87db-4a42-b469-1f67562bb32b" class="image"><a href="Untitled%20813.png"><img style="width:188px" src="Untitled%20813.png"/></a></figure><h2 id="dae83a06-4db5-4af9-ad67-08d9814d938d" class="">輸送アクション</h2><p id="a2c1d12a-f57b-42d6-ad42-5e3b35bc32d7" class="">花が向いているブロックから根元のブロックに向けてアイテムを瞬間移動させます。</p><p id="c0455a22-1733-459a-9a29-6531f74d161f" class="">アイテムの輸送はコンテナの左上から一度に最大9スタック行われます。</p><p id="d4ccad4d-e4ea-4830-8de9-78128a5ddcf3" class="">最大で64×9個のアイテムを一度に運ぶことができます。</p><figure id="656ce2ee-73f3-4f9d-9cf5-22db27006f05" class="image"><a href="Untitled%20814.png"><img style="width:390px" src="Untitled%20814.png"/></a></figure><p id="6afdcdbd-1c19-4a84-abed-77daf465f5a2" class="">
+</p><p id="93b36c92-f151-46ff-95e4-6c2d74f0a68d" class="">豆の木や豆の木インポーターは内部スロットを持ちません。</p><p id="070bfc43-cb95-4c34-a747-f4b5da26925d" class="">この性質は加工機械の並列化に効果的に活用できます。</p><figure id="dbd74ebb-0282-4036-86e7-1f38e4b323d1" class="image"><a href="Untitled%20815.png"><img style="width:576px" src="Untitled%20815.png"/></a></figure><p id="119ab69c-295a-44de-b645-43271670b220" class="">
+</p><p id="27548148-61a0-44de-9e5b-4ce3c724fef9" class="">輸送するアイテムのフィルタリング機能を後日追加予定です。</p><h1 id="aef4a351-92c0-4bf8-9008-413afbd64f7e" class="">「豆の木エクスポーター」追加</h1><p id="ab206af8-1f09-4179-bb42-eaf8f0af1316" class="">Tier 5から作製可能なブロック「豆の木エクスポーター」を追加しました。</p><figure id="d8fb98c9-e116-42b6-bd0b-07b5420da68e" class="image"><a href="Untitled%20816.png"><img style="width:238px" src="Untitled%20816.png"/></a></figure><p id="3bfde09d-811a-4692-9212-9aa51fd343f6" class="">
+</p><p id="4c962409-e161-4f8f-a9fa-9e42d3446c40" class="">豆の木エクスポーターは根元の箱から面している箱に向けてアイテムを輸送する花です。</p><p id="17e45ab1-85fe-48c3-89a1-28958334d5f0" class="">大まかな挙動は豆の木インポーターに準じます。</p><p id="7adfb1f0-9896-469e-adde-07600534e727" class="">
+</p><p id="e3483193-27f1-4ed7-b997-c0f3065a1297" class="">豆の木は根元を1個しか持てませんが、多入力・他出力な輸送にも応用できます。</p><figure id="8626757b-3719-4e1e-ac9c-f70853e3b0f6" class="image"><a href="Untitled%20817.png"><img style="width:432px" src="Untitled%20817.png"/></a></figure><h1 id="caafd061-c6ad-4ff2-96c1-0357457dd601" class="">樹液取り職人スプルーツァの家の挙動変更</h1><p id="818723a8-21c8-40a8-a640-c959e85b4024" class="">真下に空のホッパーがある場合、正面の空間ではなくそちらに成果物を搬出します。</p><p id="e4ba81e4-7572-4977-8dba-7cd862717ab1" class="">エンティティを経由しないため比較的軽量であるほか、Lazy Chunkに影響されません。</p><p id="7172b648-a510-401f-93ee-3b42d6c38cf7" class="">
+</p><p id="873d50d1-81e1-431b-9e42-f47f61e6d654" class="">側面はまだ反応せず、空のホッパー以外の輸送ブロックにも反応しません。</p><p id="cc631c67-ee3e-442d-be84-a79674d7e38d" class="">ホッパーを即時空けるために一旦チェストなどに収納するのがよいです。</p><p id="8d652058-a813-42b2-89d8-07be5db9df4b" class="">
+</p><p id="879ae297-df6d-4053-88e3-eec6e601245f" class="">継続的に樹液を加工する配置例です。</p><figure id="7a912c92-b43c-488e-b625-66f0eada489f" class="image"><a href="Untitled%20818.png"><img style="width:581px" src="Untitled%20818.png"/></a></figure><h1 id="97aacf26-ca54-4cfd-b9e8-c27ff9732dea" class="">妖精武器「ファイアロッド」追加</h1><p id="95b15594-8cd6-4f4d-a03d-4aeeeb62e751" class="">Tier 3から製作可能な妖精武器「ファイアロッド」を追加しました。</p><figure id="f78b35ac-7629-46fa-b098-1988b587db01" class="image"><a href="Untitled%20819.png"><img style="width:237px" src="Untitled%20819.png"/></a></figure><p id="d708c3f5-efce-4ee4-a462-94a63d32dce1" class="">
+</p><p id="d26467fc-95a1-4ebe-99e1-29750b728471" class="">大まかな特性はライトニングロッドに準じますが、主に以下の点で異なります。</p><ul id="a49f0280-0d90-4287-8b89-17a2e60d382a" class="bulleted-list"><li style="list-style-type:disc">火炎エルグダメージを与える。</li></ul><ul id="7ccf12be-fe7a-4d07-b936-ca993a602f72" class="bulleted-list"><li style="list-style-type:disc">一部のモンスターや耐火のポーションにより無効化される。</li></ul><ul id="eff02be2-b80a-48a8-83a6-dd7116515f81" class="bulleted-list"><li style="list-style-type:disc">ターゲット数4の範囲攻撃である。</li></ul><ul id="ead004c1-5c72-4e88-8e53-c22707dc9cc7" class="bulleted-list"><li style="list-style-type:disc">対象を炎上状態にする。</li></ul><ul id="9414c75c-fbf4-4bf2-af73-8bfcfdb8b249" class="bulleted-list"><li style="list-style-type:disc">動物の撃破時、焼いた肉を落とす。</li></ul><h1 id="94f34b8f-cb98-4ed1-b841-37bed2cb8001" class="">妖精のエルグ改変</h1><h2 id="d48d42c9-ac55-4a1d-83bd-a8df2e5347f2" class="">射出エルグ→運動エルグ</h2><p id="988c44fe-b60f-48d9-b4e9-9e4ce7037a01" class="">「射出」のエルグの名称を「運動」に変更しました。</p><figure id="ef785f47-c2b4-433b-aee8-047646963062" class="image"><a href="Untitled%20820.png"><img style="width:189px" src="Untitled%20820.png"/></a></figure><h2 id="44e7cb5e-7b65-4ff4-80c1-083d7047d04a" class="">運動・浮揚エルグ値調整</h2><p id="18d6fc50-70ae-4d6a-8615-7c99423bfbe5" class=""><mark class="highlight-red"><strong>妖精の運動および浮揚のエルグの値を調整しました。</strong></mark></p><p id="72c86876-b7b3-489b-97fa-c6459104e29a" class="">これにより妖精の使い勝手に影響がある場合があります。</p><h2 id="eeb4d486-87a0-4747-af77-945dd2d39bc4" class="">「エルグ耐性値」追加</h2><p id="a9488797-dadf-4c2d-8c7a-c77be436b2c9" class="">妖精のステータスに「エルグ耐性値」を追加しました。</p><p id="788551d2-5f9c-4ca5-871f-17cba3b6f9ba" class="">エルグ耐性値とはエルグに対する防御力で、高いほどそのエルグに対して堅いです。</p><p id="b5b45744-099b-41ac-b0dc-bbdd17a514a8" class="">エルグ耐性値はエルグ値に比例しますが、レア度やランクの影響を受けません。</p><h2 id="2ed22847-fe51-42a8-b49f-1562ea0effb6" class="">エルグの表示を変更</h2><p id="ce07dad5-9708-4a63-97d3-a541ed7919e9" class="">妖精のツールチップのエルグ表示を変更しました。</p><ul id="af2098d2-d78d-4d67-9b6d-4e849dbdef79" class="bulleted-list"><li style="list-style-type:disc">自動改行するようになった。</li></ul><ul id="736940b0-53fa-4835-ac39-7d25086cc820" class="bulleted-list"><li style="list-style-type:disc">詳細表示時、0を超えるすべてのエルグを表示するようになった。</li></ul><ul id="e1ab337b-9630-4876-b243-d6bccb222efb" class="bulleted-list"><li style="list-style-type:disc">詳細表示時、エルグ値を小数点以下の表示を廃止。</li></ul><ul id="849e1a1d-52e6-49fd-9c8c-7e1529f150e4" class="bulleted-list"><li style="list-style-type:disc">詳細表示時、エルグ値の右にエルグ耐性値を表示。</li></ul><figure id="f8edddcb-cdf5-4f12-ad10-dbcfd207b4a5" class="image"><a href="Untitled%20821.png"><img style="width:367px" src="Untitled%20821.png"/></a></figure><h1 id="e0a7632f-8cc0-4c9e-abc5-6d9b989cf317" class="">システム「エルグ耐性」追加</h1><p id="797b7b68-351e-43f5-b4cf-a7d953e936ec" class="">新システム「エルグ耐性」を追加しました。</p><p id="7ffcd81f-edfc-48f4-a3b5-3041726ba182" class="">一部手段での攻撃時、対象のエルグ耐性によって効果が軽減・吸収されます。</p><h2 id="6574e47b-6888-4adf-a970-6ce700f7f125" class="">エルグ耐性値の計算</h2><p id="0d01f529-cdc0-4097-89fe-4195816c15fd" class="">生物のエルグ耐性値は、以下のうちの最大の値を取ります。</p><ul id="28af6983-198e-4063-8926-5923edd78b2c" class="bulleted-list"><li style="list-style-type:disc">生物に紐づいた妖精のエルグ耐性値</li></ul><ul id="3e745170-3e92-45a9-b8ce-06fc4b5c3730" class="bulleted-list"><li style="list-style-type:disc">防具・手持ちアイテムの妖精（搭乗状態含む）のエルグ耐性値の1/2</li></ul><ul id="b08a5c9e-b7fd-45d0-a9d6-818d9162ee8e" class="bulleted-list"><li style="list-style-type:disc">防具・手持ちアイテムに紐づいた妖精のエルグ耐性値の1/4</li></ul><p id="2f797b46-a343-4067-9c1b-e63757bc27b6" class="">
+</p><p id="15d0be04-ecf5-43e4-a115-6a9d2c01dee3" class="">【生物に紐づいた妖精の例】</p><p id="71dd1a31-c1c5-4084-8598-936664eaa48b" class="">例えばウィザーに紐づいた妖精である枯精ウィテーリャは雷電が6/<span style="border-bottom:0.05em solid">3</span>です。</p><p id="7edfdbf3-8527-4d84-8411-aa4a3034754a" class="">そのため、雷電のエルグ耐性値は3です。</p><p id="015b32ea-bd88-41ab-bf80-6ea7cbc58610" class="">※エルグ耐性値は凝縮ランクに関わらず一定です。</p><figure id="18ae3872-5a84-401c-989b-f130eb311304" class="image"><a href="Untitled%20822.png"><img style="width:373px" src="Untitled%20822.png"/></a></figure><p id="90fa7148-6b8e-4eff-ba00-5a9cc955dab2" class="">プレイヤーのエルグ耐性値は次のようになっており、化学や流水エルグを軽減します。</p><figure id="bd58583a-ea95-49b0-93b1-3560260c9378" class="image"><a href="Untitled%20823.png"><img style="width:373px" src="Untitled%20823.png"/></a></figure><p id="0b824fd8-14d8-4372-919f-f65a10689267" class="">
+</p><p id="396bff19-d599-4699-bea8-6a702d678939" class="">【防具・手持ちアイテムの妖精の例】</p><p id="95f0292e-1802-460a-b3a5-58164ad735f9" class="">雷精ツンデーリャの雷電のエルグ耐性値は18です。</p><p id="1b4fd721-a747-415c-8898-bd6371b9fa5f" class="">手持ち状態では効果は1/2となるため、実際に適用されるエルグ耐性値は9となります。</p><p id="211de0df-dd46-4e75-bf31-167068163f0b" class="">※妖精武器に搭乗させた状態でも同様に1/2の倍率で判定されます。</p><figure id="1236d6c3-ebb8-4a8a-b7cc-7475100fc2b9" class="image"><a href="Untitled%20824.png"><img style="width:361px" src="Untitled%20824.png"/></a></figure><p id="e3ca26cd-f136-437c-8aed-e6a8d094465b" class="">
+</p><p id="4965a26c-0cfe-4147-b6b2-8ffeecfcf3a5" class="">【防具・手持ちアイテムに紐づいた妖精の例】</p><p id="64f979d3-cf28-4e27-a402-ca569faa5a5a" class="">例えばトルマリンでは、JEIからこのアイテムに紐づいた妖精が確認できます。</p><figure id="3a1c6213-e98e-4aa3-8dce-4ae60653de47" class="image"><a href="Untitled%20825.png"><img style="width:237px" src="Untitled%20825.png"/></a></figure><p id="50e7cb15-09df-45ec-adf3-7624f10fa019" class="">電気石精トウルマリーニャの雷電のエルグ耐性値は14です。</p><p id="74d2d4e0-afa9-40e4-bf8c-cdaa99cb4aec" class="">トルマリンを手に持っている間、その1/4の3.5のエルグ耐性値が適用されます。</p><p id="aa60a2b8-46b1-46cd-b76b-6ce65a5a294a" class="">※現バージョンでは妖精が紐づけられた防具はありません。</p><figure id="4d96a367-c072-4678-bf41-8209f7e536ae" class="image"><a href="Untitled%20826.png"><img style="width:356px" src="Untitled%20826.png"/></a></figure><p id="16c7adb1-d970-4005-9b33-b24fe0cd7d92" class="">
+</p><p id="3e59acb0-4e64-4db6-9243-e14cb6a60bed" class="">エルグ耐性値は条件を満たしたものの合計ではなく、最大のものを使います。</p><h2 id="f2e0d78f-26c9-4341-9362-faf6ead42638" class="">軽減率の計算</h2><p id="132e9048-fb8c-4b0d-8892-0da4135a43c3" class="">エルグ耐性値1ごとに10%、ダメージを軽減します。</p><p id="f4fee1dd-858a-4da2-8831-feaa56643e1e" class="">エルグ耐性値が10を超える場合、1ごとに10%、ダメージを回復に変換します。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="9b94bae4-4ce2-4bde-8118-dc3f2a6f3381" class="code"><code class="language-Plain Text">本来のダメージ = (攻撃手段ごとに計算された値)
+エルグ耐性値　 = max(
+　　　　　　　     生物に紐づいた妖精のエルグ耐性値,
+　　　　　　　     防具・手持ちアイテムの妖精のエルグ耐性値 ÷ 2,
+　　　　　　　     防具・手持ちアイテムに紐づいた妖精のエルグ耐性値 ÷ 4
+　　　　　　　   )
+実際のダメージ = 本来のダメージ × (1 - エルグ耐性値 × 0.1)
+　　　　　　　   ※ただし、0未満はその分だけ回復する</code></pre><p id="3bfc62f3-f2ab-4b5e-be0b-8990facc62a2" class="">
+</p><p id="667573eb-888d-4ad2-8370-410a3374810f" class="">エルグ耐性により吸収が発生した場合は緑のパーティクルが発生します。</p><figure id="49a85cc2-84b3-448e-8562-c0a185d06691" class="image"><a href="Untitled%20827.png"><img style="width:296px" src="Untitled%20827.png"/></a></figure><h2 id="21858642-1862-4c51-b93c-3fd3355955bd" class="">適用対象の攻撃手段</h2><ul id="5387854a-b765-4154-b152-b86b4d150120" class="bulleted-list"><li style="list-style-type:disc">ライトニングロッドの妖精魔法</li></ul><ul id="76e3bfa5-6b88-4f9d-bcc6-e53f4bf1d835" class="bulleted-list"><li style="list-style-type:disc">ファイアロッドの妖精魔法</li></ul><h1 id="c38845a7-0238-492b-8fe1-c802b187d19d" class="">その他のアップデート</h1><ul id="aaf57977-7430-41b4-a6b5-4fab2c5a0202" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red"><strong>【削除】一部のブロックに松明等が置ける不具合を修正。</strong></mark></li></ul><ul id="a9dbea55-fc7e-40dd-8b45-2375b302db4b" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red"><strong>【変更】使徒のステッキをスタック不可に変更。</strong></mark></li></ul><ul id="a7f70560-481d-4967-87ac-430409098a6e" class="bulleted-list"><li style="list-style-type:disc">【追加】妖精の木で葉の接続上限を1000から2000に上昇。</li></ul><ul id="f8707a47-4a37-4062-8849-fb1ee8807cd1" class="bulleted-list"><li style="list-style-type:disc">【追加】各種内部インベントリを持つブロックがレンチでの回転に対応。</li></ul><ul id="06168c1f-5af8-48d5-a0f0-3c9ba79e5c14" class="bulleted-list"><li style="list-style-type:disc">【修正】ミラージュフラワーの地面補正が正常に計算されないバグを修正。</li></ul><ul id="f797863a-953a-4fb5-9479-f43baf2fdd5c" class="bulleted-list"><li style="list-style-type:disc">【修正】使徒のステッキの増殖と異常な状態のアイテムが生じるバグを修正。</li></ul><h2 id="cf97bf0d-e2fc-4ab6-a8c7-83d659c6a828" class="">見た目のアップデート</h2><ul id="14fd1b41-c3e4-4fac-b4a4-9ed91d35973e" class="bulleted-list"><li style="list-style-type:disc">【変更】方向付きカーソルの線の色をより濃く変更。</li></ul><h2 id="7d562f48-a4b5-46a6-8516-423cc3c05674" class="">クリエイティブのアップデート</h2><ul id="a389fdd6-693a-44b1-84a3-8dc1af56fa76" class="bulleted-list"><li style="list-style-type:disc">【追加】「デバッグ：ブロック回転」追加。</li></ul><ul id="aeda7218-479f-48a0-a991-7cddae28ffd7" class="bulleted-list"><li style="list-style-type:disc">【追加】各種デバッグアイテムをスタック可能に変更。</li></ul><ul id="3c10f006-84ad-4e38-8c7a-5ccf0d334342" class="bulleted-list"><li style="list-style-type:disc">【修正】魔法植物関連のデバッグアイテムの名称を修正。</li></ul><ul id="6346008e-2fb9-417e-97dc-6a50839b4fa0" class="bulleted-list"><li style="list-style-type:disc">【修正】魔法植物の成長速度を表示するデバッグアイテムが魔法植物の実際の値を表示するように変更。</li></ul><p id="61d1d7fc-79e7-491a-9956-2d1d026934a1" class="">
+</p><hr id="ec49acf0-2211-470d-a4e3-07a1ee96c01e"/><p id="e2e5d73b-2bed-4c86-aab0-6f1c31cd5e73" class="">今後ともMirageFairy Server・MirageFairy2019をよろしくお願いいたします。</p><p id="31fc9b80-3d82-4ee2-86d3-1f60d181dc64" class="">2022年8月22日　MirageFairy Server運営部・技術部・創作部</p><p id="56ddd02d-8712-44ce-b4ad-50068eee3aff" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

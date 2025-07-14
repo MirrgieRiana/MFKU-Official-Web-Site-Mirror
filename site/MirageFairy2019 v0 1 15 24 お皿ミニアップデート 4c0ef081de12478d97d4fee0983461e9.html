@@ -1,0 +1,682 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>MirageFairy2019 v0.1.15.24　お皿ミニアップデート</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="4c0ef081-de12-478d-97d4-fee0983461e9" class="page serif"><header><img class="page-cover-image" src="748174834893.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="mirage_flower_280x280%2013.png"/></div><h1 class="page-title">MirageFairy2019 v0.1.15.24　お皿ミニアップデート</h1><p class="page-description"></p></header><div class="page-body"><figure id="b995dc3f-243e-4a16-89cc-d1bf98bc2d6d" class="image"><a href="Untitled%20334.png"><img style="width:1920px" src="Untitled%20334.png"/></a></figure><nav id="1a9a6f08-f70d-42e6-ab22-0d34dc36495c" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#c2d01573-00fe-4995-b210-41c70f81faf9">新ブロック「皿」追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#f7096b4c-50c2-402e-af07-a64044d8e49a">「アイテムの設置」システムの変更</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#e7c2a172-25f0-43b1-8142-8a24b4f7ea71">キーバインドを「Z」に変更</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#6892241b-013f-4767-be6d-5ca2913ac005">操作方法を変更</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#01f5e574-ad14-4f43-9086-2990c3c0b509">Zキーで設置・撤去</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#d0b53f2c-80af-4ef0-8eb4-06e7a93109b1">右クリックで回転</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#a2cc5c53-64e5-4680-a769-bd6c0c19fafb">Shift+右クリックで直立／横倒しの切り替え</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#28125697-66e3-4a56-82d1-0de1c680c68f">「プレイヤーオーラ」システムの変更</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#36b5e1c8-9d3b-4e97-8aa2-fb46ab812abe">「プレイヤーオーラ」と「フードオーラ」の分離</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#3ce1afef-8a08-40a8-86ba-68ee138531bd">「蓄積」の追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#e1ce8731-c9b5-4821-87ca-281a3e415044">「飽き」の追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#477b14b9-c956-4978-9bd2-8f916a9687e3">ガイド</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#a9520c44-c8d6-4ae9-a345-9166dd06680e">バニラ鉱石の鉱脈追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#681aad8d-eccb-4c84-a1e8-533919815c5f">JEIに鉱脈辞書のタブを追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#66508a75-456b-4df9-828d-d0026836c6fd">JEIに「MFA」タブを追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#280a5c7f-c502-4c4c-bc1f-7a6cc7c9d5c4">その他の更新点</a></div></nav><h1 id="c2d01573-00fe-4995-b210-41c70f81faf9" class="">新ブロック「皿」追加</h1><p id="63a2e34a-52c1-44d1-814c-c0250cb58e82" class="">新ブロック「皿」を追加しました。</p><figure id="55a680e0-3029-439e-9488-f73a8f52cb74" class="image"><a href="2021-08-20_15.15.10.png"><img style="width:432px" src="2021-08-20_15.15.10.png"/></a></figure><p id="b58a9939-5fd1-4c36-8748-ee085b155576" class="">皿の製作には珠玉のワンドが必要となります。</p><figure id="26b79970-f8ae-4477-a4c5-f80b361dfea0" class="image"><a href="Untitled%20335.png"><img style="width:239px" src="Untitled%20335.png"/></a></figure><p id="7e20f376-e02a-42fb-b6bc-68c17a9ad143" class="">皿の上には後述の「アイテムの設置」システムを利用してアイテムを置くことができます。</p><h1 id="f7096b4c-50c2-402e-af07-a64044d8e49a" class="">「アイテムの設置」システムの変更</h1><h2 id="e7c2a172-25f0-43b1-8142-8a24b4f7ea71" class="">キーバインドを「Z」に変更</h2><p id="7cbf3030-b2c8-4eb4-a8cd-510b8facd7df" class="">「アイテムを置く」に割り当てられるデフォルトのキーバインドが「P」から「Z」に変わりました。</p><p id="9545e682-80ee-429c-b254-e03f7c0e3ed0" class="">既に過去バージョンのMirageFairy2019を導入して起動したことがある場合、キーバインドの設定は「P」のままで勝手に変更されることはありません。</p><figure id="ef7fd63d-f8d4-4a08-83c2-ef90d0f65aea" class="image"><a href="Untitled%20336.png"><img style="width:683px" src="Untitled%20336.png"/></a></figure><h2 id="6892241b-013f-4767-be6d-5ca2913ac005" class="">操作方法を変更</h2><h3 id="01f5e574-ad14-4f43-9086-2990c3c0b509" class="">Zキーで設置・撤去</h3><p id="8afd64bb-3e2a-472d-88e9-4ae2f20ef19b" class="">Zキー（設定で変更可能、以下同様）で「地面の上の何もない空間」や「皿」の上にアイテムを置きます。</p><p id="d651abe8-8b1c-4caa-b085-6dc01eadf0d1" class="">アイテムが置かれたブロックに対して再びZキーを押すと、再びインベントリに戻ります。</p><div id="a726364c-9c21-462f-8101-4b9b30b53394" class="column-list"><div id="85c245b4-7495-4398-bbb0-39b63c7acdf5" style="width:50%" class="column"><figure id="17e18abc-cf8d-4014-9dbe-6d1b3f1e8dfe" class="image"><a href="2021-08-20_12.05.32.png"><img style="width:854px" src="2021-08-20_12.05.32.png"/></a></figure></div><div id="a57a58a3-3c72-4ce3-800d-32b750708d19" style="width:50%" class="column"><figure id="b02b7c76-ee83-495b-bb73-cf1789c24c59" class="image"><a href="2021-08-20_12.05.44.png"><img style="width:854px" src="2021-08-20_12.05.44.png"/></a></figure></div></div><p id="ffa33384-91ec-4fde-909f-4f3e06b36af3" class="">アイテムを設置した際、自動的にこちらを向くようにして置かれるようになりました。</p><figure id="7bb26703-120c-4e7e-8049-0e7cf1d32c7a" class="image"><a href="2021-08-20_12.09.29.png"><img style="width:336px" src="2021-08-20_12.09.29.png"/></a></figure><h3 id="d0b53f2c-80af-4ef0-8eb4-06e7a93109b1" class="">右クリックで回転</h3><p id="77899554-588c-4dbb-a3bf-85359d09667b" class="">右クリックは常に45度間隔でアイテムを回転させます。</p><p id="d79d1c54-0501-4469-86e1-6a7c95843cf9" class="">1回転しても直立／横倒しが切り替わることはありません。</p><h3 id="a2cc5c53-64e5-4680-a769-bd6c0c19fafb" class="">Shift+右クリックで直立／横倒しの切り替え</h3><p id="bb1d3c65-bb1f-40e2-9f7f-b62ccf1f52e2" class="">直立／横倒しを切り替えるためにアイテムを一回転させる必要はもうありません。</p><figure id="268f25cf-7545-4a6e-b696-31c92dd0573d" class="image"><a href="2021-08-20_12.10.51.png"><img style="width:336px" src="2021-08-20_12.10.51.png"/></a></figure><h1 id="28125697-66e3-4a56-82d1-0de1c680c68f" class="">「プレイヤーオーラ」システムの変更</h1><p id="4f6b57ef-decc-4a6a-96f7-43e333cf3d27" class="">プレイヤーオーラから得られる最大の能力値補正をこれまでの数倍に増やしました。</p><h2 id="36b5e1c8-9d3b-4e97-8aa2-fb46ab812abe" class="">「プレイヤーオーラ」と「フードオーラ」の分離</h2><p id="a7d30042-1636-4182-a721-29489e17d840" class=""><strong>プレイヤーオーラ</strong>は、プレイヤーが現在体内に持っているオーラの量を表します。</p><p id="1a333cae-78b1-4e86-b7f5-a45a21298ff5" class=""><strong>フードオーラ</strong>は、食べ物に設定されたオーラの量を表します。</p><p id="c7d93bd8-0c3f-458f-bce9-877d1a104fbc" class="">プレイヤーオーラは、フードオーラの設定された食べ物を食べた際に変動します。</p><h2 id="3ce1afef-8a08-40a8-86ba-68ee138531bd" class="">「蓄積」の追加</h2><p id="b56755ae-75c8-4e58-9574-8b02d791d3d5" class="">食べ物のフードオーラは、直近1回分の食事ではなく、過去100回の「回復」分に渡ってプレイヤーオーラに影響するようになりました。</p><p id="7ae4fa58-c1b8-4edf-b12e-c2acf082b491" class="">Minecraft上に表示される肉のアイコンは1個で満腹度2を表すので、このゲージ1本分で回復量20となり、過去5本分の摂食履歴がプレイヤーオーラの算出に利用されます。</p><figure id="e25ad765-475e-43ec-90ea-f19049042f18" class="image"><a href="Untitled%20337.png"><img style="width:177px" src="Untitled%20337.png"/></a></figure><p id="01ff4285-fd4b-400f-be74-52aaa362be53" class="">昔に食べた食べ物はプレイヤーオーラへの影響が小さく、最近食べた食べ物はプレイヤーオーラに大きな影響を与えます。</p><h2 id="e1ce8731-c9b5-4821-87ca-281a3e415044" class="">「飽き」の追加</h2><p id="724de57b-2445-4010-9251-bc9119998e67" class="">同じ食べ物を高い頻度で食べると、徐々に「飽きる」ようになりました。</p><p id="2dad3f13-2501-4e3a-af87-ec752a9f4f6d" class="">食べた時点でその食べ物に飽きている場合、その食べ物のフードオーラに最大で0.3倍のペナルティがかかります。</p><p id="61266f45-9763-4050-9ad2-231c3317128e" class="">飽きは別の食べ物を食べることで徐々に解除されます。</p><div id="1ce99522-24be-4a8a-a411-57b3807eedcb" class="column-list"><div id="53cf3424-8bad-41b5-bcf8-bdd4a9965fbc" style="width:33.333333333333336%" class="column"><figure id="a53fb2b9-8c14-43a4-a368-f430be4633c5" class="image"><a href="Untitled%20338.png"><img style="width:212px" src="Untitled%20338.png"/></a></figure></div><div id="077c6e70-99f4-4abf-8fc7-8f7cf7869653" style="width:33.333333333333336%" class="column"><figure id="df4bda79-c805-4922-bbd9-40a0c0b31e17" class="image"><a href="Untitled%20339.png"><img style="width:220px" src="Untitled%20339.png"/></a></figure></div><div id="8eba466b-489d-40f7-9bab-0e299a8607f4" style="width:33.33333333333333%" class="column"><figure id="ab45bdb7-1b8a-4414-bc7c-ce6ac4869c3f" class="image"><a href="Untitled%20340.png"><img style="width:164px" src="Untitled%20340.png"/></a></figure></div></div><p id="9750d64c-ff1f-41ad-9760-de35adec6e8a" class="">下のグラフは同じ食べ物をひたすら食べ続けた場合におけるプレイヤーオーラの変動を表します。</p><p id="321a8cd4-07f9-42e2-a4c4-42cee6f995bf" class="">初めのうちはペナルティが小さく、急上昇しますが、徐々に飽きのペナルティによって上昇が緩やかになり、回復量100を過ぎたあたりから、初めのペナルティの少ない摂食による影響が消滅し、最終的には本来の30%のオーラに収束します。</p><figure id="d9609b2b-6f27-4970-a95a-7108110ab160" class="image"><a href="Untitled%20341.png"><img style="width:473px" src="Untitled%20341.png"/></a></figure><h2 id="477b14b9-c956-4978-9bd2-8f916a9687e3" class="">ガイド</h2><p id="925a7409-4765-494e-a6f1-557812a58a76" class="">同じ食べ物を食べ続けると効率が下がるため、数種類のメニューをローテーションするのが簡単で効率がよいです。</p><p id="fa72a293-53b4-4e7c-b085-f7b8edf06199" class="">フードオーラはその食べ物に関連付けられた妖精のステータスを参照しているため、希少な食べ物ほど高いフードオーラを持ちます。</p><p id="fba9c108-850a-405a-85e5-2e789bad57e0" class="">オーラ蓄積における食事の判定は満腹度の回復量ごとに行われるので、基本的に食べ物の満腹度回復量の大きさはオーラ効率に影響を与えません。</p><p id="077c5eb4-8072-47cd-b380-25c73f5d587e" class="">プレイヤーオーラは現状「花摘みの鐘」にのみ影響するため、無視して毎日同じものを食べてもゲームプレイ上の問題はあまりありません。</p><p id="4aa2d523-97dd-47c7-b6d3-1f59193e6050" class="">フードオーラの設定されていない食べ物と同様に、ケーキによる満腹度の回復は、既に対応する妖精が実装済みであるにも関わらず、プレイヤーオーラに影響を与えません。これはプレイヤーオーラの現状維持に利用できます。</p><h1 id="a9520c44-c8d6-4ae9-a345-9166dd06680e" class="">バニラ鉱石の鉱脈追加</h1><p id="95095c6a-33e9-44c9-b22c-a0c75655f815" class="">バニラの鉱石が、従来型の生成方式に加えて、新たに妖精MODの鉱脈としても生成されるようになりました。</p><p id="7e682f85-ca37-4eaf-90f1-61ac59436036" class="">これは既に生成済みのチャンクにも適用されます。</p><figure id="aea4fef0-b245-4ebf-b0b5-35b6fb1987fa" class="image"><a href="Untitled%20342.png"><img style="width:444px" src="Untitled%20342.png"/></a></figure><h1 id="681aad8d-eccb-4c84-a1e8-533919815c5f" class="">JEIに鉱脈辞書のタブを追加</h1><p id="90fec856-c7fa-40d5-a656-d043051595bb" class="">下図の左側のアイコンは出現可能な地層の種類、右側のアイコンは生成される鉱石を表します。</p><p id="2c176dbc-f4b6-46fc-9a4c-9037f59b4c8b" class=""><code>25%</code>は鉱脈が出来ている領域内での鉱石の生成確率です。</p><p id="fd8b02d5-0347-4910-81e9-eaf957f69093" class=""><code>DIAMOND</code>は「バニラのダイヤモンド鉱石と同じ大きさのブロックのまとまり」で生成されることを意味します。</p><p id="f5bb6dca-2ab3-49d5-b7e5-b12e1bd22a03" class=""><code>Vein: #58068649</code>は鉱脈ごとに付与されたシード値です。</p><p id="43888cb0-9df0-4444-85ed-b319d24cf600" class=""><code>16H x 4V</code>は世界が「水平16ブロック×高さ4ブロック」の箱型に分割され、その箱ごとに鉱脈の生成判定を行うことを表します。</p><p id="2705ead2-b8fd-41bc-a194-3ef569b74574" class=""><code>1.0%</code>は、鉱脈の生成確率です。</p><p id="0ad05ad4-afb8-4608-b697-44b74b23abe5" class=""><code>Al F</code>はこの鉱脈がアルミニウムおよびフッ素が濃厚な地層でよく生成することを意味します。</p><figure id="e5d668f2-95f6-4b5b-9406-23582ee42d04" class="image"><a href="Untitled%20343.png"><img style="width:388px" src="Untitled%20343.png"/></a></figure><h1 id="66508a75-456b-4df9-828d-d0026836c6fd" class="">JEIに「MFA」タブを追加</h1><p id="12fdcb5c-0bda-48ab-b544-c5397f506100" class="">MFAタブではアイテムに関連したショートストーリーを読むことができます。</p><figure id="391c8fa6-af05-4ead-902e-8acdfdfa8378" class="image"><a href="Untitled%20344.png"><img style="width:393px" src="Untitled%20344.png"/></a></figure><p id="6bee5ec8-03e2-4d17-961f-9e2d3c1325af" class="">現在、以下のアイテムのMFAを読むことができます。</p><ul id="a353c840-9c6a-4f07-ae39-20cf49124448" class="bulleted-list"><li style="list-style-type:disc">トゥインクルストーン</li></ul><ul id="a4265935-11a8-440f-b2e0-7da4785be010" class="bulleted-list"><li style="list-style-type:disc">赤紫釉陶精マゲンテグラゼデテッラツォッチャ</li></ul><ul id="99af04ef-6a9d-4bb0-8d9d-19b120582bf2" class="bulleted-list"><li style="list-style-type:disc">ミラジウムの斧</li></ul><ul id="9ece9822-e4df-47d8-8de3-91e3d1f9ad1c" class="bulleted-list"><li style="list-style-type:disc">皿</li></ul><h1 id="280a5c7f-c502-4c4c-bc1f-7a6cc7c9d5c4" class="">その他の更新点</h1><ul id="6e319026-ad97-4694-a1df-f184efdc7b60" class="bulleted-list"><li style="list-style-type:disc">【緩和】まばらに生成される天然石6種の生成確率を66%上昇。</li></ul><ul id="bb36c847-6ffc-4017-a081-6d79fe4c5066" class="bulleted-list"><li style="list-style-type:disc">【緩和】すべての既存の鉱脈において、生成高度条件を撤廃。</li></ul><ul id="459644a2-5043-4fe4-98bc-763f55ba3756" class="bulleted-list"><li style="list-style-type:disc">【削除】置かれたアイテムの角度を微調整する機能を一時的に廃止。</li></ul><ul id="2a7ec1ee-bae6-47ea-addf-b94b9bf73961" class="bulleted-list"><li style="list-style-type:disc">【修正】MODが実行中に適切なバージョンを持つようになった。</li></ul><ul id="f4228ec6-7d78-4fe0-a2f4-cc37a1185a57" class="bulleted-list"><li style="list-style-type:disc">【修正】非対応バージョンのクライアントでサーバーに接続しようとすると蹴られるようになった。</li></ul><ul id="e85756b8-9088-4674-8f05-dd4e3061378e" class="bulleted-list"><li style="list-style-type:disc">【修正】食べ物以外を持った時にもフードオーラの情報が表示されるバグを修正。</li></ul><p id="596c99fc-964d-4450-8a90-69ba39b2d921" class="">
+</p><hr id="5165bef2-0302-48c9-ac64-6425b5cb3855"/><p id="5fb26833-56b5-46fd-af5c-803300162432" class="">2021年8月22日　MirageFairy Server技術部・創作部</p><p id="b9bf4206-763e-4b64-8339-1bcb8d441791" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

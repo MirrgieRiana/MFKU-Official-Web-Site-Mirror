@@ -1,0 +1,687 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>G3-MFA　ミラージュの代謝とエーテル　～なぜミラージュは樹上にスポーンするのか？～</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1b5a9486-1337-4a1a-ad57-757521558c40" class="page serif"><header><div class="page-header-icon undefined"><img class="icon" src="icon_256x256%209.png"/></div><h1 class="page-title">G3-MFA　ミラージュの代謝とエーテル　～なぜミラージュは樹上にスポーンするのか？～</h1><p class="page-description"></p></header><div class="page-body"><p id="8b1c7f36-74ea-4dce-998d-bfb7395c6b5a" class="">
+</p><p id="f7cb0a32-473c-45d8-8276-99e5c880faad" class="">
+</p><p id="8a6bc29b-d827-433a-adb7-2bd76eb4c517" class="">
+</p><p id="3f9fd812-da91-4a36-9249-5699d8818789" class="">レター　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　妖精研究誌</p><h1 id="406b4e49-b078-4d12-9356-8163d85710f2" class="">　　　　ミラージュの代謝とエーテル</h1><p id="1273caeb-6e59-46d1-b45a-b86a61143061" class="">　　　　　　　　　<strong>～なぜミラージュは樹上にスポーンするのか？～</strong></p><p id="eff93713-3684-4209-86fd-8ddd07c2dd06" class="">
+</p><p id="13741658-291f-46b9-a030-7a7736aaa030" class="">　　　　　　　シャイメツノフェ・ソディア（妖精研究所魔法植物学部）</p><hr id="73b80d72-d859-49de-8460-c2a1abc08c4f"/><div id="d68a26a4-2949-44a2-be1e-caace5aed939" class="column-list"><div id="4c3858df-d43e-47e2-a85b-24f3a0538136" style="width:50%" class="column"><h3 id="17864e1c-184b-475a-a785-5afdb75d1947" class="">1. 背景</h3><p id="a5addc77-a470-4a54-bb5a-0e3f2bc87a81" class="">　宇宙人類が妖精の星の地に降り立って最初に目にしたものは、樹冠の上に大きな青白い花をあしらった松林でした。当初ミラージュが図１のように樹上や岩石上といった土のない環境で生育することは妖精の星の植物にみられる普遍的な特徴であると考えられていましたが、実際には魔法植物門に属する植物特有の性質でした。</p><p id="90a5f09b-bf2e-4deb-9a47-da0acd767c81" class="">　研究者はなぜこれらが他の植物と異なり土の地面の上以外でも生育が可能なのかを調査しました。</p><h3 id="9b060730-30df-40b2-a181-52546e5d5802" class="">2. 生育実験</h3><p id="44ce9654-3d28-4ae1-b7cf-a3a3c598dc3e" class="">　若いミラージュの苗を使ってミラージュの成長に必要な条件を調査する実験を行いました（表１）。その結果、ミラージュが成長に必要なのはある程度の空間だけで、水・二酸化炭素・光といった光合成に必要な要素が必須でないことが分かりました。</p><h3 id="b4578fd6-c6db-4a9a-8762-c17f8a9ef1c6" class="">3. 成分分析</h3><p id="c92880d5-6d39-4253-aed9-e19ea141d59c" class="">　標準的な栽培状態のミラージュの成分を分析したところ、多量のミラジウムが含まれていることが判明しました（表２）。ミラジウムは空間そのものの主成分であるエーテルの有機化合物であり、エーテルは真空中にもオーラの形で存在します。</p><h3 id="067b9dd3-a438-4d75-b2bc-032fac671901" class="">4. 空間異常分析</h3><p id="de5d68cf-6f9a-445f-8cbe-462396f42813" class="">　ミラージュの大規模な農地において、最大で曲率半径10000ブロック程度の微弱な空間のゆがみが観測されました。これが人体に及ぼす影響は不明ですが、平常空間における曲率半径3.00×10^7ブロックと比較して、約3000倍の大きさです。</p></div><div id="b0934708-2c98-4724-b110-7a97b92897a5" style="width:50%" class="column"><figure id="a24e58cd-f3eb-419e-afb5-8c44a88a4d50" class="image" style="text-align:center"><a href="Untitled%20963.png"><img style="width:288px" src="Untitled%20963.png"/></a></figure><p id="8936f593-3121-44f8-8c0d-8e5945b25179" class="">　　　図１　樹冠上のミラージュ</p><p id="1f005f89-1fc5-4f42-90ec-7e612ffff742" class="">
+</p><p id="3ab59f9f-7e72-4c8a-9a06-ba18ad459bf6" class="">　　　表２　ミラージュの成分</p><table id="15cc0d43-d968-4990-985e-d664a11ff034" class="simple-table"><thead class="simple-table-header"><tr id="942531a8-e9a5-4351-8f5a-c89c1bbe2bae"><th id="CyMv" class="simple-table-header-color simple-table-header" style="width:191px">成分</th><th id="&lt;&lt;ni" class="simple-table-header-color simple-table-header" style="width:112px">質量％</th></tr></thead><tbody><tr id="3e1bc087-862b-432c-8262-4a54a2b49e72"><td id="CyMv" class="" style="width:191px">ガラス質ミラジウム</td><td id="&lt;&lt;ni" class="" style="width:112px">42%</td></tr><tr id="2847b3b0-bcde-470e-81fa-e8b7058abaa5"><td id="CyMv" class="" style="width:191px">水分</td><td id="&lt;&lt;ni" class="" style="width:112px">24%</td></tr><tr id="28a2d293-cd6a-44ce-87b9-6b222f47a019"><td id="CyMv" class="" style="width:191px">金属質ミラジウム</td><td id="&lt;&lt;ni" class="" style="width:112px">13%</td></tr><tr id="e1d8a3f3-0c99-4a4a-9c8e-b0bf07ec3deb"><td id="CyMv" class="" style="width:191px">炭化水素</td><td id="&lt;&lt;ni" class="" style="width:112px">9%</td></tr><tr id="9a5dd844-c234-45fa-9e7d-f71616e6713e"><td id="CyMv" class="" style="width:191px">その他</td><td id="&lt;&lt;ni" class="" style="width:112px">13%</td></tr></tbody></table><h3 id="f1bf28f8-25d3-4861-8f5a-f1bffeece653" class="">5. 考察</h3><p id="778e5394-96b8-4d28-86b7-b962c121551c" class="">　ミラージュの代謝によりエーテルが消費されることで発生した、空間の「波紋」によって、空気の見かけの密度にゆらぎが生じ光が乱雑に屈折することで、ミラージュの周囲に陽炎や蜃気楼のようと形容されるゆらめきが生じると考えられます。</p><p id="07c21b43-78b3-4a17-afd9-fd74f54f45ad" class="">　理論上、半径1万ブロック程度の領域にミラージュを100億本程度植えると、エーテル超球に気泡が生じ、農地一帯が局所子宇宙として離脱しますが、ミラージュの生育にある程度の開けた空間が必要であることから、実際にはミラージュの大量栽培による空間歪曲に起因する災害の危険はありません。</p></div></div><p id="149b2653-3087-4583-a37e-a4e0381d1633" class="">　　　　　　　　　　　　　表１　ミラージュの生育実験の結果</p><table id="0d795de9-e8ff-44f4-a8c9-e06d0a8443a3" class="simple-table"><thead class="simple-table-header"><tr id="99d7eb67-dc31-4cf8-b8e7-03ca7aa949d4"><th id="_pCp" class="simple-table-header-color simple-table-header" style="width:349px">条件</th><th id="TKOu" class="simple-table-header-color simple-table-header" style="width:349px">結果</th></tr></thead><tbody><tr id="f17af2a6-f208-410e-a63c-43aa8a1805b2"><td id="_pCp" class="" style="width:349px">草地の上での通常の栽培状態</td><td id="TKOu" class="" style="width:349px">6日で開花</td></tr><tr id="f0c7342c-841b-4557-b958-91098d72ade4"><td id="_pCp" class="" style="width:349px">根を切り取り宙吊りにした状態</td><td id="TKOu" class="" style="width:349px">12日で開花</td></tr><tr id="d7dcd2ed-b3c2-4f71-a49b-0079c98b1e71"><td id="_pCp" class="" style="width:349px">草地の上で光を完全に遮断した状態</td><td id="TKOu" class="" style="width:349px">8日で開花</td></tr><tr id="10a22c69-f1ea-4235-a515-8cf312d5da5b"><td id="_pCp" class="" style="width:349px">月面の日なたに植えた状態</td><td id="TKOu" class="" style="width:349px">45日で著しく白化・衰弱した状態で開花</td></tr><tr id="76c6aafd-5567-4efb-afcb-c82a35c1784c"><td id="_pCp" class="" style="width:349px">土中に埋没させた状態</td><td id="TKOu" class="" style="width:349px">まったく成長しない</td></tr><tr id="076f48c2-c568-4f66-9c08-fff2450024b3"><td id="_pCp" class="" style="width:349px">水没させた状態</td><td id="TKOu" class="" style="width:349px">まったく成長しない</td></tr></tbody></table><p id="eabc0d15-32c4-40ed-bbf8-7cc33fcae8b3" class="">
+</p><hr id="be0ab3ad-2e6d-4a0e-b6ab-9740c8b85d82"/><p id="1ee78c47-dd6e-48ac-b756-a2b714a4df51" class="">2022年9月12日　MirageFairy Server創作部</p><p id="388847dd-a1f1-4822-b103-dd58a4e227b5" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

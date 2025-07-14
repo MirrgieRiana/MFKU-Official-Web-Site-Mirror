@@ -1,0 +1,706 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>MirageFairy2019 v18　妖精の木アップデート</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="e2c6c9ff-694a-4848-9918-52a14686616c" class="page serif"><header><img class="page-cover-image" src="Untitled%20422.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="mirage_flower_280x280%2016.png"/></div><h1 class="page-title">MirageFairy2019 v18　妖精の木アップデート</h1><p class="page-description"></p></header><div class="page-body"><figure id="5c8b6693-03d4-41fe-86a3-c387a807484f" class="image"><a href="Untitled%20422.png"><img style="width:1500px" src="Untitled%20422.png"/></a></figure><nav id="e49e546b-42a6-4f2a-a519-68c1db2c9279" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#6903b990-2d8d-4c9a-9357-504c30fb71ee">「ニューイヤー」キャンペーン　2022</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#74ed3217-5807-4206-8660-7f6bd643b7d7">「妖精蒐集箱」追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#990758b4-f39a-4aa6-94f7-8af6fd80b901">「妖精の木」システム追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#b3392f74-473a-41a8-91cd-20a3be38123d">「妖精の原木」追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#479f23a6-565f-4c19-9c49-fa659571b171">「妖精の家」追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#672870ef-0a43-43d8-b056-ea07f6e8cf85">「樹液取り職人スプルーツァの家」追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#8ca44a9d-931a-4c17-abb4-71bd0fe17514">妖精の木の判定の詳細</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#db941fc9-095b-492f-984c-04e96fee667b">妖精の木の定義</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#12c4284f-d356-4515-9cf1-ef9abee68ae7">オーラの吸収</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#45c194dc-c411-4e09-b077-724947b10fd3">末梢判定</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#739b49cc-6ed7-4210-b2dd-086226fa4e86">遮蔽判定</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#4de601bd-102c-4619-8de0-44fad47e5b63">判定タイミング</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#66b721f4-620d-4a50-905c-8bc43e8e18ea">Folia</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a17752c7-0cee-4628-86d9-aeb852193402">「妖精の木の樹液」追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#a219f8ea-f7f7-45f8-a2f1-906ca6adbf78">「ミラジウムの板」追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#5c033084-f4bc-429d-9c3b-0b8ab31dc25a">スフィア交換に関するアップデート</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#cd9e754f-8afc-4554-bb7e-a884825643ce">スフィア交換のJEIタブ追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#385a3311-3b23-417f-8038-32f7146079b7">妖精武器に関するアップデート</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2e2a871d-28ea-4518-be4e-3c4baeb15638">ミラジウムの大鎌改変</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#45131387-73ce-4a59-815a-04d43df8f9d0">「リラジウムの大鎌」追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#15a19502-1f5f-4752-ad0c-a4d1404df979">「龍魚ドリル」追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#149daf30-9081-45cf-88b1-9a12c2c5e0f6">妖精追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#220f51d7-31ea-419e-89ef-30e7827b2294">その他の変更点</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#42cdf1bc-263a-4979-849e-ff1f2599549a">見た目に関する変更</a></div></nav><hr id="16a4719b-8189-4f60-b287-a8ab4299bdc5"/><p id="ea7e1281-e227-4961-b489-661a7e81fa37" class="">MirageFairy2019 v0.1.18.36における前のサーバーアップデートからの更新点です。</p><h1 id="6903b990-2d8d-4c9a-9357-504c30fb71ee" class="">「ニューイヤー」キャンペーン　2022</h1><p id="277af3a9-4dcc-4096-af57-c4f59b035297" class="">2022年1月31日までの間、フェアリークリスタル使用時に低確率で「初夢精ハツユーミャ」が期間限定でドロップします。</p><figure id="773e5526-fe8f-4be7-b9f0-a567e92bcaff" class="image"><a href="Untitled%20423.png"><img style="width:1890px" src="Untitled%20423.png"/></a></figure><p id="55fdd811-d708-49fc-8569-c066a136b146" class="">※期間限定妖精は今後再入手の機会がある可能性があります。</p><p id="33ce3ba5-0507-469c-80d2-e0449eb4a15b" class="">
+</p><div id="c9159fc0-6d0b-4531-bae5-caf83d9f8e9e" class="column-list"><div id="5426500b-e3f3-46a9-a53f-fe0024049fd3" style="width:50%" class="column"><figure id="7e6a86d2-a748-4e01-abf7-0460f1c0e97c" class="image"><a href="Untitled%20424.png"><img style="width:185px" src="Untitled%20424.png"/></a></figure></div><div id="d9bcbbc3-17e4-4919-919d-dd72a5c63a66" style="width:50%" class="column"><figure id="8a51594c-4ba9-46a9-a488-d7f81d964e2d" class="image"><a href="Untitled%20425.png"><img style="width:237px" src="Untitled%20425.png"/></a></figure></div></div><h1 id="74ed3217-5807-4206-8660-7f6bd643b7d7" class="">「妖精蒐集箱」追加</h1><p id="07b815ee-31f1-4b4c-b5d9-afe1c78bfba9" class="">Tier 1から製作できる設置物「妖精蒐集箱」を追加しました。</p><figure id="b312e8e4-3026-4b9a-834b-5ba9e193cea9" class="image"><a href="Untitled%20426.png"><img style="width:239px" src="Untitled%20426.png"/></a></figure><p id="cfd4e2ff-cc48-4121-a5fb-729ead489cc3" class="">
+</p><p id="d6957308-6964-423a-a98b-aed871211327" class="">内部に妖精を<mark class="highlight-red"><strong>品種（Type）ごとに</strong></mark>1体だけ格納できるスロットを50個持ちます。</p><p id="a4d4417e-6088-45d9-a728-be5aaa22fb31" class="">右上にはフェアリーマスターグレードが表示されます。</p><figure id="3fe355a6-0794-4468-8358-18caf9869693" class="image"><a href="Untitled%20427.png"><img style="width:399px" src="Untitled%20427.png"/></a></figure><p id="0c6b8e41-2450-42dc-9907-6391ffda4639" class="">
+</p><p id="eb0de055-5257-4229-839f-7983e195c59a" class="">フェアリーマスターグレードは、格納されている妖精の★マークの合計です。</p><figure id="ee97c49b-e837-4de3-be82-9eae965dc982" class="image"><a href="Untitled%20428.png"><img style="width:262px" src="Untitled%20428.png"/></a></figure><p id="87a70e17-1851-4d85-88ba-ac8e68740fec" class="">
+</p><figure class="block-color-red_background callout" style="white-space:pre-wrap;display:flex" id="0ddc4a95-48ae-4557-a02e-52b2d46ecf24"><div style="font-size:1.5em"><span class="icon">❗</span></div><div style="width:100%">妖精蒐集箱は本MOD初の「内部インベントリとそれにアクセスできるGUIを持つブロック」です。開発には入念なテストを行っていますが、<mark class="highlight-red"><strong>万が一異常な動作を起こした場合、内部のアイテムが消滅する可能性もあります</strong></mark>。このアイテムの不具合に関する補填やロールバック措置は原則として行われません。念のため、安全性が確認できるまでは貴重な妖精を格納しないことをお勧めします。</div></figure><h1 id="990758b4-f39a-4aa6-94f7-8af6fd80b901" class="">「妖精の木」システム追加</h1><h2 id="b3392f74-473a-41a8-91cd-20a3be38123d" class="">「妖精の原木」追加</h2><p id="9f9f603c-dbab-4fa2-a886-9138814fdaf0" class="">Tier 4のブロック「妖精の原木」を追加しました。</p><figure id="64c2f526-9998-41e8-8890-f6d209ff3bf4" class="image"><a href="Untitled%20429.png"><img style="width:238px" src="Untitled%20429.png"/></a></figure><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="fba0636a-5111-41e4-8523-996b90bc2a0c"><div style="font-size:1.5em"><span class="icon">🧪</span></div><div style="width:100%">妖精研究所は通常の木の丸太をミラージュオイルに漬け込むことで、妖精が活動するために必要なオーラ分を効率よく内部に封じ込めることのできる木材を作りました。妖精はこの木をくり抜いた内部では少なくとも明確な「意思」を持ち続けることができます。　——　妖精研究所</div></figure><p id="d9aa7381-e43d-483c-99cb-fbf8f9f20989" class="">
+</p><p id="a0df1e5b-5a27-43a0-a030-87fd43d59e4f" class="">妖精の原木は、バニラの原木と同様に横向きに設置することができます。</p><figure id="5fd1d968-27d8-4ecf-b91c-17ad8f3d0918" class="image"><a href="2021-12-18_03.06.57.png"><img style="width:384px" src="2021-12-18_03.06.57.png"/></a></figure><p id="428e8069-e865-4cb4-bc02-2561f6be6ad1" class="">
+</p><p id="f0ed74dc-4380-4f84-8c80-5e04693a1469" class="">また、バニラの原木と同様に葉ブロックの自壊を防ぐことができます。</p><figure id="41ede962-de19-4e62-8176-21756494569d" class="image"><a href="2021-12-18_03.04.06.png"><img style="width:384px" src="2021-12-18_03.04.06.png"/></a></figure><h2 id="479f23a6-565f-4c19-9c49-fa659571b171" class="">「妖精の家」追加</h2><p id="334c3b9f-3251-4d39-bfbb-ef18c1c2550d" class="">Tier 4から製作できる設置物「妖精の家」を追加しました。</p><figure id="49d61067-4cc5-4243-a82e-d4816546617f" class="image"><a href="Untitled%20430.png"><img style="width:238px" src="Untitled%20430.png"/></a></figure><p id="1bfd795e-1333-45bb-96f5-80fb786403ac" class="">※光のロッドはワンドではないため、そのまま消費されます。</p><p id="620b3395-babb-439d-9c95-c6caf4806d60" class="">
+</p><p id="21bbabe8-445a-430c-929f-6ade88313552" class="">妖精の家は特別な効果を持たない装飾用のブロックです。</p><figure id="2278bc6e-0506-4b65-96bc-c13eb108863e" class="image"><a href="2021-12-19_15.10.37.png"><img style="width:384px" src="2021-12-19_15.10.37.png"/></a></figure><h2 id="672870ef-0a43-43d8-b056-ea07f6e8cf85" class="">「樹液取り職人スプルーツァの家」追加</h2><p id="7353bd2b-36da-420d-b7dc-2ede2545bd31" class="">Tier 4から製作できる設置物「樹液取り職人スプルーツァの家」を追加しました。</p><figure id="33659b2d-277b-449c-9f3f-ee74249666ac" class="image"><a href="Untitled%20431.png"><img style="width:238px" src="Untitled%20431.png"/></a></figure><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="1362a880-fabf-4dfc-878f-a1533161e186"><div style="font-size:1.5em"><span class="icon">🧪</span></div><div style="width:100%">妖精が樹木の内部でなら自律的に活動ができるようになった場合、樹木内ではどんなことができるのでしょうか。これは松精スプルーツァのアイデアで生まれた樹液採取施設です。妖精の木の内部では、ミラージュオイルの作用で変性した揮発性の樹液を採ることができます。　——　妖精研究所</div></figure><p id="4ab9f7e3-89eb-49d7-8a0f-cc23d8fcefa5" class="">
+</p><p id="4fabb1f4-18e2-4858-a3a0-f701a5ed4c6d" class="">樹液取り職人スプルーツァの家は、妖精の原木およびバニラの葉ブロックと組み合わせて、日当たりのよい場所に「木」のような形になるように配置してください。</p><figure id="f83e1186-67ce-47d0-9ba3-6acfc72a068d" class="image"><a href="2021-12-21_15.54.41.png"><img style="width:384px" src="2021-12-21_15.54.41.png"/></a></figure><p id="a2aea149-3d4e-4247-9306-a8d6027b4c3e" class="">
+</p><p id="eaca860a-c137-4390-a88a-c66c3b664b1e" class="">設置状態で右クリックすると動作状態が表示されます。</p><p id="87abbebf-fff9-4ddc-a790-d1ca2ecad84f" class="">妖精の木の葉が多くの光を吸収すほど生産速度が上がります。</p><figure id="0d5bef02-371c-484d-bf0a-13af6e9070d1" class="image"><a href="Untitled%20432.png"><img style="width:159px" src="Untitled%20432.png"/></a></figure><figure id="c6838db6-cb98-4945-84c4-5c5adcc25395" class="image"><a href="Untitled%20433.png"><img style="width:424px" src="Untitled%20433.png"/></a></figure><p id="6f917a2f-a1e4-4154-ba1d-7d300444a7bd" class="">
+</p><p id="ffe6e6a2-b190-4ba6-9b80-5547a7e5b3f4" class="">生産物はワールド上に直接生成されるため、ホッパー等で回収してください。</p><figure id="9762fe1a-5b48-4461-9423-ef355281440e" class="image"><a href="2021-12-24_10.18.01.png"><img style="width:384px" src="2021-12-24_10.18.01.png"/></a></figure><p id="cdb4e8ed-1246-48f7-8214-1590fa625db0" class="">
+</p><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="62e3771c-afb7-42f4-8364-a349e19896ec"><div style="font-size:1.5em"><span class="icon">⚠️</span></div><div style="width:100%">現バージョンでは稼働に一切妖精を必要としませんが、将来的にブロック内に妖精を適切に配置することが要求されるようになる可能性があります。</div></figure><h2 id="8ca44a9d-931a-4c17-abb4-71bd0fe17514" class="">妖精の木の判定の詳細</h2><p id="65da2f40-17de-48bc-9025-7b0c203390d8" class="">以下は妖精の木のより詳細な解説です。</p><p id="6ae755ca-01d3-4568-9946-c2cdfd4845c5" class="">妖精の木の効率を改善したい場合に参考にしてください。</p><h3 id="db941fc9-095b-492f-984c-04e96fee667b" class="">妖精の木の定義</h3><p id="1e0ef20f-6e88-4459-aaa1-4d81c21a0b09" class="">妖精の家系ブロックを1個だけ含む幹と、それについている葉が妖精の木と判定されます。</p><p id="27407d2a-a5f3-46c4-bf10-a4ddc3ef333f" class="">幹は自由に枝分かれさせることができ、地面に接している必要はありません。</p><figure id="1a5c55b7-c9bd-4ee8-977e-cce7cf7213e2" class="image"><a href="2021-12-24_10.42.14.png"><img style="width:384px" src="2021-12-24_10.42.14.png"/></a></figure><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="0eaa09f8-f276-4cea-ad8a-4c406f880ba5"><div style="font-size:1.5em"><span class="icon">ℹ️</span></div><div style="width:100%">バニラの小さい木を妖精の原木に置き換えて作るのは、最も分かりやすい妖精の木の作成方法です。</div></figure><p id="1517d3fa-02af-4f81-9f3d-5c298064c8c7" class="">
+</p><p id="f948455c-30fe-4817-a05c-cc95b046c58b" class="">妖精の木同士は構成ブロックが隣接しなければ自由に近づけて配置できます。</p><p id="655e08d8-9d5c-4fef-9f6f-e0df8a03e194" class="">一つの妖精の木に複数の「妖精の家」系ブロックを接続することはできません。</p><figure id="a7cd16cc-2a04-4199-9d6e-c37415eb471f" class="image"><a href="2021-12-22_12.31.49.png"><img style="width:384px" src="2021-12-22_12.31.49.png"/></a></figure><h3 id="12c4284f-d356-4515-9cf1-ef9abee68ae7" class="">オーラの吸収</h3><p id="5c66c33b-777d-4389-a1d4-48157c74e8be" class="">葉ブロックは真上および斜め上から放射されるオーラを吸収することができます。</p><p id="f72c1c2c-3b9b-4f1f-8f3d-524ae749aeec" class="">この図では左側から来るオーラに対して大木の影になっているため、少し効率が落ちています。</p><figure id="3364bb4a-389f-42d6-b13d-4900875c6080" class="image"><a href="Untitled%20434.png"><img style="width:384px" src="Untitled%20434.png"/></a></figure><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="e79783b5-3b9c-417d-a10e-b91c7d0912f6"><div style="font-size:1.5em"><span class="icon">ℹ️</span></div><div style="width:100%">妖精の木を何もない丘の上に植えるのは非常に効果的な戦略です。</div></figure><p id="e67659bd-1b42-408e-b412-b277e278811d" class="">
+</p><p id="f6e59f61-5780-4204-b084-a6b3eb0eef1a" class="">オーラは斜め上よりも、真上方向から強く降り注ぎます。</p><p id="2540bbae-5508-4721-a83e-c3a4f5801a80" class="">また、東西方向は朝日・夕日が当たるため、南北方向よりも強く影響を受けます。</p><figure id="f0c852da-023c-4d53-9975-b24adb2f6124" class="image"><a href="Untitled%20435.png"><img style="width:384px" src="Untitled%20435.png"/></a></figure><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="e5a90635-31d1-4312-a6fb-888f078d1abc"><div style="font-size:1.5em"><span class="icon">ℹ️</span></div><div style="width:100%">妖精の木を上下に重ねるのは、あまりよい方法ではありません。</div></figure><h3 id="45c194dc-c411-4e09-b077-724947b10fd3" class="">末梢判定</h3><p id="a227703e-d995-44bc-a74d-ce491c298882" class="">葉は幹から4マスまで反応しますが、離れるほど効果が落ちます。</p><figure id="6ee70974-461c-470a-a49f-997d7b2b88e9" class="image"><a href="Untitled%20436.png"><img style="width:384px" src="Untitled%20436.png"/></a></figure><h3 id="739b49cc-6ed7-4210-b2dd-086226fa4e86" class="">遮蔽判定</h3><p id="0e795487-29ad-4519-a98b-714945d957b3" class="">ある方向から降り注ぐ光は、葉ブロック4個分の遮蔽で完全に遮断されます。</p><p id="a6e579c4-681d-4b2b-a855-9288a0c370c0" class="">ガラスのような光を完全に透過するブロックは遮蔽になりません。</p><figure id="c2d09e81-5690-42d4-94fa-ddf9aa55d7a2" class="image"><a href="Untitled%20437.png"><img style="width:384px" src="Untitled%20437.png"/></a></figure><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="40fcedd8-7131-4d85-a1bb-f65997ed2bcd"><div style="font-size:1.5em"><span class="icon">ℹ️</span></div><div style="width:100%">幹の周りをぶ厚く葉ブロックで覆うのは、あまり効率的ではありません。</div></figure><h3 id="4de601bd-102c-4619-8de0-44fad47e5b63" class="">判定タイミング</h3><p id="9ed6ba73-0487-4f89-8101-ad6c9119cff2" class="">妖精の家は平均して1分間に1回行動しますが、そのタイミングは不規則です。</p><p id="410dd88c-577a-43a8-aea4-cd9d890fa5b8" class="">稼働状態に時間帯やディメンションは関係なく、夜間やエンドでも動作します。</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="7489e60a-0e09-4ed0-a166-7b0363a5c183"><div style="font-size:1.5em"><span class="icon">ℹ️</span></div><div style="width:100%">ピストンで原木を定期的に動かすことで一つの木を複数の妖精の家で共有することはできません。</div></figure><h3 id="66b721f4-620d-4a50-905c-8bc43e8e18ea" class="">Folia</h3><p id="780f23e7-d748-4e7a-a6fe-68d03a9cfa9c" class="">オーラ吸収速度はフォリア（Folia）という単位で表示されます。</p><p id="5e384c4d-7cac-451c-9a13-bbd24d42e3ad" class="">1フォリアは幹からの距離が1で、上空に一切遮蔽がない葉ブロックを表します。</p><p id="1478cbbf-35d6-4734-a37c-1ad052ce3f5b" class="">バニラの木は概ね30フォリアです。</p><figure id="ad335780-c295-414d-bab6-7ec56e933fb6" class="image"><a href="Untitled%20438.png"><img style="width:384px" src="Untitled%20438.png"/></a></figure><p id="61ac691e-af00-43b0-92d7-b012e6a90260" class="">
+</p><p id="ee0935ee-8fce-4018-9d6b-84c3fa92f5de" class="">樹液取り職人スプルーツァの家の樹液の生産は15フォリアから始まり、120フォリアで速度上限に達します。</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="6985015e-68e6-40aa-8e61-6de7b1e76042"><div style="font-size:1.5em"><span class="icon">ℹ️</span></div><div style="width:100%">合わせて120フォリア以下の妖精の木々は、まとめた方が効率が良いです。</div></figure><h2 id="a17752c7-0cee-4628-86d9-aeb852193402" class="">「妖精の木の樹液」追加</h2><p id="62b472af-af8b-4a60-8e22-11746dfb9e01" class="">Tier 4の素材「妖精の木の樹液」を追加しました。</p><p id="c84b89d1-47f2-478d-85f6-7b5e92af0f08" class="">
+</p><p id="98350daa-b1b6-4f11-8a66-e224eb484caf" class="">妖精の木の樹液は製錬8回分のかまど燃料として使えます。</p><figure id="8659a58f-9cb7-4c29-b1c2-19cd396c2b99" class="image"><a href="Untitled%20439.png"><img style="width:131px" src="Untitled%20439.png"/></a></figure><figure id="296d6ad8-510d-4d2b-a920-b69f45a0c475" class="image"><a href="Untitled%20440.png"><img style="width:170px" src="Untitled%20440.png"/></a></figure><h1 id="a219f8ea-f7f7-45f8-a2f1-906ca6adbf78" class="">「ミラジウムの板」追加</h1><p id="1d28a539-c702-41bd-ba1f-35126acce708" class="">Tier 2の中間素材「ミラジウムの板」を追加しました。</p><p id="6148b585-d034-4467-b629-edef63a0c9b5" class="">ミラジウムの板はTier 4で生産効率が向上します。</p><div id="4dd6fb76-b47c-4ce1-994d-2996bd4cf271" class="column-list"><div id="60959492-1726-4682-9d7f-8f2fbb2cb1b1" style="width:50%" class="column"><figure id="d157ea44-3c7f-4b28-99f5-b6f1bc396362" class="image"><a href="Untitled%20441.png"><img style="width:237px" src="Untitled%20441.png"/></a></figure></div><div id="7be65a06-3479-4ba5-a38f-74e79eb168d8" style="width:50%" class="column"><figure id="3f4f2a4b-c89c-464c-acd0-7d60e39b653b" class="image"><a href="Untitled%20442.png"><img style="width:238px" src="Untitled%20442.png"/></a></figure></div></div><p id="8bb5a826-cc9a-4bb3-8173-3a0299b8170d" class="">
+</p><p id="84247c44-22be-441e-94fc-2d56407217e9" class="">これに伴い、次のアイテムのレシピを変更しました。</p><ul id="10a3ae44-878d-4dc5-bc26-820d1b141461" class="bulleted-list"><li style="list-style-type:disc">ミラジウムの大鎌</li></ul><ul id="55c0c5ef-39c3-4370-ae75-07a618c935b7" class="bulleted-list"><li style="list-style-type:disc">ミラジウムの剣</li></ul><ul id="86a3fb9d-3e60-487d-9d36-5528238542df" class="bulleted-list"><li style="list-style-type:disc">ミラジウムの斧</li></ul><ul id="b7befff1-a850-4989-a2ab-7f682cdefc3e" class="bulleted-list"><li style="list-style-type:disc">鐘ベース</li></ul><ul id="cc650abb-1ec4-4e1d-86d7-bd9219f3b3c8" class="bulleted-list"><li style="list-style-type:disc">トゥインクルストーン</li></ul><h1 id="5c033084-f4bc-429d-9c3b-0b8ab31dc25a" class="">スフィア交換に関するアップデート</h1><p id="c666da08-1034-4ec9-8589-0397c6efc89a" class="">妖精武器のスフィア交換に必要な材料の表示がスマートになりました。</p><figure id="5a20ffea-6c9a-4e2b-9981-6efcf6445cf7" class="image"><a href="Untitled%20443.png"><img style="width:263px" src="Untitled%20443.png"/></a></figure><p id="3763a184-3ce7-49a4-976f-679ec1a12cd9" class="">ワンド系妖精武器はスフィア交換非対応であるため、この記載はありません。</p><h2 id="cd9e754f-8afc-4554-bb7e-a884825643ce" class="">スフィア交換のJEIタブ追加</h2><p id="226899ba-8811-4d81-bc92-9dad0519d38d" class="">JEIにスフィア交換のタブを追加しました。</p><p id="524b9f66-8d55-4e97-abdf-308f3202efdf" class="">ここではスフィア交換はManual Repair（手修理）と呼ばれています。</p><figure id="18a0c760-d9c1-4b8e-8a4a-12512ee5a4da" class="image"><a href="Untitled%20444.png"><img style="width:390px" src="Untitled%20444.png"/></a></figure><h1 id="385a3311-3b23-417f-8038-32f7146079b7" class="">妖精武器に関するアップデート</h1><p id="eb129d7b-529d-425a-b8c6-b4befb45beb4" class="">ツールチップにTier表記を追加しました。</p><figure id="81a22368-0adf-41c5-a444-7df2c29cf414" class="image"><a href="Untitled%20445.png"><img style="width:179px" src="Untitled%20445.png"/></a></figure><p id="60678567-4903-48c7-898a-d638a212f90d" class="">
+</p><p id="2daf336c-6889-4b77-9f99-72b50c835ace" class="">左クリックによるブロック破壊・攻撃時の耐久減少確率を1/8にしました。</p><p id="2984db1b-e5ff-4a2e-b6e5-6444f95eba01" class="">これは耐久力エンチャントのレベル7に相当します。</p><p id="c728fc53-0460-4ebd-aa8f-6169ac486eef" class="">妖精魔法による耐久消費の程度に変更はありません。</p><h2 id="2e2a871d-28ea-4518-be4e-3c4baeb15638" class="">ミラジウムの大鎌改変</h2><p id="6c2e6820-dddc-4010-8742-6ffa5ed323d0" class="">妖精魔法が蜘蛛の巣・カボチャ・スイカに対応しました。</p><p id="97b7f0e8-9d57-41e6-981e-6589be65d268" class="">
+</p><p id="f9fd1817-5d9a-4c78-a5f0-b9cecd64fc4a" class="">左クリックによるブロック破壊時、対応するブロックであれば高速で破壊します。</p><p id="d2f91900-39ea-4adf-9d0e-1f6af3527b30" class="">また、蜘蛛の巣などの破壊時、適切なツールとして扱われます。</p><p id="27ee125b-cc4f-4be8-9845-1573dfa0dc73" class="">効率強化エンチャントは付与できませんが、ビーコン効果の影響は受けます。</p><p id="857db5b6-e57b-4957-857e-c7f552c8a804" class="">「幸運」の魔法ステータスは、左クリックでの破壊時には適用されません。</p><h2 id="45131387-73ce-4a59-815a-04d43df8f9d0" class="">「リラジウムの大鎌」追加</h2><p id="94eb6b50-c219-4f48-b901-f653b740959e" class="">Tier 3の妖精武器「リラジウムの大鎌」を追加しました。</p><figure id="42c64088-051f-4033-a98f-dad08d5b4d86" class="image"><a href="Untitled%20446.png"><img style="width:236px" src="Untitled%20446.png"/></a></figure><p id="c87c4330-b802-40c7-9b07-96e9aad58dc1" class="">
+</p><p id="e0b7fc50-2246-46df-8c8d-0c57eb0ce891" class="">リラジウムの大鎌は、ミラジウムの大鎌と比べて対応ブロックに対する破壊速度が2倍です。</p><h2 id="15a19502-1f5f-4752-ad0c-a4d1404df979" class="">「龍魚ドリル」追加</h2><p id="ca3cc5fc-bbb6-4475-ae27-89358d9c54ee" class="">Tier 4のデザインコンテスト妖精武器「龍魚ドリル」を追加しました。</p><figure id="0978bc1d-2073-47a9-8497-6455699620a0" class="image"><a href="Untitled%20447.png"><img style="width:236px" src="Untitled%20447.png"/></a></figure><p id="97cabf9f-6966-410c-a28c-ad52a95686e9" class="">
+</p><p id="c2d8376a-5a13-464b-9e78-5b23a9324468" class="">右クリックで発動する妖精魔法では広範囲のブロックをまとめて破壊できます。</p><p id="1818c314-c606-44ab-828f-9fee311543bf" class="">「効果値」の魔法ステータスに依存して、適用できるブロックの硬さ上限が決まります。</p><figure id="db3d186c-64ee-4832-b313-d90a24f7c355" class="image"><a href="2021-12-12_09.50.21.png"><img style="width:480px" src="2021-12-12_09.50.21.png"/></a></figure><p id="28d0809d-b550-431c-856b-6a2680e5e0ca" class="">
+</p><p id="f078d63a-3441-403a-b8f1-2aab0e8df0ca" class="">龍魚ドリルはダイヤモンド製のつるはしとシャベルを兼ね備えたツールレベルを持ちます。</p><p id="8b9d23a8-39cd-46fd-950e-70351321ffc7" class="">魔法で採掘できないブロックも、つるはしが対応していれば左クリックで回収できます。</p><p id="df830c87-d345-43b3-9aeb-c75efe04c8a9" class="">石や土のほか、雪玉、黒耀石なども回収することができます。</p><p id="e00e7089-5370-4eae-92f5-e92567c48a40" class="">
+</p><p id="82007166-1b0a-4ad7-ba63-712db8137b7e" class="">その他の基本的な性質は、ミラジウムの大鎌に準じます。</p><h1 id="149daf30-9081-45cf-88b1-9a12c2c5e0f6" class="">妖精追加</h1><p id="f0314da1-d55c-4e94-ace5-e1c95921d9b6" class="">次の妖精を追加しました。</p><figure id="5356265a-9e71-4f36-a794-1a31bb97ab4c" class="image"><a href="Untitled%20448.png"><img style="width:180px" src="Untitled%20448.png"/></a></figure><p id="c36392d0-9dcd-4304-ac0d-8df2f905da21" class="">
+</p><ul id="74f3661e-d7b9-4ab0-a4f2-5d2b2f927c9b" class="bulleted-list"><li style="list-style-type:disc">扉精ドーリャ<ul id="7725559e-e569-4ebb-b8be-378f403fed95" class="bulleted-list"><li style="list-style-type:circle">オークのドアを所持してフェアリークリスタルを使用</li></ul><ul id="d28e2184-c88e-4f7f-b036-1a22c5e6bb7a" class="bulleted-list"><li style="list-style-type:circle">設置状態のオークのドアの付近でフェアリークリスタルを使用</li></ul><ul id="9ac3207c-76a8-47d1-ac38-4dec7b4f08f7" class="bulleted-list"><li style="list-style-type:circle">オークのドアからクラフト召喚</li></ul></li></ul><ul id="e415413c-97ce-4d07-ab27-bde89d748544" class="bulleted-list"><li style="list-style-type:disc">鉄扉精イローネドーリャ<ul id="e9b41f80-562d-48d0-bea7-0b1d21e6f3c5" class="bulleted-list"><li style="list-style-type:circle">鉄のドアを所持してフェアリークリスタルを使用</li></ul><ul id="31923872-0daf-4bc8-8949-ea257d94df29" class="bulleted-list"><li style="list-style-type:circle">設置状態の鉄のドアの付近でフェアリークリスタルを使用</li></ul><ul id="58854321-b338-4846-b8fc-7f59a6d5c60a" class="bulleted-list"><li style="list-style-type:circle">鉄のドアからクラフト召喚</li></ul></li></ul><ul id="2eb17fea-c47b-4304-a87e-46f727832ea5" class="bulleted-list"><li style="list-style-type:disc">赤石中継器精レドストーネレペアテーリャ<ul id="02af2c6d-db31-4e38-9b1d-8f26f717f545" class="bulleted-list"><li style="list-style-type:circle">レッドストーンリピーターを所持してフェアリークリスタルを使用</li></ul><ul id="918d1fda-3459-447e-9e66-d5ed68a06abd" class="bulleted-list"><li style="list-style-type:circle">設置状態のレッドストーンリピーターの付近でフェアリークリスタルを使用</li></ul><ul id="948f53b4-d54d-4ba2-a7bc-855dedc5074a" class="bulleted-list"><li style="list-style-type:circle">レッドストーンリピーターからクラフト召喚</li></ul></li></ul><ul id="511dce54-bf47-4cf5-b78e-754eac681ed2" class="bulleted-list"><li style="list-style-type:disc">赤石比較器精レドストーネコンパラトーリャ<ul id="5b17b2dd-c703-45c4-b20e-0967843514dd" class="bulleted-list"><li style="list-style-type:circle">レッドストーンコンパレータを所持してフェアリークリスタルを使用</li></ul><ul id="432df5d3-6832-4450-9536-87a8ff0b2ade" class="bulleted-list"><li style="list-style-type:circle">設置状態のレッドストーンコンパレータの付近でフェアリークリスタルを使用</li></ul><ul id="4e3fab08-0c39-4a8f-bba4-945c8d775b39" class="bulleted-list"><li style="list-style-type:circle">レッドストーンコンパレータからクラフト召喚</li></ul></li></ul><ul id="15040d75-8a28-447d-97d5-617804761431" class="bulleted-list"><li style="list-style-type:disc">紫頌果精キョルーセフルイチャ<ul id="286f9bb8-2be2-47e1-b559-aaa6d887501d" class="bulleted-list"><li style="list-style-type:circle">コーラスフルーツを所持してフェアリークリスタルを使用</li></ul><ul id="db31b130-e5f1-47e9-8947-cecf33f19d02" class="bulleted-list"><li style="list-style-type:circle">コーラスフルーツからクラフト召喚</li></ul></li></ul><ul id="6e37bd11-bd54-4fd9-8ffe-d72daf38872d" class="bulleted-list"><li style="list-style-type:disc">茸煮精ムシュローメステーウャ<ul id="eb047c64-c532-4009-ad61-201ca74a88b6" class="bulleted-list"><li style="list-style-type:circle">キノコシチューを所持してフェアリークリスタルを使用</li></ul><ul id="6554d269-e42e-45e8-b3ea-b374653678e5" class="bulleted-list"><li style="list-style-type:circle">キノコシチューからクラフト召喚</li></ul></li></ul><ul id="28a1d5ca-4995-4a11-8a9f-e3e42f1baef1" class="bulleted-list"><li style="list-style-type:disc">生兎精ラーウェラッビーチャ<ul id="327c7be3-c854-4d73-ad9e-a28210a4ec53" class="bulleted-list"><li style="list-style-type:circle">生の兎肉を所持してフェアリークリスタルを使用</li></ul><ul id="e93a14d0-d1ca-452b-8a9f-1318fb05248e" class="bulleted-list"><li style="list-style-type:circle">生の兎肉からクラフト召喚</li></ul></li></ul><ul id="a21ec731-8efa-45cb-8c72-f3689b9fa500" class="bulleted-list"><li style="list-style-type:disc">蜃気楼花精ミラーゲフロウェーリャ<ul id="0c9adf68-c810-4161-b4a6-f78e4593b4db" class="bulleted-list"><li style="list-style-type:circle">設置状態のミラージュフラワーの付近でフェアリークリスタルを使用</li></ul></li></ul><ul id="fb9a40d3-c7f6-4e7c-b171-303bd06455eb" class="bulleted-list"><li style="list-style-type:disc">日昇精スンリーシャ<ul id="840a76ae-9e8d-47b4-b66b-65ee8173cf94" class="bulleted-list"><li style="list-style-type:circle">地上世界の朝、太陽が地平線付近にあるときにフェアリークリスタルを使用</li></ul><ul id="cb484799-72dc-480f-8c3d-1c2b95ed09bd" class="bulleted-list"><li style="list-style-type:circle">妖精の樹洞からレアドロップ</li></ul></li></ul><ul id="e2d6cccc-1d90-4a07-b383-7281a4dfdd8a" class="bulleted-list"><li style="list-style-type:disc">初夢精ハツユーミャ<ul id="38734613-d6e3-423b-9f62-0d22d9c1d4f0" class="bulleted-list"><li style="list-style-type:circle">2022年1月31日23時59分までの間にフェアリークリスタルを使用</li></ul></li></ul><p id="0ffa1d61-f74b-4c39-87c4-8b2957f0ac91" class="">
+</p><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="057685d3-9d37-4a62-97a3-7d02ae70cdbf"><div style="font-size:1.5em"><span class="icon">🧪</span></div><div style="width:100%">ミラージュは空間や意識を作る物質であるエーテルに干渉する能力を持つ植物であり、その花粉が運動性を得たものが妖精であると考えられています。すなわち妖精はすべてミラージュの精といえます。ではこの妖精はどういう解釈を行えばいいのか、有識者の間でも意見が分かれています。　——　妖精研究所<figure id="af2862cd-9e65-4c7a-854c-7b97c0a79071" class="image"><a href="Untitled%20449.png"><img style="width:361px" src="Untitled%20449.png"/></a></figure></div></figure><h1 id="220f51d7-31ea-419e-89ef-30e7827b2294" class="">その他の変更点</h1><ul id="333cfada-bd8d-448b-a765-ee10840bc59f" class="bulleted-list"><li style="list-style-type:disc">【追加】MFA JEIタブから参照できるメローニャのエピソードを追加</li></ul><ul id="53646d76-0c8b-4a39-bd1f-9ca066d9b7ea" class="bulleted-list"><li style="list-style-type:disc">【改善】妖精の樹洞（クリエイティブ専用アイテム）の設置時に常に北向きではなくプレイヤーの方を向くように変更</li></ul><h2 id="42cdf1bc-263a-4979-849e-ff1f2599549a" class="">見た目に関する変更</h2><ul id="c6c44111-451b-4733-80fd-122e83dccff0" class="bulleted-list"><li style="list-style-type:disc">【廃止】妖精素材のツールチップからContains表示を削除</li></ul><ul id="9486fdf1-e081-437a-b36a-5ad8e33d3e46" class="bulleted-list"><li style="list-style-type:disc">【変更】MFA JEIタブの項目の順序を種類順から番号順に変更</li></ul><ul id="d43a7c6e-e63f-4e9b-806f-725f8c67b349" class="bulleted-list"><li style="list-style-type:disc">【修正】妖精剣の英語版ツールチップ項目を修正</li></ul><p id="fe207592-e793-4e09-be60-c291e381dc69" class="">
+</p><hr id="0fbe9468-3b31-4070-8795-5a8a1feada2f"/><p id="036706d1-1158-4d5d-8dd7-e6cef35ca614" class="">今後ともMirageFairy Server・MirageFairy2019をよろしくお願いいたします。</p><p id="6be3426e-eabd-40c2-a627-fed0ec873590" class="">2021年12月26日　MirageFairy Server運営部・技術部・創作部</p><p id="8847c632-eaaa-4b55-9877-42b0564d00ee" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

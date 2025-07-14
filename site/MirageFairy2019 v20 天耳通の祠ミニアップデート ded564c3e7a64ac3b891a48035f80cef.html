@@ -1,0 +1,692 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>MirageFairy2019 v20　天耳通の祠ミニアップデート</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="ded564c3-e7a6-4ac3-b891-a48035f80cef" class="page serif"><header><img class="page-cover-image" src="2022-02-05_19.02.34.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="mirage_flower_280x280%2018.png"/></div><h1 class="page-title">MirageFairy2019 v20　天耳通の祠ミニアップデート</h1><p class="page-description"></p></header><div class="page-body"><figure id="afa29153-9177-439f-8914-d0d2b638623b" class="image"><a href="2022-02-05_19.02.34.png"><img style="width:720px" src="2022-02-05_19.02.34.png"/></a></figure><nav id="48440199-ca57-48da-9d4c-392b3029ebde" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#046d1b87-4167-4895-ab48-d9b16d5ed862">「天耳通の祠」追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a1ab8075-da32-4f13-9952-b0e3323ef364">設定方法</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#1b8b1752-fa6f-4edb-9a54-957f2aa1cd88">アンロード時の挙動について</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2393dadc-e7a1-4564-b85d-27c29a12db2f">有効期限について</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#7011ebdf-051a-4509-b24a-ff86dd32c47a">「デーモン」（守護神）システム追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#335d4919-34ba-45fe-bbd0-ed50a55bcf17">Webhook URLについて</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#e43cd8df-96f4-4420-8a9b-efe6452b5feb">レシピの追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#b7245f23-37ea-427c-9d39-83b25c4f2f41">その他の更新点</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#9a16473d-3a1d-418e-b8ab-eab205edb843">見た目に関する変更</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d87bec4f-cc04-400e-bddf-8ca87cea623a">クリエイティブ限定の変更</a></div></nav><p id="87033633-ce38-431e-b2ef-710fb6e5f720" class="">MirageFairy2019 v20における前のサーバーアップデートからの更新点です。</p><h1 id="046d1b87-4167-4895-ab48-d9b16d5ed862" class="">「天耳通の祠」追加</h1><p id="8f0c5b9c-93cd-4d34-aec9-0cee7a1d462d" class="">Tier 3から作製可能なユーティリティ「天耳通の祠」を追加しました。</p><figure id="742f46e9-1f5e-4810-9a08-a1f9fae89b7a" class="image"><a href="Untitled%20522.png"><img style="width:238px" src="Untitled%20522.png"/></a></figure><p id="edfedc4f-42e3-468b-844a-720c77abaa48" class="">
+</p><p id="604d6eba-e79b-40c9-8ede-1f0b6f98210d" class="">天耳通の祠は、Minecraftのワールド上の公開チャットを、任意のWebhookに転送します。</p><figure id="677357b9-112d-4bec-b9df-ac7f6abbc16b" class="image"><a href="Untitled%20523.png"><img style="width:285px" src="Untitled%20523.png"/></a></figure><figure id="a6178b8e-3a15-40db-8036-6aa012cb3179" class="image"><a href="Untitled%20524.png"><img style="width:580px" src="Untitled%20524.png"/></a></figure><figure class="block-color-red_background callout" style="white-space:pre-wrap;display:flex" id="7301c0bd-00aa-42df-88ad-4bd92bbe7e7e"><div style="font-size:1.5em"><span class="icon">❗</span></div><div style="width:100%">この機能はMinecraftサーバーの負荷にはあまり影響しませんが、接続先のDiscord等のサーバーに少なからず負荷を生じさせます。<p id="42e13048-1c27-4fcc-971c-89301ce53f14" class="">そのため、極力少ない個数で運用することをお願いします。</p></div></figure><p id="1f196a29-6e78-446b-b2bc-67caffe978f4" class="">
+</p><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="c2bd7af5-73ec-4776-92f3-085725362911"><div style="font-size:1.5em"><span class="icon">🧪</span></div><div style="width:100%"><p id="0375dfd8-eac4-4be1-807d-b6184180bbb9" class="">妖精は我々が住む3次元空間ではなく高次元の領域に住んでいると信じられてきました。それを裏付けるように、抽象度の高い妖精はこの世の物質ではなく、「異界」に向かって話しかけているような行動をとることがあります。天耳通の祠はミラジウムチャンバー内で濃縮した縮地のフィールドにより、地上の声を異界に向かって届けます。　——　妖精研究所</p></div></figure><h2 id="a1ab8075-da32-4f13-9952-b0e3323ef364" class="">設定方法</h2><p id="0c2fa098-a1ce-4ab4-a5ec-6c23bb323f5a" class="">天耳通の祠を右クリックするとGUIが表示されます。</p><figure id="1eff0782-0066-4ffb-916c-8b4d2a66ae26" class="image"><a href="Untitled%20525.png"><img style="width:359px" src="Untitled%20525.png"/></a></figure><p id="3e47623e-b15d-4671-a955-3b7f15065603" class="">
+</p><p id="808b1938-7081-4cb4-85a2-2f3bed443660" class="">上段ではDiscordの名前欄の左端に表示する文字列を指定します。</p><figure id="0d6076b2-796e-4a25-bf1d-67541e8f871d" class="image"><a href="Untitled%20524.png"><img style="width:580px" src="Untitled%20524.png"/></a></figure><p id="06424974-294b-4597-b36b-aec155518afd" class="">紙に金床で名前を書いてください。</p><figure id="f953f046-bd78-4781-9d5e-dda421e1e92a" class="image"><a href="Untitled%20526.png"><img style="width:312px" src="Untitled%20526.png"/></a></figure><p id="d4177aca-6f62-4bdd-8efd-439116363af1" class="">
+</p><p id="230a36b2-3b15-4327-a2cf-071bbe0e8073" class="">下段では接続先のWebhook URLを指定します。</p><p id="cd4a7ab4-32d6-461f-8fc9-8cb827298a4b" class="">Webhook URLの詳細は、別項を参照してください。</p><figure id="201c6aad-d8ef-48f2-9314-e030382601a8" class="image"><a href="Untitled%20527.png"><img style="width:304px" src="Untitled%20527.png"/></a></figure><p id="d6c130bc-2b6b-472a-82d5-80fd7fc2f8a0" class="">
+</p><p id="cfbe8ecd-ae16-44ec-8301-029e4de46678" class="">これらのアイテムをスロットに置いてください。</p><figure id="f5e1ba2b-282e-4d98-9b6d-bad40805fa8c" class="image"><a href="Untitled%20528.png"><img style="width:363px" src="Untitled%20528.png"/></a></figure><p id="b446b1ac-7547-4c6b-aecc-8e702624abe4" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="b3ffabbc-bb4b-4f58-aeff-33f3b5c04e35"><div style="font-size:1.5em"><span class="icon">ℹ️</span></div><div style="width:100%">実際には上下段とも紙も記入済みの本も受け付けますが、文字数の関係で紙でWebhook URLを指定することはできません。</div></figure><h2 id="1b8b1752-fa6f-4edb-9a54-957f2aa1cd88" class="">アンロード時の挙動について</h2><p id="7ab059a8-be2f-413a-a267-bb3a17be28ea" class="">チャットをDiscordに転送する機能は別項のデーモンシステムによって行われており、天耳通の祠自体は、次の機能しか持ちません。</p><ul id="a2730fb0-0d85-4495-bf3b-eb0d05197fdd" class="bulleted-list"><li style="list-style-type:disc">設置時にチャットWebhook転送デーモンを追加する。</li></ul><ul id="9dd23377-3bcd-46c1-9b62-fafd848846b9" class="bulleted-list"><li style="list-style-type:disc">設置中、しばしばデーモンが存在するかを確認し、無ければ追加する。</li></ul><ul id="ab20ce44-428e-439c-860d-f9e764e6af68" class="bulleted-list"><li style="list-style-type:disc">撤去時にデーモンを削除する。</li></ul><ul id="be6c2dd4-d4f4-4641-87c5-b4646f78eb76" class="bulleted-list"><li style="list-style-type:disc">デーモンは天耳通の祠が現存しないことを認識すると、自身を削除する。</li></ul><p id="1aff95c0-fdb3-4f04-8651-4000cba33d10" class="">
+</p><p id="8c4114f5-eb6e-41c0-bc05-2c22fd8944ea" class="">そのため、<mark class="highlight-blue"><strong>天耳通の祠は、地形が読み込まれていない状態でも動作します</strong></mark>。</p><h2 id="2393dadc-e7a1-4564-b85d-27c29a12db2f" class="">有効期限について</h2><p id="67ff324c-a438-48d0-a020-db759aba4b98" class="">天耳通の祠には有効期限が存在し、最後にGUIを開いてから30日で機能を停止します。</p><figure id="aa0cdb44-86df-48dc-9d5f-ef38cba2760e" class="image"><a href="Untitled%20529.png"><img style="width:123px" src="Untitled%20529.png"/></a></figure><p id="e61f58ba-aa31-4b2b-808e-4206844e7dd6" class="">この有効期限は実際に地形が読み込まれていなくても消費されます。</p><p id="c403a928-7b93-41be-bdf7-f955cbd32674" class="">
+</p><p id="014ff6ff-8ec7-4b83-8bf9-101557e081d8" class="">Discordに有効期限が表示されるので、満了前に再度GUIを開いて更新してください。</p><figure id="48e41fc7-4c2a-462c-969e-91fab21f1af9" class="image"><a href="Untitled%20524.png"><img style="width:580px" src="Untitled%20524.png"/></a></figure><h1 id="7011ebdf-051a-4509-b24a-ff86dd32c47a" class="">「デーモン」（守護神）システム追加</h1><p id="e8ad111f-363c-4fe4-98de-d46df09550bc" class="">「デーモン」（守護神）システムは、ワールド上のブロックがアンロード時にもバックグラウンドで処理を行うための、Minecraftサーバー単位で管理される機能です。</p><p id="4c4be132-d1bc-4b1f-a9c3-5094e10394fc" class="">デーモンの状態はセーブデータ単位で記録されているため、サーバー起動後、窓口となるブロックを一度も読み込まない状態でも有効となります。</p><h1 id="335d4919-34ba-45fe-bbd0-ed50a55bcf17" class="">Webhook URLについて</h1><p id="a3095e53-06d0-4d20-837f-59d4943a5990" class="">Webhook URLは、Discord上で特別な権限のあるユーザーが作成できます。</p><p id="d471b633-1cf2-416f-98d5-5f7ca4f8120c" class="">
+</p><p id="dd6cf277-a988-4559-a390-19b2dcc014b6" class="">Discord上で「サーバー設定＞連携サービス＞ウェブフック」と進んでください。</p><div id="d5d6ebdf-2755-4b2f-9f82-2dbd7ccea6f7" class="column-list"><div id="b915cc93-3da5-4961-889d-648f9038395a" style="width:50%" class="column"><figure id="c6fcac97-0606-489d-b152-8c980b51f914" class="image"><a href="Untitled%20530.png"><img style="width:214px" src="Untitled%20530.png"/></a></figure></div><div id="888fe7ab-a4eb-4016-8cf0-e443f183709a" style="width:50%" class="column"><figure id="42143ab6-9009-4036-baf3-6dfd7b309d32" class="image"><a href="Untitled%20531.png"><img style="width:180px" src="Untitled%20531.png"/></a></figure></div></div><figure id="ac4daaa8-bf12-4a93-98b4-f54ee755a67f" class="image"><a href="Untitled%20532.png"><img style="width:576px" src="Untitled%20532.png"/></a></figure><p id="7298f35c-f801-48b9-b90a-b3dd99245817" class="">
+</p><p id="a0a3843d-236c-4d9c-afce-90f018512b9e" class="">Webhook URLの取得およびアイコンの設定等は、ここで行うことができます。</p><figure id="9d10db2d-85d2-4e56-8fc3-e105b93343d5" class="image"><a href="Untitled%20533.png"><img style="width:588px" src="Untitled%20533.png"/></a></figure><h1 id="e43cd8df-96f4-4420-8a9b-efe6452b5feb" class="">レシピの追加</h1><p id="9355205a-2fca-45c6-bcbb-ad1ed8415aaa" class="">妖精の木の樹液から松明を作るレシピを追加しました。</p><figure id="5931c061-6189-4b99-b8ee-ceac6b2af4de" class="image"><a href="Untitled%20534.png"><img style="width:238px" src="Untitled%20534.png"/></a></figure><h1 id="b7245f23-37ea-427c-9d39-83b25c4f2f41" class="">その他の更新点</h1><ul id="7f2d3eb6-f820-4180-b76a-6035f452988b" class="bulleted-list"><li style="list-style-type:disc">【変更】冥王のワンドは妖精のステッキの代わりとして使えなくなった。</li></ul><ul id="cb812281-a634-426c-9d56-84176543c21a" class="bulleted-list"><li style="list-style-type:disc">【修正】妖精搭乗に関するバグを修正。</li></ul><h2 id="9a16473d-3a1d-418e-b8ab-eab205edb843" class="">見た目に関する変更</h2><ul id="62c5b1a7-f1ca-44a3-ab39-913eb4116efb" class="bulleted-list"><li style="list-style-type:disc">【変更】妖精魔法のパートナー妖精が存在しない場合のツールチップ表示を微修正。</li></ul><h2 id="d87bec4f-cc04-400e-bddf-8ca87cea623a" class="">クリエイティブ限定の変更</h2><ul id="c2b65b33-56fd-4ccc-ae58-3867d5691858" class="bulleted-list"><li style="list-style-type:disc"> 【変更】本のグラフィックをしたデバッグアイテムをスタック不可に変更。</li></ul><ul id="f3de1f68-41bb-4248-9413-50a2d5e7c812" class="bulleted-list"><li style="list-style-type:disc">【追加】プレイヤーオーラをリセットするデバッグアイテムを追加。</li></ul><p id="01402163-4b69-481f-bd58-bf931fd21e91" class="">
+</p><hr id="af16d572-9272-441b-95c3-39339e0fdce2"/><p id="d228d0ea-bbc6-4500-8de8-02293aa2d681" class="">今後ともMirageFairy Server・MirageFairy2019をよろしくお願いいたします。</p><p id="ce98a54e-8acf-4c45-9137-5772f502883f" class="">2022年2月5日　MirageFairy Server運営部・技術部・創作部</p><p id="970ce854-bd3a-41a4-b528-2f4edc12d963" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

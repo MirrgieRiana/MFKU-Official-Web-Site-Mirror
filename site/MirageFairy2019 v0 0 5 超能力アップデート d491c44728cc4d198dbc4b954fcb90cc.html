@@ -1,0 +1,682 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>MirageFairy2019 v0.0.5　超能力アップデート</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="d491c447-28cc-4d19-8dbc-4b954fcb90cc" class="page serif"><header><img class="page-cover-image" src="Untitled%2091.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="mirage_flower_280x280%205.png"/></div><h1 class="page-title">MirageFairy2019 v0.0.5　超能力アップデート</h1><p class="page-description"></p></header><div class="page-body"><figure id="2c38a115-acf8-4cd0-ad84-0e91d4f4c9b8" class="image"><a href="Untitled%2091.png"><img style="width:854px" src="Untitled%2091.png"/></a></figure><nav id="67877bad-e6ad-4f84-85aa-7fcdeceeb0fd" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#e4ec3dd5-8912-4dcc-918a-30dd5286c853">妖精の仕様変更</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#c5f046a8-f320-40d5-a692-8344e02f37c4">凝縮のレートを変更</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#52ad43f2-3a4c-438c-8452-75e93bb1173a">最大ランクの変更</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#9b715731-9523-475b-b182-a1fe5b7682ce">追加要素</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#f8e308a7-179d-49d2-bed4-446021231748">超能力追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#865b9dab-b4f9-49e2-b7d0-80fb4f584692">スフィア追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#9b90faac-67c2-4f2e-854a-78ac023a0381">妖精追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#9815c68f-38fb-4058-91aa-88d3c7bf9351">その他の変更</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#abe87c71-2747-46ef-b8b5-f19990783142">変更</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#1fec9184-db93-460d-9658-a2819aa2072a">改善</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#53a9931f-761d-48a3-9a52-7830376472c1">修正</a></div></nav><h1 id="e4ec3dd5-8912-4dcc-918a-30dd5286c853" class="">妖精の仕様変更</h1><h2 id="c5f046a8-f320-40d5-a692-8344e02f37c4" class="">凝縮のレートを変更</h2><p id="46cee1d4-ee39-4a8c-91e9-e4e60242d09d" class="">凝集に必要な妖精の個数が9個から8個になりました。それに応じて、解体時に得られる下位のランクの妖精の個数も9個から8個になりました。これはすべてのランクの凝集に適用されます。</p><div id="008c2984-2ca8-448a-96b9-9fca433a3d22" class="column-list"><div id="a429ce67-8923-419a-af09-7fb06bad5924" style="width:50%" class="column"><figure id="9a8c7e53-0a2a-436d-bbbe-d4a21e3caf53" class="image"><a href="Untitled%2092.png"><img style="width:238px" src="Untitled%2092.png"/></a></figure></div><div id="2d682c9e-2020-4654-b3f7-b3159724b777" style="width:50%" class="column"><figure id="7469ccdf-b7a8-4b95-be3c-f05831e275c2" class="image"><a href="Untitled%2093.png"><img style="width:238px" src="Untitled%2093.png"/></a></figure></div></div><h2 id="52ad43f2-3a4c-438c-8452-75e93bb1173a" class="">最大ランクの変更</h2><p id="4b9d5f30-590d-4c6a-a6cd-2de517e5c50d" class="">妖精の最大ランクが5から7になり、凝縮可能な回数も4回から6回に増加しました。なお、同ランクの妖精のステータスに変更はなく、単純に強力な妖精が追加された形になります。</p><div id="8d819eee-7de1-4bf5-a4af-fa279a61c74c" class="column-list"><div id="bea9c55e-448c-467f-978e-6c2941413478" style="width:50%" class="column"><figure id="2c39c3b4-a2ee-4498-afff-39bf67da4675" class="image"><a href="Untitled%2094.png"><img style="width:260px" src="Untitled%2094.png"/></a></figure></div><div id="1418974d-e9cc-497f-beb7-f6f60435078c" style="width:50%" class="column"><figure id="2dc9d357-aa27-4966-8c5a-1dea92913707" class="image"><a href="Untitled%2095.png"><img style="width:483px" src="Untitled%2095.png"/></a></figure></div></div><h1 id="9b715731-9523-475b-b182-a1fe5b7682ce" class="">追加要素</h1><h2 id="f8e308a7-179d-49d2-bed4-446021231748" class="">超能力追加</h2><p id="4456eb1f-2c32-4834-8190-6b202f1e165c" class="">以下の超能力を追加しました。</p><ul id="701e20ba-7754-4e16-8256-90aa321a1ee4" class="bulleted-list"><li style="list-style-type:disc">結晶　CRYSTAL</li></ul><ul id="9cb14c47-13b6-4742-8600-93ef597e7ce2" class="bulleted-list"><li style="list-style-type:disc">美術　ART</li></ul><ul id="93c7e529-c141-41b6-8a4b-50a4b96f3559" class="bulleted-list"><li style="list-style-type:disc">格納　STORE</li></ul><ul id="a06939c4-2aef-4b15-a806-5a39798e0462" class="bulleted-list"><li style="list-style-type:disc">縮地　WARP</li></ul><ul id="18b5df56-0898-4338-9866-99c0117c4676" class="bulleted-list"><li style="list-style-type:disc">射出　SHOOT</li></ul><h2 id="865b9dab-b4f9-49e2-b7d0-80fb4f584692" class="">スフィア追加</h2><p id="85bbe2ab-a4eb-4b0b-8367-b9ee197994dd" class="">超能力の追加に伴い、以下のスフィアを追加しました。</p><div id="094842bf-3408-42cc-a67a-f150796b18a5" class="column-list"><div id="7c2f4dbb-d01d-4827-ac89-bf04b0bae7e0" style="width:50%" class="column"><figure id="07f5af6c-6e63-4f88-94d9-37866fef4b67" class="image"><a href="Untitled%2096.png"><img style="width:239px" src="Untitled%2096.png"/></a></figure><p id="dac56843-169e-4fdb-848e-9489f3dde63f" class="">≪結晶≫のスフィア</p><figure id="9777876b-d935-48bb-8a10-f9ec4bba4b49" class="image"><a href="Untitled%2097.png"><img style="width:239px" src="Untitled%2097.png"/></a></figure><p id="54b188fc-5100-43d8-8407-5ea6b6509e60" class="">≪美術≫のスフィア</p><figure id="0f2b63eb-49f4-46a3-8fe2-aa7fd5ef3dcd" class="image"><a href="Untitled%2098.png"><img style="width:239px" src="Untitled%2098.png"/></a></figure><p id="9a9ea50e-0d90-4267-9f29-5091ebf87f90" class="">≪格納≫のスフィア</p></div><div id="344c1aba-204d-45f0-8ca9-20c39004649e" style="width:50%" class="column"><figure id="6aefbaee-f2c8-4e7b-aaa3-9064b35d9417" class="image"><a href="Untitled%2099.png"><img style="width:239px" src="Untitled%2099.png"/></a></figure><p id="dce7562b-7fc3-4b02-bb89-91a5190ece47" class="">≪縮地≫のスフィア</p><figure id="380ef484-3179-44c8-bb1b-eadfca0798e7" class="image"><a href="Untitled%20100.png"><img style="width:239px" src="Untitled%20100.png"/></a></figure><p id="0b0e85ee-bf56-4daf-a963-6016ea447f69" class="">≪射出≫のスフィア</p></div></div><h2 id="9b90faac-67c2-4f2e-854a-78ac023a0381" class="">妖精追加</h2><p id="225e6d70-ca44-4631-8207-cd87795e685d" class="">以下の妖精を追加しました。</p><table id="d0ab81cb-22f4-4f61-95f4-ffd694a6003a" class="simple-table"><thead class="simple-table-header"><tr id="9f8c2f60-5719-48b6-948d-4d95ff8bf10d"><th id="b&gt;Oj" class="simple-table-header-color simple-table-header" style="width:207.8333282470703px">妖精</th><th id="SPUG" class="simple-table-header-color simple-table-header">入手手段</th></tr></thead><tbody><tr id="09bf7d66-51c7-4cc2-9f58-72c240c89516"><td id="b&gt;Oj" class="" style="width:207.8333282470703px">アップーリャ</td><td id="SPUG" class="">妖晶</td></tr><tr id="ea775fb1-e0f8-4332-9092-64c674b8a28a"><td id="b&gt;Oj" class="" style="width:207.8333282470703px">カッローチャ</td><td id="SPUG" class="">妖晶</td></tr><tr id="f219869d-6ff9-4449-9d1c-52e99fa4e281"><td id="b&gt;Oj" class="" style="width:207.8333282470703px">カクトゥーシャ</td><td id="SPUG" class="">妖晶</td></tr><tr id="8dcd3016-30d1-4c40-8839-ca4b81922dbc"><td id="b&gt;Oj" class="" style="width:207.8333282470703px">アーシャ</td><td id="SPUG" class="">妖晶</td></tr><tr id="c1a0dfdd-1283-451a-9199-99288d4b3001"><td id="b&gt;Oj" class="" style="width:207.8333282470703px">ケスチャ</td><td id="SPUG" class="">妖晶</td></tr><tr id="0cc1712d-ae1a-4f07-892c-8860c73b7464"><td id="b&gt;Oj" class="" style="width:207.8333282470703px">クラフティンゲターブリャ</td><td id="SPUG" class="">妖晶</td></tr><tr id="eb82f832-2b41-41dd-b4c2-e45dac794fcc"><td id="b&gt;Oj" class="" style="width:207.8333282470703px">ポティオーニャ</td><td id="SPUG" class="">妖晶</td></tr><tr id="f3cb003a-b607-4491-8f61-761cb60eda3f"><td id="b&gt;Oj" class="" style="width:207.8333282470703px">スウォルジャ</td><td id="SPUG" class="">妖晶</td></tr><tr id="e5d9c227-c92d-4444-be95-b2ea738e5b88"><td id="b&gt;Oj" class="" style="width:207.8333282470703px">ジスペンセーリャ</td><td id="SPUG" class="">妖晶</td></tr><tr id="53333fbb-bfe9-4e8e-bf0c-79d3e8c57dce"><td id="b&gt;Oj" class="" style="width:207.8333282470703px">オセアーニャ</td><td id="SPUG" class="">妖晶</td></tr></tbody></table><h1 id="9815c68f-38fb-4058-91aa-88d3c7bf9351" class="">その他の変更</h1><h2 id="abe87c71-2747-46ef-b8b5-f19990783142" class="">変更</h2><ul id="d93928e1-b2e6-4ccd-8323-f8d72c47084a" class="bulleted-list"><li style="list-style-type:disc">いくつかの妖精のステータスを変更</li></ul><h2 id="1fec9184-db93-460d-9658-a2819aa2072a" class="">改善</h2><ul id="a5f084d1-b90e-4df8-bc2a-34146f288290" class="bulleted-list"><li style="list-style-type:disc">詳細表示（F3+H）時でもランクを表す★マークを表示するように<figure id="b71d89b6-3e78-4a5c-aaf6-2eb08fc69647" class="image"><a href="Untitled%20101.png"><img style="width:424px" src="Untitled%20101.png"/></a></figure></li></ul><h2 id="53a9931f-761d-48a3-9a52-7830376472c1" class="">修正</h2><ul id="892569d2-5c88-4175-aa36-d68fdca6884f" class="bulleted-list"><li style="list-style-type:disc">コストの表示が詳細表示と通常表示で逆だった問題を修正</li></ul><ul id="3f8ee46b-ebd8-4cb6-8d58-f9e8fc016afd" class="bulleted-list"><li style="list-style-type:disc">いくつかの超能力のツールチップでの表示色を変更</li></ul><ul id="a5b2a6da-8b7f-4b59-8bb6-aab2e628d6ce" class="bulleted-list"><li style="list-style-type:disc">いくつかの超能力の翻訳の変更</li></ul><p id="a277b8db-1574-4a0e-b113-399ee429a1a6" class="">
+</p><hr id="bb8710f3-926f-4335-acf6-9bcb34821039"/><p id="f176c5f8-e071-48fe-889a-5f09f8a5aaee" class="">2019年10月2日　MirageFairy Server技術部・創作部</p><p id="3ec84631-219d-4c1c-87b5-f2f6bd8ddc98" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

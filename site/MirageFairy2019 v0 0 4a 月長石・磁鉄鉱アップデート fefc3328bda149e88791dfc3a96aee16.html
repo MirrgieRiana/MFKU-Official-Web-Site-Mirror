@@ -1,0 +1,684 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>MirageFairy2019 v0.0.4a　月長石・磁鉄鉱アップデート</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="fefc3328-bda1-49e8-8791-dfc3a96aee16" class="page serif"><header><img class="page-cover-image" src="Untitled%2065.png" style="object-position:center 47.45%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="mirage_flower_280x280%203.png"/></div><h1 class="page-title">MirageFairy2019 v0.0.4a　月長石・磁鉄鉱アップデート</h1><p class="page-description"></p></header><div class="page-body"><figure id="a2d76544-e86a-4ac4-bfd9-96215e4207eb" class="image"><a href="Untitled%2065.png"><img style="width:930px" src="Untitled%2065.png"/></a></figure><nav id="8dfca5e6-a9c7-420f-b7ed-4ba45e576d7a" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#c825f4de-5b7f-4b01-a974-658792967efb">天然石追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#70f7bdd6-ea59-4aa0-85bc-d816d4f3735d">月長石</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#cc8bdb6f-e96b-43a4-8db3-f84f7e1f9e16">磁鉄鉱</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#0e807122-f6d0-454b-a121-de3f040a5c8f">心の棒のレシピ変更</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#8fdef751-a394-47da-972f-b5354ea1f050">天然石のブロック追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#075d7a64-11fa-4f07-a9ba-d1bbe8dd1d34">妖晶のドロップテーブルをリニューアル</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#e163fa03-4a0a-4a2a-96eb-c10854dbb364">ドロップテーブル表示</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#ba0af69c-039a-4e2e-988b-8784c6cf76bf">その他の変更</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#1adc17a9-d7f7-4ecd-b694-751237ac0cbd">調整</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d1926c52-790e-40b5-9376-7c3fd4a7880f">修正</a></div></nav><h1 id="c825f4de-5b7f-4b01-a974-658792967efb" class="">天然石追加</h1><h2 id="70f7bdd6-ea59-4aa0-85bc-d816d4f3735d" class="">月長石</h2><figure id="1ce5db55-91b0-4800-8cac-b220564ec80f" class="image"><a href="Untitled%2066.png"><img style="width:288px" src="Untitled%2066.png"/></a></figure><p id="b3d7204b-481c-4bfe-978c-267ac45d2f39" class="">「月長石」は光の心を象徴する天然石です。</p><p id="543df053-9d14-4c9d-b6ec-cab73c98eff9" class="">すべてのバイオームのY40～50付近に生成されます。</p><h2 id="cc8bdb6f-e96b-43a4-8db3-f84f7e1f9e16" class="">磁鉄鉱</h2><figure id="48a1af55-2b34-42f9-a852-ab4780fee041" class="image"><a href="Untitled%2067.png"><img style="width:288px" src="Untitled%2067.png"/></a></figure><p id="2699e556-202d-4545-95fc-e038c0606ccc" class="">「磁鉄鉱」は闇の心を象徴する天然石です。</p><p id="a264b1e5-5047-4577-841b-d489d86bd4b9" class="">すべてのバイオーム・すべての高度に生成されます。</p><h2 id="0e807122-f6d0-454b-a121-de3f040a5c8f" class="">心の棒のレシピ変更</h2><p id="0148df45-7f22-401a-b0a3-06c576644c49" class="">月長石・磁鉄鉱追加に伴い、光の心の棒・闇の心の棒のレシピが変更されました。</p><div id="6ca75cb9-3574-474b-9204-4f51e30ade4d" class="column-list"><div id="7a699a43-4c0c-4681-9877-1dfb3a96b84b" style="width:50%" class="column"><figure id="6ca94dab-1ac9-4b43-980f-3f68b3ff5788" class="image"><a href="Untitled%2068.png"><img style="width:239px" src="Untitled%2068.png"/></a></figure><p id="756bdfdd-3a05-4355-a747-cf9031fa56d6" class="">159ミラジウムインゴット＋2468月長石＋7技巧のステッキ＋3紅蓮のステッキ→光の心の棒</p></div><div id="ce28b638-ced7-4b4b-b2d1-c7a03cd2b94e" style="width:50%" class="column"><figure id="e6d65d4b-4a6a-408c-9987-42a305ea228e" class="image"><a href="Untitled%2069.png"><img style="width:238px" src="Untitled%2069.png"/></a></figure><p id="d30f122f-0438-42c3-a537-a024c210061d" class="">159ミラジウムインゴット＋2468磁鉄鉱＋7技巧のステッキ＋3紅蓮のステッキ→闇の心の棒</p></div></div><h1 id="8fdef751-a394-47da-972f-b5354ea1f050" class="">天然石のブロック追加</h1><figure id="239dc583-4297-4047-9e20-60c7d7d3e9a6" class="image"><a href="Untitled%2070.png"><img style="width:672px" src="Untitled%2070.png"/></a></figure><p id="f0e4bd29-a3bc-469c-857c-d8c52f32033f" class="">燐灰石・蛍石・硫黄・辰砂・月長石・磁鉄鉱にブロックが追加されました。</p><div id="024fcd68-d978-4c54-9b8d-443a25d5ff5a" class="column-list"><div id="50fbd59b-3117-46d2-a5e2-10f3f311145f" style="width:50%" class="column"><figure id="2fd9174c-ff59-432f-987a-b19a5a60d8e8" class="image"><a href="Untitled%2071.png"><img style="width:240px" src="Untitled%2071.png"/></a></figure><figure id="4f883f90-2db4-4200-ad6e-e0c6d4b3dea5" class="image"><a href="Untitled%2072.png"><img style="width:240px" src="Untitled%2072.png"/></a></figure><figure id="3c446471-bc67-4288-b668-f552ba2ce8c8" class="image"><a href="Untitled%2073.png"><img style="width:240px" src="Untitled%2073.png"/></a></figure><figure id="a0e56e0a-7101-451a-9c0d-ff365716d55c" class="image"><a href="Untitled%2074.png"><img style="width:240px" src="Untitled%2074.png"/></a></figure><figure id="b338f626-e905-4bcb-9aa0-038020be85cb" class="image"><a href="Untitled%2075.png"><img style="width:240px" src="Untitled%2075.png"/></a></figure><figure id="1904e17c-f396-4b58-ac5f-c4dd4cada392" class="image"><a href="Untitled%2076.png"><img style="width:240px" src="Untitled%2076.png"/></a></figure></div><div id="1d627ae9-6e88-4c4c-9f09-ab1af48abe28" style="width:50%" class="column"><figure id="f3745c23-f31d-4897-bf23-9ee3fe4381ad" class="image"><a href="Untitled%2077.png"><img style="width:240px" src="Untitled%2077.png"/></a></figure><figure id="424a2b2f-2070-4b98-9192-0a362edd1b01" class="image"><a href="Untitled%2078.png"><img style="width:240px" src="Untitled%2078.png"/></a></figure><figure id="a2ac8edc-ceb9-449b-bc63-58806dac9760" class="image"><a href="Untitled%2079.png"><img style="width:240px" src="Untitled%2079.png"/></a></figure><figure id="f4940bd1-3d04-4684-8cab-cb5d3380485f" class="image"><a href="Untitled%2080.png"><img style="width:240px" src="Untitled%2080.png"/></a></figure><figure id="2e5a803d-1b1a-47b8-b093-32ec3e0cbd54" class="image"><a href="Untitled%2081.png"><img style="width:240px" src="Untitled%2081.png"/></a></figure><figure id="c3454c82-3aec-4e93-9fc9-f02e6682b723" class="image"><a href="Untitled%2082.png"><img style="width:240px" src="Untitled%2082.png"/></a></figure></div></div><h1 id="075d7a64-11fa-4f07-a9ba-d1bbe8dd1d34" class="">妖晶のドロップテーブルをリニューアル</h1><p id="c25323fa-7960-4668-a2e5-580e6032f0a3" class="">妖晶使用時の妖精の排出率が大幅に変更されました。</p><figure id="91b8f189-ad6d-4e6c-807e-dbe747715970" class="image"><a href="Untitled%2083.png"><img style="width:793px" src="Untitled%2083.png"/></a></figure><p id="72a0aa52-3276-4f4c-8099-e55854154f22" class="">妖晶使用時には、コモン妖精テーブルと条件付き妖精テーブルを参照します。</p><p id="70a0621d-d9d9-4478-af78-e09bb1c7c961" class="">
+</p><p id="7368b378-0c09-4558-a301-54677cfff560" class="">コモン妖精テーブルはディメンションごとに固定で、特定のディメンションに居る限り常に排出テーブルに乗ります。そのディメンションに特有な物質系・生物系の一部がいくつか追加されています。レア度の高い妖精も低確率ながら設定されているので、何も考えずに妖晶を使用してもレア妖精を得ることができます。</p><p id="903748e1-cba4-4ccb-9086-8b4bb5b2bb3b" class="">
+</p><p id="54f8a12d-3d10-419f-8a3c-8a41ccf12e3c" class="">一方条件付き妖精テーブルは、「付近に鶏が居る」「ダイヤモンドを所持している」「屋外で、天候が雷雨である」などの条件を満たすことで妖精に排出率を与えます。</p><figure id="d343a3dd-cdf8-4ac2-a8c9-1f75d423ae48" class="image"><a href="Untitled%2084.png"><img style="width:853px" src="Untitled%2084.png"/></a></figure><p id="940432ee-aaac-40c9-87a0-beb96b9bfbb5" class="">かまど精フルナーキャは通常は全く排出されませんが、周囲やインベントリ内にかまどが存在する場合に限り、約4%程度の割合で出現します。</p><h2 id="e163fa03-4a0a-4a2a-96eb-c10854dbb364" class="">ドロップテーブル表示</h2><p id="f66cb44b-d214-44b4-89a1-889d1ddbec0e" class="">妖晶をスニーク中に使用すると、その時点での妖精の排出率の表をクライアントのチャット欄に出力します。</p><figure id="af0824f0-6cf3-409c-a6cf-ffc9ad6ba6fa" class="image"><a href="Untitled%2085.png"><img style="width:1024px" src="Untitled%2085.png"/></a></figure><p id="4046116c-72db-4a4d-b15c-8cbf80e290a6" class="">条件付き妖精の出現条件が満たされているかどうかも、これで確認することができます。</p><figure id="3340c874-de0c-4928-ae8b-4ff5668ab625" class="image"><a href="Untitled%2086.png"><img style="width:1024px" src="Untitled%2086.png"/></a></figure><h1 id="ba0af69c-039a-4e2e-988b-8784c6cf76bf" class="">その他の変更</h1><h2 id="1adc17a9-d7f7-4ecd-b694-751237ac0cbd" class="">調整</h2><ul id="e0b04160-44a2-4204-b3bd-7ae761bf8785" class="bulleted-list"><li style="list-style-type:disc">硫黄鉱石・辰砂鉱石の出現率を減少</li></ul><ul id="18456de8-ceff-47a1-8ec3-b42d7f9e8863" class="bulleted-list"><li style="list-style-type:disc">燐灰石鉱石・硫黄鉱石の幸運の影響度を増加</li></ul><ul id="9046d937-324f-4347-af6f-9a9a6e9d39fd" class="bulleted-list"><li style="list-style-type:disc">ミラジウムの斧のステータスを調整<ul id="341710fd-510e-4e95-9349-0b8184a90528" class="bulleted-list"><li style="list-style-type:circle">Aquaを持っていない妖精でも最低1ブロックは原木を掘れるようになった</li></ul><ul id="b855f2da-45ea-4879-9c49-d37a2a460766" class="bulleted-list"><li style="list-style-type:circle">Gaiaを持っていない場合の最高高さを2から1に減少</li></ul><ul id="465d2e5e-3790-42bf-98d4-8a49a2febcd1" class="bulleted-list"><li style="list-style-type:circle">Darkの影響率を増加</li></ul></li></ul><h2 id="d1926c52-790e-40b5-9376-7c3fd4a7880f" class="">修正</h2><ul id="7a138c4e-1b97-4aa7-b8be-786887b72c54" class="bulleted-list"><li style="list-style-type:disc">妖精の樹洞をシルクタッチで破壊すると何もドロップしないバグを修正</li></ul><ul id="560d3f8d-6267-440f-b9e8-e21e38a46311" class="bulleted-list"><li style="list-style-type:disc">マルチプレイで妖精の樹洞を破壊するとサーバーがクラッシュするバグの修正</li></ul><p id="49c56fc1-59de-4d4b-b43c-0500a31d9e95" class="">
+</p><hr id="c5ec5e31-45b9-440e-bd98-a13ecfc97c6e"/><p id="036ecc3b-5914-4fc0-af5e-103fd40924af" class="">2019年8月18日　MirageFairy Server技術部・創作部</p><p id="eff5d7b6-b92c-45ac-b8b7-d92e6447df28" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

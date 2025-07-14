@@ -1,0 +1,708 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>MirageFairy2019 v17　ヘリオライトミニアップデート</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="9a58b7b3-bf68-44b5-8f18-21cc92250f4a" class="page serif"><header><img class="page-cover-image" src="Untitled%20374.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="mirage_flower_280x280%2015.png"/></div><h1 class="page-title">MirageFairy2019 v17　ヘリオライトミニアップデート</h1><p class="page-description"></p></header><div class="page-body"><figure id="dc1378b9-5978-4341-ac78-76161bc689e2" class="image"><a href="Untitled%20374.png"><img style="width:1685px" src="Untitled%20374.png"/></a></figure><nav id="6e5cd3a2-2177-4b4b-8add-f5d87a45ce39" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#630fc232-eeb3-495e-abc3-aa33412a88a3">宝石に関するアップデート</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#59f8b0f2-a644-4c7a-a92f-9db905539a00">「ヘリオライト」追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#584a2953-c970-4c45-9441-4957f58f1bf1">素材「ラブラドライト」追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#04ff486a-8b1a-440d-8243-0abcebd6da99">月長石の仕様変更</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#518103e1-e545-434d-92fb-7259af8d83e5">エルグ・スフィアに関するアップデート</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d165f4ed-243c-4a87-9c7b-00923e85a1ca">「浮揚」のエルグ追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#31d04ad3-2420-45cf-84b8-c307b5c84b16">「感覚」のエルグ追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#211d897f-2495-478a-bc68-a84979004f5f">芸術のエルグの仕様変更</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#902f7f11-90e7-4827-bdfe-0eaa0dc262fa">栄養のエルグの仕様変更</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#457f677d-4e3e-426a-b447-ad9899626d40">火炎のスフィアの仕様変更</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#368ab293-4af5-481f-b3c1-181903d526af">結晶のスフィアの仕様変更</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#46c2726e-2cd7-48a5-9855-05e5b991c9aa">空間のスフィアの仕様変更</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2c3125db-4779-408f-a885-a8528020bef4">アイテム「歪曲のワンド」追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#56363ebe-48ab-4579-9cd4-8b6f2ec4f469">アイテム「融合のワンド」追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#0dade8b8-6d92-4c55-ac04-0e32c02cf52e">素材「妖精の革」追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#e5a83090-c757-4d2e-8a51-090c444cfeb4">素材「リラジウムインゴット」追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#b730bcb8-f7c7-4eb1-97b3-8ea94fd771f4">鐘に関するアップデート</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#e7ad622b-15ac-4a2c-bdf9-d640bda17a9f">鐘ベースの素材変更</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#16edf901-a9b7-47a1-a83d-9d4274d8de16">花摘みの鐘に関するアップデート</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#c3620129-1a91-4264-96f0-d784f336a2be">アイテム「高純度フェアリークリスタル」追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#454ff74d-88c2-41b7-b500-55b17d62d503">ミラージュオイルのレシピ変更</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#95779668-9587-4be3-b491-1530736119cd">銀子精ミーニャによる購入レシピ追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#a3c418e6-189e-4ffa-bbc6-58f6f646ffd1">既存アイテムのレシピ追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a1aa80ab-96d9-4fdf-adc2-ef9f7497c41d">エリトラ</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#470804b2-d22e-4257-8eef-8233f0de4a92">ミラジウムの棒</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#4cb652f4-072b-4b04-8aa0-1d71b5152195">ファイヤーチャージ</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#36fe4aae-46b7-431f-9e38-18e55611fdc7">Tier 4ワンドの実績追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#9e8be213-c0e7-4e77-a0cb-b8c5ea2ff139">ミラジウムの大鎌改変</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#ad00083c-d8da-4c14-af47-fcfa33730a30">クリスマス妖精期間限定復刻</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#7bc431cd-b98f-4bbf-a30e-e67c7f8a7fa4">その他の更新点</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#38552965-0ed2-48b6-9730-0b98ebd8ecaa">見た目の変更</a></div></nav><p id="ff1a9f21-8b92-47fd-8a39-22505de71b8f" class="">MirageFairy2019 v0.1.17.35における前バージョンアップからの更新点です。</p><h1 id="630fc232-eeb3-495e-abc3-aa33412a88a3" class="">宝石に関するアップデート</h1><h2 id="59f8b0f2-a644-4c7a-a92f-9db905539a00" class="">「ヘリオライト」追加</h2><p id="ab22fc10-f13b-4cd0-ba62-6b4c1d8f8d57" class="">宝石アイテム「ヘリオライト」を追加しました。</p><p id="990521f9-eefb-4aa7-82d7-33df0d55315d" class="">ヘリオライトは日長石と呼ばれる実在の宝石です。その強い輝きから太陽神の象徴として信仰され、魔術の儀式に用いられてきたと言われています。</p><figure id="a3e39d66-280c-4e7a-b140-19222bb9ddf1" class="image"><a href="Untitled%20375.png"><img style="width:42px" src="Untitled%20375.png"/></a></figure><p id="bb7dd06f-d266-4213-a5f9-c56c71eb4ec9" class="">
+</p><p id="ce8f8d16-95e4-485c-b548-408e420c054e" class="">ヘリオライトの鉱石は地上世界に鉱脈を形成して出現します。</p><p id="16723704-1d94-4903-a000-b92311a9622c" class="">既に生成済みのチャンクからも出現します。</p><figure id="43cfe5bd-b44c-424b-9c16-d9cbf2a4fcde" class="image"><a href="2021-11-24_00.10.05.png"><img style="width:432px" src="2021-11-24_00.10.05.png"/></a></figure><h2 id="584a2953-c970-4c45-9441-4957f58f1bf1" class="">素材「ラブラドライト」追加</h2><p id="65742b16-5b67-4aa1-a7b9-027663c6b913" class="">宝石アイテム「ラブラドライト」を追加しました。</p><p id="02c1e297-f598-40f7-bdb3-3dac6fafb47a" class="">ラブラドライトは曹灰長石と呼ばれる実在の宝石です。宇宙のような神秘的な輝きから、物質の世界を超えた天の世界からの言葉が宿ると考えられてきました。</p><figure id="3f26c0f0-8ef7-467d-b671-ceab954b9f52" class="image"><a href="Untitled%20376.png"><img style="width:37px" src="Untitled%20376.png"/></a></figure><p id="5e5d0b9b-ced2-42a1-9bcb-b51c49370a47" class="">
+</p><p id="3e182082-089b-4ce3-b4ed-2e222ef3163e" class="">ラブラドライトの鉱石はエンドに鉱脈を形成して出現します。</p><p id="89e73eed-17d5-4f03-8bf8-b33ffa0eacba" class="">既に生成済みのチャンクからも出現しますが、MirageFairy Serverではエンドの中央の島には出現しません（シングルでは出現します）。</p><figure id="193c0bb5-b828-40ff-9bc4-4ca189c20b67" class="image"><a href="2021-11-24_00.17.19.png"><img style="width:432px" src="2021-11-24_00.17.19.png"/></a></figure><h2 id="04ff486a-8b1a-440d-8243-0abcebd6da99" class="">月長石の仕様変更</h2><p id="d92ad66f-06cc-4af7-a540-f181f20acc45" class="">月長石のテクスチャを変更しました。</p><p id="f19bc763-13ac-4e50-9cf5-7c925c56429a" class="">旧<div class="indented"><figure id="2c6924ad-0147-428e-a905-d86d2d3725d5" class="image"><a href="Untitled%20377.png"><img style="width:44px" src="Untitled%20377.png"/></a></figure></div></p><p id="b7da8894-6355-4288-b294-914713c783e8" class="">新<div class="indented"><figure id="b3017501-0f81-4c93-a0b3-b237ff4f1376" class="image"><a href="Untitled%20378.png"><img style="width:43px" src="Untitled%20378.png"/></a></figure></div></p><p id="c6b0ce0f-164e-4974-b5fe-249f6f6668bc" class="">
+</p><p id="a6e365f1-cd2b-4025-8637-0cb81ce87d83" class="">月長石鉱石の採掘可能ツールレベルが「鉄以上」になりました。</p><h1 id="518103e1-e545-434d-92fb-7259af8d83e5" class="">エルグ・スフィアに関するアップデート</h1><h2 id="d165f4ed-243c-4a87-9c7b-00923e85a1ca" class="">「浮揚」のエルグ追加</h2><p id="f1147089-0f53-4ac5-b2b4-4e36b4007a97" class="">「浮揚」のエルグを追加しました。</p><figure id="6678f465-48fe-4bd7-95b5-3b07fc0a19b1" class="image"><a href="Untitled%20379.png"><img style="width:202px" src="Untitled%20379.png"/></a></figure><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="d319cdf2-96b9-4726-a11a-261ea2693327"><div style="font-size:1.5em"><span class="icon">🧪</span></div><div style="width:100%">私たちは巨大な岩の塊が宙に浮いたままでいることに不思議と疑問をいだきませんでしたが、よくよく考えてみるとそれは異常なことでした。また、なぜ砂や動物は重力に逆らって空中に留まることができないのでしょうか？妖精研究所は、物体から重力を「逃がしている」と考えられるエネルギーを暫定的に浮揚のエルグと名付けました。　——　妖精研究所</div></figure><p id="7be6057d-68c1-452f-8e61-884b84b4c8da" class="">
+</p><p id="32c4f24b-ca8b-4402-b259-46df2547de8f" class="">浮揚のエルグは、天体、飛行する動物、非常に軽い物質の妖精が多く持っています。</p><figure id="aa00b226-30ec-45d5-9e45-8d8279ca2ba6" class="image"><a href="Untitled%20380.png"><img style="width:200px" src="Untitled%20380.png"/></a></figure><p id="3bc33b00-f070-43b7-af39-346b4a30c4a8" class="">
+</p><p id="d5534245-f62d-4a73-8a65-39f1d191cced" class="">浮揚のスフィアは羽、もしくはラブラドライトからクラフトできます。</p><div id="1e58b34b-8df6-4baa-a330-4eb673dc0631" class="column-list"><div id="666e23ae-0b3b-4052-96b8-b39bd33237de" style="width:50%" class="column"><figure id="ee062ccf-18c3-461b-a3c1-3594650c8022" class="image"><a href="Untitled%20381.png"><img style="width:237px" src="Untitled%20381.png"/></a></figure></div><div id="52b5f15e-6bf9-49a5-b8f4-bf8b3928f200" style="width:50%" class="column"><figure id="a7df4a73-1bc5-478e-9b66-1f0024073844" class="image"><a href="Untitled%20382.png"><img style="width:238px" src="Untitled%20382.png"/></a></figure></div></div><h2 id="31d04ad3-2420-45cf-84b8-c307b5c84b16" class="">「感覚」のエルグ追加</h2><p id="22a5746e-5457-4343-ba50-fd2628a2b626" class="">「感覚」のエルグを追加しました。</p><figure id="58224b7f-2b56-4664-82d8-41b397c8afaf" class="image"><a href="Untitled%20383.png"><img style="width:197px" src="Untitled%20383.png"/></a></figure><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="258146a2-8877-4fc0-a492-7c075bdef999"><div style="font-size:1.5em"><span class="icon">🧪</span></div><div style="width:100%">私たち人間は耳で音を聞き、目で光を見ることで離れた場所の状態を知ることができます。しかし厳密にはそうとは言えません。実際には目は眼球内に侵入した光だけに反応し、耳も同様です。妖精は人間の思考をテレパシーで読み取ると考えられていますが、もし物体が放つ音や光に相当する情報の媒体が「思考」にもあるとしたら、それは一体何なのでしょうか。　——　妖精研究所</div></figure><p id="8027a604-8018-431a-823d-a9b8e43cbea9" class="">
+</p><p id="b8550090-2f21-45e5-9a41-69e4a3e076fa" class="">感覚のエルグは、生物、回路、情報の伝達の媒体となる物質の妖精が多く持っています。</p><figure id="cf0a20b2-f052-4ddf-91d4-2c04270dcf76" class="image"><a href="Untitled%20384.png"><img style="width:245px" src="Untitled%20384.png"/></a></figure><p id="66ee3f95-5d13-47f0-baa0-ca9a627d3bb9" class="">
+</p><p id="f1921d38-98af-480c-958f-2ee47c81ff46" class="">感覚のスフィアはエンダーアイからクラフトできます。</p><figure id="865d5a04-da02-4742-a5cf-e5c0f24b6b8c" class="image"><a href="Untitled%20385.png"><img style="width:238px" src="Untitled%20385.png"/></a></figure><h2 id="211d897f-2495-478a-bc68-a84979004f5f" class="">芸術のエルグの仕様変更</h2><p id="67a128b3-057f-4805-bd6a-d8a1050f8dd9" class="">名称が「音波のエルグ」に変更されました。</p><p id="fc84ef3f-51a2-4d75-90c6-752befb78f2e" class="">これに伴い、妖精のエルグの値が一新されました。</p><p id="2ed306dd-c84e-441d-b3f6-6b613ca96dc0" class="">
+</p><p id="90fe1059-b987-41eb-be40-f14f7ccf816f" class="">スフィアのテクスチャが次のように変わりました。</p><p id="6889b8b7-1387-468f-a9a8-2a3c8248b0fa" class="">旧　芸術<div class="indented"><figure id="ca29a7e0-923e-4544-b722-970f3ab7f39a" class="image"><a href="Untitled%20386.png"><img style="width:43px" src="Untitled%20386.png"/></a></figure></div></p><p id="41070cfa-c95b-44b9-9737-f35845105bb6" class="">新　音波<div class="indented"><figure id="3f36afc3-7ef5-4d09-a852-42448e4c5c2c" class="image"><a href="Untitled%20387.png"><img style="width:40px" src="Untitled%20387.png"/></a></figure></div></p><p id="601433c9-621a-49d3-9cc7-0487cb7e6ee6" class="">
+</p><p id="c9cf6f0c-8462-4365-84b9-abcdd1de55e3" class="">レシピの「触媒」部分が絵画から音ブロックに変わりました。</p><figure id="7e7968d4-66ab-4c50-b6c1-7f398481e1bf" class="image"><a href="Untitled%20388.png"><img style="width:237px" src="Untitled%20388.png"/></a></figure><h2 id="902f7f11-90e7-4827-bdfe-0eaa0dc262fa" class="">栄養のエルグの仕様変更</h2><p id="d83a45de-821f-472c-9fba-c27dd57775dc" class="">名称が「生命のエルグ」に変更されました。</p><p id="b381cfe6-f6b5-4386-84eb-7a8174915c1b" class="">これに伴い、妖精のエルグの値が一新されました。</p><p id="39e2b8da-8792-4f21-bda4-226a8237a6f5" class="">
+</p><p id="a86f4bf6-3fad-4c26-a8b2-9ef52364fb77" class="">スフィアのテクスチャが次のように変わりました。</p><p id="eef4ffd0-a81c-435e-890f-983bff907e00" class="">旧　栄養<div class="indented"><figure id="f15873f4-bdbe-4bcd-a82d-e1b640b7c8a4" class="image"><a href="Untitled%20389.png"><img style="width:43px" src="Untitled%20389.png"/></a></figure></div></p><p id="68271f43-e78d-4312-b7e3-b6fe71922609" class="">新　生命<div class="indented"><figure id="9390b15e-ba17-4dc2-9d60-0d4bce4dd0cc" class="image"><a href="Untitled%20390.png"><img style="width:41px" src="Untitled%20390.png"/></a></figure></div></p><p id="e078cfcb-857f-4bf7-8adc-1df59b5f41dd" class="">
+</p><p id="eef02d7d-2111-4ec0-bf93-19898c2dadb8" class="">レシピの「触媒」部分がパンから牛肉に変わりました。</p><figure id="1074cc7c-c097-4c34-8ee4-920ed45941c8" class="image"><a href="Untitled%20391.png"><img style="width:237px" src="Untitled%20391.png"/></a></figure><p id="7cac4a75-fed4-40b7-b23f-9075f57db29e" class="">
+</p><p id="72df3fc3-49cc-4d1a-98ad-153aed610bce" class="">パイロープから生命のスフィアをクラフトできるようになりました。</p><figure id="70c65ce7-d163-4e6f-b19f-270d40ae401b" class="image"><a href="Untitled%20392.png"><img style="width:238px" src="Untitled%20392.png"/></a></figure><h2 id="457f677d-4e3e-426a-b447-ad9899626d40" class="">火炎のスフィアの仕様変更</h2><p id="3c5d8e7f-be39-40d6-909c-d104374ccf0f" class="">テクスチャが次のように変わりました。</p><p id="e8f47b3a-5be7-4a89-b2a2-35f97b6251eb" class="">旧<div class="indented"><figure id="f3b34d2e-6ba3-4341-a524-2e6035bd9ce8" class="image"><a href="Untitled%20393.png"><img style="width:40px" src="Untitled%20393.png"/></a></figure></div></p><p id="40c0b465-fd31-483f-ae4f-09461a4ca9ae" class="">新<div class="indented"><figure id="d1bf0555-a37a-4421-929b-262ad1ab753d" class="image"><a href="Untitled%20394.png"><img style="width:38px" src="Untitled%20394.png"/></a></figure></div></p><p id="27e503f6-8ca2-4273-970c-dc550c896165" class="">
+</p><p id="f0a600b0-42a4-4776-a114-256831a57442" class="">レシピの「触媒」部分が火打石と打ち金からファイヤーチャージに変わりました。</p><figure id="aa7f1a91-bb76-4c71-ad98-d48351ee86d8" class="image"><a href="Untitled%20395.png"><img style="width:239px" src="Untitled%20395.png"/></a></figure><p id="fb4134fb-81ac-4be7-8744-75e8b008940f" class="">
+</p><p id="d249f244-9d49-4fef-8d4e-6bc892726ff4" class="">ヘリオライトから火炎のスフィアをクラフトできるようになりました。</p><figure id="1e74958a-cf10-4b2d-9c5f-afa735d4d71d" class="image"><a href="Untitled%20396.png"><img style="width:238px" src="Untitled%20396.png"/></a></figure><h2 id="368ab293-4af5-481f-b3c1-181903d526af" class="">結晶のスフィアの仕様変更</h2><p id="40be4e22-4f3b-40ee-91b1-7196c22a9172" class="">レシピの「触媒」部分がダイヤモンドからネザークォーツに変わりました。</p><figure id="d4dddf1c-2a61-41a1-af80-f7b44cc675fd" class="image"><a href="Untitled%20397.png"><img style="width:238px" src="Untitled%20397.png"/></a></figure><p id="dbdc8a5a-777a-4f17-8a76-f8ed567f9451" class="">
+</p><p id="5d49f872-a0f7-4d7c-a558-990517756659" class="">ダイヤモンドから直接結晶のスフィアをクラフトできるようになりました。</p><figure id="0b505ec8-1d4b-4b1d-8fb5-246c996e85cc" class="image"><a href="Untitled%20398.png"><img style="width:238px" src="Untitled%20398.png"/></a></figure><h2 id="46c2726e-2cd7-48a5-9855-05e5b991c9aa" class="">空間のスフィアの仕様変更</h2><p id="92e46e92-0391-40f6-bfba-b67f73b51f63" class="">テクスチャが次のように変わりました。</p><p id="6c254185-1365-4e6a-8b67-b3f33c8ddb2c" class="">旧<div class="indented"><figure id="751a73aa-1b97-4685-a350-4c3a007393f8" class="image"><a href="Untitled%20399.png"><img style="width:41px" src="Untitled%20399.png"/></a></figure></div></p><p id="f4757b9d-26f4-47e0-86ca-1ad23d1efd3b" class="">新<div class="indented"><figure id="eec8bb36-8545-46f9-8ff0-7739431718b6" class="image"><a href="Untitled%20400.png"><img style="width:41px" src="Untitled%20400.png"/></a></figure></div></p><h1 id="2c3125db-4779-408f-a885-a8528020bef4" class="">アイテム「歪曲のワンド」追加</h1><p id="eb620a50-703f-4061-8563-23ecc9d78a92" class="">Tier 4から作製できる妖精武器「歪曲のワンド」を追加しました。</p><p id="03472af0-5532-4d05-9308-2b24f711bf07" class="">歪曲のワンドは空間自体を歪ませることで加熱よりも安全に金属加工を行います。</p><figure id="a80708cf-6480-4545-8bfe-4682faf0874b" class="image"><a href="Untitled%20401.png"><img style="width:238px" src="Untitled%20401.png"/></a></figure><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="a076852f-7484-4b41-ab91-9adbb10900bb"><div style="font-size:1.5em"><span class="icon">🧪</span></div><div style="width:100%">妖精研究所は、「箱」の妖精の研究の過程で、この世界に遍在する、それ自身の体積の1728倍以上もの空間を内部に持つ不思議な木箱の謎を解き明かしました。なぜこの星の箱は物質の電子化もなしにそれほどの容量を持つのか？それはエルグが関わっていたのです。木箱は天然の「妖精武器」だったのです。　——　妖精研究所</div></figure><h1 id="56363ebe-48ab-4579-9cd4-8b6f2ec4f469" class="">アイテム「融合のワンド」追加</h1><p id="f766168e-3d3b-49ce-ba14-803d8c97fac7" class="">Tier 4から作製できる妖精武器「融合のワンド」を追加しました。</p><p id="f95988f1-cd3a-43e4-9b05-f30867be6dfa" class="">融合のワンドは歪曲のワンドと対になるワンドです。</p><figure id="08259255-8f4c-41fa-a888-fa11217dcad3" class="image"><a href="Untitled%20402.png"><img style="width:237px" src="Untitled%20402.png"/></a></figure><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="fd2e4966-c798-4d74-a1d5-0ec6c5217385"><div style="font-size:1.5em"><span class="icon">🧪</span></div><div style="width:100%">紙をS字に折り畳むことを想像してください。同じ点に3枚の紙が来ており、上から左向き、右向き、左向きとなっています。縮地のエルグは丁度それをエーテル球面、すなわち「空間」で行うことを意味します。同じ点に二つの空間が重なったとき、上の空間から構造物が下の空間に転写され、元の構造物は蒸発します。これを応用し、物体を別の物体の内部に重ねるようにしたのがこのワンドです。　——　妖精研究所</div></figure><h1 id="0dade8b8-6d92-4c55-ac04-0e32c02cf52e" class="">素材「妖精の革」追加</h1><p id="c46f1ba8-80e3-4415-a3e9-792827f48499" class="">Tier 4の素材アイテム「妖精の革」を追加しました。</p><figure id="197533eb-d1e5-4a2d-910b-b87d82e9bcd7" class="image"><a href="Untitled%20403.png"><img style="width:238px" src="Untitled%20403.png"/></a></figure><h1 id="e5a83090-c757-4d2e-8a51-090c444cfeb4" class="">素材「リラジウムインゴット」追加</h1><p id="bace7c1c-f98b-4453-9485-3eb0eabc0e57" class="">Tier 2の素材アイテム「リラジウムインゴット」を追加しました。</p><div id="f0e98816-a63a-47b4-aaac-429887663ee5" class="column-list"><div id="5dedbf41-cda1-4e73-89a6-652a61f3ece6" style="width:50%" class="column"><figure id="a5275870-053e-4cec-9a48-317f7ebbbdb5" class="image"><a href="Untitled%20404.png"><img style="width:237px" src="Untitled%20404.png"/></a></figure></div><div id="5365521b-004f-4bfd-aba9-1c866f4aac74" style="width:50%" class="column"><figure id="191f7a4f-0cf5-4b9a-b217-4277b06794a5" class="image"><a href="Untitled%20405.png"><img style="width:237px" src="Untitled%20405.png"/></a></figure></div></div><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="66140189-9d7f-482d-a481-681ef7d40ce4"><div style="font-size:1.5em"><span class="icon">🧪</span></div><div style="width:100%">ミラジウムの不可解な性質として、非金属や有機物と合金を作ることが挙げられます。鋼は鉄原子の間に炭素原子が入り込むことで原子の可動性が物理的に阻害されることで堅牢になりますが、ミラジウムはライラックの何を取り込んでいるのでしょうか。一つだけ分かっていることは、我々がリラジウムと名付けたこれは植物に対してある種の薬効作用を見せているということです。　——　妖精研究所</div></figure><h1 id="b730bcb8-f7c7-4eb1-97b3-8ea94fd771f4" class="">鐘に関するアップデート</h1><h2 id="e7ad622b-15ac-4a2c-bdf9-d640bda17a9f" class="">鐘ベースの素材変更</h2><p id="67e233c9-2deb-4be1-b135-f75b2d7aa192" class="">鐘ベースの素材が服従ではなく音波のスフィアになりました。</p><figure id="306240e6-a717-4bfd-9990-de53932a8a65" class="image"><a href="Untitled%20406.png"><img style="width:238px" src="Untitled%20406.png"/></a></figure><p id="05e57ac6-219d-4e99-b239-7d06e37f064d" class="">これに合わせて鐘ベースから派生するすべての妖精武器のスフィア交換で必要な要求スフィアが変わりました。</p><p id="493ce0a9-990a-4759-be8d-62e9f1d54b71" class="">
+</p><p id="eaf54109-4820-4329-a613-d2579f288b75" class="">素材に合わせてテクスチャを更新しました。</p><h2 id="16edf901-a9b7-47a1-a83d-9d4274d8de16" class="">花摘みの鐘に関するアップデート</h2><p id="d19c0044-054c-4e7f-bbda-70f7c23dc7d6" class="">基礎ステータスに影響するエルグを変更しました。</p><figure id="58b2cfb5-2df4-4950-8e06-4cc4eb3e572d" class="image"><a href="Untitled%20407.png"><img style="width:379px" src="Untitled%20407.png"/></a></figure><p id="ff8ca043-87f8-438f-a0df-bc98b26d5ed9" class="">
+</p><p id="0ddb3973-d55b-4663-8322-cc96ca64f99a" class="">耐久消費量を劇的に増加させました。</p><p id="c08fc26c-efb7-4f62-8b80-998e47798de4" class="">
+</p><p id="da71cab7-5ce0-4fe9-a582-1f44ebadda56" class="">追加ドロップ率を次のように調整しました。<div class="indented"><p id="bd3ede78-3426-4129-ad71-cf3f926a0526" class="">無印：スキルレベルが0～100にかけて、10%～20%の間で変動</p><p id="ecdad6ae-ec9a-4879-bd20-2a56ebd31644" class="">II：スキルレベルが0～100にかけて、10%～100%の間で変動</p></div></p><p id="80eaa7f0-60e2-4f78-9df2-9abc0b6728aa" class="">これにより花摘みマスタリのスキルレベルが0でも追加ドロップが生じます。</p><p id="b41ee76b-a254-4505-9bc3-4183d39f78da" class="">また、花摘みの鐘（無印）の追加ドロップ率が大幅に抑えられました。</p><p id="6c45a0de-7e1f-4f46-99c7-6a9778a3d68b" class="">
+</p><p id="8d0fe389-c792-4d9f-abf2-3bc6e7a672e7" class="">レシピを変更しました。</p><div id="5b7431d5-638f-4ad6-ac0c-f62d8336e52d" class="column-list"><div id="ff96288b-89de-4408-8224-c746a0610405" style="width:50%" class="column"><p id="7283726e-2b79-4549-b123-88547ea5cce1" class="">無印（Tier 2）</p><figure id="8196f22b-1cf9-4729-855a-1738b0716d77" class="image"><a href="Untitled%20408.png"><img style="width:238px" src="Untitled%20408.png"/></a></figure></div><div id="52000f5e-04e6-4d45-9e38-a85d3783a71d" style="width:50%" class="column"><p id="ad79a809-e842-4b2f-b61b-110e8e612aed" class="">II（Tier 4）</p><figure id="c139b8d6-e8fe-4e8a-8189-718251d2a79d" class="image"><a href="Untitled%20409.png"><img style="width:238px" src="Untitled%20409.png"/></a></figure></div></div><p id="de3603ff-432e-41b7-8fe4-886b462b84d1" class="">これに伴い、無印がTier 2で制作可能になり最大耐久値もTier 2相当になりました。</p><figure class="block-color-red_background callout" style="white-space:pre-wrap;display:flex" id="432902fd-92fb-4855-8d18-29ac20ed3e60"><div style="font-size:1.5em"><span class="icon">❗</span></div><div style="width:100%">既存の花摘みの鐘（無印）の耐久値が0以下になっている場合があります。その場合、使用する前にスフィア交換による耐久値回復を行ってください。</div></figure><p id="5d84ad1d-e776-4afe-b871-cadddbe3a416" class="">
+</p><p id="5f79520e-3ac4-47a3-aaca-91f6f59e015c" class="">素材に合わせてテクスチャを更新しました。</p><h1 id="c3620129-1a91-4264-96f0-d784f336a2be" class="">アイテム「高純度フェアリークリスタル」追加</h1><p id="0f658b15-860a-40e9-ad3f-25fdf33d8a12" class="">Tier 3のクリスタル「高純度フェアリークリスタル」を追加しました。</p><figure id="21206fec-f4d1-4224-aef6-325d0af605e5" class="image"><a href="Untitled%20410.png"><img style="width:238px" src="Untitled%20410.png"/></a></figure><p id="11891f2e-4805-444b-b30c-12e2da2865f4" class="">
+</p><p id="b52c4741-462d-426b-a2d0-07203d797a5a" class="">使用時に妖精をランク2の状態で召喚します。</p><p id="85b899bb-4c0f-4601-a1ca-4d7ed870f984" class="">さらに、妖精の出現率を上昇させるアイテムや環境の効果を2倍にします。</p><p id="52c10297-1477-4a92-980c-d6a1dd5181e9" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="a17d9506-9de8-40c7-9a4e-01a526b91e44"><div style="font-size:1.5em"><span class="icon">ℹ️</span></div><div style="width:100%">フェアリークリスタルドロップの区分には次のものがあります。<ul id="2e4437f9-ef10-430d-afe1-eaf893549f29" class="bulleted-list"><li style="list-style-type:disc">どこに居ても常にドロップする「固定」（FIX）</li></ul><ul id="5f6a935b-c3ee-44df-9153-039cf1adf3df" class="bulleted-list"><li style="list-style-type:disc">ディメンション内のどこでもドロップする「コモン」（COMMON）</li></ul><ul id="e01dad0a-d7c7-4306-a5e0-1e9222228eeb" class="bulleted-list"><li style="list-style-type:disc">個別の条件付きでドロップする「レア」（RARE）</li></ul><p id="cc37e1e3-002a-4da2-8a28-995927352276" class="">
+</p><p id="d756cc6f-93d6-4947-a97a-a4df022cce4a" class="">高純度フェアリークリスタルが強化するのは、「レア」の出現枠となります。</p><p id="1d93317a-58fd-49e5-b2d4-680ee00b8c42" class="">逆に「固定」「コモン」の出現枠の確率は相対的に低下します。</p></div></figure><h1 id="454ff74d-88c2-41b7-b500-55b17d62d503" class="">ミラージュオイルのレシピ変更</h1><p id="0b903686-d884-4760-9af1-cb9c1f0231a2" class="">ミラージュオイルのレシピがネザークォーツ16個から辰砂4個に変更されました。</p><figure id="4d0533c4-30f7-42c9-987f-689324cac4cf" class="image"><a href="Untitled%20411.png"><img style="width:329px" src="Untitled%20411.png"/></a></figure><h1 id="95779668-9587-4be3-b491-1530736119cd" class="">銀子精ミーニャによる購入レシピ追加</h1><p id="9b995d65-c3d1-4973-b64b-7ca6eacadd38" class="">特定のアイテムを銀子精ミーニャから購入するレシピを追加しました。</p><p id="a0ac24ee-bb01-4b3f-9dfd-83eca7d464c0" class="">このレシピは作業台でのみ利用できます。</p><div id="6f759f31-340c-4795-9c3f-2a84fc6e8925" class="column-list"><div id="fd75febe-639b-4e53-9ba7-cd9b9a09f3a0" style="width:50%" class="column"><figure id="14969b12-2db5-451e-a0c1-3dba47542335" class="image"><a href="Untitled%20412.png"><img style="width:237px" src="Untitled%20412.png"/></a></figure></div><div id="3c4ab0a5-492f-42c5-8fb3-594935534099" style="width:50%" class="column"><figure id="4062b006-3432-4f34-88f9-f0e97af8be66" class="image"><a href="Untitled%20413.png"><img style="width:238px" src="Untitled%20413.png"/></a></figure></div></div><p id="8128556b-e9c8-4e4a-9bd0-98154323a499" class="">
+</p><p id="c743a37d-0685-46f8-acc4-5f6bbcc804ce" class="">現時点では次のアイテムが対応しています。</p><p id="c180537e-1ab8-4079-b45a-58cdbd028c00" class="">sはランク3（1スタック分）のミーニャ、ssはランク5のミーニャを表します。</p><table id="9caf7276-97a4-4907-a2bc-9c87082a1da4" class="simple-table"><thead class="simple-table-header"><tr id="50c9dcc7-0abe-4d24-9317-1d05edb360ed"><th id="}k]d" class="simple-table-header-color simple-table-header">アイテム</th><th id="wRQD" class="simple-table-header-color simple-table-header">価格</th></tr></thead><tbody><tr id="22783079-05d3-41d1-8dcb-63da14117cb9"><td id="}k]d" class="">丸石</td><td id="wRQD" class="">8</td></tr><tr id="076aab76-7d03-4a81-a998-3412941997bb"><td id="}k]d" class="">木炭</td><td id="wRQD" class="">1s</td></tr><tr id="7785ccfa-439b-47c6-a7e0-0f205384f737"><td id="}k]d" class="">鉄インゴット</td><td id="wRQD" class="">1s</td></tr><tr id="ac43e846-5081-4023-ade1-f67dd013f147"><td id="}k]d" class="">金インゴット</td><td id="wRQD" class="">2s</td></tr><tr id="75cd089f-59c6-440f-b879-5af397e0e35b"><td id="}k]d" class="">磁鉄鉱</td><td id="wRQD" class="">1ss</td></tr><tr id="43d2cdf4-9fc5-4ab4-909a-3cb697670824"><td id="}k]d" class="">硫黄</td><td id="wRQD" class="">2ss</td></tr><tr id="16db7bc9-65f7-4059-9e04-0f342ff812ae"><td id="}k]d" class="">燐灰石</td><td id="wRQD" class="">2ss</td></tr><tr id="ce5fa29e-15cc-4085-a485-a6e5c4b51f3d"><td id="}k]d" class="">辰砂</td><td id="wRQD" class="">4ss</td></tr><tr id="0217b20c-cd5d-4c93-bf1b-8e38c090fb55"><td id="}k]d" class="">蛍石</td><td id="wRQD" class="">4ss</td></tr><tr id="040f326e-aa67-4130-b726-5541b7bbb257"><td id="}k]d" class="">月長石</td><td id="wRQD" class="">8ss</td></tr></tbody></table><p id="d875f4c2-70b4-4bb8-802e-ec29c0b78546" class="">各レシピの詳細はJEIを参照してください。</p><p id="a1c59d25-1df6-4a55-b5d2-b2571bb31d15" class="">
+</p><p id="5928ad5b-3287-45e1-8bab-83fc0a0a36ab" class="">妖精は召喚のワンドに搭乗しなくなりました。</p><h1 id="a3c418e6-189e-4ffa-bbc6-58f6f646ffd1" class="">既存アイテムのレシピ追加</h1><h2 id="a1aa80ab-96d9-4fdf-adc2-ef9f7497c41d" class="">エリトラ</h2><figure id="44760425-1427-4dd9-a675-7c729bd70a80" class="image"><a href="Untitled%20414.png"><img style="width:238px" src="Untitled%20414.png"/></a></figure><p id="1ee6165e-2711-4f0a-9d83-ded8939a2377" class="">このレシピはTier 4から利用できます。</p><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="b88ad5ce-5a09-4d43-aae5-77f3b213bc5e"><div style="font-size:1.5em"><span class="icon">🧪</span></div><div style="width:100%">妖精研究所は、遺跡の時空間異常からアクセスできる世界から調査団が持ち帰った「エリトラ」の複製を試みましたが、一見ただの布に見えるマントに浮力を与える根本的な仕組みをどうしても特定できませんでした。この代用レシピでは代わりに妖精に由来する力を使って浮力を与えることで、既知の材料でありながら異世界のエリトラの使用感を精巧に再現することに成功しました。　——　妖精研究所</div></figure><h2 id="470804b2-d22e-4257-8eef-8233f0de4a92" class="">ミラジウムの棒</h2><figure id="8eb358bb-1a3d-4961-9f0e-b4daaa230ce8" class="image"><a href="Untitled%20415.png"><img style="width:238px" src="Untitled%20415.png"/></a></figure><p id="f939fae8-5547-445d-b09b-6ef1c70060d2" class="">このレシピはTier 4から利用できます。</p><h2 id="4cb652f4-072b-4b04-8aa0-1d71b5152195" class="">ファイヤーチャージ</h2><figure id="2c75b6ca-15ad-41aa-824a-d89cb92fcd70" class="image"><a href="Untitled%20416.png"><img style="width:238px" src="Untitled%20416.png"/></a></figure><p id="f7f58091-074c-43e8-894a-bd93720ac1c7" class="">このレシピはTier 0から利用できます。</p><h1 id="36fe4aae-46b7-431f-9e38-18e55611fdc7" class="">Tier 4ワンドの実績追加</h1><p id="aaa1719f-6a92-4d26-8fc8-74fb3c290107" class="">すべてのTier 4ワンドの実績を追加しました。</p><figure id="5c020985-78ef-49a1-b4e8-17c0eefa8cbd" class="image"><a href="Untitled%20417.png"><img style="width:390px" src="Untitled%20417.png"/></a></figure><h1 id="9e8be213-c0e7-4e77-a0cb-b8c5ea2ff139" class="">ミラジウムの大鎌改変</h1><p id="ed0d1eda-d8e8-4f0e-b8fc-c523ecfbf386" class="">ミラジウムの大鎌にいくつかのステータスを追加しました。</p><table id="d8b7a9e0-49e1-40b7-ac14-231aa3c4ab7a" class="simple-table"><tbody><tr id="4aaae8ef-da5c-4be5-9705-6747a868c113"><th id="FNQu" class="simple-table-header-color simple-table-header" style="width:91px">最大硬度</th><td id="I@X:" class="" style="width:584px">ある程度硬い植物も壊せるようになります。<br/>ただし、植物であっても固体状のブロック（草ブロック等）は破壊できません。<br/></td></tr><tr id="e9dcc048-1737-442f-810a-5a5aea3ec5ff"><th id="FNQu" class="simple-table-header-color simple-table-header" style="width:91px">幸運</th><td id="I@X:" class="" style="width:584px">破壊時に確率で幸運のエンチャント効果が適用されます。</td></tr><tr id="336ccc28-de38-40bd-9505-9b9c66213e8b"><th id="FNQu" class="simple-table-header-color simple-table-header" style="width:91px">範囲</th><td id="I@X:" class="" style="width:584px">魔法の影響範囲が増えます。</td></tr><tr id="e3bf0d2d-fbba-429d-9a6a-e4f361677a8a"><th id="FNQu" class="simple-table-header-color simple-table-header" style="width:91px">摩耗</th><td id="I@X:" class="" style="width:584px">妖精武器の耐久消費量を軽減します。</td></tr></tbody></table><p id="3d85efea-f062-4d2e-a453-98aa9092f2a3" class="">
+</p><p id="b1f2bae0-ad12-4cf3-a27e-5fccd99a2a87" class="">個別のステータスの値はF3+Hの高度な情報の表示モードで確認できます。</p><figure id="e74ebde3-0b0c-4864-bf2e-98732d960937" class="image"><a href="Untitled%20418.png"><img style="width:390px" src="Untitled%20418.png"/></a></figure><p id="99bfcde7-1528-4a00-a488-2ca93f7433ee" class="">そうでない場合、基礎値（効果値・拡散力・持久力・生産力・コスト）のみ表示されます。</p><figure id="c1b15b4c-09b5-4426-83f7-a6aaba0724b1" class="image"><a href="Untitled%20419.png"><img style="width:360px" src="Untitled%20419.png"/></a></figure><p id="52474db2-a30b-4f93-be87-f8ae50039f66" class="">基礎値でないステータスは、原則として基礎値から決められます。</p><h1 id="ad00083c-d8da-4c14-af47-fcfa33730a30" class="">クリスマス妖精期間限定復刻</h1><p id="72743ad5-5210-4970-91d4-a02098170404" class="">2022年1月9日23時59分までの間、次の妖精が固定出現率でごく低確率でドロップします。</p><ul id="3c24fdc6-b5d2-4c39-b1fd-07a7f7c928b8" class="bulleted-list"><li style="list-style-type:disc">聖夜精キュリストマーシャ</li></ul><ul id="7c99f518-afb0-4a44-a3ac-e004b7e8b621" class="bulleted-list"><li style="list-style-type:disc">聖夜老人精サンタツラウシャ</li></ul><figure id="cda29ec4-52bf-4d60-932c-ef701536defa" class="image"><a href="Untitled%20420.png"><img style="width:276px" src="Untitled%20420.png"/></a></figure><figure id="f77269b8-bb0d-42d1-b29c-8073d0d6944b" class="image"><a href="Untitled%20421.png"><img style="width:571px" src="Untitled%20421.png"/></a></figure><h1 id="7bc431cd-b98f-4bbf-a30e-e67c7f8a7fa4" class="">その他の更新点</h1><ul id="ae95e849-3b90-42fb-b292-a168383bb2b2" class="bulleted-list"><li style="list-style-type:disc">【変更】ワンドの耐久値を一律2倍に変更</li></ul><ul id="a52b80c7-6496-4bc4-b5f9-836caeac52fc" class="bulleted-list"><li style="list-style-type:disc">【変更】召喚のワンドの高速召喚速度を上昇、Tier4版は更に速度上限増加</li></ul><h2 id="38552965-0ed2-48b6-9730-0b98ebd8ecaa" class="">見た目の変更</h2><ul id="e8a65d42-0208-4561-b1f0-5fdfa745829f" class="bulleted-list"><li style="list-style-type:disc">【変更】ランク2以上の潤いのワンドの名称を各種「加水のワンド」に変更</li></ul><ul id="867c202b-1fe7-412b-8609-44a3ff75fb6e" class="bulleted-list"><li style="list-style-type:disc">【変更】すべての妖精武器のツールチップからエルグ以外のContains表示を除去</li></ul><ul id="7548d686-90a5-4391-9208-2af9d97f528f" class="bulleted-list"><li style="list-style-type:disc">【変更】いくつかのワンドのポエムを変更</li></ul><ul id="e1421044-34d0-4e0d-965b-5a35a5b07ac6" class="bulleted-list"><li style="list-style-type:disc">【変更】F3+Hの詳細モード中は花摘みの鐘ステータスをすべて表示するように変更</li></ul><ul id="28b31ac3-4cf9-4eff-a4e4-a8106d808999" class="bulleted-list"><li style="list-style-type:disc">【変更】クリスタルソードの未使用のステータスを除去</li></ul><p id="6558032f-f225-463a-b8dc-7426d60affa7" class="">
+</p><hr id="8ae42f57-b5a9-451d-aeb2-ca16e28e0b30"/><p id="61a8588c-d53f-449f-ae23-6b105cc78d38" class="">今後ともMirageFairy Server・MirageFairy2019をよろしくお願いいたします。</p><p id="5f6eb843-0fb3-4277-a233-40736641250e" class="">2021年11月26日　MirageFairy Server運営部・技術部・創作部</p><p id="acd40f1c-6207-4d70-9e8e-73d010b7b0db" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

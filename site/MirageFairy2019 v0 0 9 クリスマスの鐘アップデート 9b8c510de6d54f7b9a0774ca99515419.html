@@ -1,0 +1,689 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>MirageFairy2019 v0.0.9　クリスマスの鐘アップデート</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="9b8c510d-e6d5-4f7b-9a07-74ca99515419" class="page serif"><header><img class="page-cover-image" src="Untitled%20190.png" style="object-position:center 0%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="mirage_flower_280x280%209.png"/></div><h1 class="page-title">MirageFairy2019 v0.0.9　クリスマスの鐘アップデート</h1><p class="page-description"></p></header><div class="page-body"><nav id="ce1f58ab-c871-43af-ab07-f89c7587a5b6" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#3cb80b2c-e3ec-432e-abad-805eab16b621">クリスマスイベント2019</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#fe9bea32-696e-4d0f-b2a1-60e6d5a88e7a">イベント限定妖精追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a4cad900-6036-4c9d-b88e-610fc3fe67b4">イベント限定妖精の入手方法</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#ecc12e2f-c734-4abc-a0f4-ed3b23ca8093">イベント限定妖精ドロップの個数制限について</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#afe33aa4-c5de-4b70-9d27-81c7cb979cc4">「聖夜」の超能力追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#384f6959-1c40-4475-84f1-5995495dbeb4">妖精武器「クリスマスの鐘」追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#a147530a-f748-4644-a2ff-d2f6239b6a03">その他の変更点</a></div></nav><h1 id="3cb80b2c-e3ec-432e-abad-805eab16b621" class="">クリスマスイベント2019</h1><p id="6fc6e28a-d426-4bc2-82e7-d70ee9f2c3b9" class="">クリスマスのイベントを開催します。イベント期間中、今季のイベント限定妖精を入手することができます。</p><figure id="d380b689-8c3d-44c8-bbff-12c53e84789a" class="image"><a href="Untitled%20190.png"><img style="width:930px" src="Untitled%20190.png"/></a></figure><h2 id="fe9bea32-696e-4d0f-b2a1-60e6d5a88e7a" class="">イベント限定妖精追加</h2><p id="a458a41d-1e23-497a-9b62-8af59cabbf77" class="">以下のイベント限定妖精が入手可能になりました。詳しい入手方法は次項をご参照ください。</p><ul id="ef37a27a-8312-4d49-9f3f-bf11ae8345f0" class="bulleted-list"><li style="list-style-type:disc">聖夜老人精サンタクラウシャ</li></ul><ul id="096e980b-76a6-4c72-80f7-99a0f9173323" class="bulleted-list"><li style="list-style-type:disc">聖夜精クリストマーシャ</li></ul><figure id="8d0430c1-3e73-4b89-b728-8fa00c0e46de" class="image"><a href="Untitled%20191.png"><img style="width:551px" src="Untitled%20191.png"/></a></figure><figure id="129aca8e-5c1c-456b-90d4-973de2716ee6" class="image"><a href="Untitled%20192.png"><img style="width:270px" src="Untitled%20192.png"/></a></figure><p id="9ac82026-2961-40e5-99c1-d5be6aeeeb67" class="">なお、イベント限定妖精は今回のイベントが終了した後もいつか入手方法が提供される可能性があります。</p><h2 id="a4cad900-6036-4c9d-b88e-610fc3fe67b4" class="">イベント限定妖精の入手方法</h2><p id="39bc0c8a-63f4-4bf5-8d5b-6a6ecfcf7cdc" class="">イベント期間中、ミラジウムの花は「妖晶」の代わりに「聖夜の妖晶」を確定でドロップするようになります。</p><figure id="11d42b68-10a3-45a8-a008-21a3fd13a4fa" class="image"><a href="Untitled%20193.png"><img style="width:628px" src="Untitled%20193.png"/></a></figure><p id="586b9b53-89fc-4348-af32-ed51aae7003f" class="">
+</p><p id="fb351ef2-f451-425a-ae6f-1b54e28f70a0" class="">聖夜の妖晶は、通常は色が異なるだけで妖晶と同一の効果ですが、地上世界の座標X207, Y64, Z-244付近で使用した場合のみ、イベント限定妖精がドロップリストに乗ります。</p><figure id="42892b52-630c-4b9e-98fe-8a0907915aa3" class="image"><a href="Untitled%20194.png"><img style="width:634px" src="Untitled%20194.png"/></a></figure><p id="18bad163-820b-49b3-b256-d11f8e70be79" class="">
+</p><p id="9ad714a1-3323-4420-80e3-7b11c9e25b3b" class="">その状態で聖夜の妖晶を使用することでイベント限定妖精がドロップします。イベント限定妖精がドロップする可能性があるか否かは、聖夜の妖晶をスニーク中に使用することで閲覧できるドロップ確率表に「Christmasia」「Santaclausia」があるかどうかで判別できます。</p><p id="b9bac600-a76b-4853-a937-cb2a7585ae67" class="">
+</p><p id="4ed007ac-2f22-44f7-a0b7-88e40ed3eb78" class="">聖夜の妖晶は単体でクラフトすることで通常の妖晶に変換することができます。</p><figure id="76368661-e53f-4ee4-989d-f834726f9070" class="image"><a href="Untitled%20195.png"><img style="width:237px" src="Untitled%20195.png"/></a></figure><h2 id="ecc12e2f-c734-4abc-a0f4-ed3b23ca8093" class="">イベント限定妖精ドロップの個数制限について</h2><p id="9f0046f7-365b-4fba-8dc3-eefb52aaaa58" class="">イベント限定妖精は妖精の種類ごとにストック（在庫）が存在し、最大でも両者のストック分までしか入手できません。</p><p id="5b0084cf-e1da-41de-a1ec-4418c7aa7a83" class="">ストックにはグローバルストックとプレイヤーストックが存在します。グローバルストックはワールド全体で共有のストックであり、すべてのプレイヤーが互いに影響を及ぼし合います。プレイヤーストックは聖夜の妖晶を使用するプレイヤーに固有のストックで、他のプレイヤーの干渉を受けません。</p><p id="67dc4bc1-1ba4-4465-ad7c-c054cd6d4ad8" class="">イベント限定妖精は、ドロップ時点のストックの量に応じて、グローバルストックまたはプレイヤーストックから自動的に取り出されます。</p><figure id="2d68d001-15d3-4e0f-a754-2f2f3cd59449" class="image"><a href="Untitled%20196.png"><img style="width:1024px" src="Untitled%20196.png"/></a></figure><p id="a846ca87-b3ee-44bf-9481-aed1cce8976c" class="">どちらのストックから取り出されるかは、その時点でのストックの残量の比によって自動的に決定されます。例えばグローバルストックに490体、プレイヤーストックに10体の妖精が居た場合、490÷(490+10)=98%の確率でグローバルストックから取り出されます。その一方で、グローバルストックに0体（枯渇）、プレイヤーストックに10体の妖精が居た場合、グローバルストックから取り出される確率は0÷(0+10)=0%となり、必ずプレイヤーストックから取り出されます。両方のストックが枯渇していた場合、妖精はドロップリストに乗りません。</p><p id="6b20078d-e4eb-4761-b454-b253d698fa5e" class="">簡単に言うと大量に入手するなら早い者勝ち、最低限の個数入手するだけなら10個までは保障されます。</p><p id="5eac2de8-fd56-4a3a-98bc-eabf3a923173" class=""><span style="border-bottom:0.05em solid">追記：イベント期間中のストックの補充はありません。</span></p><p id="c4132879-91bc-4d8f-aeb6-c478ac6d959b" class="">
+</p><p id="01861a6d-76f4-4b07-9bb9-dcff2a3f2a55" class="">聖夜の妖晶を使用し、イベント限定妖精がドロップすると、テロップが表示されます。</p><figure id="c8ede3a7-3fbd-4734-b258-a681d6a4c38b" class="image"><a href="Untitled%20197.png"><img style="width:639px" src="Untitled%20197.png"/></a></figure><p id="a9fbab74-7584-4542-bfe0-08ca8a99279b" class="">このテロップは現在のストックの状態を表しています。ストックの状態は聖夜の妖晶をスニーク中に使用することでも確認することができます。</p><p id="47d98f6e-9475-4c40-adfe-9d51121b29d9" class="">
+</p><p id="16567311-7364-4c34-839c-8547290cd83f" class="">イベント終了後、もしくはイベント期間中に何度か、ドロップ数ランキングを発表する予定です。</p><h1 id="afe33aa4-c5de-4b70-9d27-81c7cb979cc4" class="">「聖夜」の超能力追加</h1><p id="692859d0-649b-4d05-b40a-7d7f515baeb5" class="">「聖夜」の超能力および対応するスフィアを追加しました。聖夜の超能力はイベント限定妖精が所持しています。</p><figure id="314bd3ac-c159-4338-88b3-60bdea71066a" class="image"><a href="Untitled%20198.png"><img style="width:239px" src="Untitled%20198.png"/></a></figure><h1 id="384f6959-1c40-4475-84f1-5995495dbeb4" class="">妖精武器「クリスマスの鐘」追加</h1><p id="c8872e84-e4a7-4519-9cd1-b86d625592c7" class="">新たな妖精武器「クリスマスの鐘」を追加しました。</p><figure id="57a550ee-4ed2-4ee2-81c1-23ae07bf6179" class="image"><a href="Untitled%20199.png"><img style="width:646px" src="Untitled%20199.png"/></a></figure><p id="b111edbe-64cc-48bb-b829-1ff4a53c1ceb" class="">
+</p><p id="f789db53-4ad9-47c0-9d79-be5fd8e07288" class="">クリスマスの鐘を使用すると範囲内の生物数体に対して直接魔法ダメージを与えます。クリスマスの鐘は今回のイベント限定妖精をお供にして使用するとそれなりの使い勝手を持ちます。また、アンデッドに対して通常の1.5倍のダメージを与えます。</p><figure id="2359ee1e-6593-408a-869c-0ab2ebe92682" class="image"><a href="Untitled%20200.png"><img style="width:650px" src="Untitled%20200.png"/></a></figure><p id="36d2d954-6c08-498a-bbdc-2a094245079e" class="">
+</p><p id="f7f23d20-9343-4976-9842-c434f84fe76a" class="">クリスマスの鐘は鐘ベースに≪攻撃≫のスフィアと≪聖夜≫のスフィアを組み合わせて作製します。</p><figure id="012efcf0-00b3-408e-b077-8798df4ad30b" class="image"><a href="Untitled%20201.png"><img style="width:236px" src="Untitled%20201.png"/></a></figure><h1 id="a147530a-f748-4644-a2ff-d2f6239b6a03" class="">その他の変更点</h1><ul id="39fd0d12-2282-465f-aced-8baa0c346ff3" class="bulleted-list"><li style="list-style-type:disc">【追加】木炭ブロックが木炭9個分の燃料値を持つようになった。</li></ul><ul id="ac56b731-802c-4124-ac9b-3691cd807943" class="bulleted-list"><li style="list-style-type:disc">【改善】妖精武器のツールチップが一部翻訳された。</li></ul><ul id="1edd92f7-fc3a-447e-befe-0dd85394bec7" class="bulleted-list"><li style="list-style-type:disc">【改善】召喚のステッキの超速召喚機能利用時、クリエイティブ状態だと妖晶を消費しない。</li></ul><ul id="6aa18538-94f7-49b2-84fd-6f4027f571df" class="bulleted-list"><li style="list-style-type:disc">【修正】切断のスフィアの触媒アイテムを鉄の剣からはさみに変更。</li></ul><p id="d3707365-512e-41be-bff0-a195343e063d" class="">
+</p><hr id="510c0ab1-4de9-4ebf-b6cc-d3cc3db97fd0"/><p id="bb5331a8-0de5-4396-ba1f-cb608e397993" class="">2019年12月21日　MirageFairy Server技術部・創作部</p><p id="08fca89b-26ae-4fcc-89cf-6b0693b780cc" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,740 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>MirageFairy2019 v16　スキル・天体観測アップデート</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="77100ece-a12f-4ccc-bc8c-499b52815bbe" class="page serif"><header><img class="page-cover-image" src="Untitled%20345.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="mirage_flower_280x280%2014.png"/></div><h1 class="page-title">MirageFairy2019 v16　スキル・天体観測アップデート</h1><p class="page-description"></p></header><div class="page-body"><figure id="756999a9-29da-4413-b066-12b96e574713" class="image"><a href="Untitled%20345.png"><img style="width:1500px" src="Untitled%20345.png"/></a></figure><nav id="914ca00c-88b0-491c-9539-1a2ce323c69a" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#8bc2057a-d046-473d-bf4e-4df40a7382dc">「11」キャンペーン　2021</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#35eae68c-baf8-45c7-bd0e-789cce6dfbac">「スキル」システム追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#124025a9-21bc-4bc1-a0d5-8cb01ab2d99e">新アイテム「スキルブック」追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#00da5a46-0d76-419f-9a63-8a47af7396a8">現行バージョンにおけるSP割り振り先について</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#84000691-ac31-41fe-99ef-139d728b57e3">新アイテム「天体観測ノート」追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#43415158-19a0-43b6-a4c3-c87ebbae7e68">新妖精魔法システム</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#b88766bb-d614-43f1-8be4-c01884cd6865">妖精のステータスの名称について</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#e22c2d31-ca4d-4baf-a5b4-4ae89e244ce5">計算式を一新</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#42f75589-9873-43cd-a4a9-d5f3cbabeaf1">パートナー妖精のステータスによる補正</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#383b022b-2ac0-4b23-85cc-9066a047dfb0">プレイヤーオーラによる補正</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#fc90cbc5-49d9-4237-a1a3-d924a0821d78">エルグによる補正</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#628e6214-2239-452f-969f-407935fbd05a">スキルレベルによる補正</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#179f707c-aa61-41bc-9d91-e4f8a0140b38">妖精武器ごとの補正</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#eb0c74b2-29f4-4776-b6ad-4e86fafe7cae">攻略のヒント</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#4440926e-b719-4ae2-8285-787511716668">オーラシステムに関する更新</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#1712e76f-7f51-4986-bce4-7d6627fc0b48">フードオーラのJEIタブ追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#7341538b-f45e-4628-8454-ef0980618fc2">オーラゲージ追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#b52b0680-4b98-4ded-ae8b-2773a103d4c4">花摘みの鐘改変</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#76c3ab09-d463-4dfc-86b6-cc913db70118">基礎ステータス効果</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#e657629c-5763-4c03-b3e3-19f15612387d">ミラージュフラワーの種の追加ドロップ</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#6d5b3362-0c70-4ebf-b503-4a5de8d827d8">新アイテム「クリスタルソード」追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#148d56f1-a4c7-45d7-b673-ce0636ddf2d2">基礎ステータス効果</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#762552fe-5886-408f-9670-bad09921f2d8">新アイテム「焼き妖精」追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#5451651f-d073-42e9-a295-251d0170bbce">新妖精追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#a294478a-cf47-4658-ab10-1e64f2ce0489">その他の変更点</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#7512490b-4ea3-4bb7-886b-b9691764ec1c">見た目の変更点</a></div></nav><hr id="acb924fd-8806-4c56-b935-a6a465a23f13"/><p id="cdf6e48b-a93c-4828-a345-a8802cc1c57b" class="">MirageFairy2019 v0.1.16.33における前バージョンアップからの更新点です。</p><h1 id="8bc2057a-d046-473d-bf4e-4df40a7382dc" class="">「11」キャンペーン　2021</h1><p id="7062d956-b229-46f9-b1ad-865542179bd9" class="">2021年11月30日までの間、トパーズを所持した状態で妖晶使用時に低確率で「皇帝黄玉精インペリアーレトパージャ」が期間限定でドロップします。</p><figure id="e411a1ce-7206-4732-b624-c74ccdf1e3ba" class="image"><a href="Untitled%20346.png"><img style="width:1890px" src="Untitled%20346.png"/></a></figure><p id="056f31e8-63ac-4d21-b772-f8ebb334aa3f" class="">※期間限定妖精は今後再入手の機会がある可能性があります。</p><p id="939dceb7-5d98-4679-92dc-1553c0aee9b6" class="">
+</p><div id="d2efb1c8-9704-40b8-99a5-d95bc47f4a43" class="column-list"><div id="19d0d796-cbe8-419c-95ca-074162a4d254" style="width:31.25%" class="column"><figure id="2cc66746-ee46-4420-a951-14be31830d61" class="image"><a href="Untitled%20347.png"><img style="width:199px" src="Untitled%20347.png"/></a></figure></div><div id="e5b0ae0b-57fc-4f40-be9d-182212b76dd4" style="width:68.75%" class="column"><figure id="1ef7fe19-4195-4240-a447-09f8f732369a" class="image"><a href="Untitled%20348.png"><img style="width:428px" src="Untitled%20348.png"/></a></figure></div></div><h1 id="35eae68c-baf8-45c7-bd0e-789cce6dfbac" class="">「スキル」システム追加</h1><p id="607520f8-4e74-4397-a359-9f400cfd055d" class="">「スキル」システムを追加しました。</p><p id="bd40d6a2-0701-4d3d-9b60-1dd5a6c15ca1" class="">スキルシステムは、特定の行動によって《<strong>フェアリーマスター経験値</strong>》（<strong>FMExp</strong>）を得ることで《<strong>フェアリーマスターレベル</strong>》（<strong>FMLv</strong>）を上昇させ、それに伴って獲得した《<strong>スキルポイント</strong>》（<strong>SP</strong>）を各種《<strong>マスタリ</strong>》に割り振ることで、《<strong>マスタリレベル</strong>》を上昇させ、それによって《<strong>スキルレベル</strong>》を上昇させるコンテンツです。スキルレベルは妖精魔法などの各種行動に恩恵を与えます。</p><p id="766af613-dd52-496b-85f2-96dca962ea4b" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="ff211937-372f-4d1b-a0a1-f37978dc3faa"><div style="font-size:1.5em"><span class="icon">ℹ️</span></div><div style="width:100%">マスタリレベルと言った場合には特定のマスタリに振ったSPの量を、スキルレベルと言った場合は特定の行動に使われる実際の習熟度を指します。<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="5f37aa29-69d5-4c37-bdbd-998d90f5d2d2" class="code"><code class="language-Plain Text">　　　特定行動
+
+　　　　　↓　獲得
+
+フェアリーマスター経験値
+
+　　　　　↓　一定までたまると上昇
+
+フェアリーマスターレベル
+
+　　　　　↓　連動して獲得
+
+　　スキルポイント
+
+　　　　　↓　割り振り
+
+　　マスタリレベル（一定の分野全般に対する知識）
+
+　　　　　↓　連動して上昇
+
+　　スキルレベル（特定の個別の行動における習熟度）
+
+　　　　　↓　連動して上昇
+
+　　生産確率など</code></pre></div></figure><h2 id="124025a9-21bc-4bc1-a0d5-8cb01ab2d99e" class="">新アイテム「スキルブック」追加</h2><p id="b417bcff-f948-4746-b7e2-d80c85c151d4" class="">新アイテム「スキルブック」を追加しました。</p><figure id="d5a41f0f-e2d0-4ebe-8224-e8943c0eeb48" class="image"><a href="Untitled%20349.png"><img style="width:238px" src="Untitled%20349.png"/></a></figure><p id="9494ee75-d5ec-4b98-9bfd-916c459522d8" class="">
+</p><p id="41a8e794-ef85-484f-a81f-4ca094a8f218" class="">スキルブックは、使用するとスキルGUIが開くアイテムです。</p><figure id="973ebff6-9c17-4256-a3f9-1094bf1405f5" class="image"><a href="Untitled%20350.png"><img style="width:359px" src="Untitled%20350.png"/></a></figure><p id="0cd65e35-ffc9-4a10-bbdf-8b5b10de88ac" class="">
+</p><p id="a1cf3720-97e2-4df6-b2f7-3f4dc288db92" class="">FMLv欄にカーソルを合わせると、現在のフェアリーマスターレベルと、次のレベルアップに必要なフェアリーマスター経験値が表示されます。</p><figure id="f6c489e7-6e36-4e43-a8a1-0594fae13d34" class="image"><a href="Untitled%20351.png"><img style="width:360px" src="Untitled%20351.png"/></a></figure><p id="944985ab-468f-459a-b7c3-d6d0156d69b9" class="">
+</p><p id="f676b1fe-f799-484c-84f5-4121ef001c01" class="">SP欄には現在余っているSPの量が表示されます。これは現在のフェアリーマスターレベルから、マスタリに割り振り済みのSPの合計を引いた数です。</p><figure id="7ba33290-59ef-4862-b9ad-5abcdb99d521" class="image"><a href="Untitled%20352.png"><img style="width:128px" src="Untitled%20352.png"/></a></figure><p id="794a0d17-d47a-4ed1-98e7-1d9d67730f8c" class="">
+</p><p id="6aef9855-bc8b-4a85-8d8f-e7a492db0909" class="">マスタリ欄には、マスタリの一覧と現在のマスタリレベルおよびスキルレベルが表示されます。マスタリレベルは、そのマスタリに割り振り済みのSPの数と等しいです。</p><figure id="8b43e670-cd1d-4abf-910c-0c2949a09ee8" class="image"><a href="Untitled%20353.png"><img style="width:321px" src="Untitled%20353.png"/></a></figure><p id="6cd2748e-8b42-4112-81cb-e6b2ac949100" class="">
+</p><p id="273608fd-75b0-485e-8589-938ec2576956" class="">マスタリレベルからスキルレベルへの計算は少し特殊です。マスタリはカバーする概念の大きさによってツリー状になっており、広い概念のマスタリは広い分野に少ないスキルレベルを、狭い概念のマスタリは狭い分野に多くのスキルレベルをもたらします。</p><p id="9752a66e-5bbe-4d6b-b89b-506bde49ba22" class="">たとえば、下図のアタックマスタリのスキルレベルは、</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="91fb56af-ae25-4ebf-9133-117309177be0" class="code"><code class="language-Plain Text">　　　戦闘マスタリ（効率3）×マスタリレベル1
+＋アタックマスタリ（効率5）×マスタリレベル1
+＝スキルレベル8</code></pre><p id="8e452991-76ab-43af-8c51-655f3e19dd3f" class="">となります。</p><figure id="dcfa0391-97f0-4d87-bb22-0ec62222abec" class="image"><a href="Untitled%20354.png"><img style="width:335px" src="Untitled%20354.png"/></a></figure><p id="f81079b3-eef9-470f-8652-a0e5079e11de" class="">
+</p><p id="85fa8a10-bc54-48c4-b3e4-69b38164dc8b" class="">この青い「*」は割り振りボタンです。SPが余っているときにクリックすると、そのマスタリにSPを1割り振ります。</p><figure id="7700c826-25c0-4dc8-b8d7-62936a850c05" class="image"><a href="Untitled%20355.png"><img style="width:81px" src="Untitled%20355.png"/></a></figure><p id="ea819f31-b3e0-4323-9a0e-4e16b35c3283" class="">
+</p><p id="85cc5b0b-9b80-447e-bf85-cc09d8ad8f26" class="">初期化ボタンをクリックすると、すべてのマスタリレベルを0に戻し、SPに還元します。還元したSPはまた自由にマスタリに割り振ることができます。この操作は、毎月1回だけ実行できます。</p><figure id="1d49dac4-9f9d-4d9e-a6e1-f9ad5a46f6c9" class="image"><a href="Untitled%20356.png"><img style="width:106px" src="Untitled%20356.png"/></a></figure><figure id="14a2eb77-6e9b-4e9a-8e07-731e65c15fee" class="image"><a href="Untitled%20357.png"><img style="width:652px" src="Untitled%20357.png"/></a></figure><p id="dd2ed8ed-bfe6-4893-8442-801c1d36e9e7" class="">
+</p><p id="db4d2c35-2fe5-483e-bbcc-499cba927275" class="">スキルの状態はスキルブックではなくプレイヤーキャラクターごとに管理されているため、スキルブックを紛失してもスキル状態がリセットされることはありません。</p><h2 id="00da5a46-0d76-419f-9a63-8a47af7396a8" class="">現行バージョンにおけるSP割り振り先について</h2><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="60346f0a-59f5-464d-9e1b-e24d64882dc5"><div style="font-size:1.5em"><span class="icon">ℹ️</span></div><div style="width:100%">現行のバージョンでは、<mark class="highlight-red"><strong>アタックマスタリ・花摘みマスタリ以外のスキルには用途が一切ありません</strong></mark>。そのため、SPの割り振り先は事実上次の3択となります。<p id="b73a5dda-5428-4714-b87c-d60ceb42edba" class="">
+</p><ul id="0a23721b-0af4-4e18-847a-b5bc6ce3dbdb" class="bulleted-list"><li style="list-style-type:disc">フェアリーマスタリ<ul id="161ba27d-2651-407b-ab75-4ae520af72b3" class="bulleted-list"><li style="list-style-type:circle">効果：アタックマスタリ・花摘みマスタリのスキルレベル+2</li></ul></li></ul><ul id="5fe8156b-2216-4e34-857b-7c1917ad92dd" class="bulleted-list"><li style="list-style-type:disc">アタックマスタリ<ul id="d9b20029-844b-48af-9137-aefe1a00ae77" class="bulleted-list"><li style="list-style-type:circle">効果：アタックマスタリのスキルレベル+5</li></ul></li></ul><ul id="9d271117-6a6e-4b95-832d-aacc3a8fcf9a" class="bulleted-list"><li style="list-style-type:disc">花摘みマスタリ<ul id="258257ca-a3f1-4701-9e81-298c46fee62b" class="bulleted-list"><li style="list-style-type:circle">効果：花摘みマスタリのスキルレベル+10</li></ul></li></ul></div></figure><h2 id="84000691-ac31-41fe-99ef-139d728b57e3" class="">新アイテム「天体観測ノート」追加</h2><p id="72066ac0-231e-400c-95b5-feb35f60ae04" class="">新アイテム「天体観測ノート」を追加しました。</p><figure id="354d087e-6545-49b8-8d26-e7813ece4bab" class="image"><a href="Untitled%20358.png"><img style="width:238px" src="Untitled%20358.png"/></a></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="f8daab00-0b0e-4054-8069-915c394f5f6b"><div style="font-size:1.5em"><span class="icon">🧪</span></div><div style="width:100%">冷たい外気に曝されながら淡い月の光を見ていると、不思議と新しいことに挑戦する勇気が湧いてきます。気分転換に外に出て天体を眺めてみるのはいかがでしょうか。——妖精研究所</div></figure><p id="bfb51b63-a408-42e6-bb04-7ff125f88438" class="">
+</p><p id="933d0869-68da-44b1-9654-a6940e986efd" class="">天体観測ノートは、太陽もしくは月に向かって<strong><mark class="highlight-red">右クリック長押し</mark></strong>で使用します。間にブロックや窓ガラス等の障害物があった場合は天体観測ができません。</p><figure id="e94d7866-2e36-41bd-9d31-9e1d6767f67d" class="image"><a href="2021-10-15_02.19.27.png"><img style="width:720px" src="2021-10-15_02.19.27.png"/></a></figure><p id="9cc0dbd3-0c1d-4bd2-93ef-5fb7ceef6bb0" class="">
+</p><p id="472ffcbc-4bcc-4237-8fd6-a96b92e905b8" class="">天体観測に成功すると、フェアリーマスター経験値が手に入ります。</p><figure id="e745cbed-1767-45bd-aa20-501f3f761307" class="image"><a href="2021-10-15_02.20.00.png"><img style="width:854px" src="2021-10-15_02.20.00.png"/></a></figure><p id="3ec41eb7-3790-4e7e-bb8d-a188088b7075" class="">
+</p><p id="cacb29ec-77ec-4002-9909-cc90e43e5fd0" class="">天体観測を行うことで、《<strong>天体観測クエスト</strong>》を完了できます。天体観測クエストには次の三つのものがあります。</p><ul id="9d657dca-c2fc-4109-94bd-5306e77a807b" class="bulleted-list"><li style="list-style-type:disc">日間：リアルタイム1日に1回だけ15 FMExp</li></ul><ul id="9df51d7d-57d8-4714-a50d-2860c015facd" class="bulleted-list"><li style="list-style-type:disc">週間：リアルタイム1週間に1回だけ75 FMExp、ただし初週は不可</li></ul><ul id="7d087964-9fce-4588-bbf4-d58818c6ee72" class="bulleted-list"><li style="list-style-type:disc">月間：リアルタイム1か月に1回だけ250 FMExp、ただし初月は不可</li></ul><p id="4d9f5eae-b5d6-4ba4-8612-600167c9a869" class="">一度も天体観測を行っていないときは、日間の天体観測クエストのみが遂行できます。</p><figure id="14842765-570f-426d-b1da-bbb0c9661d31" class="image"><a href="Untitled%20359.png"><img style="width:316px" src="Untitled%20359.png"/></a></figure><p id="fbae4bac-561f-4c93-a10d-8f47d6fcf6d6" class="">一度天体観測を行うと次のような表示になり、天体観測クエストがすべて「完了」扱いになります。このとき、週間および月間の天体観測クエストによるフェアリーマスター経験値は入手できません。</p><figure id="3fc8a6a0-32c4-4dfe-b931-3074b009aa40" class="image"><a href="Untitled%20360.png"><img style="width:298px" src="Untitled%20360.png"/></a></figure><p id="9144c07b-f182-4bff-965c-f8d9fcbf48ff" class="">その後、表示されている期間が過ぎると「未完了」となり、天体観測によってフェアリーマスター経験値が入手できるようになります。</p><p id="7a9d07e6-13f6-482e-989b-8bf33e32bda6" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="af5888c0-dd0e-49cd-9ba0-bc87886b4261"><div style="font-size:1.5em"><span class="icon">ℹ️</span></div><div style="width:100%">1か月＝4週間＝30日としての換算で、1か月あたり最大で15×30+75×4+250=1000のフェアリーテイマー経験値が入手できます。<p id="35ea1fa3-fad6-44db-9962-1a6e2885dc04" class="">毎週1回の場合、1か月あたり15×4+75×4+250=610となります。</p><p id="09dd4b42-464b-4929-a9a5-62cdc62f6eff" class="">毎月1回の場合、1か月あたり15×1+75×1+250=340となります。</p></div></figure><h1 id="43415158-19a0-43b6-a4c3-c87ebbae7e68" class="">新妖精魔法システム</h1><p id="73682930-a4b6-4c30-9d6a-d87c3c832f98" class="">妖精武器のステータスシステムを一新しました。</p><p id="f504bcce-b9b4-4ff9-869e-b20f2da74abc" class="">新妖精魔法システムは、現バージョンでは花摘みの鐘系統の妖精武器と後述のクリスタルソードにのみ適用されます。</p><h2 id="b88766bb-d614-43f1-8be4-c01884cd6865" class="">妖精のステータスの名称について</h2><p id="23e1d2fb-016a-457f-9a2b-cbbeac53c067" class="">従来「心」・「アビリティ」と呼ばれていた妖精のステータスは、現在それぞれ《<strong>マナ</strong>》・《<strong>エルグ</strong>》と呼ばれています。</p><figure id="57d74cb7-d3fa-46a7-b39e-fdba47f25ad7" class="image"><a href="Untitled%20361.png"><img style="width:223px" src="Untitled%20361.png"/></a></figure><h2 id="e22c2d31-ca4d-4baf-a5b4-4ae89e244ce5" class="">計算式を一新</h2><p id="2195c32c-587b-4592-a8c2-991b3eb8221e" class="">従来、妖精魔法にはターゲット数・射程・範囲などに対して武器ごとに個別の計算式が設定されていましたが、《<strong>効果値</strong>》・《<strong>拡散力</strong>》・《<strong>持久力</strong>》・《<strong>生産力</strong>》・《<strong>コスト</strong>》という基礎ステータスに集約されました。これに伴い妖精武器の《<strong>マナ属性</strong>》・《<strong>スキル</strong>》が設定されるようになりました。</p><figure id="4d1e1056-f1e5-45ba-956d-5dc5f5e28f8b" class="image"><a href="Untitled%20362.png"><img style="width:389px" src="Untitled%20362.png"/></a></figure><p id="12ee3b31-28de-4636-ac79-d6c7060447fa" class="">
+</p><ul id="c396553a-634b-48c6-be3e-6445e62a38f5" class="bulleted-list"><li style="list-style-type:disc">マナ属性<ul id="34d283d6-29f8-4f87-bad8-74646d61191b" class="bulleted-list"><li style="list-style-type:circle">その妖精武器が次のどの属性に属するか。</li></ul><p id="58b5833a-bb2d-4622-bf7d-38af2ce5b057" class="">　　　　<mark class="highlight-blue_background">光</mark><br/>　　<br/><mark class="highlight-red">火</mark>　　　<mark class="highlight-teal">風</mark><br/>　　<br/><mark class="highlight-yellow">土</mark>　　　<mark class="highlight-blue">水</mark><br/>　　　　<br/><mark class="highlight-purple_background">闇</mark></p></li></ul><ul id="41cf32b4-f05f-4388-9146-3c537261998f" class="bulleted-list"><li style="list-style-type:disc">スキル<ul id="97912769-e62e-4e7c-a313-b9b7d09ad408" class="bulleted-list"><li style="list-style-type:circle">その妖精武器がどのスキルに属するか。</li></ul></li></ul><ul id="a8765995-7917-4636-9b2c-c9815a9aac30" class="bulleted-list"><li style="list-style-type:disc">効果値<ul id="ccc46452-f218-41f7-8ca2-377046c480cf" class="bulleted-list"><li style="list-style-type:circle">主に攻撃力や生産速度を上昇させるステータスです。</li></ul></li></ul><ul id="cd82d3a1-2a8c-483d-b446-4fcd87434e5c" class="bulleted-list"><li style="list-style-type:disc">拡散力<ul id="edb041bf-e39e-426c-9e28-73c09d9f6cca" class="bulleted-list"><li style="list-style-type:circle">主に効果範囲を上昇させるステータスです。</li></ul></li></ul><ul id="9fee171d-9e2d-4c7b-a265-a082cfeff7d5" class="bulleted-list"><li style="list-style-type:disc">持久力<ul id="81b75443-7f6e-4791-8d96-c0e37fe78dfd" class="bulleted-list"><li style="list-style-type:circle">主に武器耐久や消費資源の消耗を抑えるステータスです。</li></ul></li></ul><ul id="dc573944-996f-48bb-8dd2-4b12f9543f78" class="bulleted-list"><li style="list-style-type:disc">生産力<ul id="c365b98b-d717-46f0-93ef-af27df959bcb" class="bulleted-list"><li style="list-style-type:circle">主にMOBドロップ数や生産個数を上昇させるステータスです。</li></ul></li></ul><ul id="dfc090cf-4046-4977-8514-5c2e648f91e4" class="bulleted-list"><li style="list-style-type:disc">コスト<ul id="7b6d2548-f80f-4ab8-ae8d-667a2f06c44c" class="bulleted-list"><li style="list-style-type:circle">主に妖精魔法のクールタイムにかかるステータスです。</li></ul></li></ul><ul id="2a16ac39-d773-411d-8fba-7c0a437413e1" class="bulleted-list"><li style="list-style-type:disc">その他のステータス<ul id="5719284b-d9f0-429d-8c8f-c92db2ee1c52" class="bulleted-list"><li style="list-style-type:circle">妖精武器によっては「追加ドロップ率」のような特別なステータスが設定されている場合があります。</li></ul></li></ul><p id="49323083-d9ba-4c58-a770-d42df01fc893" class="">
+</p><p id="49ec2486-0d4e-4a25-8e27-b9a8f1067ffe" class="">各基礎ステータスは、妖精武器によっては参照されないことがあります。</p><h2 id="42f75589-9873-43cd-a4a9-d5f3cbabeaf1" class="">パートナー妖精のステータスによる補正</h2><p id="beede3e1-2ad1-4d93-bbbf-06a66b45708a" class="">妖精魔法の行使の際に使用する妖精のステータスが各基礎ステータスのベースとなります。</p><p id="ec9d6986-f7a2-4e45-9d1c-45d4dbeb850a" class="">
+</p><ul id="0219c2d7-354f-4aed-a334-3c7a6d0788e0" class="bulleted-list"><li style="list-style-type:disc">効果値<ul id="b683e693-b4e8-4455-ad38-6f5cb8332801" class="bulleted-list"><li style="list-style-type:circle">妖精武器のマナ属性の値</li></ul></li></ul><ul id="85cfccbe-aae8-40fa-94df-fce5ec3a6139" class="bulleted-list"><li style="list-style-type:disc">拡散力<ul id="c9ad49bc-67b4-4f7e-a6a8-d3bdd31e23c0" class="bulleted-list"><li style="list-style-type:circle">土・風のマナ属性の合計値</li></ul><ul id="d0d1a743-2063-492a-abd9-8a93b4b203e1" class="bulleted-list"><li style="list-style-type:circle">ただし、妖精武器のマナ属性が土・風である場合、逆側のみ、2倍の重みで適用されます。</li></ul></li></ul><ul id="97268a51-a430-47e7-9831-7cd4637cd04a" class="bulleted-list"><li style="list-style-type:disc">持久力<ul id="d4e3abbb-3a2b-4ba8-8c03-db5cfcb616dd" class="bulleted-list"><li style="list-style-type:circle">火・水のマナ属性の合計値</li></ul><ul id="ab8c83ab-4d27-4c06-aee8-bc0e10a0a9d5" class="bulleted-list"><li style="list-style-type:circle">ただし、妖精武器のマナ属性が火・水である場合、逆側のみ、2倍の重みで適用されます。</li></ul></li></ul><ul id="d1d38fe1-7ca7-4dd5-9efb-ced5604fc1d9" class="bulleted-list"><li style="list-style-type:disc">生産力<ul id="b3680cdf-3b61-4323-9eb9-c00b936a6331" class="bulleted-list"><li style="list-style-type:circle">光・闇のマナ属性の合計値</li></ul><ul id="ac857356-b0a2-4725-95e2-924a9fd07e40" class="bulleted-list"><li style="list-style-type:circle">ただし、妖精武器のマナ属性が光・闇である場合、逆側のみ、2倍の重みで適用されます。</li></ul></li></ul><ul id="9db3dc29-78bf-42a8-a037-7c10a6969f8c" class="bulleted-list"><li style="list-style-type:disc">コスト<ul id="29f865ff-7211-4d01-a24f-a826b65a6369" class="bulleted-list"><li style="list-style-type:circle">妖精のコストの値</li></ul></li></ul><h2 id="383b022b-2ac0-4b23-85cc-9066a047dfb0" class="">プレイヤーオーラによる補正</h2><p id="6ae59f28-7103-4ff3-94d7-1510f082f5a9" class="">プレイヤーオーラは、パートナー妖精のコストによる係数を乗じられたあと、パートナー妖精のマナの値に加算されます。</p><p id="4ed8a7b2-746a-4e64-9a16-c28b17772d2c" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="82b6f818-7fa4-47dd-b7ce-b4919d7bb2c5"><div style="font-size:1.5em"><span class="icon">ℹ️</span></div><div style="width:100%">プレイヤーの食べ物の選択によって、パートナー妖精の弱点を埋める、もしくは長所を伸ばすことができます。</div></figure><h2 id="fc90cbc5-49d9-4237-a1a3-d924a0821d78" class="">エルグによる補正</h2><p id="7c621185-e26d-44f1-b4cd-b9bcbef5592e" class="">新妖精魔法システムでは、効果値・拡散力・持久力・生産力に対して、特定のエルグがパートナー妖精のコストによる係数を乗じて加算されます。</p><figure id="e6177293-31d0-4800-86fe-861cfacef08f" class="image"><a href="Untitled%20363.png"><img style="width:378px" src="Untitled%20363.png"/></a></figure><h2 id="628e6214-2239-452f-969f-407935fbd05a" class="">スキルレベルによる補正</h2><p id="cdbd3ac5-19cc-49f5-953b-496ec6774bd4" class="">いくつかの効果があります</p><ul id="e79ef508-99a4-4dcc-991f-10d546a625f3" class="bulleted-list"><li style="list-style-type:disc">スキルレベル100ごとに1割、パートナー妖精およびプレイヤーオーラのマナが増加</li></ul><ul id="9b4313cc-c3e5-4865-945b-4806ab40b773" class="bulleted-list"><li style="list-style-type:disc">効果値に対してパートナー妖精のコストによる係数を乗じて加算</li></ul><ul id="0bfdde1a-ccdb-417f-a67a-324a98380e94" class="bulleted-list"><li style="list-style-type:disc">コストを軽減</li></ul><h2 id="179f707c-aa61-41bc-9d91-e4f8a0140b38" class="">妖精武器ごとの補正</h2><p id="942b23ad-69bd-4176-8e7b-2f8ea3b1764e" class="">妖精武器ごとに設定された補正値が、パートナー妖精のコストによる係数を乗じて基礎ステータスに加算されます。</p><p id="dab629cb-cb71-42b8-bef8-5ba965f9b8ca" class="">一般的に同系統の上位の妖精武器ほど、高い補正値を持ちます。</p><h2 id="eb0c74b2-29f4-4776-b6ad-4e86fafe7cae" class="">攻略のヒント</h2><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="0e783e69-dd9d-45d0-8bd6-15eded82dacf"><div style="font-size:1.5em"><span class="icon">ℹ️</span></div><div style="width:100%">基本的には、効果値を上昇させればその妖精武器の主目的の効率が上がるようになっています。それには妖精武器のマナ属性に対応するマナの値と効果値に指定されたエルグの値が高い妖精を選び、対応するマスタリにSPを振ればよいです。</div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="5ca7f263-aac0-444a-85cf-548da16ccc10"><div style="font-size:1.5em"><span class="icon">ℹ️</span></div><div style="width:100%">パートナー妖精のコストは実質最後に乗じられるため、低コスト低ステータスの妖精のステータスを加算補正で強化して超効率化はできません。</div></figure><h1 id="4440926e-b719-4ae2-8285-787511716668" class="">オーラシステムに関する更新</h1><h2 id="1712e76f-7f51-4986-bce4-7d6627fc0b48" class="">フードオーラのJEIタブ追加</h2><p id="0eac197a-b2f0-40dd-b5c2-9111a0d22ee3" class="">食べ物アイテムに対するフードオーラの一覧が閲覧できるJEIタブが追加されました。</p><figure id="26e25dd6-8cd5-4989-91ec-e03e0b4c95d5" class="image"><a href="Untitled%20364.png"><img style="width:400px" src="Untitled%20364.png"/></a></figure><h2 id="7341538b-f45e-4628-8454-ef0980618fc2" class="">オーラゲージ追加</h2><p id="afdad121-9c68-4516-8625-e4e99e3e64a1" class="">フードオーラの登録されている食べ物を所持している間、画面左上にオーラゲージが表示されるようになりました。オーラゲージはスニーク中は表示が拡大されます。</p><figure id="73235e34-50d7-4bb1-8e91-ff42147d5dc3" class="image"><a href="2021-10-15_15.37.28.png"><img style="width:336px" src="2021-10-15_15.37.28.png"/></a></figure><p id="df496f93-3b7b-4f3b-b690-f341a647a971" class="">
+</p><p id="55842b39-2938-4ba0-ac76-dbfb5a68fe39" class="">白い六角形の内側がプレイヤーの体内に残存しているオーラで、外側が持っている食べ物によって得られるオーラです。</p><p id="23fb520a-72bb-48dd-878e-1840d2b8ded0" class="">食べ物を食べると色のついた部分が中心に向かって移動し、最終的には消滅します。</p><p id="5c684b51-8f5a-4a25-bb87-cdaead4bfa55" class="">光の強さと面積の大きさが、プレイヤーオーラの量を表します。</p><figure id="fbf073d1-9254-467c-938d-8fd83abebdc0" class="image"><a href="Untitled%20365.png"><img style="width:354px" src="Untitled%20365.png"/></a></figure><h1 id="b52b0680-4b98-4ded-ae8b-2773a103d4c4" class="">花摘みの鐘改変</h1><h2 id="76c3ab09-d463-4dfc-86b6-cc913db70118" class="">基礎ステータス効果</h2><p id="54c61301-3ba8-4643-a40a-1f9f89b0a642" class="">花摘みの鐘は新妖精魔法システムを採用しています。</p><p id="0f681d41-eefb-43b3-9b56-d68016ec6b98" class="">
+</p><ul id="0639e494-48bf-4dae-b418-e2ce104a17c0" class="bulleted-list"><li style="list-style-type:disc">効果値<ul id="bfe69653-f469-4efe-afd5-223ebfb8a5b9" class="bulleted-list"><li style="list-style-type:circle">最大ターゲット数に影響します。</li></ul></li></ul><ul id="8df667e6-56b9-4594-a563-6ddc6fb12292" class="bulleted-list"><li style="list-style-type:disc">拡散力<ul id="f596330a-2a70-497c-8034-1bd052ce266d" class="bulleted-list"><li style="list-style-type:circle">射程・効果範囲に影響します。</li></ul></li></ul><ul id="bec2218b-e903-4b24-af2d-408f23bb44e6" class="bulleted-list"><li style="list-style-type:disc">持久力<ul id="d51c32f8-4e47-4f92-a336-d1461d2a292c" class="bulleted-list"><li style="list-style-type:circle">武器の耐久消耗速度に影響します。</li></ul></li></ul><ul id="2f5930fa-b2ff-4b60-84f9-f2f89e970acd" class="bulleted-list"><li style="list-style-type:disc">生産力<ul id="8446790d-9002-4f43-92b0-504459ef7327" class="bulleted-list"><li style="list-style-type:circle">採集時に適用される幸運に影響します。</li></ul></li></ul><ul id="656b59fd-15e4-4936-86f6-02a563a1fdf0" class="bulleted-list"><li style="list-style-type:disc">コスト<ul id="b873d8c2-defe-4502-8137-f0c54176a014" class="bulleted-list"><li style="list-style-type:circle">クールタイムに影響します。</li></ul></li></ul><h2 id="e657629c-5763-4c03-b3e3-19f15612387d" class="">ミラージュフラワーの種の追加ドロップ</h2><p id="9322b2cc-b6b8-4ede-abbf-882354479fa5" class="">花摘みの鐘の妖精魔法効果によってミラージュフラワーを収穫した際、確率でミラージュフラワーの種を追加でドロップするようになりました。</p><figure id="28c0fbf9-1425-4e82-a0f7-4695d93d1332" class="image"><a href="Untitled%20366.png"><img style="width:322px" src="Untitled%20366.png"/></a></figure><p id="923a55b5-008a-4ccc-a8fe-d402e79c4ccd" class="">
+</p><p id="555cdf85-ece0-47c5-b531-1a5d51ac388a" class="">ドロップ率は花摘みマスタリのスキルレベルが0～100に上がるにつれて、0%～100%の間で変動します。</p><h1 id="6d5b3362-0c70-4ebf-b503-4a5de8d827d8" class="">新アイテム「クリスタルソード」追加</h1><p id="9bddbc0d-0793-4488-aa0d-b8cc455dcfe8" class="">新アイテム「クリスタルソード」を追加しました。</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="a263379c-0a87-4581-b82a-a313a2da6331"><div style="font-size:1.5em"><span class="icon">🧪</span></div><div style="width:100%">フェアリークリスタルはミラージュフラワーの蜜が結晶化したもの、すなわち飴や琥珀に近いものと考えられています。実際に妖精は破砕したフェアリークリスタルを与えると好んで食します。その事実と、フェアリークリスタルから妖精そのものを召喚できることには何か関係があるのでしょうか。妖精研究所は、妖精の生まれるメカニズムの研究の過程で、結晶質のフェアリークリスタルの持つ触媒作用に注目してこの剣を作りました。——妖精研究所</div></figure><p id="42f4ccb6-7512-475b-823d-b4fc194bc69c" class="">
+</p><p id="16ae4301-c91f-466b-b81c-bcfa62c66f01" class="">クリスタルソードの妖精魔法は現バージョンでは右クリック時には発動せず、撃破した敵を<strong><mark class="highlight-red">インベントリ内のフェアリークリスタルを消費して</mark></strong>確率で妖精に変えます。</p><figure id="ad83d4b9-b007-49b6-9ead-f0f06d1e4f4b" class="image"><a href="2021-10-15_15.06.22.png"><img style="width:854px" src="2021-10-15_15.06.22.png"/></a></figure><p id="e6254d87-700b-4983-960a-5d24394d29d2" class="">
+</p><p id="f00d3cea-ca61-491e-ab71-2169e1d7080b" class="">妖精のドロップ率はアタックマスタリのスキルレベルに依存します。</p><figure id="7cb8d85f-f82e-4175-aaa9-8c81518f891a" class="image"><a href="Untitled%20367.png"><img style="width:342px" src="Untitled%20367.png"/></a></figure><p id="25bf0cf1-a7dc-42e4-9a25-f7105e48a5bc" class="">
+</p><p id="cd55af97-6a13-4a0a-b1a9-2607db12eb9f" class="">制作にはフェアリークリスタルを使用します。</p><figure id="77dfa945-8740-4fc3-a5ad-7530015e0ffd" class="image"><a href="Untitled%20368.png"><img style="width:237px" src="Untitled%20368.png"/></a></figure><p id="bff642b9-4e74-4357-8742-26f1aa554090" class="">
+</p><p id="07a4ccb8-de78-4c1d-8568-52b043941dd5" class="">エンチャントによる強化が不可能な代わりにダイヤモンドの剣よりも素の攻撃力が少し強いです。</p><p id="e62f7769-7688-4b72-b9a6-5a89e7a87440" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="5454cf7b-21ee-4c23-8a81-55b89ce41ca7"><div style="font-size:1.5em"><span class="icon">ℹ️</span></div><div style="width:100%">妖精のドロップ率はレア度に依存しないため、エンドのエンダーマンといった、妖精のレア度は高いが元となるモンスターは大量に狩れるといった状況で特に力を発揮します。</div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="0e8227f8-9cf6-4179-b8c8-92ab3da9d223"><div style="font-size:1.5em"><span class="icon">⚠️</span></div><div style="width:100%">通常攻撃で使用する関係上、耐久値が無くなるとそのまま失われます。</div></figure><h2 id="148d56f1-a4c7-45d7-b673-ce0636ddf2d2" class="">基礎ステータス効果</h2><p id="a90ff1da-a792-4b4a-8428-75e82aff2741" class="">クリスタルソードは新妖精魔法システムを採用しています。</p><p id="c4bb5881-8fb2-461d-805c-b843a15780df" class="">
+</p><ul id="f1f015aa-78f0-42ab-adcf-bb5b94269576" class="bulleted-list"><li style="list-style-type:disc">効果値<ul id="06b043b2-3084-4a79-acb7-0eebfebc97ff" class="bulleted-list"><li style="list-style-type:circle">現バージョンではどこにも影響しません。</li></ul></li></ul><ul id="fc2974c7-0028-4b0d-9d48-a80c3ff344f6" class="bulleted-list"><li style="list-style-type:disc">拡散力<ul id="656748ee-cc92-4fb6-a642-372bc23cb0ed" class="bulleted-list"><li style="list-style-type:circle">現バージョンではどこにも影響しません。</li></ul></li></ul><ul id="b472b8ac-9a47-437f-be76-858e86d0c932" class="bulleted-list"><li style="list-style-type:disc">持久力<ul id="03e27748-32fa-46df-94cc-22c89c829f1d" class="bulleted-list"><li style="list-style-type:circle">現バージョンではどこにも影響しません。</li></ul></li></ul><ul id="023b3f62-463a-493e-9542-7b901466c601" class="bulleted-list"><li style="list-style-type:disc">生産力<ul id="c6df0b6f-db99-4bbc-a79d-e98051783b50" class="bulleted-list"><li style="list-style-type:circle">現バージョンではどこにも影響しません。</li></ul></li></ul><ul id="8f9b9c6b-6fc4-4d3e-a9c4-f00aa571155a" class="bulleted-list"><li style="list-style-type:disc">コスト<ul id="7d880108-b8db-486b-891e-833df03a3f9c" class="bulleted-list"><li style="list-style-type:circle">現バージョンではどこにも影響しません。</li></ul></li></ul><h1 id="762552fe-5886-408f-9670-bad09921f2d8" class="">新アイテム「焼き妖精」追加</h1><p id="5c22f6c4-0df5-4950-a030-0930106f8372" class="">新アイテム「焼き妖精」を追加しました。</p><figure id="3b3104db-1bdc-429c-adf1-9a4c697fce01" class="image"><a href="Untitled%20369.png"><img style="width:273px" src="Untitled%20369.png"/></a></figure><p id="e28ab116-9de2-40ac-bcc1-ef1a9272f636" class="">
+</p><p id="d3572774-636a-4dc5-94ee-1bde2edeb8fe" class="">焼き妖精はランク1の妖精を使用して、砂糖と紅蓮のワンドとボウルから作成します。凝縮済みの妖精は使用できません。</p><figure id="9b281931-95ee-4157-98bf-8f8133622eaa" class="image"><a href="Untitled%20370.png"><img style="width:237px" src="Untitled%20370.png"/></a></figure><p id="af5fc7ac-5cb6-4736-8e16-0eb96e408a74" class="">
+</p><p id="42318719-ead6-4de0-9273-7ec8e2627ed9" class="">焼き妖精のフードオーラは元となった妖精に依存します。食べることによる満腹度の回復量は、元となった妖精の栄養のエルグに依存します。</p><div id="3b011857-3dfb-4370-97c6-c06f1cd05416" class="column-list"><div id="1b1576f6-c4a1-459b-a051-7e6bcbaf68df" style="width:50%" class="column"><figure id="f32852e4-3876-4177-924f-1befe9eb3a51" class="image"><a href="Untitled%20371.png"><img style="width:167px" src="Untitled%20371.png"/></a></figure></div><div id="12540eee-f611-4809-b8a4-cc4bb55a3924" style="width:50%" class="column"><figure id="7ae7f2a4-b1e0-479d-8b6f-63ac520c0f52" class="image"><a href="Untitled%20372.png"><img style="width:192px" src="Untitled%20372.png"/></a></figure></div></div><p id="226e926d-34ac-4a34-8c07-9a316a05de46" class="">
+</p><p id="df47a530-54f7-48b6-873e-da6a62f1669b" class="">すべての焼き妖精は飽きを共有します。焼き林檎精を大量に食べた後に焼き麺麭精を食べると、飽きのペナルティを受けます。</p><p id="a5b4ce50-78ea-4050-90c9-6e984a9b6c30" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="5a975d1d-8060-415e-9bc0-df8f30642dfc"><div style="font-size:1.5em"><span class="icon">ℹ️</span></div><div style="width:100%">焼き妖精は従来料理の選択肢が少なかったマナ属性の枠を埋めるのに有用です。</div></figure><h1 id="5451651f-d073-42e9-a295-251d0170bbce" class="">新妖精追加</h1><p id="40533e6d-0c7f-4dee-9f43-b3f87dc79556" class="">以下の妖精を追加しました。</p><figure id="c04f5583-7e20-4e36-b8b4-ae17a2d03791" class="image"><a href="Untitled%20373.png"><img style="width:180px" src="Untitled%20373.png"/></a></figure><ul id="fb2fd177-78fc-46d1-bff0-648bbdd3dbc9" class="bulleted-list"><li style="list-style-type:disc">蜘蛛目精スピデーレエーヤ<ul id="41539546-8626-4111-b6bd-96775500443d" class="bulleted-list"><li style="list-style-type:circle">蜘蛛の目を所持してフェアリークリスタルを使用</li></ul></li></ul><ul id="48963d0d-879a-4611-8d63-211b45cd4cda" class="bulleted-list"><li style="list-style-type:disc">潜影貝精シュルケーリャ<ul id="8427f9c2-d77a-467a-8413-6183de1df245" class="bulleted-list"><li style="list-style-type:circle">シュルカーの周囲でフェアリークリスタルを使用</li></ul></li></ul><ul id="42710ef6-c847-43d1-adcd-0c58f3a32455" class="bulleted-list"><li style="list-style-type:disc">吐泥精スリーミャ<ul id="61cfb697-e514-4848-a597-7d8bb9570ca5" class="bulleted-list"><li style="list-style-type:circle">スライム、マグマキューブの周囲でフェアリークリスタルを使用</li></ul></li></ul><ul id="031c49d9-d820-4a14-ac9d-1845d82152b6" class="bulleted-list"><li style="list-style-type:disc">溶岩賽精マグメツービャ<ul id="e028f9b1-d586-4c64-99e3-888ec11c23c7" class="bulleted-list"><li style="list-style-type:circle">マグマキューブの周囲でフェアリークリスタルを使用</li></ul></li></ul><ul id="8d8b7a18-c16b-4647-9ae6-381e699f1df3" class="bulleted-list"><li style="list-style-type:disc">烈炎精ブラージャ<ul id="ba065323-889a-4477-82f2-4152ffd694a2" class="bulleted-list"><li style="list-style-type:circle">ブレイズの周囲でフェアリークリスタルを使用</li></ul></li></ul><ul id="57cfc0dc-439e-4c8b-ae51-1b3e038ffdca" class="bulleted-list"><li style="list-style-type:disc">火焔菜精ベートローチャ<ul id="e1d6b807-a412-4955-a01e-4d5469c0e06c" class="bulleted-list"><li style="list-style-type:circle">ビートルートを所持してフェアリークリスタルを使用</li></ul></li></ul><ul id="f407e995-078a-4805-954f-92b245cd2223" class="bulleted-list"><li style="list-style-type:disc">南瓜餡餅精プンプキーネピャ<ul id="dbae9ae4-8d1f-4bed-89f2-d05aab8b9b24" class="bulleted-list"><li style="list-style-type:circle">パンプキンパイを所持してフェアリークリスタルを使用</li></ul></li></ul><ul id="256d4983-5783-4e53-8d2a-9b8da9f153fa" class="bulleted-list"><li style="list-style-type:disc">火焔菜汁精ベートローテソウピャ<ul id="0d8ae979-6dab-4670-9bd3-0982ac2f84d2" class="bulleted-list"><li style="list-style-type:circle">ビートルートスープを所持してフェアリークリスタルを使用</li></ul></li></ul><ul id="b1876890-3f0e-4609-a37e-83f7c38e63da" class="bulleted-list"><li style="list-style-type:disc">十一精エレヴェーニャ<ul id="68e80dd9-ef88-43c7-b917-8d46294f867f" class="bulleted-list"><li style="list-style-type:circle">レコード「11」を所持してフェアリークリスタルを使用</li></ul></li></ul><ul id="bf8fd9a1-ad00-4abe-8492-8843d1117754" class="bulleted-list"><li style="list-style-type:disc">皇帝黄玉精インペリアーレトパージャ<ul id="98fda0e9-cc5e-4943-9c1d-b8869bfdc5ba" class="bulleted-list"><li style="list-style-type:circle">2021年11月30日までの間、トパーズを所持してフェアリークリスタルを使用</li></ul></li></ul><h1 id="a294478a-cf47-4658-ab10-1e64f2ce0489" class="">その他の変更点</h1><ul id="1f0c0a07-7009-4cb8-98b9-3fd2b45c2eb4" class="bulleted-list"><li style="list-style-type:disc">【追加】以下のMFAをJEIタブに追加<ul id="9c466971-9cc1-4d78-afac-663388d9a033" class="bulleted-list"><li style="list-style-type:circle">ゾンビャ</li></ul><ul id="83c4ec9b-8cbf-449d-9a9b-17f552a15eff" class="bulleted-list"><li style="list-style-type:circle">エンデルマーニャ</li></ul><ul id="3b19fe46-1a8c-44c0-91ea-0b90e6520750" class="bulleted-list"><li style="list-style-type:circle">キッケーニャ</li></ul><ul id="1176ef44-e8d4-4f54-ad1c-6d5bc25e6569" class="bulleted-list"><li style="list-style-type:circle">ブレアージャ</li></ul><ul id="54b3949f-f79f-4b1e-a493-722d28517fc8" class="bulleted-list"><li style="list-style-type:circle">プッフェルフィーシャ</li></ul></li></ul><ul id="20c7b082-7d79-4301-92c9-0edcb2fb6f70" class="bulleted-list"><li style="list-style-type:disc">【追加】クリエイティブタブに、妖精の一覧をデバッグ出力するアイテムを追加</li></ul><ul id="0979f2c5-1848-49fc-8c9e-19821491565d" class="bulleted-list"><li style="list-style-type:disc">【改善】MFAタブで脇役の妖精でも引けるようになった</li></ul><ul id="219f0a5b-63df-4673-ae6f-045c1e926eeb" class="bulleted-list"><li style="list-style-type:disc">【修正】薄灰色のトゥインクルストーンのレシピの登録に失敗するバグを修正</li></ul><h1 id="7512490b-4ea3-4bb7-886b-b9691764ec1c" class="">見た目の変更点</h1><ul id="03c99d2a-7182-403c-b5fd-8c35035efb9e" class="bulleted-list"><li style="list-style-type:disc">妖精武器の一部メッセージの翻訳を追加</li></ul><ul id="f2ddd6c9-5e7f-4cbe-a4a3-36f3cd82f528" class="bulleted-list"><li style="list-style-type:disc">非詳細表示時の妖精のツールチップを簡素化</li></ul><p id="7a1e892a-1fcc-4ea3-b25f-ade50474a6f8" class="">
+</p><hr id="432d464f-0706-4038-8974-8ef05ff55f83"/><p id="9f4a3f95-482e-4584-9a98-a76b86524118" class="">今後ともMirageFairy Server・MirageFairy2019をよろしくお願いいたします。</p><p id="f007b83b-2f0f-4289-ae2a-19cd856c5687" class="">2021年10月16日　MirageFairy Server運営部・技術部・創作部</p><p id="50422e71-8f1d-41ed-8f7b-6d266015b16d" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

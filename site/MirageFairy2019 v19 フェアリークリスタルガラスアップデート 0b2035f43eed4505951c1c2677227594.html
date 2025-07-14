@@ -1,0 +1,717 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>MirageFairy2019 v19　フェアリークリスタルガラスアップデート</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="0b2035f4-3eed-4505-951c-1c2677227594" class="page serif"><header><img class="page-cover-image" src="Untitled%20450.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="mirage_flower_280x280%2017.png"/></div><h1 class="page-title">MirageFairy2019 v19　フェアリークリスタルガラスアップデート</h1><p class="page-description"></p></header><div class="page-body"><figure id="ff2f869e-2a32-488d-b5f7-f36763a26234" class="image"><a href="Untitled%20450.png"><img style="width:1500px" src="Untitled%20450.png"/></a></figure><nav id="dc56e73a-c55a-403b-8ab4-c985499eb486" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#ca6590e0-e416-413c-84f1-cfcd92879582">「炭素も凍る厳冬の妖精」キャンペーン　2022</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#c357b0f7-4366-427e-ac15-c8cda3a2b611">「フェアリークリスタルガラス」追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#1dc6c352-e178-4f64-90d7-3bfc48bcb007">液体に関する更新</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#94c8cafd-b91d-4da2-8547-c7180e216035">「妖精のポット」追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#800faa54-627e-4aea-8a52-8d298ae28dba">既存の追加液体入りバケツをポット版に変更</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#5bc43b9a-25dc-4896-991b-11d54ced45bf">追加液体入りバケツを別に追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d27a28f3-baa2-4add-b9f3-a3e10d8f6aa2">液体詰め替え系レシピの変更</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#fba5fd70-27ad-411a-9fc6-bbbf65ec8f1b">既存の追加液体入りバケツを使うレシピの変更</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#9bb980fa-cd06-4f3a-8ac4-b9c8c330f757">液体コンテナ性能一覧表</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#41bbf663-2efe-46e7-b826-93cf7653fc44">妖精と妖精の利用に関する更新</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d98889c4-01a9-42c2-913d-9a10a3adbba9">妖精と事物の対応性に関する更新</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#60decf3b-9692-426f-9977-c77759264ccf">既存妖精の仕様変更</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#b9f0d1cd-40dc-4922-85f2-239197abe115">妖精の名称に関する更新</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#c731bb32-06ca-4867-bed6-3dc316094cdd">ステッキおよびワンドに関する更新</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d41550c5-0c72-4188-9397-be7dba19cabb">既存のレシピの更新</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#4b6d5738-dba1-4bd5-854a-84004637d901">「妖精変成レシピ」追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#392232a1-0feb-4282-920d-9d855028e5e3">「妖精希釈レシピ」追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#99b04d6b-7cb7-4136-b081-7e797b073f46">焼き妖精に関する更新</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#ce81247d-95a1-4154-955a-edcb586ae624">「妖精召喚マスタリ」追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#7db35ead-5623-4287-b54a-01612f5e32ed">妖精武器に関する更新</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#efce7b69-2764-4891-a4ea-7f9b7e533385">クリスタルソード</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#817f8231-0ac9-4941-b6bd-de2c09a29e03">花摘みの鐘</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#c6d1e6c0-bb16-4f50-81ce-79f500d877eb">ライトニングロッド</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#7a9d63e1-3387-4d77-b5e8-002fa507d06a">「石炭の粉」「木炭の粉」追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#ccc43c60-1916-402f-bf32-2f14ed5eb78e">レシピの追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#ede7e110-3e47-4471-a4a9-77901247be1b">既存レシピの更新</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#cafba7e9-1143-4c19-be24-2fad1d884432">妖精追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#e8f7b0c2-e91e-496d-81a4-d6da069c0fa0">その他の更新点</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#738968f9-2ca6-47c2-a49e-f19be2e54301">見た目の更新</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d96cd17f-a392-40c3-85f0-055026c9d1d1">クリエイティブに関する更新</a></div></nav><p id="8b365361-22c8-4547-8a1a-0c48a8735d55" class="">MirageFairy2019 v19における前のサーバーアップデートからの更新点です。</p><hr id="797c2974-af15-4b48-8fb3-499ebb76cbba"/><p id="0b7b90ff-c54e-4349-b61d-e5eba4053907" class="">
+</p><h1 id="ca6590e0-e416-413c-84f1-cfcd92879582" class="">「炭素も凍る厳冬の妖精」キャンペーン　2022</h1><p id="a50b2e57-9bfc-4880-bc4d-aed1ea9f59c9" class="">2022年2月28日までの間、以下の条件で期間限定妖精がドロップします。</p><ul id="49bf970d-7c08-46e3-8047-fecdc21ed4c8" class="bulleted-list"><li style="list-style-type:disc">降雪中にフェアリークリスタルを使用　→　石炭粉精ツォアーレドゥスチャ</li></ul><ul id="7386ec7d-aade-4fae-ba9f-980fc4ba676c" class="bulleted-list"><li style="list-style-type:disc">降雪中にフェアリークリスタルを使用　→　金剛石粉精ディアモンデドゥスチャ</li></ul><figure id="92a302ea-8624-4c2c-aeca-9113bdb1af32" class="image"><a href="Untitled%20451.png"><img style="width:1891px" src="Untitled%20451.png"/></a></figure><p id="b82bc818-ad39-41ff-9088-04f5c6547fc7" class="">※期間限定妖精は今後再入手の機会がある可能性があります。<br/>※「石炭粉精ツォアーレドゥスチャ」は同時実装の「石炭の粉」からも入手できます。<br/></p><p id="fd886ec7-3be5-4a6b-8586-a0f6275bc2fb" class="">
+</p><div id="19576510-e868-4211-8b48-61e9e832556b" class="column-list"><div id="7f7ce20a-1688-40ef-9822-c2b5c15c144c" style="width:50%" class="column"><figure id="2786f1eb-490a-4f57-bfe6-258a0c05f3a7" class="image"><a href="Untitled%20452.png"><img style="width:268px" src="Untitled%20452.png"/></a></figure></div><div id="787d5897-e7c7-41f6-b58e-b5fc951ad4df" style="width:50%" class="column"><figure id="2897b02c-80a0-45c2-96c8-72ae0316efb2" class="image"><a href="Untitled%20453.png"><img style="width:303px" src="Untitled%20453.png"/></a></figure></div></div><h1 id="c357b0f7-4366-427e-ac15-c8cda3a2b611" class="">「フェアリークリスタルガラス」追加</h1><p id="99c29c74-73da-49a4-8c63-d6332247ed11" class="">Tier 0から利用可能な建材ブロック「フェアリークリスタルガラス」を追加しました。</p><p id="8fabcdf0-2988-4d38-9b95-b4f09d5f14fe" class="">フェアリークリスタルを9倍に圧縮して格納する用途に利用できます。</p><div id="a23df6a9-0c76-4a10-85ec-df44c5d0d3fa" class="column-list"><div id="e53d5951-b855-45d0-83dd-588a941e7ef5" style="width:50%" class="column"><figure id="45af959e-27ba-40f4-9c49-f675d5829f0f" class="image"><a href="Untitled%20454.png"><img style="width:236px" src="Untitled%20454.png"/></a></figure></div><div id="6b54d43d-8aea-4d4e-a3a7-8480557426d3" style="width:50%" class="column"><figure id="8dbaed71-8efd-4856-9884-9bdf8dc582b7" class="image"><a href="Untitled%20455.png"><img style="width:236px" src="Untitled%20455.png"/></a></figure></div></div><p id="750771e5-9a16-4b24-9561-b1700735bcb5" class="">
+</p><p id="494a1db7-d4ce-48c2-9856-3ce720aeef8b" class="">フェアリークリスタルガラスは並べて設置すると継ぎ目が消えます。</p><figure id="979acc07-54ea-41c2-b2a5-d35ae57115ed" class="image"><a href="2022-01-16_22.44.08.png"><img style="width:854px" src="2022-01-16_22.44.08.png"/></a></figure><p id="ae7ab785-4b8a-4f68-b04e-d1d3516a415e" class="">
+</p><p id="d930417a-98fb-41de-a080-6d1cda58ea44" class="">フェアリークリスタルガラスは特殊なギミックが無く、大量設置に向いています。</p><h1 id="1dc6c352-e178-4f64-90d7-3bfc48bcb007" class="">液体に関する更新</h1><h2 id="94c8cafd-b91d-4da2-8547-c7180e216035" class="">「妖精のポット」追加</h2><p id="92ef2dc1-17c4-47e9-bd70-130eb121d0a6" class="">Tier 0から利用可能な液体コンテナ「妖精のポット」を追加しました。</p><figure id="2e19570c-fa36-4873-b5a8-741355bb1026" class="image"><a href="Untitled%20456.png"><img style="width:238px" src="Untitled%20456.png"/></a></figure><p id="2bdcc745-5573-4697-bff1-2e617d1f578d" class="">
+</p><p id="f123e8e5-9023-4dc7-baf9-a9b84273d8e9" class="">妖精のポットは64個までスタックできます。</p><figure id="f7968cad-cbfb-416d-a27b-6bc090685d88" class="image"><a href="Untitled%20457.png"><img style="width:41px" src="Untitled%20457.png"/></a></figure><p id="184d2ada-3b32-4b8c-a767-182e55f391f3" class="">
+</p><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="f40ebf0c-1586-4915-b533-238ee7101f06"><div style="font-size:1.5em"><span class="icon">⚠️</span></div><div style="width:100%">現在、妖精のポットにはMirageFairy2019の追加液体3種しか搬入できません。</div></figure><h2 id="800faa54-627e-4aea-8a52-8d298ae28dba" class="">既存の追加液体入りバケツをポット版に変更</h2><p id="50ab3033-bcda-4190-ad37-8c8217a565d6" class=""><mark class="highlight-red"><strong>既存の追加液体入りバケツ3種を、妖精のポットに入ったものに置き換えました。</strong></mark></p><p id="092ece5a-80dd-419d-8382-f92bd323746e" class="">
+</p><p id="c91502c3-49de-4df7-9452-3e634a8e8442" class="">液体入りの妖精のポットはバケツのようにワールド上に液体を設置・回収することはできませんが、液体を入れた状態でも64個までスタックできます。</p><figure id="590433a5-d2bd-45ed-be9d-819a506c9477" class="image"><a href="Untitled%20458.png"><img style="width:117px" src="Untitled%20458.png"/></a></figure><p id="f40d62ad-92d9-4052-9fbb-f0e2add77999" class="">
+</p><p id="0b58a527-6bec-4c71-9025-75347fef0c70" class="">各種ポットはApplied Energistics 2において流体入りのアイテムとして利用できます。</p><figure id="52c50e0d-527b-4030-bb01-e85347ac7562" class="image"><a href="Untitled%20459.png"><img style="width:286px" src="Untitled%20459.png"/></a></figure><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="b3c1142d-52de-4a0f-a0ce-06d01d5b2ddc"><div style="font-size:1.5em"><span class="icon">⚠️</span></div><div style="width:100%">瓶は非対応なので、一旦ポットに詰め替える必要があります。</div></figure><h2 id="5bc43b9a-25dc-4896-991b-11d54ced45bf" class="">追加液体入りバケツを別に追加</h2><p id="56b65b72-1101-47ce-b80c-0c601dd9f53e" class="">新たに「MirageFairy2019の追加液体」の入ったバケツ3種を追加しました。</p><figure id="61a32300-5485-4b71-85bb-c8906aa92e5e" class="image"><a href="Untitled%20460.png"><img style="width:113px" src="Untitled%20460.png"/></a></figure><p id="e0cc53f5-28d8-4606-8ea1-10bc43539135" class="">
+</p><p id="ee228822-f5d9-45e6-b8e8-5dd861642e8b" class="">空のバケツで追加液体を汲むと、これからはこちらのアイテムになります。</p><p id="78864979-6c19-4cc1-87b1-6e753404fcb1" class="">こちらもApplied Energistics 2において流体入りのアイテムとして利用できます。</p><h2 id="d27a28f3-baa2-4add-b9f3-a3e10d8f6aa2" class="">液体詰め替え系レシピの変更</h2><p id="5abe7ff5-14a4-4cfa-a670-7308e0ac5540" class="">液体を詰め替えるレシピを変更しました。</p><p id="88e66f6c-f715-4647-8708-0af5c6bfdf76" class="">バケツと相互に詰め替え可能なのはポットだけになります。</p><p id="84526924-f128-4c4d-bf54-5a1d3a2e5550" class="">ポットと瓶は相互に詰め替えられます。</p><div id="2d6f2d1b-8e65-45bf-84fc-88867904bca0" class="column-list"><div id="83528e17-7d76-454d-aa70-43beb13808e7" style="width:50%" class="column"><figure id="c34be231-1ca2-4078-ad53-6b15b5794f0b" class="image"><a href="Untitled%20461.png"><img style="width:239px" src="Untitled%20461.png"/></a></figure></div><div id="96220e8a-b2d5-44e7-8073-43ebbf4d9673" style="width:50%" class="column"><figure id="890c07b8-29bd-4d0d-b045-2a8aab771e72" class="image"><a href="Untitled%20462.png"><img style="width:238px" src="Untitled%20462.png"/></a></figure></div></div><div id="9e59d02c-c146-4b16-abdb-38aae0cbc22b" class="column-list"><div id="b21aa283-d264-430c-aceb-771dfa6c2e09" style="width:50%" class="column"><figure id="0f936627-1b84-4c51-8216-73c4d341299c" class="image"><a href="Untitled%20463.png"><img style="width:237px" src="Untitled%20463.png"/></a></figure></div><div id="0b813dfe-468a-4e77-8a76-16e48829248d" style="width:50%" class="column"><figure id="b20ea65b-cb1a-4e22-8059-a32111e4bec0" class="image"><a href="Untitled%20464.png"><img style="width:238px" src="Untitled%20464.png"/></a></figure></div></div><p id="8506837a-4ef0-4c0c-8667-5c8cdc060aba" class="">
+</p><figure class="block-color-red_background callout" style="white-space:pre-wrap;display:flex" id="d338da18-39ae-400a-875d-5833bf5cddc2"><div style="font-size:1.5em"><span class="icon">❗</span></div><div style="width:100%">従来の瓶⇔バケツのレシピは削除されました。</div></figure><h2 id="fba5fd70-27ad-411a-9fc6-bbbf65ec8f1b" class="">既存の追加液体入りバケツを使うレシピの変更</h2><p id="12632e03-6cfd-4d86-8cfb-837040bbc498" class="">ミラジウムウォーターは空のバケツではなく空の妖精のポットに作るようになりました。</p><figure id="a8357d60-cd27-4b47-b7ca-c39eba1879dc" class="image"><a href="Untitled%20465.png"><img style="width:238px" src="Untitled%20465.png"/></a></figure><p id="72ac91d0-42b9-4ddb-a9c9-2d61dfdbfba9" class="">
+</p><p id="8c369984-02aa-4379-b643-d689fa8d5f41" class="">従来追加液体入りバケツを使用していた、妖精の原木・妖精の革・ミラージュフラワーの茎・各種スフィアのレシピは、素材に妖精のポット入りの液体を要求するようになりました。</p><div id="4c6f5138-e32c-4cd6-881d-4e18694c8737" class="column-list"><div id="8d5da3b9-c7a0-4a4f-827f-daba3d9a0a54" style="width:50%" class="column"><figure id="94c47694-489b-4c20-a7e6-7c4deb853ec7" class="image"><a href="Untitled%20466.png"><img style="width:238px" src="Untitled%20466.png"/></a></figure><figure id="3e840869-3907-42d4-a908-dbab43310680" class="image"><a href="Untitled%20467.png"><img style="width:237px" src="Untitled%20467.png"/></a></figure></div><div id="9634b1af-5824-40b5-aa05-8d5cca29a30f" style="width:50%" class="column"><figure id="e5624e04-c561-4711-8102-97f72024bfb0" class="image"><a href="Untitled%20468.png"><img style="width:237px" src="Untitled%20468.png"/></a></figure><figure id="da96f65e-74ab-4ff8-97e0-c9067a415260" class="image"><a href="Untitled%20469.png"><img style="width:238px" src="Untitled%20469.png"/></a></figure></div></div><h2 id="9bb980fa-cd06-4f3a-8ac4-b9c8c330f757" class="">液体コンテナ性能一覧表</h2><table id="91d114a1-8d50-49ca-8c3e-e49263a59496" class="simple-table"><thead class="simple-table-header"><tr id="92518a78-9618-468d-a00a-eddf9cb78c8f"><th id="MZiL" class="simple-table-header-color simple-table-header" style="width:91px">コンテナ</th><th id="&lt;|DQ" class="simple-table-header-color simple-table-header" style="width:134px">材料</th><th id="w_|o" class="simple-table-header-color simple-table-header" style="width:104px">容量</th><th id="`qgB" class="simple-table-header-color simple-table-header" style="width:87px">スタック</th><th id="Z@A]" class="simple-table-header-color simple-table-header" style="width:99px">設置・回収</th><th id="ZZvq" class="simple-table-header-color simple-table-header" style="width:86px">クラフト</th><th id="Z_Il" class="simple-table-header-color simple-table-header" style="width:98px">ターミナル</th><th id="ynXe" class="simple-table-header-color simple-table-header" style="width:105px">詰め替え先</th></tr></thead><tbody><tr id="c92296fd-646c-43a7-8109-681b18965477"><td id="MZiL" class="" style="width:91px">バケツ</td><td id="&lt;|DQ" class="" style="width:134px">鉄3個</td><td id="w_|o" class="" style="width:104px">1バケツ</td><td id="`qgB" class="" style="width:87px">1</td><td id="Z@A]" class="" style="width:99px">○</td><td id="ZZvq" class="" style="width:86px">×</td><td id="Z_Il" class="" style="width:98px">○</td><td id="ynXe" class="" style="width:105px">ポット</td></tr><tr id="8235067a-51f3-49e1-a4c7-b6b5afda5d89"><td id="MZiL" class="" style="width:91px">瓶</td><td id="&lt;|DQ" class="" style="width:134px">ガラス1個</td><td id="w_|o" class="" style="width:104px">0.25バケツ</td><td id="`qgB" class="" style="width:87px">64</td><td id="Z@A]" class="" style="width:99px">×</td><td id="ZZvq" class="" style="width:86px">○</td><td id="Z_Il" class="" style="width:98px">×</td><td id="ynXe" class="" style="width:105px">ポット</td></tr><tr id="062f3a98-bd13-43fd-b732-729fa6f1592c"><td id="MZiL" class="" style="width:91px">ポット</td><td id="&lt;|DQ" class="" style="width:134px">ﾌｪｱﾘｰｸﾘｽﾀﾙ27個</td><td id="w_|o" class="" style="width:104px">1バケツ</td><td id="`qgB" class="" style="width:87px">64</td><td id="Z@A]" class="" style="width:99px">×</td><td id="ZZvq" class="" style="width:86px">○</td><td id="Z_Il" class="" style="width:98px">○</td><td id="ynXe" class="" style="width:105px">バケツ・瓶</td></tr></tbody></table><h1 id="41bbf663-2efe-46e7-b826-93cf7653fc44" class="">妖精と妖精の利用に関する更新</h1><h2 id="d98889c4-01a9-42c2-913d-9a10a3adbba9" class="">妖精と事物の対応性に関する更新</h2><p id="b2445347-e207-4533-b204-bdd54875b1be" class="">妖精とアイテム・ブロック・エンティティ・バイオームなどのオブジェクトを関連付ける機能を作り直した関係で、多くの変更があります。</p><p id="786c2521-9e9e-4729-86d4-1fe4c189990d" class="">
+</p><ul id="e47b1b9c-5651-46d2-a291-caaf4fe9e908" class="bulleted-list"><li style="list-style-type:disc">ミラージュフラワーの地面による成長ボーナス </li></ul><ul id="80594419-f12e-4ff2-8564-a0eeb4fc7ace" class="bulleted-list"><li style="list-style-type:disc">フードオーラ</li></ul><ul id="2dfb19fe-e88f-41e4-b674-4c4a17e41a44" class="bulleted-list"><li style="list-style-type:disc">妖精の樹洞破壊時のドロップ</li></ul><ul id="47a1f2e0-f1eb-4f62-bb44-04a879182734" class="bulleted-list"><li style="list-style-type:disc">フェアリークリスタル使用時のドロップ</li></ul><ul id="e07c4470-4d2a-4632-9851-a543691a4f0d" class="bulleted-list"><li style="list-style-type:disc">召喚のワンドによる妖精の確定レシピ</li></ul><ul id="3f74c434-dc6d-4e60-aea8-1d7be6871f22" class="bulleted-list"><li style="list-style-type:disc">クリスタルソードの追加ドロップ</li></ul><h2 id="60decf3b-9692-426f-9977-c77759264ccf" class="">既存妖精の仕様変更</h2><p id="705e8a82-8843-4a89-bf54-09bd104e17e9" class="">銀子精ミーニャの闇のマナの値を大幅に下げました。</p><figure id="274217a0-59c9-426d-abe3-04f761b8340e" class="image"><a href="Untitled%20470.png"><img style="width:139px" src="Untitled%20470.png"/></a></figure><h2 id="b9f0d1cd-40dc-4922-85f2-239197abe115" class="">妖精の名称に関する更新</h2><p id="75a79d1a-ed40-4339-a1fe-b55cd62aaa2e" class="">妖精の種類（Type）はモチーフ（Motif）と呼ばれるようになりました。</p><figure id="8c153c55-b00c-4530-b1a6-915eab480047" class="image"><a href="Untitled%20471.png"><img style="width:177px" src="Untitled%20471.png"/></a></figure><p id="567ef893-c575-4ea7-aed0-04b18a8ab774" class="">
+</p><p id="fd2dc3c0-e9b7-43e4-b4eb-f555a79d89ac" class="">妖精のモチーフ名は英単語を区切るために<code>_</code>を含むようになりました。</p><p id="40c8c03b-2aee-42d5-ae57-fc7467e855c1" class="">英語版では、妖精語の区切りに合わせて区切られるようになりました。</p><figure id="784cba40-75a3-4d6d-80e6-d3ce4b8858a9" class="image"><a href="Untitled%20472.png"><img style="width:382px" src="Untitled%20472.png"/></a></figure><p id="7ab2611a-0f03-46ee-99c0-d7520dd309c6" class="">
+</p><p id="52bc6f75-0bd8-4647-beb9-dcba3225701c" class="">このほか、いくつかの妖精の和名を変更しました。</p><ul id="3e14f65e-222d-404a-9983-a553cc353aaf" class="bulleted-list"><li style="list-style-type:disc">地獄星精ネ<span style="border-bottom:0.05em solid">ーテ</span>レスターリャ　→　地獄星精ネ<span style="border-bottom:0.05em solid">テー</span>レスターリャ</li></ul><ul id="4b429561-7601-421d-bacf-e13844462b35" class="bulleted-list"><li style="list-style-type:disc"><span style="border-bottom:0.05em solid">蜃気楼</span>花精ミラーゲフロウェーリャ　→　<span style="border-bottom:0.05em solid">妖</span>花精ミラーゲフロウェーリャ</li></ul><ul id="ba5930d9-8ee4-422e-a7b5-ca6a09c8d78e" class="bulleted-list"><li style="list-style-type:disc">溶岩精ラー<span style="border-bottom:0.05em solid">ビ</span>ャ　→　溶岩精ラー<span style="border-bottom:0.05em solid">ヴ</span>ャ</li></ul><ul id="19d331e4-c275-451f-aaa9-9ed07181d173" class="bulleted-list"><li style="list-style-type:disc">砂利精グラ<span style="border-bottom:0.05em solid">ベ</span>ーリャ　→　砂利精グラ<span style="border-bottom:0.05em solid">ヴェ</span>ーリャ</li></ul><h2 id="c731bb32-06ca-4867-bed6-3dc316094cdd" class="">ステッキおよびワンドに関する更新</h2><p id="a5c89157-ad26-4a43-a220-a5622a0aba77" class="">妖精のステッキを64個までスタック可能にしました。</p><figure id="70163940-10ce-436e-8340-dfc10d8b9bbb" class="image"><a href="Untitled%20473.png"><img style="width:44px" src="Untitled%20473.png"/></a></figure><p id="ff97529d-0b36-4408-bf8e-225aad7ed379" class="">
+</p><p id="3c73a5c7-a4f8-4a27-84b7-6d7021132c0b" class="">召喚のワンドの名称を「冥王のワンド」に変更しました。</p><p id="b4f4bfa9-68eb-42ad-aa7a-f2a7598e3c24" class="">これに伴いツールチップに表示されるポエム文を変更しました。</p><p id="bc23da7e-973e-49dc-ac54-c88861fae032" class="">
+</p><p id="486693eb-1f39-40fb-9be6-4984b1511ecf" class="">すべてのワンド系妖精武器において、新たに搭乗不能にしました。</p><p id="ad6d0f60-43c8-4368-aaf0-a3fee1963371" class="">搭乗の解除はこれまで通り可能です。</p><figure id="65e03c7d-8c90-4044-bd9b-6219f804a3de" class="image"><a href="Untitled%20474.png"><img style="width:238px" src="Untitled%20474.png"/></a></figure><figure class="block-color-red_background callout" style="white-space:pre-wrap;display:flex" id="f387e9e4-e9ae-4b1e-a997-e2d87fdf26f4"><div style="font-size:1.5em"><span class="icon">❗</span></div><div style="width:100%">ワンド系妖精武器の搭乗機能は、将来的に完全に廃止される可能性があります。</div></figure><h2 id="d41550c5-0c72-4188-9397-be7dba19cabb" class="">既存のレシピの更新</h2><p id="a21e2212-61d1-4a98-bf90-98d444922f70" class="">妖精のステッキの代用となるワンドを技巧のワンドから冥王のワンドに変更しました。</p><figure id="40fdd7ad-0db6-4e80-92d1-c0f70a00cb8c" class="image"><a href="Untitled%20475.png"><img style="width:237px" src="Untitled%20475.png"/></a></figure><figure class="block-color-red_background callout" style="white-space:pre-wrap;display:flex" id="d3d499d4-a0fb-4dde-9696-787d1a4f0f54"><div style="font-size:1.5em"><span class="icon">❗</span></div><div style="width:100%">これにより、妖精のステッキを使用したフェアリーステッキクラフトをワンドで代用できなくなりました。</div></figure><p id="ea5ddde7-4525-4717-ae68-04907c20ae40" class="">
+</p><p id="afd9b6b4-538a-47fc-a94a-206a35cfcd00" class="">妖精のステッキを使った妖精使役レシピからフェアリークリスタルを除去しました。</p><div id="41398a05-4251-48dc-84e8-3e290efe8879" class="column-list"><div id="ee87f15f-9e0e-4e92-bf1c-051d647252fe" style="width:50%" class="column"><figure id="528a28f0-460f-4441-aee4-8478e132e9b5" class="image"><a href="Untitled%20476.png"><img style="width:238px" src="Untitled%20476.png"/></a></figure><figure id="411060f9-85f4-4479-aa66-f3573d3e431e" class="image"><a href="Untitled%20477.png"><img style="width:237px" src="Untitled%20477.png"/></a></figure><figure id="b7f89361-17a6-4c84-bb94-30b1cff4fc65" class="image"><a href="Untitled%20478.png"><img style="width:236px" src="Untitled%20478.png"/></a></figure></div><div id="d968daf6-4343-46f9-a992-96d7a6cd2089" style="width:50%" class="column"><figure id="c286d105-5fbf-4eff-86d8-8f140d17cab0" class="image"><a href="Untitled%20479.png"><img style="width:236px" src="Untitled%20479.png"/></a></figure><figure id="bd40fdd2-0321-4f0b-a7b2-a87994985c97" class="image"><a href="Untitled%20480.png"><img style="width:238px" src="Untitled%20480.png"/></a></figure><figure id="3c84c067-8676-4289-b876-1ec19d4ba484" class="image"><a href="Untitled%20481.png"><img style="width:238px" src="Untitled%20481.png"/></a></figure></div></div><div id="c449ad35-7447-4f94-a7ce-fc7d3a542bad" class="column-list"><div id="6a599993-fa13-4a63-b9bf-023d39effdd0" style="width:50%" class="column"><figure id="a66aa97b-5ad0-4f33-a81d-e25db2fd1f3f" class="image"><a href="Untitled%20482.png"><img style="width:330px" src="Untitled%20482.png"/></a></figure><figure id="70f8926b-ec9c-4456-8dfe-7c0a1eab30af" class="image"><a href="Untitled%20483.png"><img style="width:329px" src="Untitled%20483.png"/></a></figure></div><div id="d80fad18-6634-4357-b238-d4aa0c8da643" style="width:50%" class="column"><figure id="7e6178da-24b9-4277-bb7c-89bb401918b1" class="image"><a href="Untitled%20484.png"><img style="width:328px" src="Untitled%20484.png"/></a></figure></div></div><p id="b6697a24-1471-4c1d-b167-83da988599b0" class="">
+</p><p id="7c506b12-7dc2-4f10-89e6-bb865d2d6c5e" class="">ダイヤモンドを使用した妖精召喚レシピを<mark class="highlight-red"><strong>削除</strong></mark>し、冥王のワンドに統一しました。</p><figure id="c3ac1fe2-43a2-482f-bd85-69df5f7d4bed" class="image"><a href="Untitled%20485.png"><img style="width:239px" src="Untitled%20485.png"/></a></figure><p id="3d504205-49b7-4cfb-b275-6f1c0e7e98a5" class="">
+</p><p id="2d118858-781b-4a15-a22c-2d255856e5f2" class="">ミラージュフラワーの茎のレシピを後述の「妖精変成レシピ」に変更しました。</p><p id="665b2cfe-741a-42aa-a0ee-7d28302d4eb5" class="">原料から骨が削除され、代わりに「結晶」のエルグを持つ妖精が必要になりました。</p><div id="2bf440d6-2ffe-4e93-ada9-c6e7f835993f" class="column-list"><div id="84b96cfa-1f5c-456e-aa4f-53cd670a3f52" style="width:50%" class="column"><figure id="2a0d0b12-5733-43cf-bf98-7d912840f002" class="image"><a href="Untitled%20467.png"><img style="width:237px" src="Untitled%20467.png"/></a></figure></div><div id="e7338ffe-dc1c-4114-8841-1c539fcc8b9c" style="width:50%" class="column"><figure id="36f528ea-8e24-47be-be33-315b798859e4" class="image"><a href="Untitled%20486.png"><img style="width:329px" src="Untitled%20486.png"/></a></figure></div></div><p id="a4515017-94ef-4ec5-854d-9b7283901765" class="">
+</p><p id="03880db2-73bc-4c42-a17f-919d1771e4b6" class="">スフィアのレシピを後述の「妖精変成レシピ」に変更しました。</p><p id="09e4a17f-dc1c-4415-91fc-26c63454d3a2" class="">作業台によるレシピの原料には、技巧のワンドではなく妖精のステッキを使用します。</p><div id="01c18fef-5a19-4203-b684-33f0129ba5b8" class="column-list"><div id="5fa3a751-7ab1-4199-bdcc-b9f1b724f264" style="width:50%" class="column"><figure id="3765d52e-74f2-4f9c-99c0-2598cd88535d" class="image"><a href="Untitled%20487.png"><img style="width:238px" src="Untitled%20487.png"/></a></figure></div><div id="13edebc2-dcf9-47b5-8312-8ba7bea84983" style="width:50%" class="column"><figure id="620f1dae-b58d-4b5b-9236-b9f35fbb0af4" class="image"><a href="Untitled%20488.png"><img style="width:330px" src="Untitled%20488.png"/></a></figure></div></div><h2 id="4b6d5738-dba1-4bd5-854a-84004637d901" class="">「妖精変成レシピ」追加</h2><p id="16d0ddea-1524-4740-b26d-e1e19db01fde" class="">Tier 0から利用できる、妖精と材料をミラジウムウォーターに溶かして変質させることで素材を作り出す「妖精変成レシピ」を追加しました。</p><div id="4e61e824-39a6-400d-9357-04dabb1cefef" class="column-list"><div id="c31a2943-9555-4629-9539-5321dd7c106d" style="width:50%" class="column"><figure id="38d6fdbc-4b5a-440d-9e1c-da9eb6436fcc" class="image"><a href="Untitled%20489.png"><img style="width:238px" src="Untitled%20489.png"/></a></figure><figure id="beebcb19-bb5c-4d00-b0cc-4c2fe0870af6" class="image"><a href="Untitled%20490.png"><img style="width:237px" src="Untitled%20490.png"/></a></figure><figure id="d9a47383-166d-40d1-b222-2d77c28af690" class="image"><a href="Untitled%20491.png"><img style="width:237px" src="Untitled%20491.png"/></a></figure><figure id="eb15d659-45f0-4cde-9d9e-cd5f15589a9e" class="image"><a href="Untitled%20492.png"><img style="width:238px" src="Untitled%20492.png"/></a></figure></div><div id="8095dac2-e272-424e-a87e-fe067a7603be" style="width:50%" class="column"><figure id="38da4d03-75ca-46b0-964c-17001cacb6d7" class="image"><a href="Untitled%20493.png"><img style="width:238px" src="Untitled%20493.png"/></a></figure><figure id="ffeb83ea-2d28-4143-8e89-1d6ba0035de1" class="image"><a href="Untitled%20494.png"><img style="width:236px" src="Untitled%20494.png"/></a></figure><figure id="d10ad182-f9e2-443f-9885-f5444f0d9458" class="image"><a href="Untitled%20495.png"><img style="width:238px" src="Untitled%20495.png"/></a></figure></div></div><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="28245241-e5cd-477c-b9dd-4e90cb701928"><div style="font-size:1.5em"><span class="icon">🧪</span></div><div style="width:100%">妖精惑星では地表に蓄積されたエーテル結晶体の自己組織化作用により、特定の遺伝子の動物や奇形生物が自然発生します。この過程はオーラゆらぎによって局在化したエーテル結晶が周囲の化学元素を取り込むことで進行します。妖精はこれと同じ作用により、土と水分から動物の血肉を形成できます。　——　妖精研究所</div></figure><p id="99349300-682e-4506-a464-c50711f5bfd4" class="">
+</p><p id="56d4c413-2a7a-4e27-b6fe-60b635bd1d51" class="">ミラージュフラワーの茎や各種スフィアのレシピも妖精変成レシピに所属します。</p><div id="3a51d17b-c176-4e38-b83a-3e4bc302d4ea" class="column-list"><div id="13927a14-ce2c-495b-afce-1c560d6abd8e" style="width:50%" class="column"><figure id="e36f8d28-f285-470c-b0b6-2a16a6438607" class="image"><a href="Untitled%20467.png"><img style="width:237px" src="Untitled%20467.png"/></a></figure></div><div id="cc8c5be6-3e8a-4299-b079-2e1a249d9f20" style="width:50%" class="column"><figure id="8b926577-df40-4727-be3c-a246a181d776" class="image"><a href="Untitled%20487.png"><img style="width:238px" src="Untitled%20487.png"/></a></figure></div></div><h2 id="392232a1-0feb-4282-920d-9d855028e5e3" class="">「妖精希釈レシピ」追加</h2><p id="ff04024b-cf7a-4526-ae07-a25ddcaf65a0" class="">Tier 3から利用できる、妖精を上位概念の妖精に変換する「妖精希釈レシピ」を追加しました。</p><p id="0f663240-18c6-429f-8d7e-3d5db9aaef5e" class="">
+</p><p id="1eef16c5-8b88-4297-aed3-b2d3150fafee" class="">妖精希釈レシピでは、「帯電クリーパー」→「クリーパー」のように、狭義の概念から広義の概念にモチーフを変換します。</p><figure id="06a102af-9c77-48fb-8ee4-9689d73fe2a5" class="image"><a href="Untitled%20496.png"><img style="width:237px" src="Untitled%20496.png"/></a></figure><p id="34be0b6b-853f-4467-ad7b-f28d46ed68bc" class="">
+</p><p id="cbdfbcc8-4cc3-4a4d-a4c2-f1bbf48b7983" class="">妖精のレベル（★の個数）が上昇するような妖精希釈はできません。</p><p id="e74042d5-f823-4722-ab20-772b2f426b93" class="">レア度が上昇する場合、凝縮によりランクを上昇させる必要があります。</p><figure id="efd04cf9-bac3-40fd-ba73-0f6ee4600f2b" class="image"><a href="Untitled%20497.png"><img style="width:236px" src="Untitled%20497.png"/></a></figure><div id="58204cbb-ff4c-4300-b936-e879e063745c" class="column-list"><div id="57ebf985-53e5-4ef8-8047-82edf61c36cb" style="width:50%" class="column"><figure id="a53aa7a8-7290-4423-bab2-b8ea7a0e73bf" class="image"><a href="Untitled%20498.png"><img style="width:159px" src="Untitled%20498.png"/></a></figure></div><div id="9bd6338b-cc1f-439b-b22e-55cdd6b61bbb" style="width:50%" class="column"><figure id="d5be9df9-9519-4705-9582-82250e610941" class="image"><a href="Untitled%20499.png"><img style="width:159px" src="Untitled%20499.png"/></a></figure></div></div><p id="cb8dd4fd-90a0-4c03-a82b-e19268c06103" class="">
+</p><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="264c48ae-a5f0-4f88-b4ec-3f461cf1459f"><div style="font-size:1.5em"><span class="icon">🧪</span></div><div style="width:100%">ミラージュエキスに記憶や魂を溶かしこむ性質があることが新たに発見されました。妖精を入れて静かに掻き混ぜると、妖精に込められた「思い」が溶出します。この過程の最終的な残渣物である「妖精ミラージャ」は、妖精という概念そのものであり、すべてのミラージュフェアリーの祖と言えるような存在です。　——　妖精研究所</div></figure><h2 id="99b04d6b-7cb7-4136-b081-7e797b073f46" class="">焼き妖精に関する更新</h2><p id="65285c32-09ce-45ed-bc57-d116ac010de6" class="">焼き妖精のレシピを砂糖と紅蓮のワンドから松明に変更しました。</p><p id="1bea821b-fe61-4ee1-87a5-e4c72ab7de22" class="">ボウルは妖精を食べると戻って来るため、松明の消費のみで妖精が食べられます。</p><figure id="a224ac33-b07b-483e-b2b1-afde03be6be8" class="image"><a href="Untitled%20500.png"><img style="width:155px" src="Untitled%20500.png"/></a></figure><p id="62ecbc18-c02d-4515-8d2a-561ae7234762" class="">
+</p><p id="ac016c4b-1774-4b2a-b742-ed6eece0395c" class="">焼き妖精の満腹度回復量が、一律で「肉アイコン1個分」になりました。</p><p id="be1406c9-3a5b-4fe4-9cc0-2ad1a8a63b91" class="">
+</p><p id="f111d91e-877b-4899-91db-4d579c3bf44a" class="">すべての焼き妖精のパターンを格納したクリエイティブタブを追加しました。</p><figure id="d6930865-a6fa-4271-9013-ee0636c8f38e" class="image"><a href="Untitled%20501.png"><img style="width:397px" src="Untitled%20501.png"/></a></figure><p id="ac4eee72-750a-4816-a065-69c8ac06ab76" class="">フードオーラのJEIタブにも全焼き妖精のパターンが表示されます。</p><figure id="571584b0-c334-4cfe-b199-81e28a58d1ce" class="image"><a href="Untitled%20502.png"><img style="width:402px" src="Untitled%20502.png"/></a></figure><h2 id="ce81247d-95a1-4154-955a-edcb586ae624" class="">「妖精召喚マスタリ」追加</h2><p id="01af9d2b-f809-4b67-a06a-32a2eac7ba80" class="">加工マスタリに属するマスタリ「妖精召喚マスタリ」を追加しました。</p><p id="7e0b06e0-9455-4182-84a8-cce3890cf7c8" class="">
+</p><p id="51b53574-d440-43da-b2b4-cce256026f17" class="">妖精召喚マスタリはフェアリークリスタル使用時に「レア判定」を増加させます。</p><p id="b3f11fd3-22a5-4434-9c1c-1ca640889571" class="">レア判定とは、条件付きでドロップリストに乗る判定全般です。</p><figure id="17df1317-ae93-4fe4-82e0-2b04cb62b484" class="image"><a href="Untitled%20503.png"><img style="width:298px" src="Untitled%20503.png"/></a></figure><h1 id="7db35ead-5623-4287-b54a-01612f5e32ed" class="">妖精武器に関する更新</h1><p id="c1e05512-e9b1-4662-948b-0c9077f52bab" class="">妖精武器の「魔法名」の表示をすべて廃止し、一部はポエム欄に統合しました。</p><h2 id="efce7b69-2764-4891-a4ea-7f9b7e533385" class="">クリスタルソード</h2><p id="b4fe6661-f578-4b0b-b6db-f480205a4b3b" class="">原種のフェアリークリスタルにのみ反応するようになりました。</p><p id="153c6604-dfb3-4dbf-b870-94201d3971cf" class="">これまでは無意味に上位のフェアリークリスタルを消費する場合がありました。</p><p id="9c598d81-ec48-45c9-93eb-c5d4b3b7e624" class="">
+</p><p id="52d7720b-7f81-4b01-94d9-782a6988384f" class="">メッセージがチャット欄ではなくステータスメッセージ欄に表示されるようになりました。</p><h2 id="817f8231-0ac9-4941-b6bd-de2c09a29e03" class="">花摘みの鐘</h2><p id="42f26296-374a-4d13-bbb2-7a529b43bee3" class="">収集効果発動時、経験値オーブも引き寄せるようになりました。</p><h2 id="c6d1e6c0-bb16-4f50-81ce-79f500d877eb" class="">ライトニングロッド</h2><p id="1729251c-80a6-40c7-977b-934e3949dd56" class="">雷電のエルグが10以上の妖精をパートナーにしているとき、クリーパーに対して落雷の効果を与えるようになりました。</p><p id="dd0f807c-7d26-4ae1-97b7-c4f86a361a75" class="">クリーパー以外の対象には変更はありません。</p><figure id="0f91ed70-769a-4a9f-8fbf-60a519611bfa" class="image"><a href="Untitled%20504.png"><img style="width:315px" src="Untitled%20504.png"/></a></figure><figure id="79053ac4-86f2-48d0-b90f-0c56d8fe1e13" class="image"><a href="2022-01-13_02.36.13.png"><img style="width:720px" src="2022-01-13_02.36.13.png"/></a></figure><h1 id="7a9d63e1-3387-4d77-b5e8-002fa507d06a" class="">「石炭の粉」「木炭の粉」追加</h1><p id="fa626a5b-7ce7-41e5-97a1-ac9023ec02a4" class="">素材「石炭の粉」および「木炭の粉」を追加しました。</p><div id="094a1338-cad6-4313-b212-f9618db84e8f" class="column-list"><div id="07e914ed-2943-487a-aba6-7131deea5a99" style="width:50%" class="column"><figure id="2a5d8867-5d5b-42fd-8a56-cafaa2c6e215" class="image"><a href="Untitled%20505.png"><img style="width:237px" src="Untitled%20505.png"/></a></figure></div><div id="88b79438-573a-41cd-9734-bd140be2e365" style="width:50%" class="column"><figure id="3c69d5a1-9473-490d-9920-f909a8d0bee8" class="image"><a href="Untitled%20506.png"><img style="width:237px" src="Untitled%20506.png"/></a></figure></div></div><p id="c87c97fb-0859-4ea0-b067-756334880727" class="">
+</p><p id="2226cc39-ad2a-4ec5-bd7f-093b3832737e" class="">これらの素材はかまどの燃料になります。</p><div id="26265a18-3b4c-4419-838c-b327f04625eb" class="column-list"><div id="a1892e38-59b3-4554-928b-84adadbd686b" style="width:50%" class="column"><figure id="db0db43b-c3b1-4920-a5cd-41ce5025ac7a" class="image"><a href="Untitled%20507.png"><img style="width:132px" src="Untitled%20507.png"/></a></figure></div><div id="c6ea33de-5168-400c-85b7-97b3d5950ad2" style="width:50%" class="column"><figure id="2555843b-c64a-4f2e-8780-de05895f6570" class="image"><a href="Untitled%20508.png"><img style="width:135px" src="Untitled%20508.png"/></a></figure></div></div><p id="85c3a7cb-1e43-4d72-a7f1-c89f3354021e" class="">
+</p><p id="da7e0d74-93ee-416e-841b-b4f5e5d7fa97" class="">一部のレシピにおいて、粉末化前のアイテムの代わりに利用できます。</p><div id="d83ed9a3-fb25-4fe4-920d-d4ae72c3a365" class="column-list"><div id="1890cb52-2ab6-4b85-8f69-6b50a2f0230c" style="width:50%" class="column"><figure id="dcdec7f5-969c-4de2-a6e2-3deda7eba486" class="image"><a href="Untitled%20509.png"><img style="width:238px" src="Untitled%20509.png"/></a></figure></div><div id="5a04d326-9065-4a9c-82b2-708948b4ccbf" style="width:50%" class="column"><figure id="4b07232b-5230-409a-8250-2c7b21c75b43" class="image"><a href="Untitled%20510.png"><img style="width:238px" src="Untitled%20510.png"/></a></figure><figure id="d0c2c550-fa7a-4920-bec2-00c3d204c2d8" class="image"><a href="Untitled%20511.png"><img style="width:237px" src="Untitled%20511.png"/></a></figure></div></div><h1 id="ccc43c60-1916-402f-bf32-2f14ed5eb78e" class="">レシピの追加</h1><p id="f82a9a5f-40fd-4b89-a827-4c99d2f45d12" class="">技巧のワンドで粘土のブロックが分解できるようになりました。</p><figure id="8e5f8bcf-e725-4972-8cbd-632061e574f5" class="image"><a href="Untitled%20512.png"><img style="width:236px" src="Untitled%20512.png"/></a></figure><p id="4bc86671-0ac0-4bfa-a84f-47ce2b4aa1f5" class="">
+</p><p id="7cf1bc61-00a8-4569-a303-32ac52b2105e" class="">破砕のワンドでさらに多くのApplied Energistics 2の追加粉末が作れるようになりました。</p><div id="13fcb31d-4edc-489f-b191-b785e66ca3a8" class="column-list"><div id="002da60f-ee27-4761-bf1f-1071fd86a1a1" style="width:50%" class="column"><figure id="75140214-3e9c-4577-941c-75ee17f57dcf" class="image"><a href="Untitled%20513.png"><img style="width:236px" src="Untitled%20513.png"/></a></figure><figure id="76322a5f-1762-4914-9d15-a239d9048dfd" class="image"><a href="Untitled%20514.png"><img style="width:237px" src="Untitled%20514.png"/></a></figure></div><div id="47215d97-92b9-48a9-a7d2-4b867e6975c9" style="width:50%" class="column"><figure id="272e1af5-6592-4ef3-abf4-57889c90e0f4" class="image"><a href="Untitled%20515.png"><img style="width:237px" src="Untitled%20515.png"/></a></figure><figure id="db4cec84-3b7e-4800-bb78-dd6f88536448" class="image"><a href="Untitled%20516.png"><img style="width:236px" src="Untitled%20516.png"/></a></figure></div></div><h1 id="ede7e110-3e47-4471-a4a9-77901247be1b" class="">既存レシピの更新</h1><p id="a3f78fb5-bdfd-4436-9a1c-b3872a32eb5d" class="">歪曲のワンドによるミラジウムの棒のレシピの位置関係を変更しました。</p><figure id="9bf37a9c-c416-4390-a04c-bb5f2f3707f6" class="image"><a href="Untitled%20517.png"><img style="width:238px" src="Untitled%20517.png"/></a></figure><p id="96763e46-634e-4e76-b45c-80fa519ae33f" class="">
+</p><p id="2784b63a-03cf-4fc9-96ce-edf22086de73" class="">感覚のスフィアのレシピの「触媒」をエンダーアイから蜘蛛の目に変更しました。</p><figure id="f64253a3-c425-4918-84dd-a423b561dbe5" class="image"><a href="Untitled%20518.png"><img style="width:237px" src="Untitled%20518.png"/></a></figure><p id="4120df2e-50ff-41ec-8629-632d613213ca" class="">
+</p><p id="6fd864d7-f663-4df4-8e86-bdc0e8488534" class="">ノート系アイテムのレシピを変更しました。</p><p id="9f457a48-ab9f-4881-8906-de0d26e3d634" class="">これにより、ネザーに行かずにスキルシステムが進行できるようになります。</p><div id="3fc22a5d-4bbf-49c0-ba11-c02135e2b4ee" class="column-list"><div id="ada6b2b1-740e-42c6-8584-9b287febb4bb" style="width:50%" class="column"><figure id="7c2960a4-92a4-46bf-88e2-4fcebc8b4fad" class="image"><a href="Untitled%20519.png"><img style="width:238px" src="Untitled%20519.png"/></a></figure></div><div id="99c6b4ed-c44c-42f2-952f-3731a2db667e" style="width:50%" class="column"><figure id="9d3d1e35-9ad7-4a53-ac99-f9c2a89689cf" class="image"><a href="Untitled%20520.png"><img style="width:238px" src="Untitled%20520.png"/></a></figure></div></div><h1 id="cafba7e9-1143-4c19-be24-2fad1d884432" class="">妖精追加</h1><p id="80bb6a14-1741-4d8d-9173-5450306c19ad" class="">次の妖精を新たに追加しました。</p><figure id="1fdb6b74-df6d-4917-a0f8-894c40825e64" class="image"><a href="Untitled%20521.png"><img style="width:180px" src="Untitled%20521.png"/></a></figure><p id="a2069d34-b040-4d7d-8145-e13faa2e2436" class="">
+</p><ul id="09716663-ab45-4e4f-b03c-9b5a3aba41b9" class="bulleted-list"><li style="list-style-type:disc">人精プライェーリャ<ul id="610867cc-b487-4422-9f3a-ff5eb00bf258" class="bulleted-list"><li style="list-style-type:circle">自分自身を含むプレイヤーの付近でフェアリークリスタルを使用。</li></ul></li></ul><ul id="3c5faf75-dd87-4920-86fd-88fca9d4cf4f" class="bulleted-list"><li style="list-style-type:disc">巨匠精キャルゲーデツレペーリャ<ul id="72a39903-8034-4f82-a006-e08f24226941" class="bulleted-list"><li style="list-style-type:circle">帯電クリーパーの付近でフェアリークリスタルを使用。</li></ul></li></ul><ul id="3974716c-6d08-46e8-8a89-83f78e9a6698" class="bulleted-list"><li style="list-style-type:disc">砂糖黍精スガーレツァーニャ<ul id="fc13f3d5-ea08-4615-99b8-ea6205b6b369" class="bulleted-list"><li style="list-style-type:circle">地上世界でフェアリークリスタルを使用。</li></ul><ul id="c3275718-f087-493d-b59b-ad6680b48b02" class="bulleted-list"><li style="list-style-type:circle">サトウキビの付近でフェアリークリスタルを使用。</li></ul></li></ul><ul id="5c88abe3-fa02-428c-bc25-d3c6a4750310" class="bulleted-list"><li style="list-style-type:disc">芋精ポターチャ<ul id="c0372583-5222-44f3-98e1-8c95dec9b3d6" class="bulleted-list"><li style="list-style-type:circle">地上世界でフェアリークリスタルを使用。</li></ul><ul id="e250265d-6853-4788-a2d6-ad5cda84f719" class="bulleted-list"><li style="list-style-type:circle">ジャガイモの付近でフェアリークリスタルを使用。</li></ul></li></ul><ul id="306952c6-535c-43d9-ac16-a2b705b55dfd" class="bulleted-list"><li style="list-style-type:disc">音符精ノーチャ<ul id="485b577a-b58c-43da-99ba-9646b2814be9" class="bulleted-list"><li style="list-style-type:circle">音符ブロックの付近でフェアリークリスタルを使用。</li></ul></li></ul><ul id="3d33d926-1d9c-472d-987f-e04657923c5e" class="bulleted-list"><li style="list-style-type:disc">蓄音機精ジュケボーシャ<ul id="8c8de013-78db-473f-a735-83fee4920e7c" class="bulleted-list"><li style="list-style-type:circle">ジュークボックスの付近でフェアリークリスタルを使用。</li></ul></li></ul><ul id="9d348542-b5ad-4793-9dec-5d9849432e4e" class="bulleted-list"><li style="list-style-type:disc">地獄門精ネテーレポルターリャ<ul id="3e118458-7551-4495-9f11-79857e67fc79" class="bulleted-list"><li style="list-style-type:circle">ネザーポータルの付近でフェアリークリスタルを使用。</li></ul></li></ul><ul id="2bf71909-a03a-477e-8e2c-9e23374ac316" class="bulleted-list"><li style="list-style-type:disc">妖精ミラージャ<ul id="5ae2cfed-c7b8-4793-b92f-ae305a95d9a1" class="bulleted-list"><li style="list-style-type:circle">妖精希釈レシピにより入手。</li></ul></li></ul><ul id="a2288889-e75a-4f9d-b866-94c4abb4b4fc" class="bulleted-list"><li style="list-style-type:disc">石炭粉精ツォアーレドゥスチャ<ul id="b9f43aad-59b3-4d23-82bc-e6c8fb497fbc" class="bulleted-list"><li style="list-style-type:circle">石炭の粉の付近でフェアリークリスタルを使用。</li></ul><ul id="7f66a754-d999-4527-995a-b30e78480314" class="bulleted-list"><li style="list-style-type:circle">2022年2月28日までの間、降雪中にでフェアリークリスタルを使用。</li></ul></li></ul><ul id="7248a43a-e550-49e9-bdda-072622f8cfc2" class="bulleted-list"><li style="list-style-type:disc">金剛石粉精ディアモンデドゥスチャ<ul id="b7b2f0ee-35e1-4f7a-beac-bf84a9dfe854" class="bulleted-list"><li style="list-style-type:circle">2022年2月28日までの間、降雪中にでフェアリークリスタルを使用。</li></ul></li></ul><p id="b23c603b-9c4a-400c-ac03-5375f4fb5718" class="">
+</p><p id="0f28630a-9290-49c0-9dfa-83eb2f76d11a" class="">次の妖精を期間限定で復刻しました。</p><ul id="b5521143-34db-4603-9139-4cd763f1fc1f" class="bulleted-list"><li style="list-style-type:disc">濃智代子齢糖精ダルケキョツォラーチャ<ul id="fca1bafe-171b-4b2c-bfc5-e70904871942" class="bulleted-list"><li style="list-style-type:circle">2022年2月28日までの間、フェアリークリスタルを使用。</li></ul></li></ul><h1 id="e8f7b0c2-e91e-496d-81a4-d6da069c0fa0" class="">その他の更新点</h1><ul id="fd86b4e4-b83d-4a87-960e-6c67a550b63d" class="bulleted-list"><li style="list-style-type:disc">【改善】肥料がディスペンサーで使用できるようになった。</li></ul><ul id="f549ae4b-639f-4461-ad98-68394d22df0f" class="bulleted-list"><li style="list-style-type:disc">【改善】フェアリークリスタルをスニーク中に使用した際の妖精ドロップリストの読み上げがタイトル画面に戻った時点で停止するようになった。</li></ul><h2 id="738968f9-2ca6-47c2-a49e-f19be2e54301" class="">見た目の更新</h2><ul id="f911c055-c16b-46ae-b4e0-795df8d877b2" class="bulleted-list"><li style="list-style-type:disc">【修正】ミーニャを搭乗させた紅蓮のワンドでブロックを右クリックしたときのデバッグメッセージを修正。</li></ul><h2 id="d96cd17f-a392-40c3-85f0-055026c9d1d1" class="">クリエイティブに関する更新</h2><ul id="7ff8be64-bf40-4bf9-908e-a17b76688fae" class="bulleted-list"><li style="list-style-type:disc">【追加】「デバッグ：鉱石辞書名一覧」を追加。</li></ul><ul id="2e5fb672-72d9-4def-9fdd-81121d9628ec" class="bulleted-list"><li style="list-style-type:disc">【追加】「デバッグ：スキルリセット解禁」を追加。</li></ul><ul id="2223cd3b-1ee0-46dd-a350-652bf13b9d73" class="bulleted-list"><li style="list-style-type:disc">【改善】「デバッグ：妖精一覧」においてランク2から10になるエルグにも強調表示を追加。</li></ul><ul id="3ef1f731-2177-40bf-a2b9-ade723d20bfa" class="bulleted-list"><li style="list-style-type:disc">【修正】クリエイティブタブにおいて「MirageFairy 2019」のスペースを除去。</li></ul><ul id="14eb1fc2-6c5e-4efe-afb3-00becb4af5d4" class="bulleted-list"><li style="list-style-type:disc">【修正】焼き妖精がクリエイティブタブに表示されない問題を修正。</li></ul><ul id="1a8d71bd-657f-4d10-a51f-7c5991efee2c" class="bulleted-list"><li style="list-style-type:disc">【修正】「デバッグ：妖精一覧」の名称を追加。</li></ul><ul id="15555526-dbc5-45ee-b4b6-e706e6f678d7" class="bulleted-list"><li style="list-style-type:disc">【修正】「デバッグ：妖精一覧」がクリエイティブタブに表示されない問題を修正。</li></ul><p id="adfda9eb-73d3-40bd-a9a3-d58e4152dba1" class="">
+</p><hr id="ab39084f-3ef2-4645-9c99-37e7bfa61e66"/><p id="24ece753-ad20-49c4-9750-c62e3594c538" class="">今後ともMirageFairy Server・MirageFairy2019をよろしくお願いいたします。</p><p id="0cf9a435-15be-48f4-98de-15610c36e474" class="">2022年1月23日　MirageFairy Server運営部・技術部・創作部</p><p id="ab543b19-f27c-4cfa-99dc-435e29cd807a" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

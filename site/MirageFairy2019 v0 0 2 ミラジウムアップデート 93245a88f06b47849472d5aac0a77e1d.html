@@ -1,0 +1,690 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>MirageFairy2019 v0.0.2　ミラジウムアップデート</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="93245a88-f06b-4784-9472-d5aac0a77e1d" class="page serif"><header><div class="page-header-icon undefined"><img class="icon" src="mirage_flower_280x280%201.png"/></div><h1 class="page-title">MirageFairy2019 v0.0.2　ミラジウムアップデート</h1><p class="page-description"></p></header><div class="page-body"><figure id="e37fd8de-0aa0-43e0-b270-c31d8012dd6f" class="image"><a href="Untitled%2011.png"><img style="width:854px" src="Untitled%2011.png"/></a></figure><nav id="2d1c52ee-29b8-4da2-866a-f2d14ead7871" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#e637b690-77f1-45c8-aa4b-0a86ed6b8b47">変更点</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#fd6437bd-30e3-4a0c-94ce-87a1b88656de">全般</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#e1c36e46-0224-49c2-9550-7683046f8b87">各種調整</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#5d869f90-21f4-47eb-a5a6-b04313707351">クリエイティブタブ追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#13830375-c02f-41d7-b5a3-caa01a926ff2">素材追加</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#60a48069-2e94-46d7-9b09-7d2d3b9d6782">ミラジウムの粉</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#ceec92df-7b7b-4a5e-be22-eac08fffec10">ミラジウムの微粉</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#223f58a1-5767-4bbc-8fcc-c543a28cbbd5">スフィア</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#e2c48744-ffe2-4697-9572-dc500a750d82">妖精関連</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#a8718d88-09b8-43da-8f02-0fb3488f2705">超能力（アビリティ）追加</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#92c2c3a3-75a6-4e5c-a887-7388abc0e942">凝縮追加</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2038814e-e7b2-40b9-a83a-4cf7ec56276f">確定レシピ追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#627a4496-3443-4604-a78e-7d1b0d50f571">妖精武器追加</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#9fdf5fd3-b943-4788-9500-66f409a35e1c">細工のステッキ</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#5e253e9e-c3a3-4b90-86b4-8a248a19ec96">妖精剣</a></div></nav><p id="36577b3d-03ed-4667-bacb-11fa15021afb" class="">
+</p><p id="02040373-f566-4524-b35f-1348a971b214" class="">MirageFairy2019をバージョンv0.0.2にアップデートしました。変更点は以下の通りです。</p><h1 id="e637b690-77f1-45c8-aa4b-0a86ed6b8b47" class="">変更点</h1><h2 id="fd6437bd-30e3-4a0c-94ce-87a1b88656de" class="">全般</h2><h3 id="e1c36e46-0224-49c2-9550-7683046f8b87" class="">各種調整</h3><ul id="5556d13f-8f67-410c-baab-eee6ef6bd41d" class="bulleted-list"><li style="list-style-type:disc">蛍石鉱石破壊時の経験値ドロップ量調整</li></ul><ul id="d5b41c51-1a9a-49e5-820c-3f8ecd281ecc" class="bulleted-list"><li style="list-style-type:disc">燐灰石鉱石・蛍石鉱石・硫黄鉱石のスポーン頻度調整</li></ul><ul id="422a556d-66f7-4119-a771-88b9538ee590" class="bulleted-list"><li style="list-style-type:disc">妖精の樹洞のスポーン頻度調整</li></ul><h3 id="5d869f90-21f4-47eb-a5a6-b04313707351" class="">クリエイティブタブ追加</h3><p id="761374f3-6620-43c3-a776-4ec2f03d9fb0" class="">妖精をまとめたクリエイティブタブが追加されました。また、既存のクリエイティブタブのアイコンが変更されました。</p><h2 id="13830375-c02f-41d7-b5a3-caa01a926ff2" class="">素材追加</h2><h3 id="60a48069-2e94-46d7-9b09-7d2d3b9d6782" class="">ミラジウムの粉</h3><p id="b916b92e-67c8-4d4e-ae8b-014c4d231f6c" class="">ミラジウムの粉はミラジウムの微粉9個をクラフトすることで入手できます。また、ミラジウムの粉1個からミラジウムの微粉を9個クラフトすることもできます。</p><div id="4fb319de-102e-413c-868e-5bdb99361467" class="column-list"><div id="8b08070d-61ad-4917-b792-b91017646adc" style="width:50%" class="column"><figure id="d604473c-233a-4990-a35f-978f4940572f" class="image"><a href="Untitled%2012.png"><img style="width:241px" src="Untitled%2012.png"/></a></figure><p id="8f6122e5-0ec3-4727-94b4-11cf3e46813a" class="">ミラジウムの微粉×9→ミラジウムの粉</p></div><div id="84430588-3f4f-48f4-b407-338f66ed4be0" style="width:50%" class="column"><figure id="433d2f4a-ebf0-4831-9c8e-6803d20a04ba" class="image"><a href="Untitled%2013.png"><img style="width:241px" src="Untitled%2013.png"/></a></figure><p id="ec2ea8ee-68aa-493f-b613-d8d417224ab2" class="">ミラジウムの粉→ミラジウムの微粉×9</p></div></div><h3 id="ceec92df-7b7b-4a5e-be22-eac08fffec10" class="">ミラジウムの微粉</h3><p id="4fb727d5-db0e-4141-8e6b-26e2db47703b" class="">ミラジウムの微粉はミラージュの花を壊すことで入手できます。</p><figure id="9edabde8-08ad-4d9b-859e-072a956dde2d" class="image"><a href="Untitled%2014.png"><img style="width:768px" src="Untitled%2014.png"/></a></figure><h3 id="223f58a1-5767-4bbc-8fcc-c543a28cbbd5" class="">スフィア</h3><p id="6833cdc2-9315-4f5b-8db5-fc15830614d3" class="">スフィアは宝石に妖精の超能力を封じ込めた素材です。超能力の種類ごとにスフィアが存在します。</p><p id="4c58819c-2370-4038-8d67-612a071b7b09" class="">
+</p><p id="41c1f371-5efc-4ce6-a24d-4fab921cc27c" class="">各種スフィアは、水バケツ、ミラージュの粉、蛍石、対応する超能力を強度10以上持った妖精、超能力の種類を決定するアイテムからクラフトできます。</p><p id="54dd28d4-283c-4396-b507-fbb39459da95" class="">
+</p><p id="fa4da8fc-1287-471e-b7f2-52761733a29e" class="">超能力の種類を決定するアイテムは以下の通りです。</p><ul id="17acf200-c163-4b0f-9127-d87fe05e3dee" class="bulleted-list"><li style="list-style-type:disc">攻撃：鉄の剣</li></ul><ul id="531c1877-d2ae-4083-8e50-b1149c2046a7" class="bulleted-list"><li style="list-style-type:disc">加工：作業台</li></ul><div id="a8e1e6dd-6847-4847-9d42-b91d2e14862b" class="column-list"><div id="9d17ec67-77e9-452d-ba68-f436ed98fd1d" style="width:50%" class="column"><figure id="80f4580b-17b6-44b2-b0fb-6e916dc087b5" class="image"><a href="Untitled%2015.png"><img style="width:239px" src="Untitled%2015.png"/></a></figure><p id="023657e9-159c-4b49-bd3d-a164a3b45481" class="">水入りバケツ＋ミラジウムの粉＋蛍石＋鉄の剣＋〈ATTACK10以上の妖精〉→≪攻撃≫のスフィア</p></div><div id="11fc21e4-c33f-4595-be12-ee636f731038" style="width:50%" class="column"><figure id="e07e57a0-f480-4d40-86d8-da77154d62fb" class="image"><a href="Untitled%2016.png"><img style="width:239px" src="Untitled%2016.png"/></a></figure><p id="e136ef90-80a8-411e-b28d-23f29261cf91" class="">水入りバケツ＋ミラジウムの粉＋蛍石＋作業台＋〈CRAFT10以上の妖精〉→≪加工≫のスフィア</p></div></div><h2 id="e2c48744-ffe2-4697-9572-dc500a750d82" class="">妖精関連</h2><h3 id="a8718d88-09b8-43da-8f02-0fb3488f2705" class="">超能力（アビリティ）追加</h3><p id="1b76c2c7-6104-4d59-9c5f-89bc134b79e5" class="">妖精に超能力（アビリティ）のステータスを追加しました。超能力には種類と強度があり、強度10以上の超能力は、妖精のツールチップから確認できます。</p><p id="dafa5386-b109-43a1-93f8-21ffab8d221f" class="">
+</p><p id="1f083b18-a3e3-4493-98dc-ea4642808a82" class="">現バージョンでは以下の超能力が存在します。</p><ul id="f973eddd-1af3-4a23-b9a7-3eb403d356df" class="bulleted-list"><li style="list-style-type:disc">攻撃（ATTACK）</li></ul><ul id="6433cacc-aa34-40ad-893e-f3e7c91f561f" class="bulleted-list"><li style="list-style-type:disc">加工（CRAFT）</li></ul><figure id="82e1101a-47fd-479d-8c14-bd921b31f017" class="image"><a href="Untitled%2017.png"><img style="width:255px" src="Untitled%2017.png"/></a></figure><h3 id="92c2c3a3-75a6-4e5c-a887-7388abc0e942" class="">凝縮追加</h3><p id="37eb0372-46e5-4c95-8c56-ee138576fb6d" class="">同じ妖精を9体集めると、同じ品種で凝縮度（ランク）が一つ高い妖精を1体クラフトできます。ランクが上がると妖精の各種能力が上昇します。ランクは1から最大5まで上昇させることができます。凝縮によって新しい超能力が追加されることもあります。凝縮済みの妖精1体から、一つ下のランクの妖精を9体作ることができます。妖精のランクはアイコンの服の色で表されます。</p><div id="24200047-6936-4314-be28-b5c976c5cd02" class="column-list"><div id="c4364fb4-fb4c-4ad0-9936-92346cf99ba5" style="width:50%" class="column"><figure id="cd41cbee-c444-4309-86c1-2cb873a1fb48" class="image"><a href="Untitled%2018.png"><img style="width:241px" src="Untitled%2018.png"/></a></figure><p id="bbb8e7ff-cbda-4c76-b2c4-713ce960ff52" class="">ランク1の妖精×9→ランク2の妖精</p><figure id="2810cffc-3d39-4eef-aa69-4b0aecc9bcf5" class="image"><a href="Untitled%2019.png"><img style="width:241px" src="Untitled%2019.png"/></a></figure><p id="8fbb0c51-b6cd-4e85-8c48-8ef09bdf83b2" class="">ランク2の妖精×9→ランク3の妖精</p><figure id="0d854674-5248-492a-a3dc-24deefa2d433" class="image"><a href="Untitled%2020.png"><img style="width:241px" src="Untitled%2020.png"/></a></figure><p id="33952ca8-6e45-4467-85b0-0c591f1ae53b" class="">ランク3の妖精×9→ランク4の妖精</p><figure id="47d37557-ca2e-42fb-84c1-ec02a8c802f8" class="image"><a href="Untitled%2021.png"><img style="width:241px" src="Untitled%2021.png"/></a></figure><p id="ea57a31c-56b6-4cc8-ad45-2eaadba5ada2" class="">ランク4の妖精×9→ランク5の妖精</p></div><div id="f673e5d7-29fb-4f29-bc02-60c1d576372b" style="width:50%" class="column"><figure id="540c2ab1-3b5b-4738-a340-7bed8233bc95" class="image"><a href="Untitled%2022.png"><img style="width:241px" src="Untitled%2022.png"/></a></figure><p id="e91bd5fb-65f9-4bf4-b9da-5a41cb15b58f" class="">ランク2の妖精→ランク1の妖精×9</p><figure id="c13ba4b4-2fee-40e6-b30c-63c2da363436" class="image"><a href="Untitled%2023.png"><img style="width:241px" src="Untitled%2023.png"/></a></figure><p id="f9e8893e-9963-40d4-b3af-8db918f36773" class="">ランク3の妖精→ランク2の妖精×9</p><figure id="4da7dd11-8d02-46c2-bb02-8b48f3c29c37" class="image"><a href="Untitled%2024.png"><img style="width:241px" src="Untitled%2024.png"/></a></figure><p id="291b1a6c-a28d-46ea-9db5-b457f7c9bda4" class="">ランク4の妖精→ランク3の妖精×9</p><figure id="69cb756f-1ae6-484e-951b-267b810a9c87" class="image"><a href="Untitled%2025.png"><img style="width:241px" src="Untitled%2025.png"/></a></figure><p id="c07cf203-7cdf-4cd0-9c2c-80255c6734a1" class="">ランク5の妖精→ランク4の妖精×9</p></div></div><h3 id="2038814e-e7b2-40b9-a83a-4cf7ec56276f" class="">確定レシピ追加</h3><p id="b8677924-4199-4c2e-aaca-211967160682" class="">以下の妖精が妖晶と指定のアイテムからクラフトできるようになりました。</p><ul id="5a4e365d-0dd6-4224-8a21-fcfabb0a05c1" class="bulleted-list"><li style="list-style-type:disc">イローニャ：鉄インゴット</li></ul><ul id="92f5a791-5934-41aa-96e7-434f8e45f61e" class="bulleted-list"><li style="list-style-type:disc">ディアモンジャ： ダイヤモンド</li></ul><ul id="982c9c3c-9c90-45cb-8612-33e0b39f433d" class="bulleted-list"><li style="list-style-type:disc">リラーキャ：ライラック</li></ul><ul id="efc96c11-5cca-444b-8b73-c46cb2201908" class="bulleted-list"><li style="list-style-type:disc">トルキャ：松明</li></ul><ul id="d827b227-ad20-4704-bd5d-9b3ce208c26f" class="bulleted-list"><li style="list-style-type:disc">フルナーキャ：かまど</li></ul><ul id="b8d35638-93a8-460b-ada9-058ca92895b0" class="bulleted-list"><li style="list-style-type:disc">マゲンテグラゼデテッラコッチャ：赤紫色の彩釉テラコッタ</li></ul><div id="b9fce3be-a3d1-4f20-af25-de07bb4d550a" class="column-list"><div id="ca1a2600-e54e-48b3-84d2-2303f336fc0f" style="width:50%" class="column"><figure id="391a3e06-6165-4ccc-b28f-ed7e3de9b96c" class="image"><a href="Untitled%2026.png"><img style="width:241px" src="Untitled%2026.png"/></a></figure><p id="f2c1c6cd-e41e-4696-8980-03fe12613f03" class="">妖晶＋鉄インゴット→イローニャ</p><figure id="51a2cae8-4911-4af0-87d9-ab01194d6215" class="image"><a href="Untitled%2027.png"><img style="width:241px" src="Untitled%2027.png"/></a></figure><p id="dc583613-9715-44ee-94ea-6c494cdaae6e" class="">妖晶＋ライラック→リラーキャ</p><figure id="afc2e9db-8387-4492-9fec-fd9965a78ec7" class="image"><a href="Untitled%2028.png"><img style="width:241px" src="Untitled%2028.png"/></a></figure><p id="0cf4582e-0137-4c54-acf0-bc3e52c11120" class="">妖晶＋かまど→フルナーキャ</p></div><div id="61b0d5a1-1931-4d9b-a847-da3325b0ca1a" style="width:50%" class="column"><figure id="4775c60e-b1ee-4936-b0e5-2d1e2390357b" class="image"><a href="Untitled%2029.png"><img style="width:241px" src="Untitled%2029.png"/></a></figure><p id="58430096-6f84-4460-905a-bf39852689ee" class="">妖晶＋ダイヤモンド→ディアモンジャ</p><figure id="daa39784-5d4d-41a3-b873-d911cfa45e86" class="image"><a href="Untitled%2030.png"><img style="width:241px" src="Untitled%2030.png"/></a></figure><p id="edbea05c-1f46-4990-92bc-a58b3982e672" class="">妖晶＋松明→トルキャ</p><figure id="39c6f321-5e8a-4791-8ea7-b8b3c9c8e47b" class="image"><a href="Untitled%2031.png"><img style="width:241px" src="Untitled%2031.png"/></a></figure><p id="06783cbb-aa1a-4904-b9bd-8efcea6f8550" class="">妖晶＋赤紫色の彩釉テラコッタ→マゲンテグラゼデテッラコッチャ</p></div></div><h2 id="627a4496-3443-4604-a78e-7d1b0d50f571" class="">妖精武器追加</h2><p id="d0c165e0-ee50-46a6-b5d9-1d90c5e0ff28" class="">妖精武器は、以下の共通の性質を持ちます。</p><ul id="11e629ef-5019-4a9b-9f18-f885c9ff8240" class="bulleted-list"><li style="list-style-type:disc">エンチャント不可</li></ul><ul id="2c753ff8-8a63-4d22-81e0-52efde635931" class="bulleted-list"><li style="list-style-type:disc">同じアイテム2個をクラフトしての修理不可</li></ul><ul id="13c666ac-557f-4c1a-bc97-74a909fc2e0c" class="bulleted-list"><li style="list-style-type:disc">素材アイテムを用いた金床での修理不可</li></ul><ul id="2b0e6f60-37cc-41c8-a0ea-f8a375e0aa94" class="bulleted-list"><li style="list-style-type:disc">同じアイテム2個をクラフトしての金床での修理可能</li></ul><ul id="ef5fe3a2-9502-4468-92f2-df80abb5eac0" class="bulleted-list"><li style="list-style-type:disc">攻撃時、耐久を1消費（採集道具系も同じ）</li></ul><ul id="c48ccac6-76db-4b62-af1b-0c8a015bdba2" class="bulleted-list"><li style="list-style-type:disc">ブロック破壊時、耐久を1消費（武器系も同じ）</li></ul><h3 id="9fdf5fd3-b943-4788-9500-66f409a35e1c" class="">細工のステッキ</h3><p id="57a87a56-fd0e-4fd5-9274-485ccd08273f" class="">細工のステッキは妖精武器のクラフトに頻繁に要求される工具です。以下のレシピからクラフトできます。</p><p id="d5aeaf58-61f8-4c55-9dee-5ba72506b21a" class="">
+</p><figure id="38522f4f-4a65-4c14-8962-0a3a477c6c8c" class="image"><a href="Untitled%2032.png"><img style="width:241px" src="Untitled%2032.png"/></a></figure><p id="16faea25-63a9-45ef-9a45-e5bca0a555a4" class="">15木の棒＋9≪加工≫のスフィア→細工のステッキ</p><p id="bc141f99-99b9-4ae7-bbcd-fad6f1f58f22" class="">
+</p><ul id="a5dadb65-a559-4ddf-b395-77ccb1cc95ba" class="bulleted-list"><li style="list-style-type:disc">最大耐久：16</li></ul><h3 id="5e253e9e-c3a3-4b90-86b4-8a248a19ec96" class="">妖精剣</h3><p id="c81838ee-9a06-4f0c-b76b-1e51c82cbbec" class="">妖精剣は妖精の力をダメージに変換する剣です。オフハンドまたはインベントリ内に所持している妖精を参照してステータスが変わります。鉄の剣、≪攻撃≫のスフィア、細工のステッキからクラフトできます。</p><p id="2b52a7e9-7c80-474d-acaa-ea48fa6dd6b0" class="">
+</p><figure id="ce89b2bc-021e-421b-b400-735c95ec1021" class="image"><a href="Untitled%2033.png"><img style="width:241px" src="Untitled%2033.png"/></a></figure><p id="c0265d6d-3d16-4c33-9877-55f115b947c3" class="">細工のステッキ＋鉄の剣＋≪攻撃≫のスフィア→妖精剣</p><p id="fa24367e-d92a-4c1b-bc79-ff8463a9be3a" class="">
+</p><ul id="23e63a7a-a296-4696-8605-8c270ad2b606" class="bulleted-list"><li style="list-style-type:disc">最大耐久：64</li></ul><ul id="1ebdad97-c098-4546-8e71-42e97dbc0677" class="bulleted-list"><li style="list-style-type:disc">薙ぎ払い攻撃不可</li></ul><p id="0638de2a-c3b3-4dd4-80d1-4f534db89b2d" class="">
+</p><hr id="b45ce794-ea0b-449b-aac0-9959d3c616a7"/><p id="4225ce57-deb8-4865-98fa-b31985b7e634" class="">2019年7月30日　MirageFairy Server技術部・創作部</p><p id="3af8a0c3-a889-4d29-9e87-a396bc7db0be" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

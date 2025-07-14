@@ -1,0 +1,716 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>MFKU Official Web Site </title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="150a1ac2-40dd-8138-98b9-d5f05acdd26c" class="page serif"><header><img class="page-cover-image" src="notion_header.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="miragefairy_face_icon_256x256.png"/></div><h1 class="page-title">MFKU Official Web Site </h1><p class="page-description"></p></header><div class="page-body"><p id="1d3a1ac2-40dd-80e9-b61b-cfc0d7c951ba" class="">本サイトは、MirageFairyプロジェクトの非公式派生であるMFKU（MF-Kakera-Unofficial）プロジェクトの公式サイトです。</p><p id="1d3a1ac2-40dd-80e5-afe9-f9b2d1e50805" class="">
+</p><hr id="1d3a1ac2-40dd-804c-8d3d-f2f4403356c4"/><h1 id="1d3a1ac2-40dd-80cb-ab83-fe16d9ff194a" class="block-color-default_background">プロジェクト『MirageFairy』</h1><p id="1d3a1ac2-40dd-807b-a41d-c16e79f2cab5" class="">
+</p><figure id="150a1ac2-40dd-81f9-94fe-fd8034828e7d" class="image"><a href="Untitled.png"><img style="width:288px" src="Untitled.png"/></a></figure><div id="150a1ac2-40dd-81c0-b28f-f92ccd95add7" class="column-list"><div id="150a1ac2-40dd-81ed-92ec-c978a6b543c9" style="width:43.75%" class="column"><figure id="150a1ac2-40dd-811d-a96f-de4ab2bea72d" class="image" style="text-align:right"><a href="5643287956342792.png"><img style="width:240px" src="5643287956342792.png"/></a></figure></div><div id="150a1ac2-40dd-8196-8f89-e7f95c2fdcb4" style="width:56.25%" class="column"><p id="150a1ac2-40dd-81ff-878d-c46dc366320d" class=""><strong>単子葉類妖花目ミラージュ科　ミラージュ</strong></p><p id="159a1ac2-40dd-80a3-b47b-e49363d9873f" class="">
+</p><p id="150a1ac2-40dd-811f-b0d0-ea98d1169d54" class="">　蝶のような翅の生えた手のひら大の少女の姿をした妖精。非常に憶病で、滅多に人前に姿を現さない。捕まえようとしても人魂（ウィスプ）のような姿に化けて逃げ、いくら追いかけても捕まえることができないさまから、ミラージュ（蜃気楼）の名で知られている。</p><p id="150a1ac2-40dd-81c1-94c7-f1daa9d5e9e0" class="">　古くは神霊の一種と考えられていたが、近年の研究により、ミラージュ植物の花粉が自律構造を持ったものであると解明された。</p></div></div><p id="1d3a1ac2-40dd-801a-9122-c826197fd1b2" class="">
+</p><p id="150a1ac2-40dd-8105-a514-f4ed78d54891" class="">MirageFairyは、宇宙を旅する人類と、妖精と呼ばれる生物の住む惑星の物語です。</p><p id="1d3a1ac2-40dd-805e-928d-f0b4208bae19" class="">
+</p><hr id="1d3a1ac2-40dd-80af-bf0f-d07cd4a57e0c"/><h1 id="1d3a1ac2-40dd-8030-b30a-c427ba860590" class="">『MFKUプロジェクトへの理解』</h1><p id="1d3a1ac2-40dd-8017-a73b-cfa1a512a263" class="">これはMirageFairy2023成立以降、MirageFairy関連プロジェクトの入り口に形を変えながら設置されるようになったポエムです。</p><p id="1d3a1ac2-40dd-805a-975c-c5755cfe4c6b" class="">
+</p><blockquote id="1d3a1ac2-40dd-8064-93df-e613e40d99f9" class="">MFKUプロジェクトは、『夜のかけら』個人および、多数の有志の方々のボランティアによって成り立っています。<p id="1d3a1ac2-40dd-8024-a0b1-c3bcaf0ad60d" class="">『夜のかけら』はマイナス100%の利益と200%の愛によってMFKUプロジェクトでの活動を行っています。</p><p id="1d3a1ac2-40dd-800f-9c17-e9a99c93f3cb" class="">利用者は『夜のかけら』のお客様ではなく、『夜のかけら』は利用者の神様でも手下でもありません。</p><p id="1d3a1ac2-40dd-80b2-a626-fb8617a8e4c3" class="">MFKUプロジェクトは、自己だけでなく、すべての関係者がともに楽しく過ごせることを心から願う人のために存在します。</p><p id="1d3a1ac2-40dd-8040-a1ab-dff95bee0310" class="">ぜひ、愛を持ってご利用ください。</p><p id="1d3a1ac2-40dd-804d-ba22-c8b396f2748d" class="">──　『MFKUプロジェクトへの理解 - 2025年4月版』</p></blockquote><p id="1d3a1ac2-40dd-8052-acc0-d6895b9a5999" class="">
+</p><hr id="1d3a1ac2-40dd-8097-86e4-cb55ec39735a"/><nav id="1d3a1ac2-40dd-805a-a878-f58cc5d1c013" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#1d3a1ac2-40dd-80cb-ab83-fe16d9ff194a">プロジェクト『MirageFairy』</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#1d3a1ac2-40dd-8030-b30a-c427ba860590">『MFKUプロジェクトへの理解』</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#1d3a1ac2-40dd-80ee-8584-f07e717c6485">Minecraft MOD『MF24KU』</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#150a1ac2-40dd-810d-bbe6-edbadb53e5b0">Minecraft MOD『MirageFairy2024』</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#150a1ac2-40dd-81f1-b4ac-d79b46cd2a8f">Minecraft MOD『MirageFairy2023』</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#150a1ac2-40dd-81b4-b296-e986e8093877">Minecraft MOD『MirageFairy2019』</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#150a1ac2-40dd-814f-9aeb-e2e87474c83a">アップデートログ</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#150a1ac2-40dd-810a-a143-fddb84db5fc9">ゲームガイド</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#1d3a1ac2-40dd-8010-aaae-dbcac012d034">テキスト作品『MFA』</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#150a1ac2-40dd-8162-a641-cac94f036e9f">G1-MFA</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#150a1ac2-40dd-81f1-958b-d23cd659ea0b">G2-MFA</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#150a1ac2-40dd-81bd-be77-c3ae1a0c3583">G3-MFA</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#150a1ac2-40dd-81b3-b3b8-c5b26c816188">二次創作</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#150a1ac2-40dd-81e6-ae1d-c9369576dee0">ライセンス</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#150a1ac2-40dd-81bb-808d-c040f10b1d0f">著者名</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#150a1ac2-40dd-81b2-a55f-dfde050b4339">ライセンス表示例</a></div></nav><hr id="1d3a1ac2-40dd-809e-8d5b-e2f7df99dec1"/><h1 id="1d3a1ac2-40dd-80ee-8584-f07e717c6485" class="block-color-default_background">Minecraft MOD『MF24KU』</h1><p id="1d3a1ac2-40dd-802a-bc47-e3b36dcd8c30" class="">
+</p><figure id="1e6a1ac2-40dd-80bb-a031-d584a2da664a" class="image"><a href="MF24KU_banner.png"><img style="width:240px" src="MF24KU_banner.png"/></a></figure><figure id="1e6a1ac2-40dd-8058-b262-cf933db8371a" class="image"><a href="MF24KU_GitHub-Repository.png"><img style="width:576px" src="MF24KU_GitHub-Repository.png"/></a></figure><p id="160a1ac2-40dd-80b4-896d-fabe521a7dae" class="">
+</p><p id="160a1ac2-40dd-80f7-9c05-c106283f7b73" class="">『MF24KU』は、MirageFairyの世界観を表現するMinecraft MODであるMirageFairy2024をベースにした、夜のかけらによる派生MODです。</p><p id="160a1ac2-40dd-8085-8593-c7c4586b9139" class="">
+</p><p id="160a1ac2-40dd-80e9-81dd-dd01294acdf6" class="">MF24KUは、MirageFairyの世界観をもとにした派生の創作プロジェクトであるMFKUの世界観をもとにしています。</p><p id="160a1ac2-40dd-80d6-a3fb-c11333fe8ffe" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="160a1ac2-40dd-80d8-a4c1-e6a64b0e7228"><div style="width:100%"><p id="9c0f7b20-f6b5-4496-a702-24553c4ef105" class=""><strong>MOD配布サイト</strong></p><figure id="160a1ac2-40dd-8098-b678-ce4409078079"><a href="https://modrinth.com/mod/miragefairy2024-kakera-unofficial/gallery" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">MirageFairy2024-Kakera-Unofficial - Gallery</div><div class="bookmark-description">View 2 images of MirageFairy2024-Kakera-Unofficial on Modrinth.</div></div><div class="bookmark-href"><img src="https://modrinth.com/favicon-light.ico" class="icon bookmark-icon"/>https://modrinth.com/mod/miragefairy2024-kakera-unofficial/gallery</div></div><img src="https://cdn.modrinth.com/data/jwjtIIai/ec57c3382235dd2a06d3eebe29e0bbfe6962714a_96.webp" class="bookmark-image"/></a></figure></div></figure><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="160a1ac2-40dd-8094-9073-d7f73129d81b"><div style="width:100%"><p id="ca965865-d4af-47ae-8989-4a3bb928590c" class=""><strong>MF24KU Discord</strong></p><figure id="160a1ac2-40dd-80ba-b142-ffd3da585ee6"><a href="https://discord.gg/qSWsnZttB8" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Join the MF-Kakera-Unofficial Discord Server!</div><div class="bookmark-description">MirageFairy-Kakera-Unofficialに関する話題を扱うサーバー | 4 members</div></div><div class="bookmark-href"><img src="https://discord.com/assets/favicon.ico" class="icon bookmark-icon"/>https://discord.gg/qSWsnZttB8</div></div></a></figure></div></figure><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="150a1ac2-40dd-8184-8795-f88cd5bc0897"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/suit-diamond_blue.svg"/></div><div style="width:100%"><strong>MFKU非公式Wiki</strong><figure id="150a1ac2-40dd-8161-a055-fa88f7afd665"><a href="https://wikiwiki.jp/mifai2024/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">MirageFairy2024非公式Wiki Wiki*</div><div class="bookmark-description">公式サイト</div></div><div class="bookmark-href"><img src="https://cdn.wikiwiki.jp/to/w/common/user-favicon.ico?v=4" class="icon bookmark-icon"/>https://wikiwiki.jp/mifai2024/</div></div><img src="https://cdn.wikiwiki.jp/to/w/common/image/wikiwiki_ogp.png?v=4" class="bookmark-image"/></a></figure></div></figure><p id="160a1ac2-40dd-806a-95a5-c65c6102766e" class="">
+</p><hr id="150a1ac2-40dd-8139-af92-df79aabad242"/><h1 id="150a1ac2-40dd-810d-bbe6-edbadb53e5b0" class="block-color-default_background">Minecraft MOD『MirageFairy2024』</h1><p id="150a1ac2-40dd-8175-8531-d4d2474cfac9" class="">
+</p><figure id="150a1ac2-40dd-81ae-8563-c797092ea608" class="image"><a href="MirageFairy2024_banner.png"><img style="width:432px" src="MirageFairy2024_banner.png"/></a></figure><p id="150a1ac2-40dd-818c-b621-ffe19ce395ee" class="">
+</p><p id="150a1ac2-40dd-8180-b448-f81ff7c90de4" class="">MirageFairy2024は本家MirageFairyに属するMinecraft 1.20.2のFabric MODです。</p><p id="1d3a1ac2-40dd-8022-a45f-e67580a03dd2" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="150a1ac2-40dd-816e-ae1f-f88f691f88ba"><div style="font-size:1.5em"><img class="icon" src="YouTube.png"/></div><div style="width:100%">YouTubeチャンネル<figure id="150a1ac2-40dd-81bf-8ca9-c43a5614ddd4"><a href="https://www.youtube.com/@MirageFairy" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">MirageFairy</div><div class="bookmark-description">創作プロジェクト『MirageFairy』のチャンネルです！主に同作のMinecraft Java: EditionのMODの動画を公開します！</div></div><div class="bookmark-href"><img src="https://www.youtube.com/s/desktop/436f2749/img/favicon_144x144.png" class="icon bookmark-icon"/>https://www.youtube.com/@MirageFairy</div></div><img src="https://yt3.googleusercontent.com/qm2dReDBTye-sk0Cuf696SQME6N3nZ8EGiRKwYJxMSYugfYNMcnkXiCzu0nbPm4zSDku4tiIMsY=s900-c-k-c0x00ffffff-no-rj" class="bookmark-image"/></a></figure></div></figure><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="150a1ac2-40dd-81e2-9b34-cf62f1d881cc"><div style="font-size:1.5em"><img class="icon" src="github.png"/></div><div style="width:100%">MirageFairy2024 ソースコード<figure id="150a1ac2-40dd-81ff-8bd1-de4ddd061bcb"><a href="https://github.com/MirageFairy/MirageFairy2024" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">GitHub - MirageFairy/MirageFairy2024: MirageFairy2024: The Minecraft MOD for the MirageFairy project in 2024.</div><div class="bookmark-description">MirageFairy2024: The Minecraft MOD for the MirageFairy project in 2024. - GitHub - MirageFairy/MirageFairy2024: MirageFairy2024: The Minecraft MOD for the MirageFairy project in 2024.</div></div><div class="bookmark-href"><img src="https://github.com/fluidicon.png" class="icon bookmark-icon"/>https://github.com/MirageFairy/MirageFairy2024</div></div><img src="https://opengraph.githubassets.com/80c35da8214a43c9b4fbd4b6897658636e1f5bb9b75eb80501f04232a3f66a11/MirageFairy/MirageFairy2024" class="bookmark-image"/></a></figure></div></figure><p id="150a1ac2-40dd-81ef-83d1-d05f75ee2f0a" class="">
+</p><hr id="150a1ac2-40dd-8168-b2b2-fdfda4a7f9fe"/><h1 id="150a1ac2-40dd-81f1-b4ac-d79b46cd2a8f" class="block-color-default_background">Minecraft MOD『MirageFairy2023』</h1><p id="150a1ac2-40dd-818f-b9c1-deb5ff5ca336" class="">
+</p><figure id="150a1ac2-40dd-8134-882b-d8b645937ebb" class="image"><a href="Untitled%201.png"><img style="width:432px" src="Untitled%201.png"/></a></figure><figure id="150a1ac2-40dd-81e4-b5be-e74a6f4efe45" class="image"><a href="Untitled%202.png"><img style="width:576px" src="Untitled%202.png"/></a></figure><p id="150a1ac2-40dd-81b5-a06d-c48b762ededc" class="">
+</p><p id="150a1ac2-40dd-816c-aefa-f22edd73b77c" class="">MirageFairy2023は本家MirageFairyに属するMinecraft 1.19.2のFabric MODです。</p><p id="1d3a1ac2-40dd-8055-bb63-c098a68b9e5a" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="150a1ac2-40dd-81bf-8ebd-f06ea88cc463"><div style="font-size:1.5em"><img class="icon" src="github.png"/></div><div style="width:100%">MirageFairy2023 ソースコード<figure id="150a1ac2-40dd-816e-91fc-db02ee638dab"><a href="https://github.com/MirageFairy/MirageFairy2023" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">GitHub - MirageFairy/MirageFairy2023: MirageFairyの世界観に基づいたMinecraft MOD</div><div class="bookmark-description">MirageFairyの世界観に基づいたMinecraft MOD. Contribute to MirageFairy/MirageFairy2023 development by creating an account on GitHub.</div></div><div class="bookmark-href"><img src="https://github.com/fluidicon.png" class="icon bookmark-icon"/>https://github.com/MirageFairy/MirageFairy2023</div></div><img src="https://repository-images.githubusercontent.com/594492956/8314da20-c4ef-4817-acf7-35248d736d6c" class="bookmark-image"/></a></figure></div></figure><p id="150a1ac2-40dd-8111-8ab1-ecdc6efc95d3" class="">
+</p><hr id="150a1ac2-40dd-8104-9384-f035b4ef8e14"/><h1 id="150a1ac2-40dd-81b4-b296-e986e8093877" class="block-color-default_background">Minecraft MOD『MirageFairy2019』</h1><p id="150a1ac2-40dd-817e-b71c-e0ca2e48b6be" class="">
+</p><figure id="150a1ac2-40dd-81af-b8dd-cb365d69d960" class="image"><a href="Untitled%203.png"><img style="width:432px" src="Untitled%203.png"/></a></figure><figure id="150a1ac2-40dd-8100-ba0e-cf0d862ce768" class="image"><a href="2019-07-13_13.06.33-2.png"><img style="width:576px" src="2019-07-13_13.06.33-2.png"/></a></figure><p id="150a1ac2-40dd-81bb-b63a-e99d8c463abd" class="">
+</p><p id="150a1ac2-40dd-8134-9727-c0f0bf228efa" class="">MirageFairy2019は本家MirageFairyに属するMinecraft 1.12.2のForge MODです。</p><p id="1d3a1ac2-40dd-8057-88d5-c21605138bc1" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="150a1ac2-40dd-8154-b5d9-c2aef3dd8921"><div style="font-size:1.5em"><img class="icon" src="minecraft_light.png"/></div><div style="width:100%">MOD配布場所<figure id="150a1ac2-40dd-8160-ac90-f8854a851676"><a href="https://github.com/MirageFairy/MirageFairy2019/releases" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Releases · MirageFairy/MirageFairy2019</div><div class="bookmark-description">You can&#x27;t perform that action at this time. You signed in with another tab or window. You signed out in another tab or window. Reload to refresh your session. Reload to refresh your session.</div></div><div class="bookmark-href"><img src="https://github.com/favicon.ico" class="icon bookmark-icon"/>https://github.com/MirageFairy/MirageFairy2019/releases</div></div><img src="https://repository-images.githubusercontent.com/192857862/fb0fbe56-088c-485c-ab47-d12ce65abbb4" class="bookmark-image"/></a></figure></div></figure><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="150a1ac2-40dd-8123-b94d-c859c09b2274"><div style="font-size:1.5em"><img class="icon" src="github.png"/></div><div style="width:100%">MirageFairy2019 ソースコード<figure id="150a1ac2-40dd-81c5-aad2-f08f4e6fd2af"><a href="https://github.com/MirageFairy/MirageFairy2019" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">GitHub - MirageFairy/MirageFairy2019: MirageFairy MODの2019年版（MirageFairy2019）</div><div class="bookmark-description">MirageFairy MODの2019年版（MirageFairy2019）. Contribute to MirageFairy/MirageFairy2019 development by creating an account on GitHub.</div></div><div class="bookmark-href"><img src="https://github.com/fluidicon.png" class="icon bookmark-icon"/>https://github.com/MirageFairy/MirageFairy2019</div></div><img src="https://repository-images.githubusercontent.com/192857862/fb0fbe56-088c-485c-ab47-d12ce65abbb4" class="bookmark-image"/></a></figure></div></figure><h2 id="150a1ac2-40dd-814f-9aeb-e2e87474c83a" class="">アップデートログ</h2><figure id="2ca85925-5831-4de3-a314-024d65f0483e" class="link-to-page"><a href="MirageFairy2019%20v0%200%201%20%E5%A6%96%E6%99%B6%E3%83%BB%E5%A6%96%E7%B2%BE%E3%81%AE%E6%A8%B9%E6%B4%9E%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E3%83%86%E3%82%99%E3%83%BC%E3%83%88%202ca8592558314de3a314024d65f0483e.html"><img class="icon" src="mirage_flower_280x280.png"/>MirageFairy2019 v0.0.1　妖晶・妖精の樹洞アップデート</a></figure><figure id="93245a88-f06b-4784-9472-d5aac0a77e1d" class="link-to-page"><a href="MirageFairy2019%20v0%200%202%20%E3%83%9F%E3%83%A9%E3%82%B7%E3%82%99%E3%82%A6%E3%83%A0%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E3%83%86%E3%82%99%E3%83%BC%E3%83%88%2093245a88f06b47849472d5aac0a77e1d.html"><img class="icon" src="mirage_flower_280x280%201.png"/>MirageFairy2019 v0.0.2　ミラジウムアップデート</a></figure><figure id="9ef42c79-ccf9-436a-a4d1-56e03d7736a4" class="link-to-page"><a href="MirageFairy2019%20v0%200%203%20%E3%83%9F%E3%83%A9%E3%82%B7%E3%82%99%E3%82%A6%E3%83%A0%E3%81%AE%E6%96%A7%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E3%83%86%E3%82%99%E3%83%BC%E3%83%88%209ef42c79ccf9436aa4d156e03d7736a4.html"><img class="icon" src="mirage_flower_280x280%202.png"/>MirageFairy2019 v0.0.3　ミラジウムの斧アップデート</a></figure><figure id="fefc3328-bda1-49e8-8791-dfc3a96aee16" class="link-to-page"><a href="MirageFairy2019%20v0%200%204a%20%E6%9C%88%E9%95%B7%E7%9F%B3%E3%83%BB%E7%A3%81%E9%89%84%E9%89%B1%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E3%83%86%E3%82%99%E3%83%BC%E3%83%88%20fefc3328bda149e88791dfc3a96aee16.html"><img class="icon" src="mirage_flower_280x280%203.png"/>MirageFairy2019 v0.0.4a　月長石・磁鉄鉱アップデート</a></figure><figure id="7a95d8a0-8206-403a-aada-7c109d6dfe8e" class="link-to-page"><a href="%E3%80%90%E9%87%8D%E8%A6%81%E3%80%91%E5%A6%96%E7%B2%BE%E3%81%AE%E5%87%9D%E7%B8%AE%E3%83%AC%E3%83%BC%E3%83%88%E3%81%AE%E5%A4%89%E6%9B%B4%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%207a95d8a08206403aaada7c109d6dfe8e.html"><img class="icon" src="mirage_flower_280x280%204.png"/>【重要】妖精の凝縮レートの変更について</a></figure><figure id="d491c447-28cc-4d19-8dbc-4b954fcb90cc" class="link-to-page"><a href="MirageFairy2019%20v0%200%205%20%E8%B6%85%E8%83%BD%E5%8A%9B%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E3%83%86%E3%82%99%E3%83%BC%E3%83%88%20d491c44728cc4d198dbc4b954fcb90cc.html"><img class="icon" src="mirage_flower_280x280%205.png"/>MirageFairy2019 v0.0.5　超能力アップデート</a></figure><figure id="26ea743d-3760-4f7c-bdf3-48218b8fa49c" class="link-to-page"><a href="MirageFairy2019%20v0%200%206%20%E5%8F%8E%E9%9B%86%E3%81%AE%E3%83%AD%E3%83%83%E3%83%88%E3%82%99%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E3%83%86%E3%82%99%E3%83%BC%E3%83%88%2026ea743d37604f7cbdf348218b8fa49c.html"><img class="icon" src="mirage_flower_280x280%206.png"/>MirageFairy2019 v0.0.6　収集のロッドアップデート</a></figure><figure id="5417975a-f0da-4b79-a0a4-d826e9529ac5" class="link-to-page"><a href="MirageFairy2019%20v0%200%207%20%E3%83%8F%E3%82%9A%E3%82%A4%E3%83%AD%E3%83%BC%E3%83%95%E3%82%9A%E3%83%BB%E3%82%B9%E3%83%9F%E3%82%BD%E3%83%8A%E3%82%A4%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E3%83%86%E3%82%99%E3%83%BC%E3%83%88%205417975af0da4b79a0a4d826e9529ac5.html"><img class="icon" src="mirage_flower_280x280%207.png"/>MirageFairy2019 v0.0.7　パイロープ・スミソナイトアップデート</a></figure><figure id="28600519-340c-4385-b7d0-ec305791f1da" class="link-to-page"><a href="MirageFairy2019%20v0%200%208%20%E8%8A%B1%E6%91%98%E3%81%BF%E3%81%AE%E9%90%98%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E3%83%86%E3%82%99%E3%83%BC%E3%83%88%2028600519340c4385b7d0ec305791f1da.html"><img class="icon" src="mirage_flower_280x280%208.png"/>MirageFairy2019 v0.0.8　花摘みの鐘アップデート</a></figure><figure id="9b8c510d-e6d5-4f7b-9a07-74ca99515419" class="link-to-page"><a href="MirageFairy2019%20v0%200%209%20%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%9E%E3%82%B9%E3%81%AE%E9%90%98%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E3%83%86%E3%82%99%E3%83%BC%E3%83%88%209b8c510de6d54f7b9a0774ca99515419.html"><img class="icon" src="mirage_flower_280x280%209.png"/>MirageFairy2019 v0.0.9　クリスマスの鐘アップデート</a></figure><figure id="f3f7285c-dd28-42f5-9ef9-04a691283517" class="link-to-page"><a href="MirageFairy2019%20v0%200%2010%20%E3%83%A9%E3%82%A4%E3%83%88%E3%83%8B%E3%83%B3%E3%82%AF%E3%82%99%E3%83%AD%E3%83%83%E3%83%88%E3%82%99%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E3%83%86%E3%82%99%E3%83%BC%E3%83%88%20f3f7285cdd2842f59ef904a691283517.html"><img class="icon" src="mirage_flower_280x280%2010.png"/>MirageFairy2019 v0.0.10　ライトニングロッドアップデート</a></figure><figure id="0dc8dce4-685c-42af-8304-c446e39064d9" class="link-to-page"><a href="MirageFairy2019%20v0%200%2011%20%E9%89%B1%E8%84%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E3%83%86%E3%82%99%E3%83%BC%E3%83%88%200dc8dce4685c42af8304c446e39064d9.html"><img class="icon" src="mirage_flower_280x280%2011.png"/>MirageFairy2019 v0.0.11　鉱脈アップデート</a></figure><figure id="95504322-1ccf-460c-b2d7-9105fe27f97a" class="link-to-page"><a href="MirageFairy2019%20v0%200%2012%20%E3%83%9F%E3%83%A9%E3%83%BC%E3%82%B7%E3%82%99%E3%83%A5%E3%83%95%E3%83%A9%E3%83%AF%E3%83%BC%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E3%83%86%E3%82%99%E3%83%BC%E3%83%88%20955043221ccf460cb2d79105fe27f97a.html"><img class="icon" src="mirage_flower_280x280%2012.png"/>MirageFairy2019 v0.0.12　ミラージュフラワーアップデート</a></figure><figure id="4c0ef081-de12-478d-97d4-fee0983461e9" class="link-to-page"><a href="MirageFairy2019%20v0%201%2015%2024%20%E3%81%8A%E7%9A%BF%E3%83%9F%E3%83%8B%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E3%83%86%E3%82%99%E3%83%BC%E3%83%88%204c0ef081de12478d97d4fee0983461e9.html"><img class="icon" src="mirage_flower_280x280%2013.png"/>MirageFairy2019 v0.1.15.24　お皿ミニアップデート</a></figure><figure id="77100ece-a12f-4ccc-bc8c-499b52815bbe" class="link-to-page"><a href="MirageFairy2019%20v16%20%E3%82%B9%E3%82%AD%E3%83%AB%E3%83%BB%E5%A4%A9%E4%BD%93%E8%A6%B3%E6%B8%AC%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E3%83%86%E3%82%99%E3%83%BC%E3%83%88%2077100ecea12f4cccbc8c499b52815bbe.html"><img class="icon" src="mirage_flower_280x280%2014.png"/>MirageFairy2019 v16　スキル・天体観測アップデート</a></figure><figure id="9a58b7b3-bf68-44b5-8f18-21cc92250f4a" class="link-to-page"><a href="MirageFairy2019%20v17%20%E3%83%98%E3%83%AA%E3%82%AA%E3%83%A9%E3%82%A4%E3%83%88%E3%83%9F%E3%83%8B%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E3%83%86%E3%82%99%E3%83%BC%E3%83%88%209a58b7b3bf6844b58f1821cc92250f4a.html"><img class="icon" src="mirage_flower_280x280%2015.png"/>MirageFairy2019 v17　ヘリオライトミニアップデート</a></figure><figure id="e2c6c9ff-694a-4848-9918-52a14686616c" class="link-to-page"><a href="MirageFairy2019%20v18%20%E5%A6%96%E7%B2%BE%E3%81%AE%E6%9C%A8%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E3%83%86%E3%82%99%E3%83%BC%E3%83%88%20e2c6c9ff694a4848991852a14686616c.html"><img class="icon" src="mirage_flower_280x280%2016.png"/>MirageFairy2019 v18　妖精の木アップデート</a></figure><figure id="0b2035f4-3eed-4505-951c-1c2677227594" class="link-to-page"><a href="MirageFairy2019%20v19%20%E3%83%95%E3%82%A7%E3%82%A2%E3%83%AA%E3%83%BC%E3%82%AF%E3%83%AA%E3%82%B9%E3%82%BF%E3%83%AB%E3%82%AB%E3%82%99%E3%83%A9%E3%82%B9%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E3%83%86%E3%82%99%E3%83%BC%E3%83%88%200b2035f43eed4505951c1c2677227594.html"><img class="icon" src="mirage_flower_280x280%2017.png"/>MirageFairy2019 v19　フェアリークリスタルガラスアップデート</a></figure><figure id="ded564c3-e7a6-4ac3-b891-a48035f80cef" class="link-to-page"><a href="MirageFairy2019%20v20%20%E5%A4%A9%E8%80%B3%E9%80%9A%E3%81%AE%E7%A5%A0%E3%83%9F%E3%83%8B%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E3%83%86%E3%82%99%E3%83%BC%E3%83%88%20ded564c3e7a64ac3b891a48035f80cef.html"><img class="icon" src="mirage_flower_280x280%2018.png"/>MirageFairy2019 v20　天耳通の祠ミニアップデート</a></figure><figure id="e9a226ce-744b-4937-9536-312750d1bfef" class="link-to-page"><a href="MirageFairy2019%20v21%20%E5%A4%A9%E7%84%B6%E7%9F%B3%E3%81%AE%E7%B2%89%E3%83%9F%E3%83%8B%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E3%83%86%E3%82%99%E3%83%BC%E3%83%88%20e9a226ce744b49379536312750d1bfef.html"><img class="icon" src="mirage_flower_280x280%2019.png"/>MirageFairy2019 v21　天然石の粉ミニアップデート</a></figure><figure id="b6b2aae0-34ae-4555-b5ca-9cb5187e4128" class="link-to-page"><a href="MirageFairy2019%20v22%20%E3%82%AF%E3%82%99%E3%83%A9%E3%83%92%E3%82%99%E3%83%86%E3%82%A3%E3%83%AD%E3%83%83%E3%83%88%E3%82%99%E3%83%9F%E3%83%8B%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E3%83%86%E3%82%99%E3%83%BC%E3%83%88%20b6b2aae034ae4555b5ca9cb5187e4128.html"><img class="icon" src="mirage_flower_280x280%2020.png"/>MirageFairy2019 v22　グラビティロッドミニアップデート</a></figure><figure id="11d897b0-0ac0-44c9-8ef7-1100a1f56d7d" class="link-to-page"><a href="%E6%84%9A%E8%80%85%E3%81%AE%E9%87%91%E3%81%AE%E5%A6%96%E7%B2%BE%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%98%E3%82%9A%E3%83%BC%E3%83%B3%202022%2011d897b00ac044c98ef71100a1f56d7d.html"><img class="icon" src="mirage_flower_280x280%2021.png"/>愚者の金の妖精キャンペーン　2022</a></figure><figure id="9f377600-7a42-4617-a448-fdb350be8588" class="link-to-page"><a href="MirageFairy2019%20v23%20%E9%8C%AC%E9%87%91%E8%A1%93%E3%83%BB%E3%83%95%E3%82%9A%E3%83%A9%E3%82%B9%E3%83%81%E3%83%83%E3%82%AF%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E3%83%86%E3%82%99%E3%83%BC%E3%83%88%209f3776007a424617a448fdb350be8588.html"><img class="icon" src="mirage_flower_280x280%2022.png"/>MirageFairy2019 v23　錬金術・プラスチックアップデート</a></figure><figure id="1bf282be-6508-4906-ad76-111b719afa19" class="link-to-page"><a href="MirageFairy2019%20v24%20%E5%8F%8E%E6%9D%9F%E3%81%AE%E5%9C%B0%E3%83%BB%E5%B1%95%E7%A4%BA%E5%8F%B0%E3%83%9F%E3%83%8B%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E3%83%86%E3%82%99%E3%83%BC%E3%83%88%201bf282be65084906ad76111b719afa19.html"><img class="icon" src="mirage_flower_280x280%2023.png"/>MirageFairy2019 v24　収束の地・展示台ミニアップデート</a></figure><figure id="40fa5f88-ae6d-4f68-b8e9-9e3d0050c5ec" class="link-to-page"><a href="MirageFairy2019%20v25%20%E9%AD%94%E6%B3%95%E6%A4%8D%E7%89%A9%E3%83%BB%E4%BD%BF%E5%BE%92%E3%81%AE%E3%82%B9%E3%83%86%E3%83%83%E3%82%AD%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E3%83%86%E3%82%99%E3%83%BC%E3%83%88%2040fa5f88ae6d4f68b8e99e3d0050c5ec.html"><img class="icon" src="mirage_flower_280x280%2024.png"/>MirageFairy2019 v25　魔法植物・使徒のステッキアップデート</a></figure><figure id="3bce4f6c-3cd6-4542-bc2e-39670c2a2c0f" class="link-to-page"><a href="MirageFairy2019%20v26%20%E8%B1%86%E3%81%AE%E6%9C%A8%E3%83%9F%E3%83%8B%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E3%83%86%E3%82%99%E3%83%BC%E3%83%88%203bce4f6c3cd64542bc2e39670c2a2c0f.html"><img class="icon" src="mirage_flower_280x280%2025.png"/>MirageFairy2019 v26　豆の木ミニアップデート</a></figure><figure id="3cd72b0c-78d3-4094-980a-cc001f0cfe11" class="link-to-page"><a href="MirageFairy2019%20v27%20%E7%B4%85%E5%A4%A9%E7%9F%B3%E3%83%BB%E5%A6%96%E7%B2%BE%E6%94%B9%E5%A4%89%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E3%83%86%E3%82%99%E3%83%BC%E3%83%88%203cd72b0c78d34094980acc001f0cfe11.html"><img class="icon" src="mirage_flower_280x280%2026.png"/>MirageFairy2019 v27　紅天石・妖精改変アップデート</a></figure><figure id="97cbbafb-a083-4c24-936a-1687aa6b8718" class="link-to-page"><a href="MirageFairy2019%20v28%20%E7%A0%B4%E6%A3%84%E3%81%95%E3%82%8C%E3%81%9F%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E3%83%86%E3%82%99%E3%83%BC%E3%83%88%2097cbbafba0834c24936a1687aa6b8718.html"><img class="icon" src="mirage_flower_280x280%2027.png"/>MirageFairy2019 v28　破棄されたアップデート</a></figure><h2 id="150a1ac2-40dd-810a-a143-fddb84db5fc9" class="">ゲームガイド</h2><figure id="e69868d0-6062-43a7-b92e-2fb2b42d9494" class="link-to-page"><a href="%E5%A6%96%E7%B2%BE%E5%85%A5%E6%89%8B%E6%89%8B%E6%AE%B5%E4%B8%80%E8%A6%A7%20e69868d0606243a7b92e2fb2b42d9494.html"><img class="icon" src="mirage_flower_280x280%2028.png"/>妖精入手手段一覧</a></figure><p id="1d3a1ac2-40dd-807d-904f-ef9ce79024fe" class="">
+</p><hr id="1d3a1ac2-40dd-801f-b39d-f5edb31a0972"/><h1 id="1d3a1ac2-40dd-8010-aaae-dbcac012d034" class="">テキスト作品『MFA』</h1><p id="150a1ac2-40dd-81de-ae6e-ecd9de3c41c8" class="">MFA（MirageFairy Article）はMirageFairyの世界観を表現するテキストです。</p><h2 id="150a1ac2-40dd-8162-a641-cac94f036e9f" class="">G1-MFA</h2><p id="150a1ac2-40dd-816e-af18-d1ea912b746d" class="">MirageFairy2019の初期のころに書かれたMFAです。</p><p id="150a1ac2-40dd-81d8-b910-e2ca4a36c4d0" class="">G1-MFAはMirageFairyの妖精の星の住人が記録した文献です。</p><p id="150a1ac2-40dd-81e6-90a6-e03f228bd055" class="">
+</p><figure id="2f122378-b3de-4ba3-9cc5-492e3af27b50" class="link-to-page"><a href="G1-MFA%20%E3%83%9F%E3%83%A9%E3%83%BC%E3%82%B7%E3%82%99%E3%83%A5%E5%A6%96%E7%B2%BE%E3%81%AE%E7%94%9F%E6%85%8B%202f122378b3de4ba39cc5492e3af27b50.html"><img class="icon" src="icon_256x256.png"/>G1-MFA　ミラージュ妖精の生態</a></figure><h2 id="150a1ac2-40dd-81f1-958b-d23cd659ea0b" class="">G2-MFA</h2><p id="150a1ac2-40dd-81e9-bc02-f498d585748a" class="">MirageFairyの世界観が本格的に確立されたMirageFairy2019中期のMFAです。</p><p id="150a1ac2-40dd-816f-b1e0-d0f49129ebdd" class="">G2-MFAはやや特殊な「並行宇宙」ルールの下で展開される文献群です。</p><p id="150a1ac2-40dd-8182-85ba-c45f9cb183db" class="">
+</p><figure id="5ffbf22f-c755-4579-a745-7d343e33f3f0" class="link-to-page"><a href="G2-MFA%20%E4%B8%A6%E8%A1%8C%E5%AE%87%E5%AE%99%E3%83%AB%E3%83%BC%E3%83%AB%205ffbf22fc7554579a7457d343e33f3f0.html"><img class="icon" src="icon_256x256%201.png"/>G2-MFA　並行宇宙ルール</a></figure><p id="150a1ac2-40dd-81cb-a915-e64fb2b383c3" class="">
+</p><p id="150a1ac2-40dd-8190-a1b3-fb358991068f" class="">地球側の文献</p><figure id="69ffa0cc-1e59-412c-b591-0adca7c7bf5c" class="link-to-page"><a href="G2-MFA%20%E5%AE%87%E5%AE%99%E3%81%8B%E3%82%89%E3%81%AE%E3%83%A1%E3%83%BC%E3%83%AB%E8%A7%A3%E8%AA%AD%E3%81%95%E3%82%8C%E3%82%8B%20%E5%A4%96%E5%91%BD%E7%A0%94%E3%81%8B%E3%82%99%E7%99%BA%E8%A1%A8%2069ffa0cc1e59412cb5910adca7c7bf5c.html"><img class="icon" src="icon_256x256%202.png"/>G2-MFA　宇宙からのメール解読される 外命研が発表</a></figure><figure id="b1033c98-655b-4d19-a0b4-3323e23730e9" class="link-to-page"><a href="G2-MFA%20%E5%A4%96%E5%91%BD%E7%A0%94%20%E6%96%87%E7%8C%AE%E6%8E%A2%E3%81%97%E3%81%AB%E4%B8%A6%E8%A1%8C%E4%B8%96%E7%95%8C%E3%81%AB%20%E8%A6%B3%E6%B8%AC%E8%A1%9B%E6%98%9F%E6%89%93%E3%81%A1%E4%B8%8A%E3%81%91%E3%82%99%20b1033c98655b4d19a0b43323e23730e9.html"><img class="icon" src="icon_256x256%203.png"/>G2-MFA　外命研 文献探しに並行世界に 観測衛星打ち上げ</a></figure><p id="150a1ac2-40dd-81cb-ad42-d40f89cab95b" class="">
+</p><p id="150a1ac2-40dd-814e-9281-c66b200a001b" class="">妖精の星側の文献</p><figure id="78e3f79b-2168-41d8-8726-2d05db1d3b53" class="link-to-page"><a href="G2-MFA%20%E3%82%A2%E3%82%B9%E3%83%88%E3%83%A9%E3%83%AB%E7%B7%9A%E3%83%8F%E3%82%99%E3%83%BC%E3%82%B9%E3%83%88%2078e3f79b216841d887262d05db1d3b53.html"><img class="icon" src="icon_256x256%204.png"/>G2-MFA　アストラル線バースト</a></figure><figure id="06cad128-c6a6-4418-908f-84ab267dd479" class="link-to-page"><a href="G2-MFA%20%E5%A5%87%E5%BD%A2%E7%94%9F%E7%89%A9%2006cad128c6a64418908f84ab267dd479.html"><img class="icon" src="icon_256x256%205.png"/>G2-MFA　奇形生物</a></figure><figure id="23acd5bb-d827-4b84-a3ce-83c5dfdbbe2d" class="link-to-page"><a href="G2-MFA%20%E5%A6%96%E7%B2%BE%E3%81%AE%E7%B8%AE%E9%80%80%E7%8F%BE%E8%B1%A1%2023acd5bbd8274b84a3ce83c5dfdbbe2d.html"><img class="icon" src="icon_256x256%206.png"/>G2-MFA　妖精の縮退現象</a></figure><figure id="a5bcd13d-d038-4419-b60a-781b3f08d315" class="link-to-page"><a href="G2-MFA%20%E7%81%AB%E7%82%8E%E3%81%AE%E3%82%A8%E3%83%AB%E3%82%AF%E3%82%99%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E9%87%91%E5%B1%9E%E3%83%9F%E3%83%A9%E3%82%B7%E3%82%99%E3%82%A6%E3%83%A0%E7%B2%89%E6%9C%AB%E3%81%AE%E5%9B%BA%E5%BD%A2%E5%8C%96%E6%89%8B%E6%B3%95%20a5bcd13dd0384419b60a781b3f08d315.html"><img class="icon" src="icon_256x256%207.png"/>G2-MFA　火炎のエルグを用いた金属ミラジウム粉末の固形化手法</a></figure><figure id="c4cab4db-dd98-43af-ab9d-c47b7fc3f38f" class="link-to-page"><a href="G2-MFA%20%E3%83%9F%E3%83%A9%E3%82%B7%E3%82%99%E3%82%A6%E3%83%A0%E3%81%AE%E6%96%A7%E3%81%AE%E6%A7%8B%E9%80%A0%E5%88%86%E6%9E%90%20c4cab4dbdd9843afab9dc47b7fc3f38f.html"><img class="icon" src="icon_256x256%208.png"/>G2-MFA　ミラジウムの斧の構造分析</a></figure><h2 id="150a1ac2-40dd-81bd-be77-c3ae1a0c3583" class="">G3-MFA</h2><p id="150a1ac2-40dd-81c7-ad7d-c82314e35d3f" class="">MirageFairy2019時代後期のMFAです。</p><p id="150a1ac2-40dd-81c8-a5c7-ce0bee67ec78" class="">G3-MFAはMirageFairyの妖精の星の住人が記録した文献です。</p><p id="150a1ac2-40dd-811d-bd21-cb868d6d3fd4" class="">G3-MFAにも並行宇宙ルールが適用されます。</p><p id="150a1ac2-40dd-811e-91e4-e2529e133a67" class="">
+</p><figure id="1b5a9486-1337-4a1a-ad57-757521558c40" class="link-to-page"><a href="G3-MFA%20%E3%83%9F%E3%83%A9%E3%83%BC%E3%82%B7%E3%82%99%E3%83%A5%E3%81%AE%E4%BB%A3%E8%AC%9D%E3%81%A8%E3%82%A8%E3%83%BC%E3%83%86%E3%83%AB%20%EF%BD%9E%E3%81%AA%E3%81%9B%E3%82%99%E3%83%9F%E3%83%A9%E3%83%BC%E3%82%B7%E3%82%99%E3%83%A5%E3%81%AF%E6%A8%B9%E4%B8%8A%E3%81%AB%E3%82%B9%E3%83%9B%E3%82%9A%E3%83%BC%E3%83%B3%E3%81%99%E3%82%8B%E3%81%AE%E3%81%8B%EF%BC%9F%EF%BD%9E%201b5a948613374a1aad57757521558c40.html"><img class="icon" src="icon_256x256%209.png"/>G3-MFA　ミラージュの代謝とエーテル　～なぜミラージュは樹上にスポーンするのか？～</a></figure><p id="1d3a1ac2-40dd-80b1-b451-c0291142d4d8" class="">
+</p><hr id="150a1ac2-40dd-81fa-b26d-c82566a59de1"/><h1 id="150a1ac2-40dd-81b3-b3b8-c5b26c816188" class="">二次創作</h1><h2 id="150a1ac2-40dd-81e6-ae1d-c9369576dee0" class="">ライセンス</h2><p id="1d3a1ac2-40dd-80bf-8e2f-c342d116582a" class="">当サイト上で公開されている、「MFA」等のテキスト作品を含むすべてのページは、特に個別の記載がない限り、以下のいずれか任意のライセンスの元で二次利用が可能です。ただし、『Minecraft』のテクスチャ等、外部の著作物が含まれている場合、その部分の著作権は元の著作権保持者に帰属します。</p><div id="1d3a1ac2-40dd-80be-bbc6-d8b17bdb7f96" class="column-list"><div id="1d3a1ac2-40dd-80f8-8325-cc4b07883eee" style="width:12.5%" class="column"><p id="1d3a1ac2-40dd-80ce-a4e1-c8f7b4da67d8" class="">
+</p></div><div id="1d3a1ac2-40dd-80db-9f8f-ce1f114b3a81" style="width:45.83333333333333%" class="column"><ul id="1d3a1ac2-40dd-807a-b8e5-df8bbcade4ef" class="bulleted-list"><li style="list-style-type:disc"><a href="https://creativecommons.org/licenses/by/4.0/deed.ja">CC BY 4.0</a></li></ul><ul id="1d3a1ac2-40dd-80b0-b880-cf33cd1365b7" class="bulleted-list"><li style="list-style-type:disc"><a href="https://creativecommons.org/licenses/by-sa/3.0/deed.ja">CC BY-SA 3.0</a>（非推奨）</li></ul><ul id="1d3a1ac2-40dd-8035-999c-e54e896c7bda" class="bulleted-list"><li style="list-style-type:disc"><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ja">CC BY-SA 4.0</a>（非推奨）</li></ul></div><div id="1d3a1ac2-40dd-805e-a2b9-e81fff1e580c" style="width:41.666666666666664%" class="column"><figure id="1d3a1ac2-40dd-80d1-9989-d228581d4c68" class="image" style="text-align:left"><a href="CC_BY_icon.svg.png"><img style="width:144px" src="CC_BY_icon.svg.png"/></a></figure></div></div><h2 id="150a1ac2-40dd-81bb-808d-c040f10b1d0f" class="">著者名</h2><p id="1d3a1ac2-40dd-8063-9db8-e12545910915" class="">著者名は、個別に記載がない限り、原則としてすべて「夜のかけら」としてください。</p><p id="1d3a1ac2-40dd-80a9-a68c-c49850d493ef" class="">「MFA」の作品内部に記載されている執筆者は、劇中の世界においてその文書を執筆した設定上の人物を表し、「MFA」作品そのものの著者名ではありません。</p><h2 id="150a1ac2-40dd-81b2-a55f-dfde050b4339" class="">ライセンス表示例</h2><p id="150a1ac2-40dd-81fe-9974-ca30ac56beae" class="">以下は二次利用におけるライセンス表示の例です。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="150a1ac2-40dd-814f-8fbb-cda9f413c0b3" class="code"><code class="language-Plain Text">本項目の内容は『クリエイティブ・コモンズ 表示4.0国際ライセンス』に従います。
+
+『アストラル線バースト』
+by 夜のかけら</code></pre><p id="1d3a1ac2-40dd-8046-bff3-e55c421af7d4" class="">
+</p><hr id="1d3a1ac2-40dd-8002-82bf-ee408348ec60"/><p id="1d3a1ac2-40dd-8007-b2a8-f003c8e242d8" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

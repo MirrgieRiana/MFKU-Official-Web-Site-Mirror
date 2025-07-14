@@ -1,0 +1,686 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>MirageFairy2019 v0.0.1　妖晶・妖精の樹洞アップデート</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2ca85925-5831-4de3-a314-024d65f0483e" class="page serif"><header><div class="page-header-icon undefined"><img class="icon" src="mirage_flower_280x280.png"/></div><h1 class="page-title">MirageFairy2019 v0.0.1　<strong>妖晶・</strong>妖精の樹洞アップデート</h1><p class="page-description"></p></header><div class="page-body"><figure id="d8da7d4e-b94c-45bc-a8d7-4ac2a4cf1e59" class="image"><a href="Untitled%204.png"><img style="width:768px" src="Untitled%204.png"/></a></figure><nav id="f9c89e1d-e7be-45af-bf6a-767e6f596266" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#73c6adb4-350a-4351-908b-2f9fa00badf8">「妖晶」ガチャ実装</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2896bcce-2c4e-466c-b653-2ad3ac265de2">利用方法</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#679c8dc1-c67f-4141-9171-a5db20de572f">妖晶ガチャ出現比</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#7a62ed15-a957-425c-a88a-1a693df29eda">栽培</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#6e0d2d0e-6387-42fb-a70e-50c6c1eb0fab">「妖精の樹洞」実装</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#eb259914-8d20-4287-9608-021d5a5b061c">利用方法</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#ac983afb-19ed-470b-93dd-49f9a6ba0150">新鉱石「燐灰石」「蛍石」「硫黄」実装</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#b37d079f-587d-4118-9235-6873242fbb9c">新アイテム</a></div></nav><h1 id="73c6adb4-350a-4351-908b-2f9fa00badf8" class="">「妖晶」ガチャ実装</h1><p id="bf19c0be-8ed7-4daf-ac30-e79976f14ccb" class="">「妖晶」は使用することでランダムにミラージュ妖精を入手できるアイテムです。</p><h2 id="2896bcce-2c4e-466c-b653-2ad3ac265de2" class="">利用方法</h2><p id="e8234205-d982-43bf-9f4b-239cf90bd096" class="">妖晶ガチャを利用するには、まず「ミラージュの花」を探します。ミラージュの花は地上世界の森林系バイオームおよび山岳バイオームの草地に集中的に生成されるほか、極低確率でその他のバイオームにも出現します。</p><figure id="4b09f977-d444-4d8b-aa3b-3d83ac084be2" class="image"><a href="Untitled%205.png"><img style="width:428px" src="Untitled%205.png"/></a></figure><p id="7f57552a-cb6d-4830-b202-8f2453e1dc14" class="">
+</p><p id="b3e750a9-0488-4c9c-901d-d08c4048ece8" class="">ミラージュの花を破壊することで、「ミラージュの花の種」と「妖晶」を入手できます。幸運エンチャントの付与されたツールで破壊することで、一株当たりの種および妖晶の入手数を上昇させることができます。</p><figure id="a600bbf3-bcca-48f3-ba2a-298ac32169e3" class="image"><a href="Untitled%206.png"><img style="width:426px" src="Untitled%206.png"/></a></figure><p id="e5b03a83-faff-411e-ae60-b12821f28410" class="">
+</p><p id="31420f67-3328-4700-a825-3fe437994cb2" class="">妖晶を手に持って右クリックするとミラージュ妖精がその場に出現します。入手可能なミラージュ妖精の種類は、妖晶使用時の状況によって変化します。</p><figure id="8e81fed7-f711-4bea-bf93-620926f4742a" class="image"><a href="Untitled%207.png"><img style="width:426px" src="Untitled%207.png"/></a></figure><h2 id="679c8dc1-c67f-4141-9171-a5db20de572f" class="">妖晶ガチャ出現比</h2><p id="9638fa6f-1471-465f-8d2c-ceb13bb60086" class="">妖晶ガチャの基本的な出現比の一覧です。</p><p id="2b68e4f3-acf4-4420-878d-300529bbe5d1" class="">実際の出現率および出現可否はこの表とは異なる場合があります。</p><table id="8a950e22-40a2-4b24-b9fe-ba76706fb5b3" class="simple-table"><thead class="simple-table-header"><tr id="9c4a27d4-ac40-4a89-ba83-5868a51f1a92"><th id="IFQc" class="simple-table-header-color simple-table-header" style="width:266.43333435058594px">妖精名</th><th id="hsSZ" class="simple-table-header-color simple-table-header" style="width:74px">レア度</th><th id="ej&gt;}" class="simple-table-header-color simple-table-header" style="width:101px">出現比</th></tr></thead><tbody><tr id="2a4d491b-f57a-4c5e-9529-6eb85c915513"><td id="IFQc" class="" style="width:266.43333435058594px">アイリャ</td><td id="hsSZ" class="" style="width:74px">1</td><td id="ej&gt;}" class="" style="width:101px">1</td></tr><tr id="4be3002a-08d0-4d63-abf4-171008c15f12"><td id="IFQc" class="" style="width:266.43333435058594px">ワテーリャ</td><td id="hsSZ" class="" style="width:74px">1</td><td id="ej&gt;}" class="" style="width:101px">0.5</td></tr><tr id="36b95304-add7-4693-b8d9-a5e688a730cb"><td id="IFQc" class="" style="width:266.43333435058594px">ストーニャ</td><td id="hsSZ" class="" style="width:74px">1</td><td id="ej&gt;}" class="" style="width:101px">0.5</td></tr><tr id="261851b4-23cb-492c-b920-18ddbf9d9ac3"><td id="IFQc" class="" style="width:266.43333435058594px">ディルチャ</td><td id="hsSZ" class="" style="width:74px">1</td><td id="ej&gt;}" class="" style="width:101px">0.5</td></tr><tr id="2c617434-a6d9-42d4-a039-ae10204b4254"><td id="IFQc" class="" style="width:266.43333435058594px">サンジャ</td><td id="hsSZ" class="" style="width:74px">1</td><td id="ej&gt;}" class="" style="width:101px">0.5</td></tr><tr id="c46be7d1-ed80-4dbd-85f0-52fac95c365b"><td id="IFQc" class="" style="width:266.43333435058594px">ラービャ</td><td id="hsSZ" class="" style="width:74px">2</td><td id="ej&gt;}" class="" style="width:101px">0.15</td></tr><tr id="63bf70b6-ed67-496d-a1e9-2f7494f0968f"><td id="IFQc" class="" style="width:266.43333435058594px">グラベーリャ</td><td id="hsSZ" class="" style="width:74px">2</td><td id="ej&gt;}" class="" style="width:101px">0.15</td></tr><tr id="1ccf85f8-e181-42c4-b3e6-ad797b6753fc"><td id="IFQc" class="" style="width:266.43333435058594px">チッケーニャ</td><td id="hsSZ" class="" style="width:74px">1</td><td id="ej&gt;}" class="" style="width:101px">0.1</td></tr><tr id="c17a4dd2-4287-4154-ab8a-853ae180c5a6"><td id="IFQc" class="" style="width:266.43333435058594px">スケレトーニャ</td><td id="hsSZ" class="" style="width:74px">1</td><td id="ej&gt;}" class="" style="width:101px">0.1</td></tr><tr id="87e47719-4941-48f0-962b-6d4fe52bbce2"><td id="IFQc" class="" style="width:266.43333435058594px">ゾンビャ</td><td id="hsSZ" class="" style="width:74px">1</td><td id="ej&gt;}" class="" style="width:101px">0.1</td></tr><tr id="2fc5b0f6-ec06-4d43-950a-da48a687cf9d"><td id="IFQc" class="" style="width:266.43333435058594px">トルキャ</td><td id="hsSZ" class="" style="width:74px">1</td><td id="ej&gt;}" class="" style="width:101px">0.1</td></tr><tr id="487a20df-0995-4f23-9d71-6644e579de0c"><td id="IFQc" class="" style="width:266.43333435058594px">イローニャ</td><td id="hsSZ" class="" style="width:74px">2</td><td id="ej&gt;}" class="" style="width:101px">0.06</td></tr><tr id="54c0c8a2-5461-47f2-bf62-cb6efb0c407f"><td id="IFQc" class="" style="width:266.43333435058594px">プラインシャ</td><td id="hsSZ" class="" style="width:74px">1</td><td id="ej&gt;}" class="" style="width:101px">0.05</td></tr><tr id="5884e979-c301-4b74-8fc3-861d798b9a25"><td id="IFQc" class="" style="width:266.43333435058594px">スピデーリャ</td><td id="hsSZ" class="" style="width:74px">2</td><td id="ej&gt;}" class="" style="width:101px">0.03</td></tr><tr id="58cdda12-cc11-4f06-84f1-41e72665a298"><td id="IFQc" class="" style="width:266.43333435058594px">クレペーリャ</td><td id="hsSZ" class="" style="width:74px">2</td><td id="ej&gt;}" class="" style="width:101px">0.03</td></tr><tr id="0b323442-1eac-4078-a2c7-75a069f37c21"><td id="IFQc" class="" style="width:266.43333435058594px">ウェアーチャ</td><td id="hsSZ" class="" style="width:74px">2</td><td id="ej&gt;}" class="" style="width:101px">0.03</td></tr><tr id="32ce5007-f56b-42a9-83a7-a857c2009dc0"><td id="IFQc" class="" style="width:266.43333435058594px">フルナーキャ</td><td id="hsSZ" class="" style="width:74px">2</td><td id="ej&gt;}" class="" style="width:101px">0.03</td></tr><tr id="36d9cefe-eca9-43e1-a86d-373e2307b215"><td id="IFQc" class="" style="width:266.43333435058594px">ブレアージャ</td><td id="hsSZ" class="" style="width:74px">2</td><td id="ej&gt;}" class="" style="width:101px">0.03</td></tr><tr id="50c34f49-af3d-4edb-80fd-3595a4e637b6"><td id="IFQc" class="" style="width:266.43333435058594px">ダイティーミャ</td><td id="hsSZ" class="" style="width:74px">1</td><td id="ej&gt;}" class="" style="width:101px">0.02</td></tr><tr id="60ca64f3-a6f1-499e-95d7-1c738aad0f19"><td id="IFQc" class="" style="width:266.43333435058594px">ニグチャ</td><td id="hsSZ" class="" style="width:74px">1</td><td id="ej&gt;}" class="" style="width:101px">0.02</td></tr><tr id="57e31c70-07f5-418b-ad00-948ce20ed364"><td id="IFQc" class="" style="width:266.43333435058594px">フィーニャ</td><td id="hsSZ" class="" style="width:74px">1</td><td id="ej&gt;}" class="" style="width:101px">0.02</td></tr><tr id="c9c57309-4fe7-4fc6-8bc7-4fa2c407eb86"><td id="IFQc" class="" style="width:266.43333435058594px">ゴルジャ</td><td id="hsSZ" class="" style="width:74px">3</td><td id="ej&gt;}" class="" style="width:101px">0.018</td></tr><tr id="4a90b75e-06da-47ac-aaed-c1898dac65dc"><td id="IFQc" class="" style="width:266.43333435058594px">レドストーニャ</td><td id="hsSZ" class="" style="width:74px">3</td><td id="ej&gt;}" class="" style="width:101px">0.018</td></tr><tr id="682884b6-0805-42c1-bb66-f28b859fdcbd"><td id="IFQc" class="" style="width:266.43333435058594px">フィーリャ</td><td id="hsSZ" class="" style="width:74px">2</td><td id="ej&gt;}" class="" style="width:101px">0.015</td></tr><tr id="4558435c-d5c8-4cb1-981b-de4aa8219953"><td id="IFQc" class="" style="width:266.43333435058594px">フォレスチャ</td><td id="hsSZ" class="" style="width:74px">2</td><td id="ej&gt;}" class="" style="width:101px">0.015</td></tr><tr id="c711a4de-2f3d-4531-8f66-56fdd71de081"><td id="IFQc" class="" style="width:266.43333435058594px">リラーキャ</td><td id="hsSZ" class="" style="width:74px">3</td><td id="ej&gt;}" class="" style="width:101px">0.009</td></tr><tr id="ab3944e2-a0ca-4b0a-9144-921eab09e4e0"><td id="IFQc" class="" style="width:266.43333435058594px">マゲンテグラゼデテッラコッチャ</td><td id="hsSZ" class="" style="width:74px">3</td><td id="ej&gt;}" class="" style="width:101px">0.009</td></tr><tr id="9d2f0fd1-da38-492f-bd0e-2859ca96ba37"><td id="IFQc" class="" style="width:266.43333435058594px">モルニンギャ</td><td id="hsSZ" class="" style="width:74px">2</td><td id="ej&gt;}" class="" style="width:101px">0.006</td></tr><tr id="bda260a8-82ae-4a77-bc68-3a4d62c78d78"><td id="IFQc" class="" style="width:266.43333435058594px">ライニャ</td><td id="hsSZ" class="" style="width:74px">2</td><td id="ej&gt;}" class="" style="width:101px">0.006</td></tr><tr id="d54c4460-b85c-40a2-82af-80c04b1a01bc"><td id="IFQc" class="" style="width:266.43333435058594px">ディアモンジャ</td><td id="hsSZ" class="" style="width:74px">4</td><td id="ej&gt;}" class="" style="width:101px">0.0054</td></tr><tr id="414a8565-f49b-46b9-938d-99c6ffce452b"><td id="IFQc" class="" style="width:266.43333435058594px">エメラルジャ</td><td id="hsSZ" class="" style="width:74px">4</td><td id="ej&gt;}" class="" style="width:101px">0.0054</td></tr><tr id="f45ebfa1-aac2-4af2-9777-cd69efe49c69"><td id="IFQc" class="" style="width:266.43333435058594px">ラピスラズーリャ</td><td id="hsSZ" class="" style="width:74px">4</td><td id="ej&gt;}" class="" style="width:101px">0.0054</td></tr><tr id="63a904aa-6f83-4aba-864f-0ad4b8d9dd04"><td id="IFQc" class="" style="width:266.43333435058594px">ツンデーリャ</td><td id="hsSZ" class="" style="width:74px">3</td><td id="ej&gt;}" class="" style="width:101px">0.0045</td></tr><tr id="81d03dd1-0222-41ec-857a-bf9a51ae49e4"><td id="IFQc" class="" style="width:266.43333435058594px">エンデルマーニャ</td><td id="hsSZ" class="" style="width:74px">4</td><td id="ej&gt;}" class="" style="width:101px">0.0027</td></tr><tr id="2a7420f5-9439-44fa-9f65-98cd6ea8d282"><td id="IFQc" class="" style="width:266.43333435058594px">ウィーテレスケレトーニャ</td><td id="hsSZ" class="" style="width:74px">4</td><td id="ej&gt;}" class="" style="width:101px">0.0027</td></tr><tr id="9196bdd7-0282-4afe-953f-97819e35317b"><td id="IFQc" class="" style="width:266.43333435058594px">エンデレドラゴーニャ</td><td id="hsSZ" class="" style="width:74px">5</td><td id="ej&gt;}" class="" style="width:101px">0.00081</td></tr><tr id="4abac9dd-362a-4c9f-8f77-559d94cd1e0e"><td id="IFQc" class="" style="width:266.43333435058594px">ウィテーリャ</td><td id="hsSZ" class="" style="width:74px">5</td><td id="ej&gt;}" class="" style="width:101px">0.00081</td></tr><tr id="5fd819ad-97dd-4075-b749-cdc3915d45bf"><td id="IFQc" class="" style="width:266.43333435058594px">スターリャ</td><td id="hsSZ" class="" style="width:74px">4</td><td id="ej&gt;}" class="" style="width:101px">0.00027</td></tr><tr id="a21e49f6-7bd1-442a-be7a-20c06000e4d1"><td id="IFQc" class="" style="width:266.43333435058594px">スーニャ</td><td id="hsSZ" class="" style="width:74px">5</td><td id="ej&gt;}" class="" style="width:101px">0.000081</td></tr><tr id="2c7ba815-e169-4405-ab6b-cb2c685f612e"><td id="IFQc" class="" style="width:266.43333435058594px">モーニャ</td><td id="hsSZ" class="" style="width:74px">5</td><td id="ej&gt;}" class="" style="width:101px">0.000081</td></tr></tbody></table><h2 id="7a62ed15-a957-425c-a88a-1a693df29eda" class="">栽培</h2><p id="60ad8163-32c7-484d-a374-f455ab8a8a38" class="">ミラージュの花の種は草の地面に対して植えて育てることができます。育ち切るとミラージュの花となり、妖晶を産出できるようになります。</p><figure id="a65def78-1b57-49f4-88a6-7e0262f1e46b" class="image"><a href="Untitled%208.png"><img style="width:416px" src="Untitled%208.png"/></a></figure><h1 id="6e0d2d0e-6387-42fb-a70e-50c6c1eb0fab" class="">「妖精の樹洞」実装</h1><p id="5716c784-befd-40d1-a7df-de1b2e90bd01" class="">「妖精の樹洞」は破壊することでランダムにミラージュ妖精を入手できる地形生成物です。</p><h2 id="eb259914-8d20-4287-9608-021d5a5b061c" class="">利用方法</h2><p id="cd386f1e-7521-4720-8ec0-ce5b8caba34a" class="">妖精の樹洞は原木ブロックを置き換える形で地形生成に伴って生成されます。</p><figure id="125c9da5-1d73-4c79-a5e8-7a1535e200d8" class="image"><a href="Untitled%209.png"><img style="width:480px" src="Untitled%209.png"/></a></figure><p id="c7faf7ad-10b8-4066-848b-2efefd511f27" class="">
+</p><p id="f2589c2c-669c-4338-a512-44afa4561ab1" class="">素手や斧等で破壊するとミラージュ妖精をドロップします。高い確率でバイオーム系のミラージュ妖精を手に入れることができます。</p><h1 id="ac983afb-19ed-470b-93dd-49f9a6ba0150" class="">新鉱石「燐灰石」「蛍石」「硫黄」実装</h1><p id="e4e1f15f-50cf-4a6c-9ab0-9e7c10aa6a3d" class="">新しい鉱石「燐灰石」「蛍石」「硫黄」を実装しました。 燐灰石および蛍石はすべての高度、硫黄は主にY10以下の高度に生成されます。</p><h2 id="b37d079f-587d-4118-9235-6873242fbb9c" class="">新アイテム</h2><p id="ab6fdcdd-3ccd-4c6a-aa76-e489577fffee" class="">以下のアイテムが追加されました。</p><ul id="f9c721ae-b469-4078-843e-da9161fe897d" class="bulleted-list"><li style="list-style-type:disc">燐灰石鉱石</li></ul><ul id="dc5ddc03-a24e-4545-9000-243f9bb7cfb3" class="bulleted-list"><li style="list-style-type:disc">燐灰石</li></ul><ul id="7e679402-5bb0-4c56-9bf7-b600f66fd9c9" class="bulleted-list"><li style="list-style-type:disc">蛍石鉱石</li></ul><ul id="5cdbd29e-7a21-4aeb-9400-28d7ae58e137" class="bulleted-list"><li style="list-style-type:disc">蛍石</li></ul><ul id="e858db87-224f-4e8d-9ae8-9d9db88018aa" class="bulleted-list"><li style="list-style-type:disc">硫黄鉱石</li></ul><ul id="0a3de860-aee0-4ab8-938b-dcb7a9edf0ad" class="bulleted-list"><li style="list-style-type:disc">硫黄</li></ul><figure id="cdf6eddb-8ccb-40e5-9d0e-bb923577cf07" class="image"><a href="Untitled%2010.png"><img style="width:457px" src="Untitled%2010.png"/></a></figure><p id="102255f7-38dd-466f-92aa-bc6b172abe46" class="">
+</p><p id="7e96dfae-7eb7-45c0-8c0a-4a8ddebad206" class="">燐灰石はミラージュ妖精の生命力、蛍石はミラージュ妖精の魔力のもとになる宝石です。</p><p id="eda4cacb-ccb1-4984-a3e9-697a9c5962ee" class="">
+</p><hr id="f6127fad-0296-404c-88f2-f961f7a00400"/><p id="e8c91b55-5034-488c-8200-562acc4b3ac8" class="">2019年7月27日　MirageFairy Server技術部・創作部</p><p id="c698779c-4abf-43bf-97df-71e349e36582" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

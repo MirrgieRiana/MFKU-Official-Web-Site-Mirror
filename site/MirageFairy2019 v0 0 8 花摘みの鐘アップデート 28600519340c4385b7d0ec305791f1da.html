@@ -1,0 +1,691 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>MirageFairy2019 v0.0.8　花摘みの鐘アップデート</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="28600519-340c-4385-b7d0-ec305791f1da" class="page serif"><header><img class="page-cover-image" src="Untitled%20145.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="mirage_flower_280x280%208.png"/></div><h1 class="page-title">MirageFairy2019 v0.0.8　花摘みの鐘アップデート</h1><p class="page-description"></p></header><div class="page-body"><figure id="1501485d-2f4f-4279-b6ad-9e34417ec1cc" class="image"><a href="Untitled%20145.png"><img style="width:854px" src="Untitled%20145.png"/></a></figure><nav id="ce47756c-3b7f-467f-85af-cec4864ea02f" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#5c2efaa7-1bf2-4982-b0a3-67ce8a4de396">妖精武器のアップデート</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#78ef9e03-0098-4c89-a3b8-b89beca59e5a">Tier（段位）・強化システムの追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#5e1aeffc-a89c-4a8d-a100-22d2e52aca83">上級ステッキ追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#19470022-3f87-4fd1-976d-46ea523a6935">珠玉のステッキ追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#0cd4b558-9a60-4ea9-9b42-4def346efda5">ベース武器追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#aef06b64-7ca1-4dc8-a71f-9a4ab4f8497e">花摘みの鐘追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#6eff7dd6-4264-45d2-b5b2-6fd2e085318f">レシピ</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#17b2791b-52af-41b4-b1e3-c8b28ae59430">ステッキ</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#edea6f3b-15b6-4433-9e54-75d0babd09c4">非ステッキ妖精武器</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#138e2319-4b8e-4404-a0c2-67b751428d1d">テクスチャ変更</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#741fc255-d60d-4bd1-835e-01e99edf829b">素材系アイテムのアップデート</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#aac53390-5baf-4f15-b988-602229338c83">素材追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#0d412b7b-3d92-43d3-a073-a8cdd0bacf3a">ミラジウムインゴットのレシピ削除</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#5b582a9e-5f91-4d0b-9dcb-7b7f841ccd03">心の棒のレシピ変更</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#f3249c41-86a8-4eda-b8a2-37b4fe77f4f0">木炭ブロック追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#f3eed24c-34c7-482a-abfe-791430b8d4b3">妖精のアップデート</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#98fc5bbf-5b86-458a-bff9-70c29c079a91">妖精追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#ecbb1e3d-65e4-4228-a400-e203325d04d0">≪服従≫の超能力追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#d380fea4-652e-4892-acdd-ba9d6c866b7e">ミラージュの花のアップデート</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#a8a2c79c-d3ef-4c1c-b8ad-167027a7ea81">雑多な変更</a></div></nav><h1 id="5c2efaa7-1bf2-4982-b0a3-67ce8a4de396" class="">妖精武器のアップデート</h1><p id="d504631e-8efa-476c-b15b-943fdce441ca" class="">妖精武器のシステムが大幅に変更されました。</p><h2 id="78ef9e03-0098-4c89-a3b8-b89beca59e5a" class="">Tier（段位）・強化システムの追加</h2><p id="404d4a45-b6b8-49c5-8cf4-0df0aae7578e" class="">すべての妖精武器は内部的にTier（段位）を持つようになりました。ステッキ系でない妖精武器は、直接生産できるものと、別の妖精武器を素材にして生産（強化生産・派生強化生産）するものに分かれます。ステッキは常に直接生産します。</p><p id="93b09be1-edaa-4fa3-ac8e-85d0e00c8417" class="">基本的に、Tierが高くなるほど性能が上がり、同じTier同士では概ね同程度の性能となるように調整されます。</p><figure id="043b1bb3-ee36-4494-90df-0dd0861c1e15" class="image"><a href="Untitled%20146.png"><img style="width:457px" src="Untitled%20146.png"/></a></figure><p id="c65f6920-c26a-4d85-aeea-a7f3d0d86f8f" class="">
+</p><p id="8ce03566-6044-4f42-a159-1c71f57e6740" class="">いくつかの妖精武器は、所属Tierの変更によって性能が変更されています。</p><h2 id="5e1aeffc-a89c-4a8d-a100-22d2e52aca83" class="">上級ステッキ追加</h2><p id="e14b50de-9233-42e9-9e4b-5e6ab1e29d07" class="">「技巧のステッキ II」「技巧のステッキ III」「紅蓮のステッキ II」「破砕のステッキ II」が新たに追加されました。 上級ステッキの性能は、同系統のステッキと比較して耐久値以外違いはありません。</p><h2 id="19470022-3f87-4fd1-976d-46ea523a6935" class="">珠玉のステッキ追加</h2><p id="0e6f0cb5-dd01-4737-aa5d-2dac3758cdf2" class="">珠玉のステッキが追加されました。一部のアイテムのレシピに要求されます。</p><figure id="9907c1f7-63d2-4c88-b0b0-2e615cc95a94" class="image"><a href="Untitled%20147.png"><img style="width:32px" src="Untitled%20147.png"/></a></figure><h2 id="0cd4b558-9a60-4ea9-9b42-4def346efda5" class="">ベース武器追加</h2><p id="84c8327c-e90f-4743-a763-cf47e9a91431" class="">「ミラジウムの剣」「オカリナベース」「ロッドベース」「鐘ベース」を追加しました。これらは妖精武器の特性を持った中間素材です。</p><div id="3f36d1a2-1580-48b2-87e9-b40c69278616" class="column-list"><div id="2a02d8b2-fc88-44b9-98d8-caacd21ecc7b" style="width:25%" class="column"><figure id="ea5304c3-e09c-4ac6-8bb6-1c68833b933f" class="image"><a href="Untitled%20148.png"><img style="width:32px" src="Untitled%20148.png"/></a></figure></div><div id="3f8b3316-08a0-431b-9920-4de91c56b454" style="width:25%" class="column"><figure id="981cfdc0-cade-4e50-ab9c-748f80d1b376" class="image"><a href="Untitled%20149.png"><img style="width:32px" src="Untitled%20149.png"/></a></figure></div><div id="5ba8e3d8-63e2-4994-aec7-4bd15b04aa4f" style="width:25%" class="column"><figure id="54921508-15e4-4a18-a8a8-98f92d6fab0c" class="image"><a href="Untitled%20150.png"><img style="width:32px" src="Untitled%20150.png"/></a></figure></div><div id="035d026f-703d-4df9-b7fd-8036c4942935" style="width:25%" class="column"><figure id="d06aa8e5-20e0-439d-87d5-b5bc9ca5c82f" class="image"><a href="Untitled%20151.png"><img style="width:32px" src="Untitled%20151.png"/></a></figure></div></div><p id="dce648ac-7db9-4025-9b91-2fc716feee92" class="">
+</p><p id="139004d5-00ed-4654-a58a-33736fa7afcf" class="">鐘ベースを含む鐘系妖精武器は、妖精を所持して使用すると音が鳴ります。このとき、所持している妖精のコストによって音程が変わります。この音は他のプレイヤーにも聞こえます。</p><h2 id="aef06b64-7ca1-4dc8-a71f-9a4ab4f8497e" class="">花摘みの鐘追加</h2><p id="af2d36fa-5ab1-40e6-8546-7b20d3d531ac" class="">妖精武器「花摘みの鐘」を追加しました。</p><figure id="52e976db-8362-492b-8dc6-38d650ce2921" class="image"><a href="Untitled%20152.png"><img style="width:32px" src="Untitled%20152.png"/></a></figure><figure id="ad507f42-48d0-4b51-a8c8-458a4882e038" class="image"><a href="Untitled%20153.png"><img style="width:482px" src="Untitled%20153.png"/></a></figure><p id="b39cc7a5-c76a-43a7-b7ba-01dccfd33325" class="">
+</p><p id="872aa485-76c8-4463-ae6e-6c1bc0b46f91" class="">妖精を所持した状態で花摘みの鐘を成長しきったミラージュの花を含む空間に対して使用すると、空間に含まれるミラージュの花を収穫します。</p><figure id="68bed8dc-7982-4e69-90f8-c8a16281072f" class="image"><a href="Untitled%20154.png"><img style="width:548px" src="Untitled%20154.png"/></a></figure><p id="09f47da0-17a1-4c96-857c-c56bcd027529" class="">
+</p><p id="257ee8c9-b458-4277-a6bf-47cf37a5a521" class="">花摘みの鐘には以下のステータスが存在します。</p><table id="576a76eb-b046-4709-9f89-618778e4a66c" class="simple-table"><thead class="simple-table-header"><tr id="8b51e095-acf3-4d4f-89e1-d119c9ef3676"><th id="SGtN" class="simple-table-header-color simple-table-header" style="width:147.6999969482422px">ステータス</th><th id="L;P&lt;" class="simple-table-header-color simple-table-header" style="width:521px">説明</th></tr></thead><tbody><tr id="93506dbd-d2ee-4859-a04f-8598976b6fb4"><td id="SGtN" class="" style="width:147.6999969482422px">Pitch</td><td id="L;P&lt;" class="" style="width:521px">妖精のコストに依存して使用時の効果音の音程が変わります。-12～12の範囲で変動し、値が12変わると丁度1オクターブ音程が変わります。</td></tr><tr id="390a242d-11cd-435f-bb49-3a7b907540df"><td id="SGtN" class="" style="width:147.6999969482422px">Additional Reach</td><td id="L;P&lt;" class="" style="width:521px">使用時に延長される射程の長さです。</td></tr><tr id="7729de15-6535-42c9-b93a-b3dd08f7404f"><td id="SGtN" class="" style="width:147.6999969482422px">Radius</td><td id="L;P&lt;" class="" style="width:521px">使用時に作用する範囲です。</td></tr><tr id="93a41b59-153e-4b46-989b-bd0ed60d510e"><td id="SGtN" class="" style="width:147.6999969482422px">Max Targets</td><td id="L;P&lt;" class="" style="width:521px">一度の使用で作用できるブロックの最大数です。</td></tr><tr id="5592e0d6-bb4e-4fdb-a142-f46ea6593995"><td id="SGtN" class="" style="width:147.6999969482422px">Fortune</td><td id="L;P&lt;" class="" style="width:521px">光の心が1・2・5・10になると、幸運レベルが上昇します。</td></tr><tr id="bda8101c-9f78-4193-a2d0-a7269e7c73a4"><td id="SGtN" class="" style="width:147.6999969482422px">Seeding</td><td id="L;P&lt;" class="" style="width:521px">≪知識≫10以上で、ミラージュの花の種を植えなおします。</td></tr><tr id="87d21fa7-fd93-42c9-88fb-ac677780af2f"><td id="SGtN" class="" style="width:147.6999969482422px">Collection</td><td id="L;P&lt;" class="" style="width:521px">≪縮地≫10以上で、収穫したアイテムを即時入手します。</td></tr><tr id="5653a1f6-4489-4f12-bff9-67f40eeeec27"><td id="SGtN" class="" style="width:147.6999969482422px">Wear</td><td id="L;P&lt;" class="" style="width:521px">1個のブロックに対して作用した際の耐久削れ確率です。</td></tr><tr id="9036504e-c37a-4d78-bfd3-0c9678e13358"><td id="SGtN" class="" style="width:147.6999969482422px">Cool Time</td><td id="L;P&lt;" class="" style="width:521px">アイテムが再使用可能になるまでの時間です。使用時に実際の発動対象がMax Targetsに満たなかった場合、クールタイムは割り引かれます。</td></tr></tbody></table><p id="6c90344b-c469-4045-9221-c7c6a1157920" class="">
+</p><p id="68cec88a-3190-4f65-8dad-1c13787addc1" class="">花摘みの鐘は、使用時に発動対象がなかった場合、オフハンドのアイテムを使用します。</p><h2 id="6eff7dd6-4264-45d2-b5b2-6fd2e085318f" class="">レシピ</h2><p id="b21a823c-3af4-49d9-9bf1-be2ff883c504" class="">ほとんどの既存の妖精武器のレシピが変更されました。</p><p id="836168c5-1f5c-4610-af3a-e5077b7cf8c4" class="">すべての既存・新規の妖精武器のレシピを掲載します。個別のアイテム名等の詳細は、ゲーム内にてJEIをご参照ください。</p><h3 id="17b2791b-52af-41b4-b1e3-c8b28ae59430" class="">ステッキ</h3><div id="6134928f-83a5-46ab-bf89-6500fea8d579" class="column-list"><div id="ec553d91-6ea1-48a5-848b-d7fc2594e49d" style="width:50%" class="column"><figure id="8f44cb96-db9f-4225-a6be-6af2caf94cfa" class="image"><a href="Untitled%20155.png"><img style="width:238px" src="Untitled%20155.png"/></a></figure><figure id="53de7b45-ebc6-4ca4-8af6-d8fc25e413f0" class="image"><a href="Untitled%20156.png"><img style="width:238px" src="Untitled%20156.png"/></a></figure><figure id="3df8ba65-da84-4c90-a8b5-b46a49c82155" class="image"><a href="Untitled%20157.png"><img style="width:239px" src="Untitled%20157.png"/></a></figure><figure id="61bdfe0a-d08e-48d5-bffc-908bb6e09fb4" class="image"><a href="Untitled%20158.png"><img style="width:239px" src="Untitled%20158.png"/></a></figure><figure id="3ec87f67-b503-4497-b1e6-b9243742e382" class="image"><a href="Untitled%20159.png"><img style="width:239px" src="Untitled%20159.png"/></a></figure></div><div id="28e49825-b9a1-41f4-8d05-6dc607a5714e" style="width:50%" class="column"><figure id="c8f8ab1c-6f37-4102-a055-10b6d2f42361" class="image"><a href="Untitled%20160.png"><img style="width:239px" src="Untitled%20160.png"/></a></figure><figure id="0167bb5a-0b0a-4cde-a8d9-d6fb8a1dd13e" class="image"><a href="Untitled%20161.png"><img style="width:239px" src="Untitled%20161.png"/></a></figure><figure id="03ad4d53-e3fd-4233-86ba-eeccc626d747" class="image"><a href="Untitled%20162.png"><img style="width:239px" src="Untitled%20162.png"/></a></figure><figure id="4afeaa05-77d0-4f99-8d76-b2688a0c90bb" class="image"><a href="Untitled%20163.png"><img style="width:239px" src="Untitled%20163.png"/></a></figure><figure id="e09d9feb-97bf-4726-b58d-581d50449578" class="image"><a href="Untitled%20164.png"><img style="width:239px" src="Untitled%20164.png"/></a></figure></div></div><h3 id="edea6f3b-15b6-4433-9e54-75d0babd09c4" class="">非ステッキ妖精武器</h3><div id="3e8d3973-0bc2-404f-b118-6274fd4ef86c" class="column-list"><div id="3d50cbcf-1e12-42b5-b396-07a6902f1b61" style="width:50%" class="column"><figure id="0d1d32d8-f6da-4f46-ae56-dd2d0bb0cc4a" class="image"><a href="Untitled%20165.png"><img style="width:239px" src="Untitled%20165.png"/></a></figure><figure id="53c86ff1-b376-4df5-b547-04e001be3d6e" class="image"><a href="Untitled%20166.png"><img style="width:239px" src="Untitled%20166.png"/></a></figure><figure id="c088a360-2cd7-4fc3-9185-a9531c267521" class="image"><a href="Untitled%20167.png"><img style="width:239px" src="Untitled%20167.png"/></a></figure><figure id="b3c4e68b-1039-4e39-930d-c8654951dde8" class="image"><a href="Untitled%20168.png"><img style="width:239px" src="Untitled%20168.png"/></a></figure><figure id="0c7493d4-eb85-4b89-83de-a13b3b5a90d9" class="image"><a href="Untitled%20169.png"><img style="width:239px" src="Untitled%20169.png"/></a></figure></div><div id="be48872a-04a5-4ea2-a7b2-5d5cb6e901b8" style="width:50%" class="column"><figure id="4dea09aa-acf9-4a11-b2a2-b640589eb01c" class="image"><a href="Untitled%20170.png"><img style="width:239px" src="Untitled%20170.png"/></a></figure><figure id="3aec5d1b-9780-4e39-9e1b-38260eecefa2" class="image"><a href="Untitled%20171.png"><img style="width:239px" src="Untitled%20171.png"/></a></figure><figure id="9b8d0907-e7a9-439f-8eb1-4c218587f836" class="image"><a href="Untitled%20172.png"><img style="width:239px" src="Untitled%20172.png"/></a></figure><figure id="62a406b5-5cd8-41ac-9ffb-dcf8b78e93b0" class="image"><a href="Untitled%20173.png"><img style="width:239px" src="Untitled%20173.png"/></a></figure><figure id="74118dae-fd4e-4c45-88ac-cfdb2fbaf20b" class="image"><a href="Untitled%20174.png"><img style="width:239px" src="Untitled%20174.png"/></a></figure></div></div><h2 id="138e2319-4b8e-4404-a0c2-67b751428d1d" class="">テクスチャ変更</h2><p id="2b2c7bee-051c-4b09-8f94-ac82b2633961" class="">レシピの変更に伴って、一部の妖精武器のテクスチャが変更されています。</p><h1 id="741fc255-d60d-4bd1-835e-01e99edf829b" class="">素材系アイテムのアップデート</h1><h2 id="aac53390-5baf-4f15-b988-602229338c83" class="">素材追加</h2><p id="4fc9946d-9068-427f-82c7-a46d2cd71e84" class="">「ミラジウムの棒」「ミラジウムナゲット」を追加しました。</p><div id="3c969ca8-f090-44f7-92ec-f97bd020cdf3" class="column-list"><div id="ba1b6b46-3c9c-4767-b73d-7be2df9b7862" style="width:50%" class="column"><figure id="0922ba0f-c7bc-4f4e-950b-de8bfb891a79" class="image"><a href="Untitled%20175.png"><img style="width:32px" src="Untitled%20175.png"/></a></figure></div><div id="0bfb6e69-4073-4504-8ea3-aecbce6def28" style="width:50%" class="column"><figure id="e7c48d3e-9b48-4f43-836f-0603f7243440" class="image"><a href="Untitled%20176.png"><img style="width:32px" src="Untitled%20176.png"/></a></figure></div></div><p id="c8d53758-ac6b-447b-90ad-676850dfeaa2" class="">
+</p><p id="d175a36c-44a7-418c-92a9-d263fa8b2fd5" class="">追加された素材のレシピは以下の通りです。紅蓮のステッキを使用するものと使用しないものが存在します。レシピに使われる妖精には、≪火炎≫10以上の任意の妖精が使用可能です。</p><div id="9bbbccfc-bcae-4098-aa51-142f3e0ea48e" class="column-list"><div id="aa72d475-6810-4f81-b128-c1d8b28aa66b" style="width:50%" class="column"><figure id="b2cbfa5a-79f4-4f37-a3f3-5e9547d36ec0" class="image"><a href="Untitled%20177.png"><img style="width:240px" src="Untitled%20177.png"/></a></figure><figure id="7f45ae80-c02c-4905-9266-8061d5555253" class="image"><a href="Untitled%20178.png"><img style="width:240px" src="Untitled%20178.png"/></a></figure></div><div id="73e4624b-727e-44d4-8d91-918366cf3462" style="width:50%" class="column"><figure id="82143883-191d-43d4-a9e1-d89a9c316f14" class="image"><a href="Untitled%20179.png"><img style="width:240px" src="Untitled%20179.png"/></a></figure><figure id="65ebeb62-628f-4a30-b0e1-d5e0ec2f9258" class="image"><a href="Untitled%20180.png"><img style="width:240px" src="Untitled%20180.png"/></a></figure></div></div><p id="a1c56c93-190a-4a80-93b8-9e2ad3ba356b" class="">
+</p><p id="25bd2fab-8bd3-428b-bdeb-086f4e74c3e4" class="">ミラジウムナゲットは、クラフトでミラジウムインゴットと相互に交換できます。</p><div id="fbacb2a5-9ac0-4a65-9b04-437286c4c33f" class="column-list"><div id="d6d98bd9-1a1d-4eb9-8433-1bb886acbc1a" style="width:50%" class="column"><figure id="fb0d2a7e-8663-414b-b282-b4909944f53a" class="image"><a href="Untitled%20181.png"><img style="width:240px" src="Untitled%20181.png"/></a></figure></div><div id="8d4bb5f9-9760-4b73-82d7-fbc248a28fca" style="width:50%" class="column"><figure id="617a3a81-45fe-43ed-8a69-8fe7ad0e6269" class="image"><a href="Untitled%20182.png"><img style="width:240px" src="Untitled%20182.png"/></a></figure></div></div><h2 id="0d412b7b-3d92-43d3-a073-a8cdd0bacf3a" class="">ミラジウムインゴットのレシピ削除</h2><p id="046c85fa-75cb-4545-a3f4-96af102fdb93" class="">ミラジウムの粉からミラジウムインゴットを作製するレシピがすべて削除されました。ミラジウムインゴットはミラジウムナゲットからしか作製できません。</p><h2 id="5b582a9e-5f91-4d0b-9dcb-7b7f841ccd03" class="">心の棒のレシピ変更</h2><p id="645f9009-9973-42e9-87ce-ac632a6ec0a9" class="">6種類の心の棒のレシピが変更されました。風の心の棒の例だけ掲載しますが、他の心の棒も同様のレシピで作製できます。</p><div id="8449492f-1341-4acb-b355-f166ace05221" class="column-list"><div id="298611b3-8d43-49b7-a095-b595e5cf3f78" style="width:50%" class="column"><figure id="c681040c-3add-490c-a900-921cf4834a25" class="image"><a href="Untitled%20183.png"><img style="width:240px" src="Untitled%20183.png"/></a></figure></div><div id="e292bd02-8bd8-48fe-8bed-feb09a2a806a" style="width:50%" class="column"><figure id="f6cccf11-6b5d-41e9-9bf6-f15e48cef26b" class="image"><a href="Untitled%20184.png"><img style="width:240px" src="Untitled%20184.png"/></a></figure></div></div><h2 id="f3249c41-86a8-4eda-b8a2-37b4fe77f4f0" class="">木炭ブロック追加</h2><p id="3c31d48b-b6b8-4169-8c9d-4dcf375c7afa" class="">木炭ブロックを追加しました。画像は、左が追加された木炭ブロックで、右がバニラの石炭ブロックです。</p><figure id="0d81785e-13e5-4517-b8f6-4903125a7f1e" class="image"><a href="Untitled%20185.png"><img style="width:525px" src="Untitled%20185.png"/></a></figure><p id="3b281dad-59db-40fa-b7d4-8e37912b7c6c" class="">
+</p><p id="85901930-1538-4776-92af-e12f6ab68b59" class="">木炭ブロックはクラフトで木炭と相互に変換可能です。</p><div id="bd9b315e-98d1-4472-8894-a2495c65b3e9" class="column-list"><div id="8885f9a1-7674-47d8-86b2-5f7f0bdaff30" style="width:50%" class="column"><figure id="6bbda68f-088e-4e50-a07a-8c8988881c2c" class="image"><a href="Untitled%20186.png"><img style="width:240px" src="Untitled%20186.png"/></a></figure></div><div id="666ab071-91fc-4542-b51c-77f13c8333ee" style="width:50%" class="column"><figure id="f1e12a31-c96b-4a59-9f87-a2193b84561f" class="image"><a href="Untitled%20187.png"><img style="width:240px" src="Untitled%20187.png"/></a></figure></div></div><h1 id="f3eed24c-34c7-482a-abfe-791430b8d4b3" class="">妖精のアップデート</h1><h2 id="98fc5bbf-5b86-458a-bff9-70c29c079a91" class="">妖精追加</h2><p id="c3a77ded-e0f4-4bed-8424-6950de6c8325" class="">以下の8体の恒常妖精を追加しました。</p><figure id="2d88ef46-42c8-4c59-adf3-f9e5f320554e" class="image"><a href="Untitled%20188.png"><img style="width:180px" src="Untitled%20188.png"/></a></figure><ul id="30eb3387-4fe8-48a0-95ac-fd01c447a151" class="bulleted-list"><li style="list-style-type:disc">磁鉄鉱精マグネティーチャ</li></ul><ul id="e0886c31-367e-4f56-8419-511d6a1c89e4" class="bulleted-list"><li style="list-style-type:disc">硫黄精スルフーリャ</li></ul><ul id="b30fcec8-b288-4982-a015-694e7ca386e2" class="bulleted-list"><li style="list-style-type:disc">燐灰石精アパティーチャ</li></ul><ul id="63aa17c6-5cf8-4613-ab43-a3b179333a23" class="bulleted-list"><li style="list-style-type:disc">辰砂精シナバーリャ</li></ul><ul id="94cb6552-fd8e-4337-933e-feac355edddc" class="bulleted-list"><li style="list-style-type:disc">蛍石精フルオリーチャ</li></ul><ul id="65ada9ab-3a41-448f-b3f1-321aca5e3287" class="bulleted-list"><li style="list-style-type:disc">月長石精モーンストーニャ</li></ul><ul id="75ae67e6-639b-4946-b52f-6ba2ebf762d5" class="bulleted-list"><li style="list-style-type:disc">苦礬柘榴石精ピローピャ</li></ul><ul id="d3bb1e7d-1a87-4b8f-a98e-128875be5759" class="bulleted-list"><li style="list-style-type:disc">菱亜鉛鉱精スミッソニーチャ</li></ul><p id="eaae8834-add6-4c98-aad7-803a2fb1ae69" class="">
+</p><p id="9f7ad217-4287-4386-834a-4eb5df1003ff" class="">以下の2種類のイベント限定妖精を追加しました。</p><ul id="dec9237d-db70-4e52-bf77-d8a005243473" class="bulleted-list"><li style="list-style-type:disc">聖夜精クリストマーシャ</li></ul><ul id="efbfb242-0e4a-4b3c-ba6f-f16ff5a267e4" class="bulleted-list"><li style="list-style-type:disc">聖夜老人精サンタクラウシャ</li></ul><p id="e5d1c45a-857d-4cb6-a225-03173a8c0c34" class="">追加されたイベント限定妖精の入手手段は、現在存在しません。</p><h2 id="ecbb1e3d-65e4-4228-a400-e203325d04d0" class="">≪服従≫の超能力追加</h2><p id="5eec49f7-d9d1-4e65-91cf-3543efec85ee" class="">≪服従≫の超能力および、対応するスフィアを追加しました。≪服従≫は、アンデッド系のモンスターや、鉄精イローニャ等が持っています。</p><figure id="88bb80e4-c878-495a-8e9f-878b33f988fa" class="image"><a href="Untitled%20189.png"><img style="width:240px" src="Untitled%20189.png"/></a></figure><h1 id="d380fea4-652e-4892-acdd-ba9d6c866b7e" class="">ミラージュの花のアップデート</h1><p id="f93ab378-d5d7-4c98-81c0-5e0de5186f54" class="">ミラージュの花は、植えられた地面が特定のブロックだった場合、そのブロックに対応する妖精の「光の心×≪結晶≫」の値に応じて成長を加速します。この変更に伴い、以前まで天然石ブロックに個別にかかっていた補正は削除され、この機能に統合されました。</p><p id="f34db558-79a5-4b29-95af-2e8cd74ec2c3" class="">以下に対応するブロックの素材と成長加速度の表を掲載します。今後妖精が追加された場合、それに伴って対応ブロックが増加する可能性があります。石など成長加速度の全く設定されていないブロックの成長加速度は50%で、草ブロックの成長加速度は100%です。</p><table id="a429d7a7-6270-41f6-8a89-16e985e6dd8a" class="simple-table"><thead class="simple-table-header"><tr id="767d2ae1-3ef4-472f-b916-532de6819a4e"><th id="IXVU" class="simple-table-header-color simple-table-header" style="width:155px">ブロックの素材</th><th id="rwQL" class="simple-table-header-color simple-table-header" style="width:105px">成長加速度</th></tr></thead><tbody><tr id="531b956d-fb9b-4397-a4f4-dc3635df0cb8"><td id="IXVU" class="" style="width:155px">ダイヤモンド</td><td id="rwQL" class="" style="width:105px">800%</td></tr><tr id="e338f5c8-fcac-4c60-96aa-60f8d2606cd7"><td id="IXVU" class="" style="width:155px">エメラルド</td><td id="rwQL" class="" style="width:105px">643%</td></tr><tr id="5df883b8-1fc7-4c8e-b672-3aea04afe1e7"><td id="IXVU" class="" style="width:155px">パイロープ</td><td id="rwQL" class="" style="width:105px">564%</td></tr><tr id="8d6eb1bf-f543-441b-b68a-b095de35f29e"><td id="IXVU" class="" style="width:155px">月長石</td><td id="rwQL" class="" style="width:105px">556%</td></tr><tr id="d57213a8-e9ab-46f7-8451-4de415458772"><td id="IXVU" class="" style="width:155px">燐灰石</td><td id="rwQL" class="" style="width:105px">301%</td></tr><tr id="f0e5e6b9-ed19-49cd-b9e1-abb6dd904d51"><td id="IXVU" class="" style="width:155px">黒耀石</td><td id="rwQL" class="" style="width:105px">269%</td></tr><tr id="0f1cf15c-3862-45ee-9f2f-1d3da7f170e7"><td id="IXVU" class="" style="width:155px">蛍石</td><td id="rwQL" class="" style="width:105px">255%</td></tr><tr id="917c1efb-2383-48fa-a689-08deff24fae0"><td id="IXVU" class="" style="width:155px">辰砂</td><td id="rwQL" class="" style="width:105px">180%</td></tr><tr id="dcfd025e-7712-4928-bbe3-e0b64a3a5488"><td id="IXVU" class="" style="width:155px">磁鉄鉱</td><td id="rwQL" class="" style="width:105px">139%</td></tr><tr id="de082929-fa95-444d-8059-e1f88afc2c8f"><td id="IXVU" class="" style="width:155px">グロウストーン</td><td id="rwQL" class="" style="width:105px">152%</td></tr><tr id="3bdea51e-e920-45ec-ac5d-c540e21db5a2"><td id="IXVU" class="" style="width:155px">ラピスラズリ</td><td id="rwQL" class="" style="width:105px">110%</td></tr><tr id="e856b7ae-ea54-4b7b-9744-10eadbb22a08"><td id="IXVU" class="" style="width:155px">硫黄</td><td id="rwQL" class="" style="width:105px">78%</td></tr></tbody></table><h1 id="a8a2c79c-d3ef-4c1c-b8ad-167027a7ea81" class="">雑多な変更</h1><ul id="2f6df39e-99b0-4dc1-8807-ac52cde315f3" class="bulleted-list"><li style="list-style-type:disc">妖精に関する変更<ul id="50df3bb8-4add-4377-aaaf-0a0751085198" class="bulleted-list"><li style="list-style-type:circle">【変更】一部の妖精のステータスを変更。</li></ul><ul id="6fe01fed-f05d-4f77-8ac9-e09027f15ee9" class="bulleted-list"><li style="list-style-type:circle">【改善】妖精の日本語版名称が漢字名も含むようになった。</li></ul></li></ul><ul id="6e74613f-2135-484a-91e1-3e054cfe814d" class="bulleted-list"><li style="list-style-type:disc">妖晶に関する変更<ul id="b9a8184d-9db9-4776-b883-91e41b4dc229" class="bulleted-list"><li style="list-style-type:circle">【変更】素材系の妖精がより多種の形状に対応した。</li></ul><ul id="3c648748-cf09-442a-96ad-7203f31c9c1b" class="bulleted-list"><li style="list-style-type:circle">【修正】妖晶のドロップ表はサーバーサイドで計算されるようになった。<ul id="d2978846-274c-4503-8911-8f8508730d22" class="bulleted-list"><li style="list-style-type:square">代償に、サーバー側の言語設定（主に英語）で表示される。</li></ul></li></ul><ul id="6a34d89c-3947-43e4-aaeb-a0518323d4fc" class="bulleted-list"><li style="list-style-type:circle">【修正】シュルカーボックスに反応する範囲で妖晶を使用するとクラッシュするバグの修正。</li></ul></li></ul><ul id="78b7d71e-20a3-422f-96cf-d12b062b8b7b" class="bulleted-list"><li style="list-style-type:disc">ミラージュの花に関する変更<ul id="4acdad54-2ff4-417f-bc2a-1ee39becb6b0" class="bulleted-list"><li style="list-style-type:circle">【改善】ミラージュの花は骨粉使用時にも環境の成長加速を適用する。</li></ul><ul id="2dec7885-c94b-42e3-a56c-161d53c1b62c" class="bulleted-list"><li style="list-style-type:circle">【修正】ミラージュの花でミラジウムの粉が増殖するバグを修正。</li></ul></li></ul><ul id="88557f49-7628-4d2e-afeb-a2c52333f165" class="bulleted-list"><li style="list-style-type:disc">その他の変更<ul id="97e56ec3-99a4-4d53-9e23-fd73606883a4" class="bulleted-list"><li style="list-style-type:circle">【改善】妖精武器と妖精のツールチップの表示を少し修正。</li></ul></li></ul><p id="d3c6c60c-4716-41f4-b581-9e830b972ac5" class="">
+</p><hr id="e06ceaea-4a2b-44f6-9734-74a19342c054"/><p id="fcd6d36f-ea9a-44bc-95ad-e92903102c33" class="">2019年11月30日　MirageFairy Server技術部・創作部</p><p id="6536b7d8-627e-4029-9ac4-f8af382a7730" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

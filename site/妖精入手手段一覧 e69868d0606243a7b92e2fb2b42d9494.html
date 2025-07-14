@@ -1,0 +1,682 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>妖精入手手段一覧</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="e69868d0-6062-43a7-b92e-2fb2b42d9494" class="page serif"><header><img class="page-cover-image" src="Untitled%20937.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="mirage_flower_280x280%2028.png"/></div><h1 class="page-title">妖精入手手段一覧</h1><p class="page-description"></p></header><div class="page-body"><figure id="2c8a1444-3c44-4ceb-9355-3cf3947dfa25" class="image"><a href="Untitled%20937.png"><img style="width:100%" src="Untitled%20937.png"/></a></figure><h1 id="e6e4aeb6-fc34-4b8b-9e5d-0696d8ffca6b" class="">凡例</h1><p id="4c81d1e3-44ad-4d0c-8ea6-f70a038c6a14" class="">🎈Item：アイテムの種類<div class="indented"><p id="4a0b2ebc-8eb0-48ed-b7fe-5e30655b448d" class="">アイテムの大まかな種類に反応</p><ul id="d4e3058c-e80c-47c7-b9ba-73fe92f852a7" class="bulleted-list"><li style="list-style-type:disc">そのアイテムの付近でフェアリークリスタルを使用して入手</li></ul></div></p><p id="4e3e4911-7622-43ef-8609-48ee9eb07dff" class="">🎉ItemStack：アイテムの特殊判定<div class="indented"><p id="e08f598f-44df-4c01-bc95-54bcb2dedff4" class="">エンチャントなど個々のアイテムが持つ性質に反応</p></div></p><p id="a8eb4a34-9a1b-4a26-893a-6092fd17d217" class="">🍳Ingredient：素材<div class="indented"><p id="c401589e-4955-4da1-b994-e556e8b52b9b" class="">特定の素材に反応</p></div></p><p id="bcc6b0c4-9e41-4fef-8233-ec4127123e22" class="">🧶Ore：素材（鉱石辞書対応）<div class="indented"><p id="6b254372-78d0-48de-acd7-047ba7f8f94b" class="">特定の素材に反応（鉱石辞書対応）</p></div></p><p id="09b77a3f-b13b-4e9e-8f68-a08e7c92b3e3" class="">🧱Material：素材の種類<div class="indented"><p id="47ae335d-2f4e-4d0c-ab59-82e92494406e" class="">特定の素材のインゴット・宝石・粉・ナゲット・微粉・ブロック・棒・板・鉱石に反応（鉱石辞書対応）</p></div></p><p id="76dca1df-fefa-4273-852e-d63e741bca98" class="">🧊Block：ブロック<div class="indented"><ul id="70da8cc3-b5c0-4b58-9771-60266d77f9ab" class="bulleted-list"><li style="list-style-type:disc">そのブロックの付近でフェアリークリスタルを使用して入手</li></ul><ul id="433cf75a-60fd-4b4e-926c-af44ce2302e8" class="bulleted-list"><li style="list-style-type:disc">そのブロックを使用した妖精召喚レシピにより入手</li></ul></div></p><p id="5ffa4f2d-0446-4e4f-a46c-427ea63fe63f" class="">🎲BlockState：設置状態のブロック<div class="indented"><ul id="083b08bf-8f18-42ef-87ad-80723d89e4a7" class="bulleted-list"><li style="list-style-type:disc">そのブロックの付近でフェアリークリスタルを使用して入手</li></ul></div></p><p id="feacba0f-abd2-46de-8f50-79d0f5c7cef3" class="">🏜Biome：バイオーム<div class="indented"><ul id="1566e7e2-7a07-49ec-863a-720e5b31c4c5" class="bulleted-list"><li style="list-style-type:disc">そのバイオームでフェアリークリスタルを使用して入手</li></ul><ul id="8f97d809-c8b9-4516-8e28-6d4e3054262f" class="bulleted-list"><li style="list-style-type:disc">そのバイオームで妖精の樹洞を破壊して入手</li></ul></div></p><p id="e203622f-6356-4eaa-b728-8c132439a2d4" class="">🐕Entity：動物<div class="indented"><ul id="5420a59d-cbeb-4a17-831e-b824e231bd57" class="bulleted-list"><li style="list-style-type:disc">その動物の付近でフェアリークリスタルを使用して入手</li></ul><ul id="e8f967f9-c3c3-42a1-9446-9367fdc00b6d" class="bulleted-list"><li style="list-style-type:disc">その動物をクリスタルソードで撃破して入手</li></ul></div></p><p id="39dc946f-b1bb-4240-9ebc-a0bc12b56be9" class="">💎フェアリークリスタルの特殊判定で入手</p><p id="ce879120-6d41-402f-829a-acffbcbe79ea" class="">🌲妖精の樹洞の特殊判定で入手</p><p id="e7fbdfd7-5b91-4f7a-93f9-d05020f1da0a" class="">🌊妖精希釈レシピで製作</p><p id="8bb91b47-af7c-4a48-9e98-23388cfaa4fc" class="">🎃イベントで入手</p><p id="99c33ad2-0c1c-4ba0-a753-c7ee58d59838" class="">⚗️加工機械で製作</p><p id="40a2c50f-288c-4269-a5e8-7b6869717da9" class="">💰購入レシピで製作</p><p id="580a17e8-7ce4-4328-865e-a1d3e419f4a2" class="">❓その他の入手手段</p><p id="0f1985f2-6789-4a22-8c5b-b536a897228a" class="">
+</p><p id="999a75bb-7558-4595-a408-0f4fb7aef0f4" class="">妖精召喚レシピは「丸石→石精」「干し草の俵→麦精」のような関連性の低い妖精では利用できません。関連性の低い関係は（括弧がき）で示されています。</p><p id="60516901-86fc-43ee-b57d-be3c46b61410" class="">一部の🧶Oreで判定は、MirageFairy2019には存在しないアイテムに反応する場合があります。そのようなアイテムを追加するMODと同時にプレイしているときにのみ利用できます。</p><h1 id="9290c8fc-14b5-414e-9ec4-dd7b012b586a" class="">一覧</h1><p id="5743b312-fe39-4e84-b23e-21bf66630500" class="">上下に別れている枠が別であれば、重複して適用されます。</p><table id="5c872bd3-db4e-437e-94a9-a10d63322090" class="simple-table"><thead class="simple-table-header"></thead><tbody><tr id="e1b2b43b-d13b-45b8-8ae6-c1d2e7d1dbe9"><td id="p=@_" class="" style="width:70px">0</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">air</td><td id="Jq:l" class="" style="width:243.433349609375px">空気精アイリャ</td><td id="iYeC" class="" style="width:466.5px">💎常時<br/>🌲常時<br/>🌲非対応バイオームに生成された樹洞からのドロップ<br/></td></tr><tr id="b6436167-72a9-41c1-bc6b-c04f996b31f8"><td id="p=@_" class="" style="width:70px">1</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">water</td><td id="Jq:l" class="" style="width:243.433349609375px">水精ワテーリャ</td><td id="iYeC" class="" style="width:466.5px">🎈（水入りバケツ）<br/>🧊水源・水流<br/>💎地上世界<br/></td></tr><tr id="7c743f50-5dd2-4dda-a8a1-4fd7123c72b6"><td id="p=@_" class="" style="width:70px">2</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">fire</td><td id="Jq:l" class="" style="width:243.433349609375px">火精フィーリャ</td><td id="iYeC" class="" style="width:466.5px">🧊火<br/>💎ネザー<br/></td></tr><tr id="ec8fc269-00e9-4752-ad62-c6e3d7d7509e"><td id="p=@_" class="" style="width:70px">3</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">sun</td><td id="Jq:l" class="" style="width:243.433349609375px">太陽精スーニャ</td><td id="iYeC" class="" style="width:466.5px">💎地上世界の屋外で晴れの昼間<br/>🌲地上世界<br/></td></tr><tr id="3f0ff76a-cb4d-4a74-b5cc-8e8535931f56"><td id="p=@_" class="" style="width:70px">4</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">stone</td><td id="Jq:l" class="" style="width:243.433349609375px">石精ストーニャ</td><td id="iYeC" class="" style="width:466.5px">🧊石・（丸石）<br/>💎地上世界<br/></td></tr><tr id="137232d8-5f98-4dbe-b44f-306ca67734db"><td id="p=@_" class="" style="width:70px">5</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">dirt</td><td id="Jq:l" class="" style="width:243.433349609375px">土精ディルチャ</td><td id="iYeC" class="" style="width:466.5px">🧊土・（草）<br/>💎地上世界<br/></td></tr><tr id="5f83e37d-ef83-4c42-b3d2-d7f49f98c60b"><td id="p=@_" class="" style="width:70px">6</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">iron</td><td id="Jq:l" class="" style="width:243.433349609375px">鉄精イローニャ</td><td id="iYeC" class="" style="width:466.5px">🧱鉄<br/>🧊鉄ブロック<br/>💎地上世界<br/></td></tr><tr id="b864c5a9-ebbf-42f3-b784-a086f9b89db6"><td id="p=@_" class="" style="width:70px">7</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">diamond</td><td id="Jq:l" class="" style="width:243.433349609375px">金剛石精ディアモンジャ</td><td id="iYeC" class="" style="width:466.5px">🧱ダイヤモンド<br/>🧊ダイヤモンドブロック<br/>🌊金剛石粉精ディアモンデドゥスチャ<br/>💎地上世界<br/></td></tr><tr id="b1cf8f91-8e2d-40f0-8fd4-d69614f056c1"><td id="p=@_" class="" style="width:70px">8</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">redstone</td><td id="Jq:l" class="" style="width:243.433349609375px">赤石精レドストーニャ</td><td id="iYeC" class="" style="width:466.5px">🧱レッドストーン<br/>🧊レッドストーンブロック<br/>💎地上世界<br/></td></tr><tr id="a0a446d0-6167-48c0-8df9-586a1375560a"><td id="p=@_" class="" style="width:70px">9</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">enderman</td><td id="Jq:l" class="" style="width:243.433349609375px">終界人精エンデルマーニャ</td><td id="iYeC" class="" style="width:466.5px">🐕エンダーマン<br/>💎エンド<br/></td></tr><tr id="0dc52747-0dc9-4343-8587-1fd8a142e35f"><td id="p=@_" class="" style="width:70px">10</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">moon</td><td id="Jq:l" class="" style="width:243.433349609375px">月精モーニャ</td><td id="iYeC" class="" style="width:466.5px">💎地上世界の屋外で晴れの夜中<br/>🌲地上世界<br/></td></tr><tr id="82f2c2fe-eb2c-4acc-b49c-1666dc8e8c35"><td id="p=@_" class="" style="width:70px">11</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">sand</td><td id="Jq:l" class="" style="width:243.433349609375px">砂精サンジャ</td><td id="iYeC" class="" style="width:466.5px">🧊砂・（砂岩・赤い砂岩）<br/>💎地上世界<br/></td></tr><tr id="32ac63b0-8fdc-4fa5-8835-a5f28ebf55e3"><td id="p=@_" class="" style="width:70px">12</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">gold</td><td id="Jq:l" class="" style="width:243.433349609375px">金精ゴルジャ</td><td id="iYeC" class="" style="width:466.5px">🧱金<br/>🧊金ブロック<br/>💎地上世界<br/></td></tr><tr id="97779db6-2973-4de5-bd1e-19e41addc3d1"><td id="p=@_" class="" style="width:70px">13</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">spider</td><td id="Jq:l" class="" style="width:243.433349609375px">蜘蛛精スピデーリャ</td><td id="iYeC" class="" style="width:466.5px">🐕蜘蛛<br/>💎地上世界<br/>🌊蜘蛛目精スピデーレエーヤ<br/></td></tr><tr id="de6483e9-96ca-4b1f-b54f-27535e93a4c0"><td id="p=@_" class="" style="width:70px">14</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">skeleton</td><td id="Jq:l" class="" style="width:243.433349609375px">骸骨精スケレトーニャ</td><td id="iYeC" class="" style="width:466.5px">🐕スケルトン<br/>💎地上世界<br/>🌊枯骸骨精ウィーテレスケレトーニャ<br/></td></tr><tr id="9702a26a-a8b4-4ba6-a77a-1589e71d48ce"><td id="p=@_" class="" style="width:70px">15</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">zombie</td><td id="Jq:l" class="" style="width:243.433349609375px">硬屍精ゾンビャ</td><td id="iYeC" class="" style="width:466.5px">🐕ゾンビ<br/>💎地上世界<br/></td></tr><tr id="05fb8c7e-d94e-4a53-b0bc-b38c400af35c"><td id="p=@_" class="" style="width:70px">16</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">creeper</td><td id="Jq:l" class="" style="width:243.433349609375px">匠精ツレペーリャ</td><td id="iYeC" class="" style="width:466.5px">🐕クリーパー<br/>💎地上世界<br/>🌊巨匠精キャルゲーデツレペーリャ<br/></td></tr><tr id="b215b15d-b771-49d1-b252-a18d464dbf04"><td id="p=@_" class="" style="width:70px">17</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">wheat</td><td id="Jq:l" class="" style="width:243.433349609375px">麦精ウェアーチャ</td><td id="iYeC" class="" style="width:466.5px">🎈小麦<br/>🧊小麦（植えられた状態）・（干し草の俵）<br/>💎地上世界<br/>🌊種精セージャ<br/></td></tr><tr id="05e23eea-bd60-491d-9c5c-57b820354686"><td id="p=@_" class="" style="width:70px">18</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">lilac</td><td id="Jq:l" class="" style="width:243.433349609375px">紫丁香精リラーツァ</td><td id="iYeC" class="" style="width:466.5px">🍳ライラック<br/>🎲ライラック<br/>💎地上世界<br/></td></tr><tr id="0cd5d548-f432-489d-8476-758c1937d3f6"><td id="p=@_" class="" style="width:70px">19</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">torch</td><td id="Jq:l" class="" style="width:243.433349609375px">松明精トルキャ</td><td id="iYeC" class="" style="width:466.5px">🧊松明</td></tr><tr id="5b1ff89d-5c1b-46b1-b878-1f00e5508f22"><td id="p=@_" class="" style="width:70px">20</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">lava</td><td id="Jq:l" class="" style="width:243.433349609375px">溶岩精ラーヴャ</td><td id="iYeC" class="" style="width:466.5px">🎈（溶岩入りバケツ）<br/>🧊溶岩源・溶岩流<br/>💎ネザー<br/></td></tr><tr id="eccc0b4e-f8a3-4017-aa31-1ee65d218e35"><td id="p=@_" class="" style="width:70px">21</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">star</td><td id="Jq:l" class="" style="width:243.433349609375px">星精スターリャ</td><td id="iYeC" class="" style="width:466.5px">💎地上世界の屋外で晴れの夜中<br/>🌊太陽精スーニャ<br/>🌊月精モーニャ<br/>🌲地上世界<br/></td></tr><tr id="2e7cd74a-ab68-49db-a7e3-0e8358d6b967"><td id="p=@_" class="" style="width:70px">22</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">gravel</td><td id="Jq:l" class="" style="width:243.433349609375px">砂利精グラヴェーリャ</td><td id="iYeC" class="" style="width:466.5px">🧊砂利<br/>💎地上世界<br/></td></tr><tr id="9d337d81-9c3b-4154-a641-e6fcdbaf46c9"><td id="p=@_" class="" style="width:70px">23</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">emerald</td><td id="Jq:l" class="" style="width:243.433349609375px">翠玉精エメラルジャ</td><td id="iYeC" class="" style="width:466.5px">🧱エメラルド<br/>🧊エメラルドブロック<br/>💎地上世界<br/></td></tr><tr id="f3928704-6c8b-4a86-85aa-3a0888e9e69b"><td id="p=@_" class="" style="width:70px">24</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">lapislazuli</td><td id="Jq:l" class="" style="width:243.433349609375px">瑠璃石精ラピスラズーリャ</td><td id="iYeC" class="" style="width:466.5px">🧱ラピスラズリ<br/>🧊ラピスラズリブロック<br/>💎地上世界<br/></td></tr><tr id="7b59eebc-68b7-405f-b21a-b9b3cebbc44a"><td id="p=@_" class="" style="width:70px">25</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">ender_dragon</td><td id="Jq:l" class="" style="width:243.433349609375px">終界龍精エンデレドラゴーニャ</td><td id="iYeC" class="" style="width:466.5px">🐕エンダードラゴン<br/>💎エンド<br/></td></tr><tr id="89cda644-6ce4-4210-b30f-dd1376439bed"><td id="p=@_" class="" style="width:70px">26</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">wither_skeleton</td><td id="Jq:l" class="" style="width:243.433349609375px">枯骸骨精ウィーテレスケレトーニャ</td><td id="iYeC" class="" style="width:466.5px">🐕ウィザースケルトン</td></tr><tr id="473dd5f2-5999-4213-8afa-dcf925d5c535"><td id="p=@_" class="" style="width:70px">27</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">wither</td><td id="Jq:l" class="" style="width:243.433349609375px">枯精ウィテーリャ</td><td id="iYeC" class="" style="width:466.5px">🐕ウィザー<br/>🌊地獄星精ネテーレスターリャ<br/></td></tr><tr id="23a9d3c5-f086-4094-8074-882bf4934f09"><td id="p=@_" class="" style="width:70px">28</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">thunder</td><td id="Jq:l" class="" style="width:243.433349609375px">雷精ツンデーリャ</td><td id="iYeC" class="" style="width:466.5px">💎地上世界の屋外で雷雨のとき<br/>🌲地上世界で雨の降るバイオーム<br/></td></tr><tr id="e0a8f799-d146-43cd-bd8a-51304b13bc29"><td id="p=@_" class="" style="width:70px">29</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">chicken</td><td id="Jq:l" class="" style="width:243.433349609375px">鶏精キッケーニャ</td><td id="iYeC" class="" style="width:466.5px">🐕鶏<br/>💎地上世界<br/>🌊生鶏肉精ラーウェキッケーニャ<br/></td></tr><tr id="939aceba-75e3-4585-b434-f52e9717121f"><td id="p=@_" class="" style="width:70px">30</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">furnace</td><td id="Jq:l" class="" style="width:243.433349609375px">釜戸精フルナーツァ</td><td id="iYeC" class="" style="width:466.5px">🧊かまど</td></tr><tr id="d8bfd54d-ae52-460f-a311-8bc1ddcf7a8a"><td id="p=@_" class="" style="width:70px">31</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">magenta_glazed_terracotta</td><td id="Jq:l" class="" style="width:243.433349609375px">赤紫釉陶精マゲンテグラゼデテッラツォッチャ</td><td id="iYeC" class="" style="width:466.5px">🧊赤紫色の彩釉テラコッタ</td></tr><tr id="7824f383-14c0-42cc-a38c-aa00541ba937"><td id="p=@_" class="" style="width:70px">32</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">bread</td><td id="Jq:l" class="" style="width:243.433349609375px">麺麭精ブレアージャ</td><td id="iYeC" class="" style="width:466.5px">🎈パン<br/>🌊蛋麭精ツァーキャ<br/>🌊麭精ツォーキャ<br/></td></tr><tr id="46826009-5266-4dc7-b065-33ca58bb5880"><td id="p=@_" class="" style="width:70px">33</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">daytime</td><td id="Jq:l" class="" style="width:243.433349609375px">昼精ダイティーミャ</td><td id="iYeC" class="" style="width:466.5px">💎昼間<br/>🌲地上世界<br/></td></tr><tr id="67797ede-13cc-4c35-886b-4d9f5ee1208c"><td id="p=@_" class="" style="width:70px">34</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">night</td><td id="Jq:l" class="" style="width:243.433349609375px">夜精ニグチャ</td><td id="iYeC" class="" style="width:466.5px">💎夜中<br/>🌲地上世界<br/></td></tr><tr id="f7c0491b-353c-49f5-a994-5e0ea0e34081"><td id="p=@_" class="" style="width:70px">35</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">morning</td><td id="Jq:l" class="" style="width:243.433349609375px">朝精モルニンギャ</td><td id="iYeC" class="" style="width:466.5px">💎朝<br/>🌲地上世界<br/></td></tr><tr id="acf42a01-076c-4f9b-b8e7-508b791fd875"><td id="p=@_" class="" style="width:70px">36</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">fine</td><td id="Jq:l" class="" style="width:243.433349609375px">晴精フィーニャ</td><td id="iYeC" class="" style="width:466.5px">💎地上世界の屋外で晴れのとき<br/>🌲地上世界<br/></td></tr><tr id="177e3e01-976b-4be7-bbb8-841ab4bb7007"><td id="p=@_" class="" style="width:70px">37</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">rain</td><td id="Jq:l" class="" style="width:243.433349609375px">雨精ライニャ</td><td id="iYeC" class="" style="width:466.5px">💎地上世界の屋外で雨のとき<br/>🌲地上世界で雨の降るバイオーム<br/>🌊雷嵐精ツンデルストルミャ<br/></td></tr><tr id="5fcfe30a-7945-448c-9d71-3f79af5abb8f"><td id="p=@_" class="" style="width:70px">38</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">plains</td><td id="Jq:l" class="" style="width:243.433349609375px">平原精プラインシャ</td><td id="iYeC" class="" style="width:466.5px">🏜平原系バイオーム</td></tr><tr id="3f9fa939-64e0-4cf3-a1dd-9bff732c057f"><td id="p=@_" class="" style="width:70px">39</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">forest</td><td id="Jq:l" class="" style="width:243.433349609375px">森精フォレスチャ</td><td id="iYeC" class="" style="width:466.5px">🏜森林系バイオーム</td></tr><tr id="e5137589-f385-4087-b201-c8a194c0064b"><td id="p=@_" class="" style="width:70px">40</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">apple</td><td id="Jq:l" class="" style="width:243.433349609375px">林檎精アップーリャ</td><td id="iYeC" class="" style="width:466.5px">🎈リンゴ・（金のリンゴ）<br/>💎地上世界<br/>🌊金林檎精ゴルデーネアップーリャ<br/></td></tr><tr id="94280781-e6e7-4e14-baac-d6b3d57a0e05"><td id="p=@_" class="" style="width:70px">41</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">carrot</td><td id="Jq:l" class="" style="width:243.433349609375px">人参精ツァッローチャ</td><td id="iYeC" class="" style="width:466.5px">🎈ニンジン・（ニンジン付きの釣り竿・金のニンジン）<br/>🧊ニンジン（植えられた状態）<br/>💎地上世界<br/>🌊金人参精ゴルデーネツァッローチャ<br/></td></tr><tr id="5cca5652-8d36-4b3d-b1d7-588c54dc794c"><td id="p=@_" class="" style="width:70px">42</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">cactus</td><td id="Jq:l" class="" style="width:243.433349609375px">仙人掌精ツァツトゥーシャ</td><td id="iYeC" class="" style="width:466.5px">🧊サボテン<br/>💎地上世界<br/></td></tr><tr id="49bf4d6f-1dc9-496a-8f77-adb7ace921e3"><td id="p=@_" class="" style="width:70px">43</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">axe</td><td id="Jq:l" class="" style="width:243.433349609375px">斧精アーシャ</td><td id="iYeC" class="" style="width:466.5px">🎈斧5種</td></tr><tr id="649cff74-8c7b-4238-b702-89c65fa6e27f"><td id="p=@_" class="" style="width:70px">44</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">chest</td><td id="Jq:l" class="" style="width:243.433349609375px">箱精ケスチャ</td><td id="iYeC" class="" style="width:466.5px">🧊チェスト</td></tr><tr id="def09ca5-ff10-42b6-88fd-9f0e49b8f080"><td id="p=@_" class="" style="width:70px">45</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">crafting_table</td><td id="Jq:l" class="" style="width:243.433349609375px">作業台精ツラフティンゲターブリャ</td><td id="iYeC" class="" style="width:466.5px">🧊作業台</td></tr><tr id="eb52608e-844c-42ad-a313-284390eef381"><td id="p=@_" class="" style="width:70px">46</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">potion</td><td id="Jq:l" class="" style="width:243.433349609375px">薬精ポティオーニャ</td><td id="iYeC" class="" style="width:466.5px">🎈ポーション（水入り瓶含む）<br/>🎈（残留ポーション・スプラッシュポーション）<br/></td></tr><tr id="9453e27a-98bc-4ffe-a7e4-16577346cd45"><td id="p=@_" class="" style="width:70px">47</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">sword</td><td id="Jq:l" class="" style="width:243.433349609375px">剣精スウォルジャ</td><td id="iYeC" class="" style="width:466.5px">🎈剣5種</td></tr><tr id="7c5f8596-2488-4216-a118-c3585daade62"><td id="p=@_" class="" style="width:70px">48</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">dispenser</td><td id="Jq:l" class="" style="width:243.433349609375px">発射機精ディスペンセーリャ</td><td id="iYeC" class="" style="width:466.5px">🧊ディスペンサー</td></tr><tr id="ce1de6aa-b730-4d45-95fc-03e7f8d0641d"><td id="p=@_" class="" style="width:70px">49</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">ocean</td><td id="Jq:l" class="" style="width:243.433349609375px">海精オツェアーニャ</td><td id="iYeC" class="" style="width:466.5px">🏜海洋系バイオーム</td></tr><tr id="8da04c65-8c60-4f92-b539-ff43f0e17caa"><td id="p=@_" class="" style="width:70px">50</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">fish</td><td id="Jq:l" class="" style="width:243.433349609375px">魚精フィーシャ</td><td id="iYeC" class="" style="width:466.5px">🎈生魚（系アイテム4種）<br/>💎地上世界<br/>🌊鱈精ツォージャ<br/>🌊鮭精サルモーニャ<br/>🌊河豚精プッフェルフィーシャ<br/>🌊隈之実精ツロウンフィーシャ<br/></td></tr><tr id="a3795d01-2ac6-44bc-bd8f-b074b6709050"><td id="p=@_" class="" style="width:70px">51</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">cod</td><td id="Jq:l" class="" style="width:243.433349609375px">鱈精ツォージャ</td><td id="iYeC" class="" style="width:466.5px">🍳生魚（青緑の魚のみ）<br/>💎地上世界<br/></td></tr><tr id="2a19710f-9305-43a2-b229-4e614ba7783e"><td id="p=@_" class="" style="width:70px">52</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">salmon</td><td id="Jq:l" class="" style="width:243.433349609375px">鮭精サルモーニャ</td><td id="iYeC" class="" style="width:466.5px">🍳鮭<br/>💎地上世界<br/>🌊焼鮭精ツォーケーデサルモーニャ<br/></td></tr><tr id="101a0915-758b-4102-be54-bb2ba714b0ad"><td id="p=@_" class="" style="width:70px">53</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">pufferfish</td><td id="Jq:l" class="" style="width:243.433349609375px">河豚精プッフェルフィーシャ</td><td id="iYeC" class="" style="width:466.5px">🍳フグ<br/>💎地上世界<br/></td></tr><tr id="71803b1a-136a-44c0-8a57-a7864bdeb34e"><td id="p=@_" class="" style="width:70px">54</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">clownfish</td><td id="Jq:l" class="" style="width:243.433349609375px">隈之実精ツロウンフィーシャ</td><td id="iYeC" class="" style="width:466.5px">🍳クマノミ<br/>💎地上世界<br/></td></tr><tr id="fb5bf825-8721-4d98-8b1b-880e3b43f228"><td id="p=@_" class="" style="width:70px">55</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">spruce</td><td id="Jq:l" class="" style="width:243.433349609375px">松精スプルーツァ</td><td id="iYeC" class="" style="width:466.5px">🍳松の原木・松の木材・松の葉<br/>🎲松の原木・松の木材・松の葉<br/>💎地上世界<br/></td></tr><tr id="05b3baaf-95c0-4c52-b2d2-b6662f17384c"><td id="p=@_" class="" style="width:70px">56</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">anvil</td><td id="Jq:l" class="" style="width:243.433349609375px">金床精アンヴィーリャ</td><td id="iYeC" class="" style="width:466.5px">🧊金床</td></tr><tr id="a0d58d98-457c-41ef-81a4-d2acedea1ede"><td id="p=@_" class="" style="width:70px">57</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">obsidian</td><td id="Jq:l" class="" style="width:243.433349609375px">黒耀石精オブシディアーニャ</td><td id="iYeC" class="" style="width:466.5px">🧶黒曜石<br/>🧊黒曜石<br/>💎地上世界<br/></td></tr><tr id="21bb0b3a-8a2d-4c8f-91fa-f51e435d04f5"><td id="p=@_" class="" style="width:70px">58</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">seed</td><td id="Jq:l" class="" style="width:243.433349609375px">種精セージャ</td><td id="iYeC" class="" style="width:466.5px">🎈小麦の種<br/>💎地上世界<br/></td></tr><tr id="71033bc3-a779-4c7d-ae82-932c3acfdc0d"><td id="p=@_" class="" style="width:70px">59</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">enchant</td><td id="Jq:l" class="" style="width:243.433349609375px">付魔精エンキャンチャ</td><td id="iYeC" class="" style="width:466.5px">🎈（エンチャントの本）<br/>🎉エンチャントされたツール<br/>🧊（エンチャントテーブル）<br/>🌊幸運精フォルトゥーニャ<br/></td></tr><tr id="cea79108-5d67-494f-85ad-fdede3d32083"><td id="p=@_" class="" style="width:70px">60</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">glowstone</td><td id="Jq:l" class="" style="width:243.433349609375px">蛍光石精グロウストーニャ</td><td id="iYeC" class="" style="width:466.5px">🧶グロウストーン<br/>🧱グロウストーン<br/>🧊グロウストーン<br/>💎ネザー<br/></td></tr><tr id="b3dbf5b8-95b2-496d-8eb3-9c1f76ef86a5"><td id="p=@_" class="" style="width:70px">61</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">coal</td><td id="Jq:l" class="" style="width:243.433349609375px">石炭精ツォアーリャ</td><td id="iYeC" class="" style="width:466.5px">🍳石炭<br/>🧱石炭<br/>🧊石炭ブロック<br/>💎地上世界<br/>🌊石炭粉精ツォアーレドゥスチャ<br/></td></tr><tr id="13c0fb5c-5802-4ee8-878e-39218c0e5ed2"><td id="p=@_" class="" style="width:70px">62</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">villager</td><td id="Jq:l" class="" style="width:243.433349609375px">村人精ヴィッラゲーリャ</td><td id="iYeC" class="" style="width:466.5px">🐕村人<br/>💎地上世界<br/>🌊司書精リブラリアーニャ<br/></td></tr><tr id="7693374f-efd5-46d5-8277-4cfe80517bf4"><td id="p=@_" class="" style="width:70px">63</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">librarian</td><td id="Jq:l" class="" style="width:243.433349609375px">司書精リブラリアーニャ</td><td id="iYeC" class="" style="width:466.5px">🐕司書</td></tr><tr id="4767e138-7255-4900-80c7-26fabc4e3330"><td id="p=@_" class="" style="width:70px">64</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">nether_star</td><td id="Jq:l" class="" style="width:243.433349609375px">地獄星精ネテーレスターリャ</td><td id="iYeC" class="" style="width:466.5px">🎈ネザースター</td></tr><tr id="62652dca-a2df-4c6b-939f-121aedecc56a"><td id="p=@_" class="" style="width:70px">65</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">brewing_stand</td><td id="Jq:l" class="" style="width:243.433349609375px">醸造台精ブレウィンゲスタンジャ</td><td id="iYeC" class="" style="width:466.5px">🎈醸造台<br/>🧊醸造台<br/></td></tr><tr id="621b093e-c699-4d4e-b26e-957ff72cb1e4"><td id="p=@_" class="" style="width:70px">66</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">hoe</td><td id="Jq:l" class="" style="width:243.433349609375px">鍬精ヒャ</td><td id="iYeC" class="" style="width:466.5px">🎈クワ5種</td></tr><tr id="7f2a1a98-4721-45b1-b92f-29b6085a070e"><td id="p=@_" class="" style="width:70px">67</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">shield</td><td id="Jq:l" class="" style="width:243.433349609375px">盾精シエルジャ</td><td id="iYeC" class="" style="width:466.5px">🎈盾</td></tr><tr id="3ef603e2-e7d1-4af9-a66a-91bfd0cd9131"><td id="p=@_" class="" style="width:70px">68</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">hopper</td><td id="Jq:l" class="" style="width:243.433349609375px">漏斗精ホッペーリャ</td><td id="iYeC" class="" style="width:466.5px">🧊ホッパー</td></tr><tr id="72cddc0b-5d6e-4c51-955a-ff898589c811"><td id="p=@_" class="" style="width:70px">69</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">mina</td><td id="Jq:l" class="" style="width:243.433349609375px">銀子精ミーニャ</td><td id="iYeC" class="" style="width:466.5px">❓建築コンテスト</td></tr><tr id="d98b52c1-b008-4b4a-a7d2-266ef56743bf"><td id="p=@_" class="" style="width:70px">70</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">magnetite</td><td id="Jq:l" class="" style="width:243.433349609375px">磁鉄鉱精マグネティーチャ</td><td id="iYeC" class="" style="width:466.5px">🧱磁鉄鉱<br/>🧊磁鉄鉱ブロック<br/>💎地上世界<br/></td></tr><tr id="4587415e-887d-4334-bd21-9e0ff5db4cfd"><td id="p=@_" class="" style="width:70px">71</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">sulfur</td><td id="Jq:l" class="" style="width:243.433349609375px">硫黄精スルフーリャ</td><td id="iYeC" class="" style="width:466.5px">🧱硫黄<br/>🧊硫黄ブロック<br/>💎地上世界<br/></td></tr><tr id="d559b715-a792-4ff3-a58f-d57c55eeeacf"><td id="p=@_" class="" style="width:70px">72</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">apatite</td><td id="Jq:l" class="" style="width:243.433349609375px">燐灰石精アパティーチャ</td><td id="iYeC" class="" style="width:466.5px">🧱燐灰石<br/>🧊燐灰石ブロック<br/>💎地上世界<br/></td></tr><tr id="7beb1e8d-3faa-4409-b3af-c6d052b6a8fa"><td id="p=@_" class="" style="width:70px">73</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">cinnabar</td><td id="Jq:l" class="" style="width:243.433349609375px">辰砂精ツィナバーリャ</td><td id="iYeC" class="" style="width:466.5px">🧱辰砂<br/>🧊辰砂ブロック<br/>💎地上世界<br/></td></tr><tr id="976ae7db-7201-4172-99c2-25f02dc66437"><td id="p=@_" class="" style="width:70px">74</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">fluorite</td><td id="Jq:l" class="" style="width:243.433349609375px">蛍石精フルオリーチャ</td><td id="iYeC" class="" style="width:466.5px">🧱蛍石<br/>🧊蛍石ブロック<br/>💎地上世界<br/></td></tr><tr id="d505cfdb-c3a2-4b71-a9f4-ce95e604d78d"><td id="p=@_" class="" style="width:70px">75</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">moonstone</td><td id="Jq:l" class="" style="width:243.433349609375px">月長石精モーンストーニャ</td><td id="iYeC" class="" style="width:466.5px">🧱月長石<br/>🧊月長石ブロック<br/>💎地上世界<br/></td></tr><tr id="ff7533b5-3b03-44f6-aef3-048ab0320e5d"><td id="p=@_" class="" style="width:70px">76</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">pyrope</td><td id="Jq:l" class="" style="width:243.433349609375px">苦礬柘榴石精ピローピャ</td><td id="iYeC" class="" style="width:466.5px">🧱パイロープ<br/>🧊パイロープブロック<br/>💎地上世界<br/></td></tr><tr id="cb7e75ce-0d93-4d51-af2b-dc2cf44a148a"><td id="p=@_" class="" style="width:70px">77</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">smithsonite</td><td id="Jq:l" class="" style="width:243.433349609375px">菱亜鉛鉱精スミッソニーチャ</td><td id="iYeC" class="" style="width:466.5px">🧱スミソナイト<br/>🧊スミソナイトブロック<br/>💎地上世界<br/></td></tr><tr id="e470641f-5b0b-4b2f-b8a5-e20b2493efe3"><td id="p=@_" class="" style="width:70px">78</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">christmas</td><td id="Jq:l" class="" style="width:243.433349609375px">聖夜精キュリストマーシャ</td><td id="iYeC" class="" style="width:466.5px">🎃クリスマスイベント2019<br/>🎃期間限定復刻2021/12<br/>💰購入レシピで製作<br/></td></tr><tr id="4051f426-feb8-4251-9cda-577976d9f34b"><td id="p=@_" class="" style="width:70px">79</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">santa_claus</td><td id="Jq:l" class="" style="width:243.433349609375px">聖夜老人精サンテツラウシャ</td><td id="iYeC" class="" style="width:466.5px">🎃クリスマスイベント2019<br/>🎃期間限定復刻2021/12<br/>💰購入レシピで製作<br/></td></tr><tr id="abfe5234-0a83-4e7d-b88b-f120de83fba9"><td id="p=@_" class="" style="width:70px">80</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">ice</td><td id="Jq:l" class="" style="width:243.433349609375px">氷精イーツァ</td><td id="iYeC" class="" style="width:466.5px">🧊氷<br/>💎地上世界<br/></td></tr><tr id="639f4605-b7b0-49a7-8535-f532bf33b9e6"><td id="p=@_" class="" style="width:70px">81</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">packed_ice</td><td id="Jq:l" class="" style="width:243.433349609375px">氷塊精パッケデイーツァ</td><td id="iYeC" class="" style="width:466.5px">🧊氷塊</td></tr><tr id="a24e5f01-9ff4-4ac0-8b00-8ea96d3ed36f"><td id="p=@_" class="" style="width:70px">82</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">golem</td><td id="Jq:l" class="" style="width:243.433349609375px">鉄魔像精ゴレーミャ</td><td id="iYeC" class="" style="width:466.5px">🐕村ゴーレム</td></tr><tr id="f45b81d8-3e1e-49b5-9ba6-8def3a528b80"><td id="p=@_" class="" style="width:70px">83</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">glass</td><td id="Jq:l" class="" style="width:243.433349609375px">硝子精グラッシャ</td><td id="iYeC" class="" style="width:466.5px">🧱ガラス<br/>🧊ガラス<br/></td></tr><tr id="bd812606-36f9-4bfb-a747-1d82cd712b31"><td id="p=@_" class="" style="width:70px">84</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">activator_rail</td><td id="Jq:l" class="" style="width:243.433349609375px">活性軌条精アツティヴァトーレライリャ</td><td id="iYeC" class="" style="width:466.5px">🧊アクティベーターレール</td></tr><tr id="c0e1911d-8232-49c1-9bd1-c146d893fcde"><td id="p=@_" class="" style="width:70px">85</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">iron_bars</td><td id="Jq:l" class="" style="width:243.433349609375px">鉄格子精イローネバルシャ</td><td id="iYeC" class="" style="width:466.5px">🧊鉄格子</td></tr><tr id="c8cacc17-589e-4c35-a16d-fb50ba7f4ca2"><td id="p=@_" class="" style="width:70px">86</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">taiga</td><td id="Jq:l" class="" style="width:243.433349609375px">針葉樹林精タイギャ</td><td id="iYeC" class="" style="width:466.5px">🏜針葉樹林系バイオーム</td></tr><tr id="b177eac1-05c7-440d-82ea-aa33f9efb5e0"><td id="p=@_" class="" style="width:70px">87</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">desert</td><td id="Jq:l" class="" style="width:243.433349609375px">砂漠精デセルチャ</td><td id="iYeC" class="" style="width:466.5px">🏜砂漠系バイオーム</td></tr><tr id="71b3b5a2-7147-4719-b5c7-7180d2502332"><td id="p=@_" class="" style="width:70px">88</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">mountain</td><td id="Jq:l" class="" style="width:243.433349609375px">山精モウンタイニャ</td><td id="iYeC" class="" style="width:466.5px">🏜山岳系バイオーム</td></tr><tr id="ded8c1ca-9cd0-4e2c-95cf-7eb20e278c13"><td id="p=@_" class="" style="width:70px">89</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">time</td><td id="Jq:l" class="" style="width:243.433349609375px">時精ティーミャ</td><td id="iYeC" class="" style="width:466.5px">💎常時<br/>🌊昼精ダイティーミャ<br/>🌊夜精ニグチャ<br/>🌊朝精モルニンギャ<br/>🌊聖夜精キュリストマーシャ<br/>🌊日昇精スンリーシャ<br/>🌲常時<br/></td></tr><tr id="a6e69f32-8c1a-41be-a4af-2d9e2f990336"><td id="p=@_" class="" style="width:70px">90</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">nephrite</td><td id="Jq:l" class="" style="width:243.433349609375px">軟玉精ネフリーチャ</td><td id="iYeC" class="" style="width:466.5px">🧱ネフライト<br/>💎地上世界<br/></td></tr><tr id="e607510d-2114-4681-884e-92e9ad7460e5"><td id="p=@_" class="" style="width:70px">91</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">tourmaline</td><td id="Jq:l" class="" style="width:243.433349609375px">電気石精トウルマリーニャ</td><td id="iYeC" class="" style="width:466.5px">🧱トルマリン<br/>💎地上世界<br/></td></tr><tr id="6610d2d2-2aa8-4ac9-9e28-117edff76594"><td id="p=@_" class="" style="width:70px">92</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">topaz</td><td id="Jq:l" class="" style="width:243.433349609375px">黄玉精トパージャ</td><td id="iYeC" class="" style="width:466.5px">🧱トパーズ<br/>💎地上世界<br/>🌊皇帝黄玉精インペリアーレトパージャ<br/></td></tr><tr id="8242778a-a618-46f6-be42-8c0ee04a8793"><td id="p=@_" class="" style="width:70px">93</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">cow</td><td id="Jq:l" class="" style="width:243.433349609375px">牛精ツォーウャ</td><td id="iYeC" class="" style="width:466.5px">🐕牛<br/>💎地上世界<br/>🌊生牛肉精ラーウェベーフャ<br/></td></tr><tr id="da5585d6-6259-42ae-b4aa-9cc42e3f0d41"><td id="p=@_" class="" style="width:70px">94</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">pig</td><td id="Jq:l" class="" style="width:243.433349609375px">豚精ピーギャ</td><td id="iYeC" class="" style="width:466.5px">🐕豚<br/>💎地上世界<br/>🌊生豚肉精ラーウェポルクキョーピャ<br/></td></tr><tr id="540e0881-17cc-4712-a9f3-b67d23541541"><td id="p=@_" class="" style="width:70px">95</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">sugar</td><td id="Jq:l" class="" style="width:243.433349609375px">砂糖精スガーリャ</td><td id="iYeC" class="" style="width:466.5px">🎈砂糖</td></tr><tr id="3fac5622-e601-4600-8161-86a3b08f3bba"><td id="p=@_" class="" style="width:70px">96</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">cake</td><td id="Jq:l" class="" style="width:243.433349609375px">蛋麭精ツァーキャ</td><td id="iYeC" class="" style="width:466.5px">🎈ケーキ<br/>🧊ケーキ<br/></td></tr><tr id="bf92194d-11ad-49c9-bfce-17043bbb658a"><td id="p=@_" class="" style="width:70px">97</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">cookie</td><td id="Jq:l" class="" style="width:243.433349609375px">麭精ツォーキャ</td><td id="iYeC" class="" style="width:466.5px">🎈クッキー</td></tr><tr id="67ac5599-3c14-4feb-b29f-d327d637efee"><td id="p=@_" class="" style="width:70px">98</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">dark_chocolate</td><td id="Jq:l" class="" style="width:243.433349609375px">濃智代子齢糖精ダルケキョツォラーチャ</td><td id="iYeC" class="" style="width:466.5px">🎃バレンタインキャンペーン2021<br/>🎃期間限定復刻2022/2<br/>🎃天の光キャンペーン2022<br/>🎃天の光キャンペーン2022（クッキー）<br/>💰購入レシピで製作<br/></td></tr><tr id="9b7fc1c2-b84f-46bf-a814-56d646977ab6"><td id="p=@_" class="" style="width:70px">99</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">enchanted_golden_apple</td><td id="Jq:l" class="" style="width:243.433349609375px">付魔金林檎精エンキャンテーデゴルデーネアップーリャ</td><td id="iYeC" class="" style="width:466.5px">🍳エンチャントされた金のリンゴ</td></tr><tr id="21490994-6f74-418a-9f0b-0347c4b853f3"><td id="p=@_" class="" style="width:70px">100</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">fortune</td><td id="Jq:l" class="" style="width:243.433349609375px">幸運精フォルトゥーニャ</td><td id="iYeC" class="" style="width:466.5px">🎉幸運エンチャントの付与されたツール</td></tr><tr id="06249571-6d2e-4f1d-8bde-f466449afff8"><td id="p=@_" class="" style="width:70px">101</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">rotten_flesh</td><td id="Jq:l" class="" style="width:243.433349609375px">腐肉精ロッテーネフレーシャ</td><td id="iYeC" class="" style="width:466.5px">🎈腐肉</td></tr><tr id="94cbbc4b-fb8e-499d-880d-ca885a4a3a91"><td id="p=@_" class="" style="width:70px">102</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">poisonous_potato</td><td id="Jq:l" class="" style="width:243.433349609375px">悪芋精ポイソノウセポターチャ</td><td id="iYeC" class="" style="width:466.5px">🎈青くなったジャガイモ<br/>💎地上世界<br/></td></tr><tr id="dcb17052-7b97-4f17-bc28-fa1091d73d02"><td id="p=@_" class="" style="width:70px">103</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">melon</td><td id="Jq:l" class="" style="width:243.433349609375px">西瓜精メローニャ</td><td id="iYeC" class="" style="width:466.5px">🎈スイカ（切り身）<br/>🧊スイカ・（スイカの茎）<br/>💎地上世界<br/></td></tr><tr id="16c1fbb0-ffb7-4dd6-9f54-b42f07d25260"><td id="p=@_" class="" style="width:70px">104</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">baked_potato</td><td id="Jq:l" class="" style="width:243.433349609375px">焼芋精バケーデポターチャ</td><td id="iYeC" class="" style="width:466.5px">🎈ベイクドポテト</td></tr><tr id="62965a8a-859e-473a-bbb6-a5b5572bcf0f"><td id="p=@_" class="" style="width:70px">105</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">cooked_chicken</td><td id="Jq:l" class="" style="width:243.433349609375px">焼鶏精ツォーケーデキッケーニャ</td><td id="iYeC" class="" style="width:466.5px">🎈焼き鶏</td></tr><tr id="4dcaf6b8-2667-4d14-b7bf-e79446dc7553"><td id="p=@_" class="" style="width:70px">106</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">cooked_salmon</td><td id="Jq:l" class="" style="width:243.433349609375px">焼鮭精ツォーケーデサルモーニャ</td><td id="iYeC" class="" style="width:466.5px">🍳焼き鮭</td></tr><tr id="511e6579-41bf-4e36-a88c-0fdb74541fe9"><td id="p=@_" class="" style="width:70px">107</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">steak</td><td id="Jq:l" class="" style="width:243.433349609375px">焼牛精ステアキャ</td><td id="iYeC" class="" style="width:466.5px">🎈ステーキ</td></tr><tr id="4d23f922-4c60-4010-afc3-595ceb55795e"><td id="p=@_" class="" style="width:70px">108</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">golden_apple</td><td id="Jq:l" class="" style="width:243.433349609375px">金林檎精ゴルデーネアップーリャ</td><td id="iYeC" class="" style="width:466.5px">🍳金のリンゴ<br/>🌊付魔金林檎精エンキャンテーデゴルデーネアップーリャ<br/></td></tr><tr id="577e3b53-96a5-4e66-8427-d4fcdd11596b"><td id="p=@_" class="" style="width:70px">109</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">cupid</td><td id="Jq:l" class="" style="width:243.433349609375px">恋射手精ツピージャ</td><td id="iYeC" class="" style="width:466.5px">🎃幸運を願う恋のキューピットキャンペーン2021<br/>🎃期間限定復刻2022/6<br/>💰購入レシピで製作<br/></td></tr><tr id="698c6059-ff03-476b-af17-372175a8a4fb"><td id="p=@_" class="" style="width:70px">110</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">spider_eye</td><td id="Jq:l" class="" style="width:243.433349609375px">蜘蛛目精スピデーレエーヤ</td><td id="iYeC" class="" style="width:466.5px">🎈蜘蛛の目<br/>💎地上世界<br/></td></tr><tr id="9863e3f4-897f-40c2-843e-3d5f0da1dfb3"><td id="p=@_" class="" style="width:70px">111</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">shulker</td><td id="Jq:l" class="" style="width:243.433349609375px">潜影貝精シュルケーリャ</td><td id="iYeC" class="" style="width:466.5px">🐕シュルカー<br/>💎エンド<br/></td></tr><tr id="e73b43f9-bd79-49a9-bb73-f44354613132"><td id="p=@_" class="" style="width:70px">112</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">slime</td><td id="Jq:l" class="" style="width:243.433349609375px">吐泥精スリーミャ</td><td id="iYeC" class="" style="width:466.5px">🐕スライム<br/>💎地上世界<br/>🌊溶岩賽精マグメツービャ<br/></td></tr><tr id="aab10744-4a38-402d-932c-c418573bf70d"><td id="p=@_" class="" style="width:70px">113</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">magma_cube</td><td id="Jq:l" class="" style="width:243.433349609375px">溶岩賽精マグメツービャ</td><td id="iYeC" class="" style="width:466.5px">🐕マグマキューブ<br/>💎ネザー<br/></td></tr><tr id="f683a815-4ec9-4233-8015-8f8e84e1a603"><td id="p=@_" class="" style="width:70px">114</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">blaze</td><td id="Jq:l" class="" style="width:243.433349609375px">烈炎精ブラージャ</td><td id="iYeC" class="" style="width:466.5px">🐕ブレイズ<br/>💎ネザー<br/></td></tr><tr id="5c19a192-f62f-4990-8b53-c3ed9ec0673b"><td id="p=@_" class="" style="width:70px">115</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">beetroot</td><td id="Jq:l" class="" style="width:243.433349609375px">火焔菜精ベートローチャ</td><td id="iYeC" class="" style="width:466.5px">🎈ビートルート<br/>🧊ビートルート（植えられた状態）<br/>💎地上世界<br/>🌊火焔菜汁精ベートローテソウピャ<br/></td></tr><tr id="329bb969-0305-4da4-a303-8d413b81bfba"><td id="p=@_" class="" style="width:70px">116</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">pumpkin_pie</td><td id="Jq:l" class="" style="width:243.433349609375px">南瓜餡餅精プンプキーネピャ</td><td id="iYeC" class="" style="width:466.5px">🎈パンプキンパイ</td></tr><tr id="5b2d4aa8-12c7-4149-8255-6a13c3629172"><td id="p=@_" class="" style="width:70px">117</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">beetroot_soup</td><td id="Jq:l" class="" style="width:243.433349609375px">火焔菜汁精ベートローテソウピャ</td><td id="iYeC" class="" style="width:466.5px">🎈ビートルートスープ</td></tr><tr id="b01d099c-19ec-4630-a2d9-e56e7a1e92a5"><td id="p=@_" class="" style="width:70px">118</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">eleven</td><td id="Jq:l" class="" style="width:243.433349609375px">十一精エレヴェーニャ</td><td id="iYeC" class="" style="width:466.5px">🎈レコード「11」</td></tr><tr id="4e59f8bb-b598-46e3-953a-69549f5312fe"><td id="p=@_" class="" style="width:70px">119</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">imperial_topaz</td><td id="Jq:l" class="" style="width:243.433349609375px">皇帝黄玉精インペリアーレトパージャ</td><td id="iYeC" class="" style="width:466.5px">🎃11キャンペーン2021<br/>🎃天の光キャンペーン2022<br/>🎃天の光キャンペーン2022（トパーズ）<br/>💰購入レシピで製作<br/></td></tr><tr id="dbca7400-9126-4534-bff5-a3473de1e17a"><td id="p=@_" class="" style="width:70px">120</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">door</td><td id="Jq:l" class="" style="width:243.433349609375px">扉精ドーリャ</td><td id="iYeC" class="" style="width:466.5px">🎈木製ドア6種<br/>🧊木製ドア6種<br/>🌊鉄扉精イローネドーリャ<br/></td></tr><tr id="bb1aa7a0-7809-41d5-b77b-164a170089ea"><td id="p=@_" class="" style="width:70px">121</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">iron_door</td><td id="Jq:l" class="" style="width:243.433349609375px">鉄扉精イローネドーリャ</td><td id="iYeC" class="" style="width:466.5px">🎈鉄のドア<br/>🧊鉄のドア<br/></td></tr><tr id="7153861e-35b2-47b8-a544-2615839958d8"><td id="p=@_" class="" style="width:70px">122</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">redstone_repeater</td><td id="Jq:l" class="" style="width:243.433349609375px">赤石中継器精レドストーネレペアテーリャ</td><td id="iYeC" class="" style="width:466.5px">🎈レッドストーンリピーター<br/>🧊レッドストーンリピーター<br/></td></tr><tr id="78d6e8ac-31c4-4e58-989a-dcfb5d72b9fe"><td id="p=@_" class="" style="width:70px">123</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">redstone_comparator</td><td id="Jq:l" class="" style="width:243.433349609375px">赤石比較器精レドストーネコンパラトーリャ</td><td id="iYeC" class="" style="width:466.5px">🎈レッドストーンコンパレータ<br/>🧊レッドストーンコンパレータ<br/></td></tr><tr id="04512622-a98b-4a5d-847b-22c7f4105e2c"><td id="p=@_" class="" style="width:70px">124</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">chorus_fruit</td><td id="Jq:l" class="" style="width:243.433349609375px">紫頌果精キョルーセフルイチャ</td><td id="iYeC" class="" style="width:466.5px">🎈コーラスフルーツ<br/>💎エンド<br/></td></tr><tr id="cf7abb2c-3fce-4eb1-bd24-ae2e36f8c771"><td id="p=@_" class="" style="width:70px">125</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">mushroom_stew</td><td id="Jq:l" class="" style="width:243.433349609375px">茸煮精ムシュローメステーウャ</td><td id="iYeC" class="" style="width:466.5px">🎈キノコシチュー</td></tr><tr id="a0269f9d-7537-4c56-b8db-1ec40de2f270"><td id="p=@_" class="" style="width:70px">126</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">raw_rabbit</td><td id="Jq:l" class="" style="width:243.433349609375px">生兎肉精ラーウェラッビーチャ</td><td id="iYeC" class="" style="width:466.5px">🎈生の兎肉</td></tr><tr id="fdcc9b08-cbb5-4ed9-acf0-9a553b9f017c"><td id="p=@_" class="" style="width:70px">127</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">mirage_flower</td><td id="Jq:l" class="" style="width:243.433349609375px">妖花精ミラーゲフロウェーリャ</td><td id="iYeC" class="" style="width:466.5px">🧊ミラージュフラワー<br/>💎地上世界<br/></td></tr><tr id="47929ecd-56df-4258-b7a4-107dde7abf55"><td id="p=@_" class="" style="width:70px">128</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">sunrise</td><td id="Jq:l" class="" style="width:243.433349609375px">日昇精スンリーシャ</td><td id="iYeC" class="" style="width:466.5px">💎朝（ベッドから起きる直前の時間帯）<br/>🌲地上世界<br/></td></tr><tr id="0a7a7c8f-699e-4a4e-8ac8-ec26d194830d"><td id="p=@_" class="" style="width:70px">129</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">hatsuyume</td><td id="Jq:l" class="" style="width:243.433349609375px">初夢精ハツユーミャ</td><td id="iYeC" class="" style="width:466.5px">🎃ニューイヤーキャンペーン2022<br/>💰購入レシピで製作<br/></td></tr><tr id="7361d082-275e-49ec-ba09-acc7fabe358d"><td id="p=@_" class="" style="width:70px">130</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">player</td><td id="Jq:l" class="" style="width:243.433349609375px">人精プライェーリャ</td><td id="iYeC" class="" style="width:466.5px">🐕プレイヤー（自分自身も含む）</td></tr><tr id="12eda496-1bed-4797-afda-e6a754bed037"><td id="p=@_" class="" style="width:70px">131</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">charged_creeper</td><td id="Jq:l" class="" style="width:243.433349609375px">巨匠精キャルゲーデツレペーリャ</td><td id="iYeC" class="" style="width:466.5px">🐕帯電クリーパー</td></tr><tr id="36a9b9f4-3f4a-4f99-862f-0f68f15cdff2"><td id="p=@_" class="" style="width:70px">132</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">sugar_cane</td><td id="Jq:l" class="" style="width:243.433349609375px">砂糖黍精スガーレツァーニャ</td><td id="iYeC" class="" style="width:466.5px">🎈サトウキビ<br/>🧊サトウキビ<br/>💎地上世界<br/></td></tr><tr id="721f14d9-bde4-44ee-a4f4-3c0104e922c6"><td id="p=@_" class="" style="width:70px">133</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">potato</td><td id="Jq:l" class="" style="width:243.433349609375px">芋精ポターチャ</td><td id="iYeC" class="" style="width:466.5px">🎈ジャガイモ<br/>🧊ジャガイモ（植えられた状態）<br/>💎地上世界<br/>🌊悪芋精ポイソノウセポターチャ<br/>🌊焼芋精バケーデポターチャ<br/></td></tr><tr id="c85fba94-ed6e-48fe-aa87-9a32fa3002ea"><td id="p=@_" class="" style="width:70px">134</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">note</td><td id="Jq:l" class="" style="width:243.433349609375px">音符精ノーチャ</td><td id="iYeC" class="" style="width:466.5px">🧊音符ブロック</td></tr><tr id="fcefa26e-89dd-4bc4-b37c-ef9554f4f84e"><td id="p=@_" class="" style="width:70px">135</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">jukebox</td><td id="Jq:l" class="" style="width:243.433349609375px">蓄音機精ジュケボーシャ</td><td id="iYeC" class="" style="width:466.5px">🧊ジュークボックス</td></tr><tr id="a3bfaac1-d2c1-438c-a066-aef0c1755ae8"><td id="p=@_" class="" style="width:70px">136</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">nether_portal</td><td id="Jq:l" class="" style="width:243.433349609375px">地獄門精ネテーレポルターリャ</td><td id="iYeC" class="" style="width:466.5px">🧊ネザーポータル</td></tr><tr id="cb5bca90-3f49-4750-af3c-9e731783c569"><td id="p=@_" class="" style="width:70px">137</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">mirage</td><td id="Jq:l" class="" style="width:243.433349609375px">妖精ミラージャ</td><td id="iYeC" class="" style="width:466.5px">🌊個別レシピの設定されていないすべての妖精</td></tr><tr id="76a5f467-8d8a-4576-9a66-30f70989a7fa"><td id="p=@_" class="" style="width:70px">138</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">coal_dust</td><td id="Jq:l" class="" style="width:243.433349609375px">石炭粉精ツォアーレドゥスチャ</td><td id="iYeC" class="" style="width:466.5px">🧶石炭の粉<br/>🎃炭素も凍る厳冬の妖精キャンペーン2022<br/></td></tr><tr id="4a783ce7-2fad-4ae3-a75b-e41ee24b52d0"><td id="p=@_" class="" style="width:70px">139</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">diamond_dust</td><td id="Jq:l" class="" style="width:243.433349609375px">金剛石粉精ディアモンデドゥスチャ</td><td id="iYeC" class="" style="width:466.5px">🧶ダイヤモンドの粉（連携のみ）<br/>🎃炭素も凍る厳冬の妖精キャンペーン2022<br/>💰購入レシピで製作<br/></td></tr><tr id="442bdc4f-04bd-4ac9-a2d6-a5dce820d2e5"><td id="p=@_" class="" style="width:70px">140</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">button</td><td id="Jq:l" class="" style="width:243.433349609375px">釦精ブットーニャ</td><td id="iYeC" class="" style="width:466.5px">🧊木のボタン</td></tr><tr id="d984d8c4-d19d-4e56-bf96-39a2fe0581c6"><td id="p=@_" class="" style="width:70px">141</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">cooked_cod</td><td id="Jq:l" class="" style="width:243.433349609375px">焼鱈精ツォーケーデツォージャ</td><td id="iYeC" class="" style="width:466.5px">🍳焼き魚</td></tr><tr id="4a881b38-c72a-4dfa-9453-851e715052cc"><td id="p=@_" class="" style="width:70px">142</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">peony</td><td id="Jq:l" class="" style="width:243.433349609375px">牡丹精ペオーニャ</td><td id="iYeC" class="" style="width:466.5px">🍳牡丹<br/>🎲牡丹<br/>💎地上世界<br/></td></tr><tr id="42d3ddc3-4fcf-4c7d-9668-fb5cb3572e8e"><td id="p=@_" class="" style="width:70px">143</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">book</td><td id="Jq:l" class="" style="width:243.433349609375px">本精ボーキャ</td><td id="iYeC" class="" style="width:466.5px">🎈本<br/>🎈（本と羽根ペン・著書・エンチャントの本）<br/></td></tr><tr id="e825263a-a95a-4103-9660-649fe254b71c"><td id="p=@_" class="" style="width:70px">144</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">bedrock</td><td id="Jq:l" class="" style="width:243.433349609375px">岩盤精ベドロッキャ</td><td id="iYeC" class="" style="width:466.5px">🧊岩盤<br/>💎地上世界・ネザー<br/></td></tr><tr id="d6b56308-ab2d-47bc-982a-ec9a3d0cde56"><td id="p=@_" class="" style="width:70px">145</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">bat</td><td id="Jq:l" class="" style="width:243.433349609375px">蝙蝠精バーチャ</td><td id="iYeC" class="" style="width:466.5px">🐕コウモリ<br/>💎地上世界<br/></td></tr><tr id="d0ddd579-c555-4495-94ae-5f170ab9e644"><td id="p=@_" class="" style="width:70px">146</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">curse_of_vanishing</td><td id="Jq:l" class="" style="width:243.433349609375px">消滅呪精ツルセオフェヴァニシンギャ</td><td id="iYeC" class="" style="width:466.5px">🎉消滅の呪いエンチャントの付与されたツール</td></tr><tr id="50502a3a-33df-4400-9b06-bb940753aaa0"><td id="p=@_" class="" style="width:70px">147</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">gravity</td><td id="Jq:l" class="" style="width:243.433349609375px">重力精グラヴィーチャ</td><td id="iYeC" class="" style="width:466.5px">💎常時<br/>🎈（リンゴ）<br/>🌲常時<br/></td></tr><tr id="fe7a5e32-aa59-4dcd-93f1-acb3e701d381"><td id="p=@_" class="" style="width:70px">148</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">pyrite</td><td id="Jq:l" class="" style="width:243.433349609375px">黄鉄鉱精ピリーチャ</td><td id="iYeC" class="" style="width:466.5px">🧱パイライト</td></tr><tr id="d841e370-0edd-4d73-b0a4-3bc0b3f94a4b"><td id="p=@_" class="" style="width:70px">149</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">red_spinel</td><td id="Jq:l" class="" style="width:243.433349609375px">赤尖晶石精レーデスピネーリャ</td><td id="iYeC" class="" style="width:466.5px">🎃愚者の金の妖精キャンペーン2022<br/>💰購入レシピで製作<br/></td></tr><tr id="069bd2d7-6626-4153-9d6d-5b649ea9fbec"><td id="p=@_" class="" style="width:70px">150</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">cooked_porkchop</td><td id="Jq:l" class="" style="width:243.433349609375px">焼豚精ツォーケーデポルクキョーピャ</td><td id="iYeC" class="" style="width:466.5px">🎈焼き豚</td></tr><tr id="cf3d2419-5a8c-4c24-a197-9f9f83937e8b"><td id="p=@_" class="" style="width:70px">151</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">cooked_mutton</td><td id="Jq:l" class="" style="width:243.433349609375px">焼羊精ツォーケーデムットーニャ</td><td id="iYeC" class="" style="width:466.5px">🎈焼き羊肉</td></tr><tr id="e637798a-2e56-47af-91fb-05da560eb8b0"><td id="p=@_" class="" style="width:70px">152</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">cooked_rabbit</td><td id="Jq:l" class="" style="width:243.433349609375px">焼兎精ツォーケーデラッビーチャ</td><td id="iYeC" class="" style="width:466.5px">🎈焼き兎肉<br/>🌊兎煮精ラッビーテステーウャ<br/></td></tr><tr id="08e8740c-e9bf-46bb-9d8e-fc59fd02c00b"><td id="p=@_" class="" style="width:70px">153</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">rabbit_stew</td><td id="Jq:l" class="" style="width:243.433349609375px">兎煮精ラッビーテステーウャ</td><td id="iYeC" class="" style="width:466.5px">🎈ウサギシチュー</td></tr><tr id="6558ccdc-c118-4448-82dd-1e37ba8414b2"><td id="p=@_" class="" style="width:70px">154</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">trinitrotoluene</td><td id="Jq:l" class="" style="width:243.433349609375px">茶褐薬精トリニトロトルエーニャ</td><td id="iYeC" class="" style="width:466.5px">🧊TNT</td></tr><tr id="356a88bf-55a9-47d9-b63c-03e52f954655"><td id="p=@_" class="" style="width:70px">155</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">mandrake</td><td id="Jq:l" class="" style="width:243.433349609375px">恋茄子精マンドラーキャ</td><td id="iYeC" class="" style="width:466.5px">⚗️錬金術師グラヴィーチャの家<br/>🧶（マンドレイク）<br/>🧊（マンドレイク（植えられた状態））<br/></td></tr><tr id="514e9c69-1c7d-4202-9874-e266a57397dd"><td id="p=@_" class="" style="width:70px">156</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">velopeda</td><td id="Jq:l" class="" style="width:243.433349609375px">呪草精ヴェロページャ</td><td id="iYeC" class="" style="width:466.5px">⚗️錬金術師グラヴィーチャの家<br/>🧶（ヴェロペーダの葉）<br/>🧊（ヴェロペーダ（植えられた状態））<br/></td></tr><tr id="b9b331b2-d3f8-4656-b8c4-339242e55dd3"><td id="p=@_" class="" style="width:70px">157</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">void</td><td id="Jq:l" class="" style="width:243.433349609375px">奈落精ヴォイジャ</td><td id="iYeC" class="" style="width:466.5px">💎プレイヤーのY座標が0未満のとき</td></tr><tr id="3d82596b-d4cd-4cbc-8144-f91e3686f2fe"><td id="p=@_" class="" style="width:70px">158</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">autumn</td><td id="Jq:l" class="" style="width:243.433349609375px">秋精アウトゥムニャ</td><td id="iYeC" class="" style="width:466.5px">💎現実世界が8月から12月（世界時）の間<br/>🌲常時<br/></td></tr><tr id="c63739fb-3fa8-41bd-aea0-7332fdf07d6c"><td id="p=@_" class="" style="width:70px">159</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">avalon</td><td id="Jq:l" class="" style="width:243.433349609375px">阿瓦隆精アヴァローニャ</td><td id="iYeC" class="" style="width:466.5px">🎃豊穣の妖精キャンペーン2022<br/>🎃豊穣の妖精キャンペーン2022（キノコ島）<br/></td></tr><tr id="ae2b6c62-bf2a-481e-8065-e11135d507fd"><td id="p=@_" class="" style="width:70px">160</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">nether_wart</td><td id="Jq:l" class="" style="width:243.433349609375px">地獄疣精ネテーレワルチャ</td><td id="iYeC" class="" style="width:466.5px">🎈ネザーウォート<br/>🧊ネザーウォート（植えられた状態）<br/>💎ネザー<br/></td></tr><tr id="c4ba3cde-9d89-4342-a091-c6cf6ecb4ef5"><td id="p=@_" class="" style="width:70px">161</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">golden_carrot</td><td id="Jq:l" class="" style="width:243.433349609375px">金人参精ゴルデーネツァッローチャ</td><td id="iYeC" class="" style="width:466.5px">🎈金のニンジン</td></tr><tr id="962a8ce7-6fbc-49de-a12c-ae87e9aa3438"><td id="p=@_" class="" style="width:70px">162</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">raw_porkchop</td><td id="Jq:l" class="" style="width:243.433349609375px">生豚肉精ラーウェポルクキョーピャ</td><td id="iYeC" class="" style="width:466.5px">🎈生の豚肉<br/>🌊焼豚精ツォーケーデポルクキョーピャ<br/></td></tr><tr id="1dc27424-65c1-4ec4-890c-beab026ad8d5"><td id="p=@_" class="" style="width:70px">163</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">raw_beef</td><td id="Jq:l" class="" style="width:243.433349609375px">生牛肉精ラーウェベーフャ</td><td id="iYeC" class="" style="width:466.5px">🎈生の牛肉<br/>🌊焼牛精ステアキャ<br/></td></tr><tr id="a90fb9bd-4f1c-4f01-8f0e-119b7e7ec0fe"><td id="p=@_" class="" style="width:70px">164</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">raw_chicken</td><td id="Jq:l" class="" style="width:243.433349609375px">生鶏肉精ラーウェキッケーニャ</td><td id="iYeC" class="" style="width:466.5px">🎈生の鶏肉<br/>🌊焼鶏精ツォーケーデキッケーニャ<br/></td></tr><tr id="ffbcf51a-62ef-4fea-89f7-ca4a478186db"><td id="p=@_" class="" style="width:70px">165</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">raw_mutton</td><td id="Jq:l" class="" style="width:243.433349609375px">生羊肉精ラーウェムットーニャ</td><td id="iYeC" class="" style="width:466.5px">🎈生の羊肉<br/>🌊焼羊精ツォーケーデムットーニャ<br/></td></tr><tr id="09e157b5-7915-439a-864a-22e1f1d635de"><td id="p=@_" class="" style="width:70px">166</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">pumpkin</td><td id="Jq:l" class="" style="width:243.433349609375px">南瓜精プンプキーニャ</td><td id="iYeC" class="" style="width:466.5px">🧊カボチャ・（カボチャの茎）<br/>💎地上世界<br/>🌊傑克灯籠精ジャッケオランテルニャ<br/></td></tr><tr id="cfb03a7c-7193-43f5-bba1-02547c20e33d"><td id="p=@_" class="" style="width:70px">167</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">jack_olantern</td><td id="Jq:l" class="" style="width:243.433349609375px">傑克灯籠精ジャッケオランテルニャ</td><td id="iYeC" class="" style="width:466.5px">🧊ジャック・オ・ランタン</td></tr><tr id="ad83abb9-2335-4216-86a3-a4533b0a4d8c"><td id="p=@_" class="" style="width:70px">168</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">beacon</td><td id="Jq:l" class="" style="width:243.433349609375px">信標精ベアツォーニャ</td><td id="iYeC" class="" style="width:466.5px">🧊ビーコン</td></tr><tr id="86a99034-8aa5-4abd-8424-86846592bd69"><td id="p=@_" class="" style="width:70px">169</td><td id="scXl" class="block-color-default" style="width:126.73333740234375px">thunderstorm</td><td id="Jq:l" class="" style="width:243.433349609375px">雷嵐精ツンデルストルミャ</td><td id="iYeC" class="" style="width:466.5px">🎃天の光キャンペーン2022<br/>🎃天の光キャンペーン2022（雨天時）<br/></td></tr></tbody></table><p id="e15a51bf-a5f4-4e70-848b-45113135fe52" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

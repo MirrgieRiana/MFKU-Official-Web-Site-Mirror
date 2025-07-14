@@ -1,0 +1,689 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>MirageFairy2019 v0.0.6　収集のロッドアップデート</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="26ea743d-3760-4f7c-bdf3-48218b8fa49c" class="page serif"><header><img class="page-cover-image" src="Untitled%20102.png" style="object-position:center 72.39999999999999%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="mirage_flower_280x280%206.png"/></div><h1 class="page-title">MirageFairy2019 v0.0.6　収集のロッドアップデート</h1><p class="page-description"></p></header><div class="page-body"><figure id="3202f896-b249-4f78-8583-0a64df35f934" class="image"><a href="Untitled%20102.png"><img style="width:854px" src="Untitled%20102.png"/></a></figure><nav id="aef2164f-ad12-40f7-b70e-897915b059f8" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#bd369ae0-eb2d-4fce-aaba-1cafecc0ba92">ミラージュの花改変</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#e4cf3c4e-37e6-49da-b821-2699e928afa3">植えられる条件の緩和</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#799cc915-d08e-4969-8fe4-4c655b5e3ef4">基本成長速度の変更</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a8362f39-e621-4478-a97e-9ed2557d8b53">成長速度ボーナスの追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#dee3486e-7e63-47f5-9a2b-9738ad2183de">妖精関連</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#bdd7905d-4eca-43c9-9698-5a72e875e3c9">妖精追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#14511bfc-fb43-4017-9099-ee651c967e14">超能力追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#dfdacdf7-f77c-4104-a39b-08f2331b3130">妖精の確定レシピの追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#03b79eb7-2e59-4440-baca-6189ffab97ae">妖精武器関連</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#792e6a99-0f89-4c6a-b9c2-8cb882adeb70">「スフィア交換」機能追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#9aa992f2-f324-4f6e-8894-3a48f8ab0c55">召喚のステッキ追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#b5050057-be61-416b-809e-5260218b8574">収集のロッド追加</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#983c56dd-9c12-44ba-9942-4ed4285ba2f9">ミラジウムの斧の強化</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d88a912c-d0a0-4495-9746-5bc073e6f58b">光のロッド改変</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#fdfc4df2-d267-4922-9fbc-344c75a04da4">硝石追加</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#a3f5c2f1-bb7f-4fde-8661-fd1dc74dce36">その他の変更</a></div></nav><h1 id="bd369ae0-eb2d-4fce-aaba-1cafecc0ba92" class="">ミラージュの花改変</h1><h2 id="e4cf3c4e-37e6-49da-b821-2699e928afa3" class="">植えられる条件の緩和</h2><p id="22a57752-00f1-48ea-ab83-1c35a7430606" class="">ミラージュの種は、立方体のブロックもしくは耕土の上であればどこにでも植えられるようになりました。</p><p id="25b6ce12-8cee-4bac-a3de-f4e570b39802" class="">これによって、新しく生成した地形において、樹上や洞窟内にミラージュの花が生成される可能性があります。</p><p id="7e389809-27d4-415f-8b53-9c37ec1492db" class="">また、耕土の上に植えても耕土を破壊しないようになりました。</p><figure id="3a94095e-fbd1-4be3-8beb-45b646f061f5" class="image"><a href="Untitled%20103.png"><img style="width:854px" src="Untitled%20103.png"/></a></figure><h2 id="799cc915-d08e-4969-8fe4-4c655b5e3ef4" class="">基本成長速度の変更</h2><p id="dde14313-2a72-4346-bbb7-3f88dc24cced" class="">ミラージュの花の基本成長速度が、0.05から0.04に減少しました。</p><h2 id="a8362f39-e621-4478-a97e-9ed2557d8b53" class="">成長速度ボーナスの追加</h2><p id="b032c175-810d-47c2-bf55-3d9e745d6530" class="">ミラージュの花は、時間経過による成長を行う際に、特定の条件下で成長速度にボーナスを受けられるようになりました。</p><p id="f0f2bbf5-7cee-425c-9df2-e0196f2bbaa0" class="">以下の表のうち、同カテゴリの条件は重複せず、最も効果が高い加速量が使われます。異なるカテゴリの条件は重複してかかります。</p><table id="1eb7aacb-27d6-47b8-8539-70857f7801eb" class="simple-table"><thead class="simple-table-header"><tr id="9834d2c3-660a-4cc3-a213-cddf7ed7f101"><th id=";vrx" class="simple-table-header-color simple-table-header" style="width:90px">カテゴリ</th><th id="}:qa" class="simple-table-header-color simple-table-header" style="width:247.43333435058594px">条件</th><th id="&lt;to{" class="simple-table-header-color simple-table-header" style="width:101px">加速量</th></tr></thead><tbody><tr id="c00cd600-6e0d-47e9-9331-d30631450c77"><td id=";vrx" class="" style="width:90px">A</td><td id="}:qa" class="" style="width:247.43333435058594px">人工光の強度13以上</td><td id="&lt;to{" class="" style="width:101px">+20%</td></tr><tr id="6fec76de-62d6-4318-9572-f300343ca534"><td id=";vrx" class="" style="width:90px">A</td><td id="}:qa" class="" style="width:247.43333435058594px">人工光の強度9以上</td><td id="&lt;to{" class="" style="width:101px">+10%</td></tr><tr id="20e37b7e-28f0-4b05-bb9d-1b6e144afad5"><td id=";vrx" class="" style="width:90px">B</td><td id="}:qa" class="" style="width:247.43333435058594px">太陽光の強度15</td><td id="&lt;to{" class="" style="width:101px">+10%</td></tr><tr id="255c5c7b-5433-4bb3-a1e4-4b4311f54d7c"><td id=";vrx" class="" style="width:90px">B</td><td id="}:qa" class="" style="width:247.43333435058594px">太陽光の強度9 以上</td><td id="&lt;to{" class="" style="width:101px">+5%</td></tr><tr id="d780dbc6-c6db-4ce4-bfe1-469e012994e5"><td id=";vrx" class="" style="width:90px">C</td><td id="}:qa" class="" style="width:247.43333435058594px">空が見える場所</td><td id="&lt;to{" class="" style="width:101px">+10%</td></tr><tr id="db84d483-79e4-4ebd-95a7-6714d2b20166"><td id=";vrx" class="" style="width:90px">D</td><td id="}:qa" class="" style="width:247.43333435058594px">草の上</td><td id="&lt;to{" class="" style="width:101px">+0%</td></tr><tr id="dd57ee07-cfe4-4f59-8ab7-2bf422b160f3"><td id=";vrx" class="" style="width:90px">D</td><td id="}:qa" class="" style="width:247.43333435058594px">土の上</td><td id="&lt;to{" class="" style="width:101px">+10%</td></tr><tr id="53e9a52b-b96c-42fa-823b-109a2909d292"><td id=";vrx" class="" style="width:90px">D</td><td id="}:qa" class="" style="width:247.43333435058594px">耕土の上</td><td id="&lt;to{" class="" style="width:101px">+20%</td></tr><tr id="3fd557bb-428d-463e-bec2-94b9bc47bde5"><td id=";vrx" class="" style="width:90px">D</td><td id="}:qa" class="" style="width:247.43333435058594px">湿った耕土の上</td><td id="&lt;to{" class="" style="width:101px">+30%</td></tr><tr id="48352ebd-87cb-4595-9009-d1bcf4e8f26f"><td id=";vrx" class="" style="width:90px">D</td><td id="}:qa" class="" style="width:247.43333435058594px">磁鉄鉱ブロックの上</td><td id="&lt;to{" class="" style="width:101px">+20%</td></tr><tr id="c7321078-4f83-4c77-b50b-6941c3895be7"><td id=";vrx" class="" style="width:90px">D</td><td id="}:qa" class="" style="width:247.43333435058594px">硫黄または燐灰石ブロックの上</td><td id="&lt;to{" class="" style="width:101px">+50%</td></tr><tr id="a74ce996-32a1-4dd3-8424-91dcbcbba533"><td id=";vrx" class="" style="width:90px">D</td><td id="}:qa" class="" style="width:247.43333435058594px">辰砂または蛍石ブロックの上</td><td id="&lt;to{" class="" style="width:101px">+100%</td></tr><tr id="36f85671-6fd3-4c59-b497-b9028bb41700"><td id=";vrx" class="" style="width:90px">D</td><td id="}:qa" class="" style="width:247.43333435058594px">月長石ブロックの上</td><td id="&lt;to{" class="" style="width:101px">+200%</td></tr><tr id="2e7e1944-001c-4eec-ad4c-0743a1ec1736"><td id=";vrx" class="" style="width:90px">D</td><td id="}:qa" class="" style="width:247.43333435058594px">上記以外のブロックの上</td><td id="&lt;to{" class="" style="width:101px">-50%</td></tr><tr id="3f78bc8b-d6d1-41fe-9a0c-5e2ac7b9b1e4"><td id=";vrx" class="" style="width:90px">E</td><td id="}:qa" class="" style="width:247.43333435058594px">平原または湿地バイオーム</td><td id="&lt;to{" class="" style="width:101px">+10%</td></tr><tr id="5503d78e-8f2b-4b03-95a7-bb3038992e8e"><td id=";vrx" class="" style="width:90px">E</td><td id="}:qa" class="" style="width:247.43333435058594px">山岳またはジャングルバイオーム</td><td id="&lt;to{" class="" style="width:101px">+20%</td></tr><tr id="0292ed80-5b40-4185-aca1-5a6ec2822c6d"><td id=";vrx" class="" style="width:90px">E</td><td id="}:qa" class="" style="width:247.43333435058594px">森林または魔法系バイオーム</td><td id="&lt;to{" class="" style="width:101px">+30%</td></tr></tbody></table><p id="c2d483bf-865a-43a5-8aea-ae2c17bb6c41" class="">
+</p><p id="c9a0b393-e6d5-4c1b-9d58-35166cff0df8" class="">なお、魔法系バイオームはバニラには存在しません。</p><h1 id="dee3486e-7e63-47f5-9a2b-9738ad2183de" class="">妖精関連</h1><h2 id="bdd7905d-4eca-43c9-9698-5a72e875e3c9" class="">妖精追加</h2><p id="39d2fa75-bb39-4243-8ad9-32603ade2b7a" class="">以下の妖精を追加しました。</p><ul id="c1647378-f77a-4205-a879-3d6355125c27" class="bulleted-list"><li style="list-style-type:disc">魚精フィーシャ</li></ul><ul id="4caaf9a9-7eb4-4628-b6ca-6b05edccc40b" class="bulleted-list"><li style="list-style-type:disc">鱈精コージャ</li></ul><ul id="401c8aac-7476-4455-a6a3-1fc07143be24" class="bulleted-list"><li style="list-style-type:disc">鮭精サルモーニャ</li></ul><ul id="661cdbac-7d6f-4377-b5ed-5879e4109d6b" class="bulleted-list"><li style="list-style-type:disc">河豚精プッフェルフィーシャ</li></ul><ul id="5d498cfd-3dd9-4866-9299-74bc0b284762" class="bulleted-list"><li style="list-style-type:disc">隈之実精クロウンフィーシャ</li></ul><ul id="b56ea44f-0cdb-456b-b397-4db02f5c9f6c" class="bulleted-list"><li style="list-style-type:disc">松精スプルーキャ</li></ul><ul id="8aed8650-8480-43e2-8249-6cb32c47bc6d" class="bulleted-list"><li style="list-style-type:disc">金床精アンヴィーリャ</li></ul><ul id="7d4d6dc8-6032-4be5-8c4b-38c3a2b0746c" class="bulleted-list"><li style="list-style-type:disc">黒耀石精オブシディアーニャ</li></ul><ul id="85115992-e434-48e4-8566-f2aba924c32f" class="bulleted-list"><li style="list-style-type:disc">種精セージャ</li></ul><ul id="38248287-66ff-4b8b-a9d3-13570c62eb7f" class="bulleted-list"><li style="list-style-type:disc">呪精エンカンチャ</li></ul><figure id="27e63e35-cd45-452b-92ef-e16feb16f787" class="image"><a href="Untitled%20104.png"><img style="width:180px" src="Untitled%20104.png"/></a></figure><h2 id="14511bfc-fb43-4017-9099-ee651c967e14" class="">超能力追加</h2><p id="3ace5b0c-d2eb-4407-9133-5574d0e63956" class="">以下の超能力およびスフィアを追加しました。≪破壊≫のスフィアのレシピに要求される「触媒」はTNTです。</p><ul id="50446fda-1276-4484-acd3-987fbea0f3cf" class="bulleted-list"><li style="list-style-type:disc">破壊　BREAK</li></ul><figure id="4a0ac6f4-6f9e-4ebe-85c0-9b6145f9e6f2" class="image"><a href="Untitled%20105.png"><img style="width:238px" src="Untitled%20105.png"/></a></figure><h2 id="dfdacdf7-f77c-4104-a39b-08f2331b3130" class="">妖精の確定レシピの追加</h2><p id="5a953fc8-0dda-4607-ac7d-e5310613f6c3" class="">アイテムとして手に入る物体がモチーフのほとんどの妖精に対して、妖晶と召喚のステッキを使用した確定レシピを追加しました。</p><figure id="230d1403-be3a-401e-9dd6-abe6a3e7c795" class="image"><a href="Untitled%20106.png"><img style="width:376px" src="Untitled%20106.png"/></a></figure><p id="7e851493-a297-4401-b911-98ce062559b1" class="">
+</p><p id="a6d21200-77ee-4b84-81d1-06142ff7d1ee" class="">また、従来型のダイヤモンドを使用した確定レシピも、召喚のステッキを用いたものと同じバリエーションになりました。</p><figure id="453dff65-2531-4a48-a322-e620bab11c18" class="image"><a href="Untitled%20107.png"><img style="width:381px" src="Untitled%20107.png"/></a></figure><h1 id="03b79eb7-2e59-4440-baca-6189ffab97ae" class="">妖精武器関連</h1><h2 id="792e6a99-0f89-4c6a-b9c2-8cb882adeb70" class="">「スフィア交換」機能追加</h2><p id="3d0a6098-34e0-4aa6-a176-6cb864fc2e13" class="">すべての妖精武器は、それを製作するときに使用したものと同じスフィアとクラフトすることで、耐久を完全に回復することができるようになりました。</p><div id="4921e387-8f47-4169-8091-545128159cd9" class="column-list"><div id="f482a2c6-8876-45bb-accb-e01349874df6" style="width:50%" class="column"><figure id="96e7750f-a77d-43a8-821e-e450667be19c" class="image"><a href="Untitled%20108.png"><img style="width:154px" src="Untitled%20108.png"/></a></figure></div><div id="c06e96f1-f09b-491a-b831-e41aaa4b0c60" style="width:50%" class="column"><figure id="1b149adb-e1fd-4e4b-b90d-ceaefdecb1db" class="image"><a href="Untitled%20109.png"><img style="width:154px" src="Untitled%20109.png"/></a></figure></div></div><p id="c458a99e-4f16-490e-81fa-623c22dc98a0" class="">
+</p><p id="34c9bf52-56aa-4c63-ab58-b9eaf8ef4df0" class="">スフィア交換の際に必要となる、妖精武器に使用されているスフィアの種類は、ツールチップに黄色いメッセージで表示されています。</p><figure id="cc18b6c9-26b5-4584-b10e-13759f0ce13e" class="image"><a href="Untitled%20110.png"><img style="width:439px" src="Untitled%20110.png"/></a></figure><h2 id="9aa992f2-f324-4f6e-8894-3a48f8ab0c55" class="">召喚のステッキ追加</h2><p id="702be0ec-48a0-492c-8963-1e2a24f8d5d4" class="">≪結晶≫のスフィアから、「召喚のステッキ」をクラフトできようになりました。</p><div id="454630ac-2fae-40d0-a640-5559d8f8c5de" class="column-list"><div id="a0cfd460-63c5-4fc2-ad9e-8b9c38e97ef0" style="width:50%" class="column"><figure id="c968e821-d9d7-48c9-bace-1b0cf6af23b0" class="image"><a href="Untitled%20111.png"><img style="width:238px" src="Untitled%20111.png"/></a></figure></div><div id="c5efa594-39e4-4c84-a7e4-622b83aee379" style="width:50%" class="column"><figure id="db62ea78-75d4-4f87-a0de-d20ac1084b74" class="image"><a href="Untitled%20112.png"><img style="width:236px" src="Untitled%20112.png"/></a></figure></div></div><p id="0eae96af-db4a-4899-aa1b-3976bdafce23" class="">
+</p><p id="da879131-fb74-4f03-a322-f0db0546b2d4" class="">召喚のステッキを持って地面などのブロックを右クリックすると、インベントリ内の妖晶を消費して超高速で妖精を召喚することができます。排出率は妖晶を使用した場合との違いはありません。</p><h2 id="b5050057-be61-416b-809e-5260218b8574" class="">収集のロッド追加</h2><p id="e00a3b94-67ee-4d00-8814-f379ec844424" class="">≪縮地≫のスフィアおよび黒耀石から、「収集のロッド」を作製できるようになりました。</p><figure id="b22234a9-2c88-4900-ab09-e0aecf46205f" class="image"><a href="Untitled%20113.png"><img style="width:238px" src="Untitled%20113.png"/></a></figure><p id="d5076e4a-e5e7-4a89-ab54-5993ba477529" class="">
+</p><p id="441f150a-5876-47eb-a3d4-1a083954e36f" class="">収集のロッドは、右クリックで魔法を発動すると、発動した地点を中心にした球状の範囲内に存在するアイテムエンティティを発動者の足元に瞬間移動させる妖精武器です。</p><figure id="42c8d0bf-9ceb-4432-a009-b37d9e470f09" class="image"><a href="Untitled%20114.png"><img style="width:553px" src="Untitled%20114.png"/></a></figure><p id="d48df2e8-9a66-4fe6-9e4c-a749e3758d3f" class="">
+</p><p id="e66a0094-2296-45db-93e0-1c86f6208a5f" class="">各パラメータの意味は次のようになっています。</p><table id="15286ec4-0ae0-4816-9c13-3f09eaea356a" class="simple-table"><thead class="simple-table-header"><tr id="fff599c2-ea09-4e6d-a383-ed0bba8818bd"><th id="\Tm@" class="simple-table-header-color simple-table-header" style="width:145.6999969482422px">パラメータ</th><th id="i\`@" class="simple-table-header-color simple-table-header" style="width:377px">意味</th></tr></thead><tbody><tr id="cf68ac1e-87bd-4f4d-9140-2153cb3e2b44"><td id="\Tm@" class="" style="width:145.6999969482422px">Additional Reach</td><td id="i\`@" class="" style="width:377px">通常のリーチに追加される魔法の射程</td></tr><tr id="74ee9806-e199-497c-bd56-012ab0e0a251"><td id="\Tm@" class="" style="width:145.6999969482422px">Radius</td><td id="i\`@" class="" style="width:377px">魔法の効果範囲</td></tr><tr id="0fa20821-70e6-4333-ba2f-aec3b2347677"><td id="\Tm@" class="" style="width:145.6999969482422px">Max Stacks</td><td id="i\`@" class="" style="width:377px">発動時に対象にできるアイテムエンティティの個数</td></tr><tr id="678f625b-37e2-4f69-95c4-431bbdf45ac8"><td id="\Tm@" class="" style="width:145.6999969482422px">Wear</td><td id="i\`@" class="" style="width:377px">耐久の消費確率</td></tr><tr id="521eace3-2aa3-41ed-b8c2-ffa8c0ef91fc"><td id="\Tm@" class="" style="width:145.6999969482422px">Cool Time</td><td id="i\`@" class="" style="width:377px">連続して使用する際の冷却時間</td></tr></tbody></table><p id="a058f751-f8c1-4540-ac82-1c162c35c847" class="">
+</p><p id="c05649d8-4b04-4c13-9608-4f97b4e8456e" class="">耐久値は、発動対象となるアイテムエンティティごとに消費します。クールタイムは、発動時に実際の対象がMax Stackに満たなかった場合、割り引かれます。</p><h2 id="983c56dd-9c12-44ba-9942-4ed4285ba2f9" class="">ミラジウムの斧の強化</h2><p id="bb82c0b4-8c2b-4660-81d7-0ffd1b46e622" class="">ミラジウムの斧で魔法を発動した際に、Collection（収集）の特殊効果を発動できるようにするパラメータを追加しました。発動体となる妖精が≪縮地≫の超能力を10以上持っている場合に発動可能になります。</p><p id="f77dfa2c-b0f5-4731-b465-d7d8bbe10a6a" class="">Collectionの特殊効果が発生すると、魔法によって伐採して得られたアイテムをプレイヤーの足元に瞬間移動させます。</p><figure id="a0f1fb0f-f179-4c2d-b12f-47d72699758c" class="image"><a href="Untitled%20115.png"><img style="width:482px" src="Untitled%20115.png"/></a></figure><h2 id="d88a912c-d0a0-4495-9746-5bc073e6f58b" class="">光のロッド改変</h2><p id="ffd38a8a-ff16-4310-a843-dfbaddb45e66" class="">光のロッドのテクスチャとレシピが変更されました。</p><figure id="1bbbbd0a-2eec-4dbc-ac20-1700297766a8" class="image"><a href="Untitled%20116.png"><img style="width:239px" src="Untitled%20116.png"/></a></figure><h1 id="fdfc4df2-d267-4922-9fbc-344c75a04da4" class="">硝石追加</h1><p id="6dafb3ab-3002-4560-b604-b625a9bf9f35" class="">土から硝石をクラフトできるようになりました。</p><p id="4b110a13-279b-4462-a51c-5094d0c7bf03" class="">硝石は、硫黄・木炭と組み合わせることで火薬の原料にすることができます。</p><div id="6ed0a7fe-4bf8-43ed-aeff-0cd5d83668ed" class="column-list"><div id="0064c431-44a3-492f-bf95-ad1981c4a8f0" style="width:50%" class="column"><figure id="361a80a6-80d4-4b42-a9f6-f4129425bed9" class="image"><a href="Untitled%20117.png"><img style="width:237px" src="Untitled%20117.png"/></a></figure></div><div id="9f535d05-2889-4d4a-92f3-9bee706f4192" style="width:50%" class="column"><figure id="36557104-a5f5-465b-89c8-49eb6e79c76a" class="image"><a href="Untitled%20118.png"><img style="width:237px" src="Untitled%20118.png"/></a></figure></div></div><h1 id="a3f5c2f1-bb7f-4fde-8661-fd1dc74dce36" class="">その他の変更</h1><ul id="39b0aaa5-f31a-47ee-9f56-1ae03a28504b" class="bulleted-list"><li style="list-style-type:disc">【変更】心の棒系アイテムのテクスチャが細くなった。</li></ul><ul id="79dad0d9-fd37-4dfe-a614-3f9df1825bff" class="bulleted-list"><li style="list-style-type:disc">【改善】妖晶使用時に、得られた妖精アイテムが即座に拾えるようになった。</li></ul><ul id="3cb2f4b5-c5a4-4420-b8eb-eed66835644b" class="bulleted-list"><li style="list-style-type:disc">【改善】紅蓮のステッキを使ってミラジウムの粉をミラジウムインゴットにするレシピが不定形になった。</li></ul><ul id="4ae8ef1d-90bb-4f6b-83d7-aaa02e52e60c" class="bulleted-list"><li style="list-style-type:disc">【改善】肥料のレシピが不定形になった。</li></ul><ul id="3fad065f-1c78-457f-b718-9326368be8cf" class="bulleted-list"><li style="list-style-type:disc">【バグ修正】ミラジウムの斧は、魔法行使時に隣接するブロックにアップデートを送るようになった。</li></ul><ul id="6e7f2f1e-02ac-4841-8f1a-bd304eeb53a5" class="bulleted-list"><li style="list-style-type:disc">【バグ修正】妖精剣のテクスチャを修正。</li></ul><p id="18efd41f-d364-42f0-b9b4-b67ecba5bbd0" class="">
+</p><hr id="3cdcf0b2-73c9-4217-8e36-517b1d326d65"/><p id="61e39b43-0832-4c29-a2b4-10ec4903118e" class="">2019年10月17日　MirageFairy Server技術部・創作部</p><p id="cd5c2ec0-7aab-43b8-94f2-1436c9f44647" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
