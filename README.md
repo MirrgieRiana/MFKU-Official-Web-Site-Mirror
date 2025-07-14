@@ -2,7 +2,7 @@
 
 AIツールが利用可能な、MFKU公式Webサイトのミラーです。
 
-https://mirrgieriana.github.io/MFKU-Official-Web-Site-Mirror/site/MFKU%20Official%20Web%20Site%20150a1ac240dd813898b9d5f05acdd26c.html
+[MFKU公式Webサイトのミラー](https://mirrgieriana.github.io/MFKU-Official-Web-Site-Mirror/site/MFKU%20Official%20Web%20Site%20150a1ac240dd813898b9d5f05acdd26c.html)
 
 ## AIへの指示
 
